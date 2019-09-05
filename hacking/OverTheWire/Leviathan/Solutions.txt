@@ -1,0 +1,9 @@
+Level 0:
+Search for password in file ".backup/bookmarks.html"
+
+Level 1:
+There is "check" binary in the home folder.
+Run command "ltrace ./check" and look for "strcmp" function call to find out the password.
+After entering the password, run command "cat /etc/leviathan_pass/leviathan2"
+
+Level 2:

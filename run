@@ -1,0 +1,34 @@
+#!/bin/bash
+
+INPUT=$2
+if [[ $2 == "" ]]; then
+	INPUT="inp.txt"
+fi
+
+if [[ $1 =~ .*\.cpp ]]; then
+
+	if [ ! -f $1 ]; then
+		echo "Source file doesn't exist.";
+		exit
+	fi
+
+	FILE=${1//\.cpp/}
+	make $FILE 1>/dev/null
+
+	if [ -f $INPUT ]; then
+		./$FILE < $INPUT
+	else
+		./$FILE
+	fi
+
+	if [ -f $FILE ]; then
+		rm $FILE
+	fi
+
+elif [[ ! $1 == "" ]]; then
+	echo "Only C++ files are allowed."
+else
+	echo "Usage: run <source file> <input>"
+	echo "Default Input is \"inp.txt\"".
+fi
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+USER=$1
+PASSWORD=$2
+PORT=2223
+URL="leviathan.labs.overthewire.org"
+
+sshpass -p $PASSWORD ssh -p $PORT $USER@$URL

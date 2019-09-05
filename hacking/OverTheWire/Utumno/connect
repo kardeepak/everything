@@ -1,0 +1,8 @@
+#!/bin/bash
+
+USER=$1
+PASSWORD=$2
+PORT=2227
+URL="utumno.labs.overthewire.org"
+
+sshpass -p $PASSWORD ssh -y -p $PORT $USER@$URL

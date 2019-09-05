@@ -1,0 +1,5 @@
+# Ignore Virtual Environments
+venv*
+
+# Ignore Python Bytecode
+*.pyc
