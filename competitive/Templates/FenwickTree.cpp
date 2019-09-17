@@ -59,38 +59,49 @@ inline LL scanLong() {
 }
 
 const LL MAXN = 2e5+10;
-multiset<LL> adj[MAXN];
-bool visited[MAXN];
-VLL path;
+LL size;
+LL array[MAXN], tree[MAXN];
 
-// Before applying it make sure Euler Path exists for the graph
-// That is, graph is connected and each vertex has a even degree or only 2 vertices have odd degree.
-// Start with vertex having odd degree, if present, otherwise start with any vertex
+// g(i) will remove all trailing ones in the binary representation of i
+inline g(i) { return i&(i+1); }
 
-void getEulerPathUndirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		adj[next].erase(adj[next].find(src));
-		getEulerPathUndirected(next);
-	}
-	path.push_back(src);
+// h(i) will set the last unset bit in the binary representation of i
+// h(i) will iterate over all the j such that g(j) <= i <= j
+inline h(i) { return i|(i+1); }
+
+// tree[i] stores sum of subarray array[g(i)...i] where 0 <= g(i) <= i
+void build(LL n) {
+	size = n;
+	rep(i, 0, n)	update(i, array[i]);
 }
 
-// For directed graph, it must be strongly connected and each vertex must have equal indegee and outdegree.
-// Or exactly one vertex has a difference between indegree and outdegree as 1 and -1.
-// Start with vertex where outdegree is more the indegree by 1, if present, otherwise start with any vertex.
-
-void getEulerPathDirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		getEulerPathDirected(next);
+// Point update
+void update(LL index, LL value) {
+	// updating all T[j] such that g(j) <= index <= j
+	while(index < size) {
+		tree[index] += value;
+		index = h(index);
 	}
-	path.push_back(src);
 }
+
+
+// Return prefix sum of array[0...index]
+LL sum(LL index) {
+	LL sum = 0;
+	while(index >= 0) {
+		// Adding sum of subarray array[g(index)...index]
+		sum += tree[index];
+		// Moving index to g(index) - 1
+		index = g(index) - 1;
+	}
+	return sum;
+}
+
+LL sum(LL left, LL right) {
+	return sum(right) - sum(left-1);
+}
+
+// Implementation Details : https://cp-algorithms.com/data_structures/fenwick.html#toc-tgt-2
 
 int main() {
 }

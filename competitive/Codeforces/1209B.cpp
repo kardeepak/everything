@@ -58,39 +58,45 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 2e5+10;
-multiset<LL> adj[MAXN];
-bool visited[MAXN];
-VLL path;
-
-// Before applying it make sure Euler Path exists for the graph
-// That is, graph is connected and each vertex has a even degree or only 2 vertices have odd degree.
-// Start with vertex having odd degree, if present, otherwise start with any vertex
-
-void getEulerPathUndirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		adj[next].erase(adj[next].find(src));
-		getEulerPathUndirected(next);
-	}
-	path.push_back(src);
+LL gcd(LL a, LL b) {
+	if(a == 0 || b == 0)	return a+b;
+	return gcd(b, a%b);
 }
 
-// For directed graph, it must be strongly connected and each vertex must have equal indegee and outdegree.
-// Or exactly one vertex has a difference between indegree and outdegree as 1 and -1.
-// Start with vertex where outdegree is more the indegree by 1, if present, otherwise start with any vertex.
-
-void getEulerPathDirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		getEulerPathDirected(next);
-	}
-	path.push_back(src);
+LL lcm(LL a, LL b) {
+	return ((a*b)/gcd(a, b));
 }
 
 int main() {
+	sll(n);
+	string str; cin >> str;
+	LL A[n], B[n];
+	rep(i, 0, n) {
+		A[i] = scanLong();
+		B[i] = scanLong();
+	}
+	LL lastStart = *max_element(B, B+n);
+	LL lcmAll = 2*A[0];
+	rep(i, 1, n)	lcmAll = lcm(lcmAll, 2*A[i]);
+
+	LL ans = 0;
+	rep(t, 0, lastStart+lcmAll+10) {
+		LL lightOn = 0;
+		rep(i, 0, n) {
+			if(str[i] == '1') {
+				// ON DURING [ 0, B[i]-1 ] & [ B[i] + (2k-1)*A[i], B[i] + 2k*A[i] - 1 ]
+				// ON AT TIME T IF T < B[i] OR (floor((T-B[i])/A[i]))%2 == 1
+				if(t < B[i])	lightOn++;
+				else if( t >= B[i] && ( ((LL)floor((t - B[i])/((LD)A[i]))) % 2 == 1 ) )
+					lightOn++;
+			}
+			else {
+				// ON DURING [ B[i] + 2k*A[i], B[i] + (2k+1)*A[i] ]
+				// ON AT TIME T IF (floor((T-B[i])/A[i]))%2 == 0
+				if( t >= B[i] && ( ((LL)floor((t-B[i])/((LD)A[i]))) % 2 == 0 ))	lightOn++;
+			}
+			ans = max(ans, lightOn);
+		}
+	}
+	pll(ans); nl;
 }

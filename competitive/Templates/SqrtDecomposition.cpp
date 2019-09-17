@@ -59,37 +59,29 @@ inline LL scanLong() {
 }
 
 const LL MAXN = 2e5+10;
-multiset<LL> adj[MAXN];
-bool visited[MAXN];
-VLL path;
+const LL BLOCK_SIZE = 448; // ceil(sqrt(MAXN))
+LL array[MAXN], blocks[BLOCK_SIZE];
 
-// Before applying it make sure Euler Path exists for the graph
-// That is, graph is connected and each vertex has a even degree or only 2 vertices have odd degree.
-// Start with vertex having odd degree, if present, otherwise start with any vertex
-
-void getEulerPathUndirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		adj[next].erase(adj[next].find(src));
-		getEulerPathUndirected(next);
-	}
-	path.push_back(src);
+void update(LL index, LL value) {
+	LL block = index / BLOCK_SIZE;
+	blocks[block] = blocks[block] - array[index] + value;
+	array[index] = value;
 }
 
-// For directed graph, it must be strongly connected and each vertex must have equal indegee and outdegree.
-// Or exactly one vertex has a difference between indegree and outdegree as 1 and -1.
-// Start with vertex where outdegree is more the indegree by 1, if present, otherwise start with any vertex.
-
-void getEulerPathDirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		getEulerPathDirected(next);
+LL sum(LL left, LL right) {
+	LL sum = 0;
+	LL left_block = left / BLOCK_SIZE, right_block = right / BLOCK_SIZE;
+	if(left_block == right_block) {
+		rep(i, l, r+1)	sum += array[i];
 	}
-	path.push_back(src);
+	else {
+		rep(i, l, (left_block+1) * BLOCK_SIZE)	sum += array[i];
+		if(left_block+1 <= right_block-1) {
+			rep(block, left_block+1, right_block)	sum += blocks[block];
+		}
+		rep(i, right_block * BLOCK_SIZE, right+1)	sum += array[i];
+	}
+	return sum;
 }
 
 int main() {

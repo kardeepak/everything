@@ -58,39 +58,25 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 2e5+10;
-multiset<LL> adj[MAXN];
-bool visited[MAXN];
-VLL path;
 
-// Before applying it make sure Euler Path exists for the graph
-// That is, graph is connected and each vertex has a even degree or only 2 vertices have odd degree.
-// Start with vertex having odd degree, if present, otherwise start with any vertex
-
-void getEulerPathUndirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		adj[next].erase(adj[next].find(src));
-		getEulerPathUndirected(next);
+// O(n*log(n))
+// Calculate a^n mod m
+LL modPower(LL a, LL n, LL m) {
+	LL res = 1;
+	while(n != 0) {
+		// a^n = ((a^2)^(n>>1)) * (a^(n%2))
+		if(n%2 == 1)	res = (res * a) % m;
+		a = (a*a)%m;
+		n >>= 1;
 	}
-	path.push_back(src);
-}
-
-// For directed graph, it must be strongly connected and each vertex must have equal indegee and outdegree.
-// Or exactly one vertex has a difference between indegree and outdegree as 1 and -1.
-// Start with vertex where outdegree is more the indegree by 1, if present, otherwise start with any vertex.
-
-void getEulerPathDirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		getEulerPathDirected(next);
-	}
-	path.push_back(src);
+	return res;
 }
 
 int main() {
+	sll(t);
+	rep(_, 0, t) {
+		sll(x); sll(y); sll(m);
+		pll(modPower(x, y, m)); nl;
+	}
+	sll(z);
 }

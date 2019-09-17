@@ -58,39 +58,26 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 2e5+10;
-multiset<LL> adj[MAXN];
-bool visited[MAXN];
-VLL path;
-
-// Before applying it make sure Euler Path exists for the graph
-// That is, graph is connected and each vertex has a even degree or only 2 vertices have odd degree.
-// Start with vertex having odd degree, if present, otherwise start with any vertex
-
-void getEulerPathUndirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		adj[next].erase(adj[next].find(src));
-		getEulerPathUndirected(next);
-	}
-	path.push_back(src);
-}
-
-// For directed graph, it must be strongly connected and each vertex must have equal indegee and outdegree.
-// Or exactly one vertex has a difference between indegree and outdegree as 1 and -1.
-// Start with vertex where outdegree is more the indegree by 1, if present, otherwise start with any vertex.
-
-void getEulerPathDirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		getEulerPathDirected(next);
-	}
-	path.push_back(src);
-}
-
 int main() {
+	sll(a1); sll(a2); sll(k1); sll(k2);
+	sll(n);
+	LL minThrow = LONG_MAX, maxThrow = LONG_MIN, thrown;
+	rep(y1, 0, n+1) {
+		LL y2 = n - y1;
+		if(y1 > a1*k1 || y2 > a2*k2)	continue;		
+		// minimum
+		thrown = 0;
+		if((y1/a1) == k1)	thrown += a1;
+		else if((y1/a1) == (k1-1))	thrown += (y1%a1);
+
+		if((y2/a2) == k2)	thrown += a2;
+		else if((y2/a2) == (k2-1))	thrown += (y2%a2);
+		minThrow = min(minThrow, thrown);
+
+		// maximum
+		thrown = (y1/k1) + (y2/k2);
+		maxThrow = max(maxThrow, thrown);
+	}
+	pll(minThrow); nl;
+	pll(maxThrow); nl;
 }

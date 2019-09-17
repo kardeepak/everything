@@ -58,38 +58,44 @@ inline LL scanLong() {
 	return n*sign;
 }
 
+struct Query {
+	LL left, right, index;
+	bool operator < (Query other) {
+		return MP(left / BLOCK_SIZE, right) < MP(other.left / BLOCK_SIZE, other.right);
+	}
+};
+
 const LL MAXN = 2e5+10;
-multiset<LL> adj[MAXN];
-bool visited[MAXN];
-VLL path;
+const LL MAXQ = 2e5+10;
+vector<Query> queries;
+LL array[MAXN], answers[MAXQ];
+LL BLOCK_SIZE = 448; // ceil(sqrt(MAXN))
 
-// Before applying it make sure Euler Path exists for the graph
-// That is, graph is connected and each vertex has a even degree or only 2 vertices have odd degree.
-// Start with vertex having odd degree, if present, otherwise start with any vertex
+// add, remove & getAnswer Must be O(F) functions
+// Add to Data Structure
+void add(LL index);
+// Remove from Data Structure
+void remove(LL index);
+// Get Answer from Data Structure
+LL getAnswer();
 
-void getEulerPathUndirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		adj[next].erase(adj[next].find(src));
-		getEulerPathUndirected(next);
+// Complexity of mo's algorithm is O((N + Q) * sqrt(N) * F)
+void mosAlgorithm() {
+	// Sort queries by first the block and by right index if blocks are same
+	sort(queries.begin(), queries.end());
+	// Current range is empty
+	LL currLeft = 0, currRight = -1;
+	rep(it, queries.begin(), queries.end()) {
+		LL left = it->left, right = it->right;
+		// As long as the current range is not the same as the query range 
+		// keep adding or removing elements as needed
+		while(currLeft > left)		add(--currLeft);
+		while(currRight < right)	add(++currRight);
+		while(currLeft < left)		remove(currLeft++);
+		while(currRight > right)	remove(currRight--);
+		// When current range is same as the query range store the answer from data structure
+		answers[it->index] = getAnswer();
 	}
-	path.push_back(src);
-}
-
-// For directed graph, it must be strongly connected and each vertex must have equal indegee and outdegree.
-// Or exactly one vertex has a difference between indegree and outdegree as 1 and -1.
-// Start with vertex where outdegree is more the indegree by 1, if present, otherwise start with any vertex.
-
-void getEulerPathDirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		getEulerPathDirected(next);
-	}
-	path.push_back(src);
 }
 
 int main() {

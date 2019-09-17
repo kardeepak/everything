@@ -59,6 +59,7 @@ inline LL scanLong() {
 VLL sortCyclicShifts(string str) {
 	LL n = str.size();
 	LL alphabet = 256;
+	// p[i] is the starting index of the ith substring of length 2^h after sorting
 	VLL p(n), c(n), cnt(max(alphabet,n), 0);
 	// Counting Sort by first letter
 	rep(i, 0, n)		cnt[str[i]]++;
@@ -74,16 +75,20 @@ VLL sortCyclicShifts(string str) {
 
 	VLL pn(n), cn(n);
 	for(LL h = 0; (1ll<<h) < n; h++) {
-		// Since c[n] is already sorted so we sort by p[n] using counting sort
+		// For 2^(h+1) we need to sort by c[i] and c[i+2^h]
+		// Using radix sort, we sort by c[i+2^h] and then c[i]
+		// c[i+2^h] is already sorted in array p[n]
+		// pn[i] is the index of ith substring sorted by c[i+2^h]
 		rep(i, 0, n) {
 			pn[i] = p[i] - (1ll<<h);
 			if(pn[i] < 0)	pn[i] += n;
 		}
 		fill(cnt.begin(), cnt.end(), 0);
+		// Sorting by c[i] using counting sort
 		rep(i, 0, n)		cnt[c[pn[i]]]++;
 		rep(i, 1, classes)	cnt[i] += cnt[i-1];
-		// Sorting from n to 0 for stable sort
 		rep(i, n, 0)		p[--cnt[c[pn[i]]]] = pn[i];
+		// Assing classes to new sorted strings
 		cn[p[0]] = 0;
 		classes = 1;
 		rep(i, 1, n) {
@@ -94,12 +99,14 @@ VLL sortCyclicShifts(string str) {
 		}
 		rep(i, 0, n)	c[i] = cn[i];
 	}
+	// Finally p[i] is the starting index of ith substring after sorting
 	return p;
 }
 
 VLL constructSuffixArray(string str) {
 	str += "$";
 	VLL suffixArray = sortCyclicShifts(str);
+	// removing the substring that begins with '$'
 	suffixArray.erase(suffixArray.begin());
 	return suffixArray;
 }
@@ -107,8 +114,10 @@ VLL constructSuffixArray(string str) {
 VLL constructLongestCommonPrefixArray(string str, VLL suffixArray) {
 	LL n = str.size();
 	VLL rank(n, 0);
+	// rank[i] is the position of substring starting at i in the suffix array
 	rep(i, 0, n)	rank[suffixArray[i]] = i;
 
+	// lcp[i] is the longest common prefix between substrings starting at suffixArray[i] and suffixArray[i+1]
 	VLL lcp(n-1, 0);
 	LL k = 0;
 	rep(i, 0, n) {
@@ -125,6 +134,7 @@ VLL constructLongestCommonPrefixArray(string str, VLL suffixArray) {
 	return lcp;
 }
 
+// Implementation Details : https://cp-algorithms.com/string/suffix-array.html#toc-tgt-3
 
 int main() {
 }

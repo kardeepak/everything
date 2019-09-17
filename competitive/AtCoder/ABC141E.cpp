@@ -58,39 +58,21 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 2e5+10;
-multiset<LL> adj[MAXN];
-bool visited[MAXN];
-VLL path;
-
-// Before applying it make sure Euler Path exists for the graph
-// That is, graph is connected and each vertex has a even degree or only 2 vertices have odd degree.
-// Start with vertex having odd degree, if present, otherwise start with any vertex
-
-void getEulerPathUndirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		adj[next].erase(adj[next].find(src));
-		getEulerPathUndirected(next);
-	}
-	path.push_back(src);
-}
-
-// For directed graph, it must be strongly connected and each vertex must have equal indegee and outdegree.
-// Or exactly one vertex has a difference between indegree and outdegree as 1 and -1.
-// Start with vertex where outdegree is more the indegree by 1, if present, otherwise start with any vertex.
-
-void getEulerPathDirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		getEulerPathDirected(next);
-	}
-	path.push_back(src);
-}
-
 int main() {
+	sll(n);
+	string str; cin >> str;
+	// dp[i][j] denotes the length of longest repeating and non-overlapping substrings
+	// ending and i and j respectively (one-indexed)
+	LL dp[n+1][n+1]; clr(dp);
+	LL ans = 0;
+	rep(i, 1, n+1) {
+		rep(j, i+1, n+1) {
+			if(str[i-1] == str[j-1] && dp[i-1][j-1] < (j-i)) {
+				dp[i][j] = dp[i-1][j-1] + 1;
+				if(dp[i][j] > ans)	ans = dp[i][j];
+			}
+			else	dp[i][j] = 0;
+		}
+	}
+	pll(ans); nl;
 }

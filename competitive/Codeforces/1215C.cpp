@@ -58,39 +58,40 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 2e5+10;
-multiset<LL> adj[MAXN];
-bool visited[MAXN];
-VLL path;
-
-// Before applying it make sure Euler Path exists for the graph
-// That is, graph is connected and each vertex has a even degree or only 2 vertices have odd degree.
-// Start with vertex having odd degree, if present, otherwise start with any vertex
-
-void getEulerPathUndirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		adj[next].erase(adj[next].find(src));
-		getEulerPathUndirected(next);
-	}
-	path.push_back(src);
-}
-
-// For directed graph, it must be strongly connected and each vertex must have equal indegee and outdegree.
-// Or exactly one vertex has a difference between indegree and outdegree as 1 and -1.
-// Start with vertex where outdegree is more the indegree by 1, if present, otherwise start with any vertex.
-
-void getEulerPathDirected(LL src) {
-	visited[src] = true;
-	while(adj[src].size() > 0) {
-		LL next = *adj[src].begin();
-		adj[src].erase(adj[src].begin());
-		getEulerPathDirected(next);
-	}
-	path.push_back(src);
-}
-
 int main() {
+	sll(n);
+	string s, t; cin >> s >> t;
+	LL cntA = 0, cntB = 0;
+	deque<LL> ab, ba;
+	rep(i, 0, n) {
+		(s[i] == 'a' ? cntA++ : cntB++);
+		(t[i] == 'a' ? cntA++ : cntB++);
+		if(s[i] == 'a' && t[i] == 'b')	ab.push_back(i);
+		else if(s[i] == 'b' && t[i] == 'a')	ba.push_back(i);
+	}
+	if(cntA %  2 != 0 || cntB % 2 != 0) {
+		puts("-1");
+		return 0;
+	}
+	vector<PLL> ops;
+	while(ab.size() >= 2) {
+		LL fi = ab.front(); ab.pop_front();
+		LL se = ab.front(); ab.pop_front();
+		ops.push_back(make_pair(fi, se));
+	}
+	while(ba.size() >= 2) {
+		LL fi = ba.front(); ba.pop_front();
+		LL se = ba.front(); ba.pop_front();
+		ops.push_back(make_pair(fi, se));
+	}
+	if(ab.size() != 0 && ba.size() != 0) {
+		LL fi = ab.front(); ab.pop_front();
+		LL se = ba.front(); ba.pop_front();
+		ops.push_back(make_pair(fi, fi));
+		ops.push_back(make_pair(fi, se));
+	}
+	pll((LL)ops.size()); nl;
+	rep(it, ops.begin(), ops.end()) {
+		pll(it->first+1); pll(it->second+1); nl;
+	}
 }
