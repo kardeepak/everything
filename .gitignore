@@ -3,3 +3,6 @@ venv*
 
 # Ignore Python Bytecode
 *.pyc
+
+# Stupid mac files
+.DS_Store
