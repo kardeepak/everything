@@ -8,7 +8,7 @@ password = raw_input("Enter password: ").strip()
 conn = ssh(host=config.url, user=user, password=password, port=config.port)
 
 output = conn.nmap(["localhost","-p","31000-32000"])
-ports = re.findall(r"(\d+)/tcp", output)
+ports = re.findall(r"(\d+)/tcp open", output)
 
 for port in ports:
 	ssl = conn.process(["/usr/bin/openssl", "s_client", "-connect", "localhost:"+port])

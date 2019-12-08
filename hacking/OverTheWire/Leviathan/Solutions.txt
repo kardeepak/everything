@@ -7,3 +7,31 @@ Run command "ltrace ./check" and look for "strcmp" function call to find out the
 After entering the password, run command "cat /etc/leviathan_pass/leviathan2"
 
 Level 2:
+There is "prinfile" binary in the home folder which checks the permission of a file and then prints it using "/bin/cat".
+If there is a space in the name of the file then "cat" will consider it a separate file.
+Create a temporary direcory and go to that directory.
+Create a file named "test leviathan3" (with the space).
+Go to "/etc/leviathan_pass/". Run command "~/prinfile /tmp/dirname/test\ leviathan3".
+
+
+Level 3:
+There is "level3" binary in the home folder.
+Run command "ltrace ./level3" and look for "strcmp" call after entering the password to find out the password.
+After entering the password, run command "cat /etc/leviathan_pass/leviathan4"
+
+Level 4:
+There is ".trash/bin" binary in the home folder.
+Runnning it will give you the password in the binary format.
+Convert it to string using ascii encoding. 
+
+Level 5:
+There is "leviathan5" binary in the home folder.
+It prints contents of "/tmp/file.log" file. Create a symlink "/tmp/file.log" to "/etc/leviathan_pass/leviathan6".
+
+Level 6:
+There is "leviathan6" binary in the home folder.
+You can brute-force all four digit keys using "for i in {0000..9999}; do ./levaithan6 $i; done".
+This will give you shell.
+
+Level 7:
+Finished.
