@@ -24,7 +24,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get install -y php
 
 # Utilities
-RUN apt-get install -y git curl wget sshpass
+RUN apt-get install -y git curl wget sshpass netcat
 
 # Environment Variables
 ENV PATH=/code/:$PATH
