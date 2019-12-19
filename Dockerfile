@@ -5,7 +5,7 @@ RUN apt-get -y update
 
 # C & C++ Compiler & Debugger
 RUN apt-get install -y gcc g++ make nano
-RUN apt-get install -y gdb
+RUN apt-get install -y gdb ltrace strace
 
 # Python & Utilities
 RUN apt-get install -y python python-pip
