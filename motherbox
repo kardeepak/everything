@@ -18,7 +18,8 @@ if [[ $command == "run" ]] || [[ $command == "" ]]; then
 	else
 		echo "No Existing Container Found."
 		echo "Creating Container..."
-		docker run $@ --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --name motherbox -p 8000-8010:8000-8010 -h motherbox -v $MOTHERBOX:/code -it motherbox
+		docker run $@ --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
+			--name motherbox -p 8000-8010:8000-8010 -h motherbox -v $MOTHERBOX:/code -it motherbox
 	fi
 elif [[ $command == "build" ]]; then
 	RUNNING_CONTAINER_ID=$(docker ps -f name=motherbox -q)

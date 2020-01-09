@@ -1,0 +1,1 @@
+Use wireshark to intercept all data and you will see the flag in one of the TCP dumps.
