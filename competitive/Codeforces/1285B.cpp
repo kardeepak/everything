@@ -58,16 +58,25 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-LL dp[105][105][2];
-
 int main() {
-	sll(n);
-	LL zero = n / 2, one = n - zero;
-	LL arr[n];
-	rep(i, 0, n) {
-		arr[i] = scanLong();
-		if(arr[i] % 2 == 0)	zero--;
-		else	one--;
+	sll(t);
+	rep(_, 0, t) {
+		sll(n);
+		LL taste[n], presum = 0, total = 0;
+		rep(i, 0, n) {
+			taste[i] = scanLong();
+			total += taste[i];
+		}
+		rep(i, 0, n) {
+			presum += taste[i];
+			if(i == n-1) {
+				puts("YES");
+				break;
+			}
+			if(presum >= total || (total - presum) >= total) {
+				puts("NO");
+				break;
+			}
+		}
 	}
-	
 }
