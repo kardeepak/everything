@@ -58,58 +58,30 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-// Effective computation of large exponents modulo a number : O(log(n))
-LL modPower(LL a, LL n, LL m) {
-	LL res = 1;
-	while(n != 0) {
-		// a^n = ((a^2)^(n>>1)) * (a^(n%2))
-		if(n%2 == 1)	res = (res * a) % m;
-		a = (a*a)%m;
-		n >>= 1;
+LL getpow(LL n, LL p) {
+	LL cnt = 0;
+	while(n % p == 0)  {
+		n /= p;
+		cnt++;
 	}
-	return res;
+	return cnt;
 }
 
-// Effective computation of Fibonacci numbers : O(log(n))
-LL fibonacci(LL n) {
-	LL res[2][2] = {{1, 0}, {0, 1}};
-	LL A[2][2] = {{1, 1}, {1, 0}};
-	LL tmp[2][2];
-	// |F(n+1)| = |1 1| * |F(n)  | = [ |1 1| ^ n ] * |F(1)|
-	// |F(n)  |   |1 0|   |F(n-1)|   [ |1 0|     ]   |F(0)|
-	while(n != 0) {
-		// if(n is odd) res = (res * A);
-		if(n%2 == 1) {
-			rep(i, 0, 2) {
-				rep(j, 0, 2) {
-					tmp[i][j] = 0;
-					rep(k, 0, 2)	tmp[i][j] += res[i][k]*A[k][j];
-				}
-			}
-			rep(i, 0, 2) {
-				rep(j, 0, 2)	res[i][j] = tmp[i][j];
-			}
-		}
-		// tmp = A * A;
-		rep(i, 0, 2) {
-			rep(j, 0, 2) {
-				tmp[i][j] = 0;
-				rep(k, 0, 2)	tmp[i][j] += A[i][k]*A[k][j];
-			}
-		}
-		// A = tmp
-		rep(i, 0, 2) {
-			rep(j, 0, 2)	A[i][j] = tmp[i][j];
-		}
-		n >>= 1;
+LL compare(pair<LL, PLL> a, pair<LL, PLL> b) {
+	if(a.second.second == b.second.second) {
+		return (a.second.first < b.second.first);
 	}
-	LL F0 = 0, F1 = 1;
-	LL Fn = res[1][0] * F1 + res[1][1] * F0;
-	return Fn;
+	return (a.second.second > b.second.second);
 }
-
-//Implementation Details : https://cp-algorithms.com/algebra/binary-exp.html#toc-tgt-4
 
 int main() {
-	cout << fibonacci(10) << endl;
+	sll(n);
+	pair<LL, PLL> arr[n];
+	rep(i, 0, n) {
+		sll(num);
+		arr[i].first = num;
+		arr[i].second = make_pair(getpow(num, 2), getpow(num, 3));
+	}
+	sort(arr, arr+n, compare);
+	rep(i, 0, n)	pll(arr[i].first); nl;
 }

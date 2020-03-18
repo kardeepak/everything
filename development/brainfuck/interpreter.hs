@@ -21,5 +21,3 @@ main = do
     let (source_file, input_file) = parseArgs args
     source_code <- getFileData source_file
     input_data <- getFileData input_file
-
-     
