@@ -25,7 +25,7 @@ typedef deque<int> DI;
 typedef deque<LL> DLL;
 typedef pair<int, int> PII;
 typedef pair<LL, LL> PLL;
-const LL MOD = 15746;
+const LL MOD = 1e9+7;
 
 /* Fast I/O */
 inline int scanInt() {
@@ -58,16 +58,14 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL dp[MAXN];
-
 int main() {
 	sll(n);
-	rep(i, 0, n+1) {
-		if(i == 0)	dp[i] = 1;
-		else if(i == 1)	dp[i] = 1;
-		else	dp[i] = (dp[i-1] + dp[i-2]) % MOD;
+	VLL nums;
+	rep(i, 0, n) {
+		sll(num);
+		auto it = partition(nums.begin(), nums.end(), [&num](LL x) -> bool { return x > num; });
+		LL rank = it - nums.begin();
+		pll(rank+1); nl;
+		nums.push_back(num);
 	}
-	pll(dp[n]); nl;
 }
-

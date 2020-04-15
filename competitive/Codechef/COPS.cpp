@@ -25,7 +25,7 @@ typedef deque<int> DI;
 typedef deque<LL> DLL;
 typedef pair<int, int> PII;
 typedef pair<LL, LL> PLL;
-const LL MOD = 15746;
+const LL MOD = 1e9+7;
 
 /* Fast I/O */
 inline int scanInt() {
@@ -58,16 +58,30 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL dp[MAXN];
-
-int main() {
-	sll(n);
-	rep(i, 0, n+1) {
-		if(i == 0)	dp[i] = 1;
-		else if(i == 1)	dp[i] = 1;
-		else	dp[i] = (dp[i-1] + dp[i-2]) % MOD;
+bool isSafe(LL pos, vector<PLL> ranges) {
+	for(PLL range : ranges) {
+		if(pos >= range.first && pos <= range.second)	return false;
 	}
-	pll(dp[n]); nl;
+	return true;
 }
 
+int main() {
+	sll(t);
+	rep(_, 0, t) {
+		sll(m); sll(x); sll(y);
+		vector<PLL> ranges;
+
+		rep(i, 0, m) {
+			sll(p);
+			LL low = max(p - x*y, 1ll);
+			LL high = min(p + x*y, 100ll);
+			ranges.push_back(make_pair(low, high));
+		}
+		sort(ranges.begin(), ranges.end());
+		LL safe = 0;
+		rep(i, 1, 101ll) {
+			if(isSafe(i, ranges))	safe++;
+		}
+		pll(safe); nl;
+	}
+}

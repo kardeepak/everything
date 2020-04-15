@@ -25,7 +25,7 @@ typedef deque<int> DI;
 typedef deque<LL> DLL;
 typedef pair<int, int> PII;
 typedef pair<LL, LL> PLL;
-const LL MOD = 15746;
+const LL MOD = 1e9+7;
 
 /* Fast I/O */
 inline int scanInt() {
@@ -58,16 +58,45 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL dp[MAXN];
+const LL MAXN = 2e5+10;
+VLL adj[MAXN];
+LL color[MAXN], dp[MAXN], ans[MAXN];
+
+void dfs(LL src = 1, LL par = -1) {
+	dp[src] = color[src];
+	rep(it, adj[src].begin(), adj[src].end()) {
+		if(*it != par) {
+			dfs(*it, src);
+			dp[src] += max(0ll, dp[*it]);
+		}
+	}
+}
+
+void move(LL from, LL to) {
+	if(from == to)	return;
+	dp[from] -= max(0ll, dp[to]);
+	dp[to] += max(0ll, dp[from]);
+}
+
+void dfs2(LL src = 1, LL par = -1) {
+	if(par != -1)	move(par, src);
+	ans[src] = dp[src];
+	rep(it, adj[src].begin(), adj[src].end()) {
+		if(*it != par)	dfs2(*it, src);
+	}
+	if(par != -1)	move(src, par);
+}
+
 
 int main() {
 	sll(n);
-	rep(i, 0, n+1) {
-		if(i == 0)	dp[i] = 1;
-		else if(i == 1)	dp[i] = 1;
-		else	dp[i] = (dp[i-1] + dp[i-2]) % MOD;
+	rep(i, 1, n+1)	color[i] = (scanLong() == 1 ? 1 : -1);
+	rep(i, 0, n-1) {
+		sll(a); sll(b);
+		adj[a].push_back(b);
+		adj[b].push_back(a);
 	}
-	pll(dp[n]); nl;
+	dfs();
+	dfs2();
+	rep(i, 1, n+1)	pll(ans[i]); nl;
 }
-

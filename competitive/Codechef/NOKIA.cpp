@@ -25,7 +25,7 @@ typedef deque<int> DI;
 typedef deque<LL> DLL;
 typedef pair<int, int> PII;
 typedef pair<LL, LL> PLL;
-const LL MOD = 15746;
+const LL MOD = 1e9+7;
 
 /* Fast I/O */
 inline int scanInt() {
@@ -58,16 +58,22 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL dp[MAXN];
+LL calcMinima(LL s, LL e) {
+	if(e - s == 1)	return 0;
+	LL m = (s+e)>>1;
+	return (e-s) + calcMinima(s, m) + calcMinima(m, e);
+}
 
 int main() {
-	sll(n);
-	rep(i, 0, n+1) {
-		if(i == 0)	dp[i] = 1;
-		else if(i == 1)	dp[i] = 1;
-		else	dp[i] = (dp[i-1] + dp[i-2]) % MOD;
+	sll(t);
+	rep(_, 0, t) {
+		sll(n); sll(m);
+		LL minm = calcMinima(0ll, n+1);
+		LL maxm = n * (n + 3) / 2;
+		// cout << n << " : " << minm << " - " << maxm << endl;
+		if(m < minm)	puts("-1");
+		else if(m > maxm)	pll(m - maxm), nl;
+		else	puts("0");
 	}
-	pll(dp[n]); nl;
 }
 

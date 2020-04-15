@@ -25,7 +25,7 @@ typedef deque<int> DI;
 typedef deque<LL> DLL;
 typedef pair<int, int> PII;
 typedef pair<LL, LL> PLL;
-const LL MOD = 15746;
+const LL MOD = 1e9+7;
 
 /* Fast I/O */
 inline int scanInt() {
@@ -58,16 +58,36 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL dp[MAXN];
-
 int main() {
-	sll(n);
-	rep(i, 0, n+1) {
-		if(i == 0)	dp[i] = 1;
-		else if(i == 1)	dp[i] = 1;
-		else	dp[i] = (dp[i-1] + dp[i-2]) % MOD;
-	}
-	pll(dp[n]); nl;
-}
+	sll(t);
+	rep(_, 0, t) {
+		string s; cin >> s;
+		LL n = s.length();
 
+		// Calculate hash
+		LL hash = 0;
+		rep(i, 0, n)	hash += (s[i] - 'a');
+
+		// Make lexicographically smallest string having same hash and length
+		string ans(n, 'a');
+		LL curr = hash;
+		rep(i, n, 0) {
+			LL inc = min(curr, 25ll);
+			ans[i] += inc;
+			curr -= inc;
+		}
+		assert(curr == 0);
+
+		if(ans == s) {
+			rep(i, n, 1) {
+				if(ans[i] != ans[i-1]) {
+					ans[i]--;
+					ans[i-1]++;
+					break;
+				}
+			}
+		}
+
+		cout << hash << " " << (ans == s ? "-1" : ans) << endl;
+	}
+}

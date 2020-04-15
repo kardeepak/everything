@@ -25,7 +25,7 @@ typedef deque<int> DI;
 typedef deque<LL> DLL;
 typedef pair<int, int> PII;
 typedef pair<LL, LL> PLL;
-const LL MOD = 15746;
+const LL MOD = 1e9+7;
 
 /* Fast I/O */
 inline int scanInt() {
@@ -58,16 +58,37 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL dp[MAXN];
-
 int main() {
 	sll(n);
-	rep(i, 0, n+1) {
-		if(i == 0)	dp[i] = 1;
-		else if(i == 1)	dp[i] = 1;
-		else	dp[i] = (dp[i-1] + dp[i-2]) % MOD;
+	LL As[n], Bs[n], Cs[n];
+	rep(i, 0, n)	As[i] = scanLong();
+	rep(i, 0, n)	Bs[i] = scanLong();
+	rep(i, 0, n)	Cs[i] = As[i] - Bs[i];
+	VLL neg, pos;
+	LL zeros = 0;
+	rep(i, 0, n) {
+		if(Cs[i] < 0)	neg.push_back(Cs[i]);
+		else if(Cs[i] > 0)	pos.push_back(Cs[i]);
+		else	zeros++;
 	}
-	pll(dp[n]); nl;
-}
+	
+	LL poscnt = pos.size();
+	LL ans = 0;
 
+	// choose any 2 positive numbers 
+	ans += (poscnt * (poscnt - 1) / 2);
+
+	// one positive and one zero
+	ans += (poscnt * zeros);
+
+	// one positive and one negative
+	sort(pos.begin(), pos.end());
+	rep(it, neg.begin(), neg.end()) {
+		LL num = *it;
+		LL index = upper_bound(pos.begin(), pos.end(), abs(num)) - pos.begin();
+		ans += (poscnt - index);
+	}
+
+	pll(ans); nl;
+
+}

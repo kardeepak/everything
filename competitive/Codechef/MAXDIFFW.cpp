@@ -25,7 +25,7 @@ typedef deque<int> DI;
 typedef deque<LL> DLL;
 typedef pair<int, int> PII;
 typedef pair<LL, LL> PLL;
-const LL MOD = 15746;
+const LL MOD = 1e9+7;
 
 /* Fast I/O */
 inline int scanInt() {
@@ -58,16 +58,59 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL dp[MAXN];
+struct Edge {
+	LL src, dest, weight;
+	Edge() {}
+	Edge(LL s, LL d, LL w) {
+		src = s;
+		dest = d;
+		weight = w;
+	}
+};
+
+bool operator < (const Edge a, const Edge b) {
+	return a.weight < b.weight;
+}
+
+PLL getPair(Edge e) {
+	return make_pair(e.src, e.dest);
+}
 
 int main() {
 	sll(n);
-	rep(i, 0, n+1) {
-		if(i == 0)	dp[i] = 1;
-		else if(i == 1)	dp[i] = 1;
-		else	dp[i] = (dp[i-1] + dp[i-2]) % MOD;
+	priority_queue<Edge> pq[n+1];
+	rep(i, 1, n+1) {
+		rep(j, 1, n+1) {
+			sll(w);
+			if(i != j)	pq[i].push(Edge(i, j, w));
+		}
 	}
-	pll(dp[n]); nl;
-}
+	map<PLL, bool> selected;
+	// selected first
+	Edge first(0, 0, 0);
+	LL index = -1;
+	rep(i, 1, n+1) {
+		if(index == -1 || first < pq[i].top()) {
+			first = pq[i].top();
+			index = i;
+		}
+	}
+	pq[index].pop();
+	selected[getPair(first)] = true;
+	cout << first.src << " " << first.dest << " " << endl; cout.flush();
 
+	while(true) {
+		LL src, dest; cin >> src >> dest;
+		selected[make_pair(src, dest)] = true;
+
+		while(!pq[dest].empty() && selected[getPair(pq[dest].top())]) {
+			pq[dest].pop();
+		}
+
+		if(pq[dest].empty())	break;
+
+		Edge next = pq[dest].top(); pq[dest].pop();
+		selected[getPair(next)] = true;
+		cout << next.src << " " << next.dest << " " << endl; cout.flush();
+	}
+}

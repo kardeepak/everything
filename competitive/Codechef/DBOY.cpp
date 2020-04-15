@@ -25,7 +25,7 @@ typedef deque<int> DI;
 typedef deque<LL> DLL;
 typedef pair<int, int> PII;
 typedef pair<LL, LL> PLL;
-const LL MOD = 15746;
+const LL MOD = 1e9+7;
 
 /* Fast I/O */
 inline int scanInt() {
@@ -58,16 +58,34 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL dp[MAXN];
-
-int main() {
+void solve() {
 	sll(n);
-	rep(i, 0, n+1) {
-		if(i == 0)	dp[i] = 1;
-		else if(i == 1)	dp[i] = 1;
-		else	dp[i] = (dp[i-1] + dp[i-2]) % MOD;
+	VLL required(n);
+	rep(i, 0, n)	required[i] = 2 * scanLong();
+	VLL coins(n);
+	rep(i, 0, n)	coins[i] = scanLong();
+	sort(coins.begin(), coins.end());
+	LL dp[1010];
+	rep(i, 0, 1010)	dp[i] = -1;
+	dp[0] = 0;
+	rep(i, 1, 1010) {
+		rep(j, 0, n) {
+			if(i >= coins[j] && dp[i - coins[j]] != -1) {
+				if(dp[i] == -1)	dp[i] = dp[i-coins[j]] + 1;
+				else	dp[i] = min(dp[i], dp[i-coins[j]]+1);
+			}
+		}
 	}
-	pll(dp[n]); nl;
+
+	LL ans = 0;
+	rep(i, 0, n)	ans += dp[required[i]];
+	pll(ans); nl;
+
 }
 
+int main() {
+	sll(t);
+	rep(_, 0, t) {
+		solve();
+	}
+}
