@@ -13,12 +13,11 @@ def convert_to_hex(red, green, blue):
 image = Image.open(sys.argv[1])
 
 width, height = image.size
-while width > 500 or height > 500:
+while width > 128 or height > 128:
 	width //= 2
 	height //= 2
 
 image = image.resize((width, height), Image.ANTIALIAS)
-image.save("newimage.png")
 pixels = image.load()
 columns, rows = image.size
 
