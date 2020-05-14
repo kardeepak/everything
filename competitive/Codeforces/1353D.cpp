@@ -58,63 +58,54 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL nextpos[MAXN][2];
-LL color[MAXN], classes[MAXN], blacks[MAXN];
+struct CustomCompare
+{
+    bool operator()(const PLL& a, const PLL& b)
+    {
+        LL la = a.second - a.first + 1;
+		LL lb = b.second - b.first + 1;
+		if(la == lb)	return a.first > b.first;
+		return la < lb;
+    }
+};
 
-void solve() {
-	clr(nextpos); clr(color); clr(classes); clr(blacks);
+VLL solve(LL n) {
+	VLL arr(n, 0);
+	priority_queue<PLL, vector<PLL>, CustomCompare> q;
+	q.push(make_pair(0ll, n-1));
+	LL cnt = 1;
 
-	LL n, m; cin >> n >> m;
-	LL nm = n * m;
+	while(!q.empty()) {
+		PLL p = q.top(); q.pop();
+		LL l = p.first, r = p.second;
 
-	rep(i, 0, n) {
-		string clr; cin >> clr;
-		rep(j, 0, m) {
-			LL index = i * m + j;
-			color[index] = (clr[j]-'0');
+		LL m = (l+r)>>1;
+		arr[m] = cnt++;
+		if(l == r)	continue;
+
+		LL lenL = (m-l);
+		LL lenR = (r-m);
+		if(lenL == lenR) {
+			if(l <= m-1)
+				q.push(make_pair(l, m-1));
+			if(m+1 <= r)
+				q.push(make_pair(m+1, r));
+		}
+		else {
+			if(m+1 <= r)
+				q.push(make_pair(m+1, r));
+			if(l <= m-1)
+				q.push(make_pair(l, m-1));
 		}
 	}
-
-	rep(i, 0, n) {
-		string direction; cin >> direction;
-		rep(j, 0, m) {
-			LL index = i * m + j;
-			if(direction[j] == 'L')			nextpos[index][0] = index-1;
-			else if(direction[j] == 'R')	nextpos[index][0] = index+1;
-			else if(direction[j] == 'U')	nextpos[index][0] = index-m;
-			else if(direction[j] == 'D')	nextpos[index][0] = index+m;
-		}
-	}
-
-	rep(i, 1, 24) {
-		rep(x, 0, nm) {
-			nextpos[x][1] = nextpos[nextpos[x][0]][0];
-		}
-		rep(x, 0, nm) {
-			nextpos[x][0] = nextpos[x][1];
-		}
-	}
-
-	rep(x, 0, nm) {
-		LL curr = nextpos[x][0];
-		classes[curr] += 1;
-		blacks[curr] += (color[x] == 0 ? 1 : 0);
-	}
-
-	LL cnt = 0, blk = 0;
-	rep(x, 0, nm) {
-		if(classes[x] > 0)	cnt++;
-		if(blacks[x] > 0)	blk++;
-	}
-	cout << cnt << ' ' << blk << '\n';
+	return arr;
 }
 
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	LL t; cin >> t;
+	sll(t);
 	rep(_, 0, t) {
-		solve();
+		sll(n);
+		VLL arr = solve(n);
+		rep(it, arr.begin(), arr.end())	pll(*it); nl;
 	}
 }

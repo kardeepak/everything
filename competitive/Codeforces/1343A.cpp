@@ -58,63 +58,19 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-const LL MAXN = 1e6+10;
-LL nextpos[MAXN][2];
-LL color[MAXN], classes[MAXN], blacks[MAXN];
-
-void solve() {
-	clr(nextpos); clr(color); clr(classes); clr(blacks);
-
-	LL n, m; cin >> n >> m;
-	LL nm = n * m;
-
-	rep(i, 0, n) {
-		string clr; cin >> clr;
-		rep(j, 0, m) {
-			LL index = i * m + j;
-			color[index] = (clr[j]-'0');
-		}
-	}
-
-	rep(i, 0, n) {
-		string direction; cin >> direction;
-		rep(j, 0, m) {
-			LL index = i * m + j;
-			if(direction[j] == 'L')			nextpos[index][0] = index-1;
-			else if(direction[j] == 'R')	nextpos[index][0] = index+1;
-			else if(direction[j] == 'U')	nextpos[index][0] = index-m;
-			else if(direction[j] == 'D')	nextpos[index][0] = index+m;
-		}
-	}
-
-	rep(i, 1, 24) {
-		rep(x, 0, nm) {
-			nextpos[x][1] = nextpos[nextpos[x][0]][0];
-		}
-		rep(x, 0, nm) {
-			nextpos[x][0] = nextpos[x][1];
-		}
-	}
-
-	rep(x, 0, nm) {
-		LL curr = nextpos[x][0];
-		classes[curr] += 1;
-		blacks[curr] += (color[x] == 0 ? 1 : 0);
-	}
-
-	LL cnt = 0, blk = 0;
-	rep(x, 0, nm) {
-		if(classes[x] > 0)	cnt++;
-		if(blacks[x] > 0)	blk++;
-	}
-	cout << cnt << ' ' << blk << '\n';
-}
-
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	LL t; cin >> t;
+	sll(t);
 	rep(_, 0, t) {
-		solve();
+		sll(n);
+		LL ans = -1;
+		rep(i, 2, (LL)32) {
+			LL tmp = (1ll<<i) - 1;
+			if(tmp > n)	break;
+			if(n % tmp == 0) {
+				ans = (n / tmp);
+				break;
+			}
+		}
+		pll(ans); nl;
 	}
 }
