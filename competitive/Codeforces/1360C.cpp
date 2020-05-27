@@ -58,54 +58,22 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-map<char, set<char>> graph;
-map<char, LL> incoming;
-
-void deleteNode(char node) {
-    for(char c : graph[node]) {
-        incoming[c]--;
-    }
-    graph[node].clear();
-}
-
-string solve() {
-	graph.clear(); incoming.clear();
-    sll(r); sll(c);
-    string wall[r];
-    set<char> bs;
-    rep(i, 0, r)    cin >> wall[i];
-    rep(i, 0, r) {
-        rep(j, 0, c) {
-            bs.insert(wall[i][j]);
-            if(i+1 < r && wall[i][j] != wall[i+1][j]) {
-            	if(graph[wall[i][j]].find(wall[i+1][j]) == graph[wall[i][j]].end()) {
-	                graph[wall[i][j]].insert(wall[i+1][j]);
-	                incoming[wall[i+1][j]]++;
-	            }
-            }
-        }
-    }
-    string ans = "";
-    while(true) {
-        char node = '#';
-        for(char c : bs) {
-            if(incoming[c] == 0)    node = c;
-        }
-
-        if(node == '#') break;
-        deleteNode(node);
-        bs.erase(node);
-        ans = node + ans;
-    }
-    
-    if(!bs.empty())	return "-1";
-    return ans;
-}
-
 int main() {
-    sll(t);
-    rep(c, 1, t+1) {
-        string ans = solve();
-        cout << "Case #" << c << ": " << ans << endl;
-    }
+	sll(t);
+	rep(_, 0, t) {
+		sll(n);
+		LL arr[n];
+		rep(i, 0, n)	arr[i] = scanLong();
+		sort(arr, arr+n);
+		LL odds = 0, evens = 0;
+		bool diff_one = false;
+		rep(i, 0, n) {
+			if(arr[i] % 2 == 0)	evens++;
+			else	odds++;
+			if(i > 0 &&  arr[i] - arr[i-1] == 1)	diff_one = true;
+		}
+		if(odds % 2 == 0 && evens % 2 == 0)	puts("YES");
+		else if(odds % 2 == 1 && evens % 2 == 1 && diff_one)	puts("YES");
+		else	puts("NO");
+	}
 }
