@@ -58,48 +58,7 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-void solve() {
-	sll(n); sll(k);
-	string s; cin >> s;
-	LL ones[k]; clr(ones);
-	rep(i, 0, n)	if(s[i] == '1')	ones[i%k]++;
-	LL total = accumulate(ones, ones+k, 0ll);
-	LL ans = LONG_MAX;
-	rep(i, 0, k) {
-		VLL arr;
-		for(LL j = i; j < n; j += k) {
-			arr.push_back((s[j] == '1' ? 1 : -1));
-		}
-
-		LL curr_max = 0, maxm = 0;
-		LL s = 0, start = 0, end = -1;
-		rep(j, 0, (LL)arr.size()) {
-			curr_max += arr[j];
-			if(maxm < curr_max) {
-				maxm = curr_max;
-				start = s; end = j;
-			}
-			if(curr_max < 0) {
-				curr_max = 0;
-				s = j+1;
-			}
-		}
-
-		LL changes = total - ones[i];
-		rep(j, 0, (LL)arr.size()) {
-			if(j >= start && j <= end) {
-				if(arr[j] == -1)	changes++;
-			}
-			else {
-				if(arr[j] == 1)	changes++;
-			}
-		}
-		ans = min(ans, changes);
-	}
-	pll(ans); nl;
-}
-
 int main() {
-	sll(t);
-	rep(_, 0, t)	solve();
+	sll(a); sll(b);
+	pll(a*b); nl;
 }

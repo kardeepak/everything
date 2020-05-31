@@ -59,47 +59,53 @@ inline LL scanLong() {
 }
 
 void solve() {
-	sll(n); sll(k);
-	string s; cin >> s;
-	LL ones[k]; clr(ones);
-	rep(i, 0, n)	if(s[i] == '1')	ones[i%k]++;
-	LL total = accumulate(ones, ones+k, 0ll);
-	LL ans = LONG_MAX;
-	rep(i, 0, k) {
-		VLL arr;
-		for(LL j = i; j < n; j += k) {
-			arr.push_back((s[j] == '1' ? 1 : -1));
+	sll(n); sll(m);
+	LL matrix[n][m];
+	rep(i, 0, n) {
+		rep(j, 0, m)	matrix[i][j] = scanLong();
+	}
+	LL ans = -1;
+ 	rep(i, 0, n) {
+		rep(j, 0, m) {
+			LL dp[n][m]; clr(dp);
+			LL base = matrix[i][j] - i - j;
+			rep(r, 0, n) {
+				rep(c, 0, m) {
+					LL cost = matrix[r][c] - base - r - c;
+					if(cost < 0)	dp[r][c] = -1;
+					else if(r == 0 && c == 0)	dp[r][c] = cost;
+					else if(r == 0) {
+						if(dp[r][c-1] == -1)	dp[r][c] = -1;
+						else	dp[r][c] = dp[r][c-1] + cost;
+					}
+					else if(c == 0) {
+						if(dp[r-1][c] == -1)	dp[r][c] = -1;
+						else	dp[r][c] = dp[r-1][c] + cost;
+					}
+					else {
+						if(dp[r-1][c] == -1 && dp[r][c-1] == -1)
+							dp[r][c] = -1;
+						else if(dp[r-1][c] == -1)
+							dp[r][c] = dp[r][c-1] + cost;
+						else if(dp[r][c-1] == -1)
+							dp[r][c] = dp[r-1][c] + cost;
+						else
+							dp[r][c] = min(dp[r-1][c], dp[r][c-1]) + cost;
+					} 
+				}
+			}
+			if(dp[n-1][m-1] != -1) {
+				if(ans == -1)	ans = dp[n-1][m-1];
+				else			ans = min(ans, dp[n-1][m-1]);
+			}
 		}
-
-		LL curr_max = 0, maxm = 0;
-		LL s = 0, start = 0, end = -1;
-		rep(j, 0, (LL)arr.size()) {
-			curr_max += arr[j];
-			if(maxm < curr_max) {
-				maxm = curr_max;
-				start = s; end = j;
-			}
-			if(curr_max < 0) {
-				curr_max = 0;
-				s = j+1;
-			}
-		}
-
-		LL changes = total - ones[i];
-		rep(j, 0, (LL)arr.size()) {
-			if(j >= start && j <= end) {
-				if(arr[j] == -1)	changes++;
-			}
-			else {
-				if(arr[j] == 1)	changes++;
-			}
-		}
-		ans = min(ans, changes);
 	}
 	pll(ans); nl;
 }
 
 int main() {
 	sll(t);
-	rep(_, 0, t)	solve();
+	rep(_, 0, t) {
+		solve();
+	}
 }

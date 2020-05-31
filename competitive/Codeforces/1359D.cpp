@@ -58,48 +58,66 @@ inline LL scanLong() {
 	return n*sign;
 }
 
-void solve() {
-	sll(n); sll(k);
-	string s; cin >> s;
-	LL ones[k]; clr(ones);
-	rep(i, 0, n)	if(s[i] == '1')	ones[i%k]++;
-	LL total = accumulate(ones, ones+k, 0ll);
-	LL ans = LONG_MAX;
-	rep(i, 0, k) {
-		VLL arr;
-		for(LL j = i; j < n; j += k) {
-			arr.push_back((s[j] == '1' ? 1 : -1));
-		}
+int main() {
 
-		LL curr_max = 0, maxm = 0;
-		LL s = 0, start = 0, end = -1;
-		rep(j, 0, (LL)arr.size()) {
-			curr_max += arr[j];
-			if(maxm < curr_max) {
-				maxm = curr_max;
-				start = s; end = j;
-			}
-			if(curr_max < 0) {
-				curr_max = 0;
-				s = j+1;
-			}
-		}
+	sll(n);
+	LL arr[n], ls[n], rs[n], prefix[n+1]; clr(prefix);
+	LL lgn = ceil(log2(n+1));
+	LL maxarr[n+1][lgn], minarr[n+1][lgn];
 
-		LL changes = total - ones[i];
-		rep(j, 0, (LL)arr.size()) {
-			if(j >= start && j <= end) {
-				if(arr[j] == -1)	changes++;
-			}
+	rep(i, 0, n) {
+		arr[i] = scanLong();
+		prefix[i+1] = arr[i] + prefix[i];
+	}
+
+	rep(p, 0, lgn) {
+		rep(i, 0, n+1) {
+			if(p == 0)	maxarr[i][p] = minarr[i][p] = prefix[i];
 			else {
-				if(arr[j] == 1)	changes++;
+				LL j = (i+(1ll<<(p-1)));
+				maxarr[i][p] = max(maxarr[i][p-1], maxarr[j][p-1]);
+				minarr[i][p] = min(minarr[i][p-1], minarr[j][p-1]);
 			}
 		}
-		ans = min(ans, changes);
+	}
+	rep(i, 0, n) {
+		LL j = i-1;
+		while(j >= 0 && arr[j] <= arr[i])	j -= ls[j];
+		ls[i] = i-j;
+	}
+	rep(i, n, 0) {
+		LL j = i+1;
+		while(j < n && arr[j] <= arr[i])	j += rs[j];
+		rs[i] = j-i;
+	}
+	
+	LL ans = 0;
+	rep(i, 0, n) {
+		LL l = i - ls[i] + 1;
+		LL r = i + rs[i] - 1;
+		// range : max(l-1,0) to max(i-2, 0)
+		LL lsum = 0;
+		if(l == i)	lsum = 0;
+		else {
+			LL rl = l, rr = i-2;
+			LL p = 0;
+			while((1ll<<p) < (rr-rl+1))	p++; p--;
+			LL minval = min(minarr[rl][p], minarr[rr - (1ll<<p)][p]);
+			if(rl == rr)	minval = prefix[rl];
+			lsum = prefix[i] - minval;
+		}
+
+		LL rsum = 0;
+		if(r == i)	rsum = 0;
+		else {
+			LL rl = i+1, rr = r+1;
+			LL p = 0;
+			while((1ll<<p) < (rr-rl+1))	p++; p--;
+			LL maxval = max(maxarr[rl][p], maxarr[rr-(1ll<<p)][p]);
+			if(rr == rl)	maxval = prefix[rl];
+			rsum = maxval - prefix[i+1];
+		}
+		ans = max(ans, lsum + rsum);
 	}
 	pll(ans); nl;
-}
-
-int main() {
-	sll(t);
-	rep(_, 0, t)	solve();
 }

@@ -60,43 +60,28 @@ inline LL scanLong() {
 
 void solve() {
 	sll(n); sll(k);
-	string s; cin >> s;
-	LL ones[k]; clr(ones);
-	rep(i, 0, n)	if(s[i] == '1')	ones[i%k]++;
-	LL total = accumulate(ones, ones+k, 0ll);
-	LL ans = LONG_MAX;
-	rep(i, 0, k) {
-		VLL arr;
-		for(LL j = i; j < n; j += k) {
-			arr.push_back((s[j] == '1' ? 1 : -1));
-		}
+	LL arr[n+1];
+	rep(i, 1, n+1)	arr[i] = scanLong();
+	LL cnt[2*k+1]; clr(cnt);
+	rep(i, 1, (n/2)+1) {
+		LL sum = arr[i] + arr[n-i+1];
+		cnt[sum]++;
+	}
+	LL pref[2*k+1]; clr(pref);
+	rep(i, 1, (n/2)+1) {
+		LL low = min(arr[i], arr[n-i+1])+1;
+		LL high = max(arr[i], arr[n-i+1])+k;
+		pref[low]++; 
+		if(high < 2*k)	pref[high+1]--;
+	}
+	rep(i, 1, 2*k+1)	pref[i] += pref[i-1];
 
-		LL curr_max = 0, maxm = 0;
-		LL s = 0, start = 0, end = -1;
-		rep(j, 0, (LL)arr.size()) {
-			curr_max += arr[j];
-			if(maxm < curr_max) {
-				maxm = curr_max;
-				start = s; end = j;
-			}
-			if(curr_max < 0) {
-				curr_max = 0;
-				s = j+1;
-			}
-		}
-
-		LL changes = total - ones[i];
-		rep(j, 0, (LL)arr.size()) {
-			if(j >= start && j <= end) {
-				if(arr[j] == -1)	changes++;
-			}
-			else {
-				if(arr[j] == 1)	changes++;
-			}
-		}
+	LL ans = n/2;
+	rep(x, 2, 2*k+1) {
+		LL changes = (pref[x] - cnt[x]) + 2 * ((n/2) - pref[x]);
 		ans = min(ans, changes);
 	}
-	pll(ans); nl;
+	pll(ans); nl;	
 }
 
 int main() {
