@@ -21,7 +21,6 @@ $$(u+v)(x) = u(x) + v(x); \quad (uv)(x) = u(x)v(x)$$
 \subsection{Proof of $(u+v)' = u'+v'$. (General)}
 
 Start by using the definition of derivative.
-
 \begin{equation*}
 \begin{split}
 	(u+v)'(x)	& = \lim_{\Delta x \to 0} \frac{(u+v)(x+\Delta x) - (u+v)(x)}{\Delta x} \\
@@ -36,7 +35,6 @@ Follow the same procedure to prove $(cu)' = cu'$.
 \subsection{Derivatives of $\sin x$ and $\cos x$. (Specific)}
 
 Last time, we computed.
-
 \begin{equation*}
 \begin{split}
 	\diff{}{x} (\sin x) |_{\substack{x=0}} & = 
@@ -48,13 +46,12 @@ Last time, we computed.
 \end{split}
 \end{equation*}
 
-So we know the value of $\diff{}{x} \sin x$ and $\diff{}{x} \cos x$ at $x = 0$. Let us find for arbitary $x$.
+So we know the value of $\diff{}{x} \sin x$ and $\diff{}{x} \cos x$ at $x = 0$. Let us find for arbitary $x$. 
 $$\diff{}{x} \sin x = \lim_{\Delta x \to 0} \frac{\sin(x+\Delta x) - \sin(x)}{\Delta x}$$
 
 Recall : $$\sin(a+b) = \sin(a)\cos(b) + \cos(a)\sin(b)$$
 
 So,
-
 \begin{equation*}
 \begin{split}
 	\diff{}{x} \sin x 
@@ -79,8 +76,8 @@ $$(uv)' = \lim_{\Delta x \to 0} \frac{(uv)(x+\Delta x) - (uv)(x)}{\Delta x}
 		= \lim_{\Delta x \to 0} \frac{u(x+\Delta x)v(x+\Delta x) - u(x)v(x)}{\Delta x}$$
 
 Now obviously, $$u(x+\Delta x)v(x) - u(x+\Delta x)v(x) = 0$$
-so adding that to the numerator won't change anyhting.
 
+So adding that to the numerator won't change anyhting.
 $$
 (uv)' = \lim_{\Delta x \to 0} 
 	\frac{
@@ -109,25 +106,74 @@ Note: we also used the fact that $$ \lim_{\Delta x \to 0} u(x+\Delta x) = u(x) \
 
 This proof of product rule implies that both $u$ and $v$ have derivatives, which implies both functions are continuous.
 
-\pagebreak
-
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.7]{./images/lecture_3_figure_1.png}
+	\includegraphics[scale=0.4]{./images/lecture_3_figure_1.png}
 	\caption{A graphical ``proof'' of product rule.}    
 \end{figure}
 
 \subsubsection*{An intuitive justification:}
+
+Define $\Delta u$, the change in $u$, by $$\Delta u = u(x+\Delta x) - u(x)$$
 
 We want to find out the change in area of the rectangle. As we can see, 
 
 $$\Delta(uv) = (\Delta u)v + u(\Delta v) + (\Delta u)(\Delta v)$$
 
 If $\Delta u$ and $\Delta v$ are small then $(\Delta u)(\Delta v) \approx 0$, so we can ignore this area.
-
 $$\Delta(uv) = (\Delta u)v + u(\Delta v)$$
 
 Dividing by $\Delta x$ and taking the limit, we get
-
 $$(uv)' = u'v + uv'$$
 
+\subsection{Quotient Rule (General)}
+
+To calculate the derivative of $u/v$, we use the notations $\Delta u$ and $\Delta v$ above.
+\begin{equation*}
+\begin{split}
+	\frac{u(x+\Delta x)}{v(x+\Delta x)} - \frac{u(x)}{v(x)}
+		& = \frac{u + \Delta u}{v + \Delta v} - \frac{u}{v} \\
+		& = \frac{(u+\Delta u)v - u(v+\Delta v)}{v(v+\Delta v)} \\
+		& = \frac{(\Delta u)v - u(\Delta v)}{v(v+\Delta v)}
+\end{split}
+\end{equation*}
+
+Hence,
+$$
+\frac{1}{\Delta x} \left( \frac{(\Delta u)v - u(\Delta v)}{v(v+\Delta v)} \right)
+	= \frac{(\frac{\Delta u}{\Delta x})v - u(\frac{\Delta v}{\Delta x})}{v(v+\Delta v)}
+	\to \frac{v\diff{u}{x} - u\diff{v}{x}}{v^2} \text{ as } \Delta x \to 0
+$$
+
+Therefore, 
+$$(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$$
+
+
+
+\subsection{Power Rule : Derivative of $x^n$ where $n = 1,2,3...$ (Specific)}
+
+What is $\diff{}{x} x^n$?
+
+$$ \diff{}{x} x^n = \lim_{\Delta x \to 0} \frac{(x+\Delta x)^n - x^n}{\Delta x} $$
+
+Since, $$ (x+\Delta x)^n = (x+\Delta x)(x+\Delta x)...(x+\Delta x) \text{ ($n$ times) } $$
+
+We can rewrite this as $$ x^n + n(\Delta x)x^{n-1} + O((\Delta x)^2) $$
+
+So, $$ \diff{}{x} x^n = \lim_{\Delta x \to 0} \frac{x^n + n(\Delta x)x^{n-1} + O((\Delta x)^2) - x^n}{\Delta x} = \lim_{\Delta x \to 0} nx^{n-1} + O(\Delta x) $$
+
+Therefore, $$ \boxed{ \diff{}{x} x^n = nx^{n-1} } $$
+
+This result extends to polynomials. For example, $$ \diff{}{x}(x^2+3x^10) = 2x + 30x^9 $$
+
+\subsection{Derivative of $\frac{1}{x}$}
+Taking the limit
+\begin{equation*}
+\begin{split}
+	\diff{}{x} \frac{1}{x} 
+		& = \lim_{\Delta x \to 0} \frac{1}{\Delta x} \left( \frac{1}{x+\Delta x} - \frac{1}{x} \right) \\
+		& = \lim_{\Delta x \to 0} \frac{1}{\Delta x} \left( \frac{x - (x+\Delta x)}{x(x+\Delta x)} \right) \\
+		& = \lim_{\Delta x \to 0} \frac{-1}{x(x+\Delta x)} \\
+	\diff{}{x} \frac{1}{x} & = \frac{-1}{x^2}
+\end{split}
+\end{equation*}
