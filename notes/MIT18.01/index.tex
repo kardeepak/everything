@@ -19,7 +19,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass{article}
+\documentclass{report}
 
 \input{structure.tex} % Include the file specifying the document structure and custom commands
 
@@ -40,6 +40,8 @@
 \begin{titlingpage}
 \maketitle % Print the title
 \end{titlingpage}
+
+\tableofcontents
 
 \foreach \i in {1, 2, ..., 10} {
     \include{lectures/lecture_\i}
