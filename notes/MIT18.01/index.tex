@@ -41,8 +41,8 @@
 \maketitle % Print the title
 \end{titlingpage}
 
-\include{lectures/lecture_1}
-\include{lectures/lecture_2}
-\include{lectures/lecture_3}
+\foreach \i in {1, 2, ..., 10} {
+    \include{lectures/lecture_\i}
+}
 
 \end{document}

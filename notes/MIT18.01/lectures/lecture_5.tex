@@ -1,0 +1,33 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 5
+%----------------------------------------------------------------------------------------
+
+\section*{\centering Implicit Differentiation}
+
+\bigbreak
+\section{Implicit Differentiation}
+
+$$ \diff{}{x} x^a = ax^{a-1} $$
+
+We proved the above for $a = 0, 1, 2\ldots$ explicitly.
+From this, we also got the formula for $a = -1, -2\ldots$
+Let us try to extend this formula to cover rational numbers, as well:
+$ a = \frac{m}{n}; y = x^{\frac{m}{n}}$ where $m$ and $n$ are integers.
+
+We want to compute $\diff{y}{x}$. 
+We can say $y^n = x^m$ so $ny^{n-1}\diff{y}{x} = mx^{m-1}$.
+Solve for $\diff{y}{x}$ :
+$$ \diff{y}{x} = \frac{m}{n} \frac{x^{m-1}}{y^{n-1}} $$
+Substituting $y = x^{\frac{m}{n}}$,
+\begin{equation*}
+\begin{split}
+	\diff{y}{x} & = \frac{m}{n} \left( \frac{x^{m-1}}{y^{n-1}} \right) \\
+		& = \frac{m}{n} \left( \frac{x^{m-1}}{(x^{m/n})^{n-1}} \right) \\
+		& = \frac{m}{n} \left( \frac{x^{m-1}}{x^{m-m/n}} \right) \\
+		& = \frac{m}{n} \left( x^{m - 1 - m + m/n} \right) \\
+\text{So, } \quad \diff{y}{x} & = \frac{m}{n} x^{\frac{m}{n} - 1} \\
+\end{split}
+\end{equation*}
+
+This is the same answer we were hoping to get.
