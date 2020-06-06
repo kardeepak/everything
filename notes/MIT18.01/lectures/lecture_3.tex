@@ -11,7 +11,7 @@
 There are two kinds of derivative formulas:
 
 \begin{enumerate}
-\item Specific Examples: $\diff{}{x} x^n$ or $\diff{}{x} \left( \frac{1}{x} \right) $
+\item Specific Examples: \ilds{ \diff{}{x} x^n } or \ilds{ \diff{}{x} \left( \frac{1}{x} \right) }
 \item General Examples: $(u+v)' = u' + v'$ and $(cu)' = cu'$ (where $c$ is constant)
 \end{enumerate}
 
@@ -21,47 +21,44 @@ $$(u+v)(x) = u(x) + v(x); \quad (uv)(x) = u(x)v(x)$$
 \subsection{Proof of $(u+v)' = u'+v'$. (General)}
 
 Start by using the definition of derivative.
-\begin{equation*}
-\begin{split}
+\begin{align*}
 	(u+v)'(x)	& = \lim_{\Delta x \to 0} \frac{(u+v)(x+\Delta x) - (u+v)(x)}{\Delta x} \\
 				& = \lim_{\Delta x \to 0} \frac{u(x+\Delta x)+v(x+\Delta x) - u(x) - v(x)}{\Delta x} \\
 				& = \lim_{\Delta x \to 0} \left\{ \frac{u(x+\Delta x) - u(x)}{\Delta x} + \frac{v(x+\Delta x) - v(x)}{\Delta x} \right\} \\
 	(u+v)'(x)	& = u'(x) + v'(x)
-\end{split}
-\end{equation*}
+\end{align*}
 
 Follow the same procedure to prove $(cu)' = cu'$.
 
 \subsection{Derivatives of $\sin x$ and $\cos x$. (Specific)}
 
 Last time, we computed.
-\begin{equation*}
-\begin{split}
-	\diff{}{x} (\sin x) |_{\substack{x=0}} & = 
-		\lim_{\Delta x \to 0} \frac{\sin(0 + \Delta x) - \sin(0) }{\Delta x} = 
-		\lim_{\Delta x \to 0} \frac{\sin(\Delta x)}{\Delta x} = 1 \\
-	\diff{}{x} (\cos x) |_{\substack{x=0}} & = 
-        \lim_{\Delta x \to 0} \frac{\cos(0 + \Delta x) - \cos(0) }{\Delta x} = 
-        \lim_{\Delta x \to 0} \frac{\cos(\Delta x)-1}{\Delta x} = 0 \\
-\end{split}
-\end{equation*}
+\[
+	\diff{}{x} (\sin x) |_{\substack{x=0}}
+		= \lim_{\Delta x \to 0} \frac{\sin(0 + \Delta x) - \sin(0) }{\Delta x}
+		= \lim_{\Delta x \to 0} \frac{\sin(\Delta x)}{\Delta x} = 1
+\]
+\[
+	\diff{}{x} (\cos x) |_{\substack{x=0}}
+        = \lim_{\Delta x \to 0} \frac{\cos(0 + \Delta x) - \cos(0) }{\Delta x}
+		= \lim_{\Delta x \to 0} \frac{\cos(\Delta x)-1}{\Delta x} = 0
+\]
 
-So we know the value of $\diff{}{x} \sin x$ and $\diff{}{x} \cos x$ at $x = 0$. Let us find for arbitary $x$. 
+
+So we know the value of \ilds{ \diff{}{x} \sin x } and \ilds{ \diff{}{x} \cos x } at $x = 0$. Let us find for arbitary $x$. 
 $$\diff{}{x} \sin x = \lim_{\Delta x \to 0} \frac{\sin(x+\Delta x) - \sin(x)}{\Delta x}$$
 
-Recall : $$\sin(a+b) = \sin(a)\cos(b) + \cos(a)\sin(b)$$
+Recall : $\sin(a+b) = \sin(a)\cos(b) + \cos(a)\sin(b)$
 
 So,
-\begin{equation*}
-\begin{split}
+\begin{align*}
 	\diff{}{x} \sin x 
 		& = \lim_{\Delta x \to 0} \frac{\sin x \cos \Delta x + \cos x \sin \Delta x - \sin x}{\Delta x} \\
 		& = \lim_{\Delta x \to 0} \left[ \frac{\sin x (\cos \Delta x - 1)}{\Delta x} \frac{\cos x \sin \Delta x}{\Delta x} \right] \\
 		& = \lim_{\Delta x \to 0} \sin x \left( \frac{\cos \Delta x - 1}{\Delta x} \right) + \lim_{\Delta x \to 0} \cos x \left( \frac{\sin \Delta x}{\Delta x} \right)
-\end{split}
-\end{equation*}
+\end{align*}
 
-Since $\frac{\cos \Delta x - 1}{\Delta x} \to 0$ and that $\frac{\sin \Delta x}{\Delta x} \to 1$, the above equation simplifies to $$\diff{}{x} \sin x = \cos x$$
+Since \ilds{ \frac{\cos \Delta x - 1}{\Delta x} \to 0 } and that \ilds{ \frac{\sin \Delta x}{\Delta x} \to 1 }, the above equation simplifies to $$\diff{}{x} \sin x = \cos x$$
 
 A similar calculation gives
 $$\diff{}{x} \cos x = - \sin x$$
@@ -129,14 +126,13 @@ $$(uv)' = u'v + uv'$$
 \subsection{Quotient Rule (General)}
 
 To calculate the derivative of $u/v$, we use the notations $\Delta u$ and $\Delta v$ above.
-\begin{equation*}
-\begin{split}
+
+\begin{align*}
 	\frac{u(x+\Delta x)}{v(x+\Delta x)} - \frac{u(x)}{v(x)}
 		& = \frac{u + \Delta u}{v + \Delta v} - \frac{u}{v} \\
 		& = \frac{(u+\Delta u)v - u(v+\Delta v)}{v(v+\Delta v)} \\
 		& = \frac{(\Delta u)v - u(\Delta v)}{v(v+\Delta v)}
-\end{split}
-\end{equation*}
+\end{align*}
 
 Hence,
 $$
@@ -146,13 +142,13 @@ $$
 $$
 
 Therefore, 
-$$(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$$
+$$\left( \frac{u}{v} \right)' = \frac{u'v - uv'}{v^2}$$
 
 
 
 \subsection{Power Rule : Derivative of $x^n$ where $n = 1,2,3\ldots$ (Specific)}
 
-What is $\diff{}{x} x^n$?
+What is $\displaystyle{ \diff{}{x} x^n }$?
 
 $$ \diff{}{x} x^n = \lim_{\Delta x \to 0} \frac{(x+\Delta x)^n - x^n}{\Delta x} $$
 
@@ -166,14 +162,12 @@ Therefore, $$ \boxed{ \diff{}{x} x^n = nx^{n-1} } $$
 
 This result extends to polynomials. For example, $$ \diff{}{x}(x^2+3x^10) = 2x + 30x^9 $$
 
-\subsection{Derivative of $\frac{1}{x}$}
+\subsection{Derivative of \ilds{ \frac{1}{x} }}
 Taking the limit
-\begin{equation*}
-\begin{split}
+\begin{align*}
 	\diff{}{x} \frac{1}{x} 
 		& = \lim_{\Delta x \to 0} \frac{1}{\Delta x} \left( \frac{1}{x+\Delta x} - \frac{1}{x} \right) \\
 		& = \lim_{\Delta x \to 0} \frac{1}{\Delta x} \left( \frac{x - (x+\Delta x)}{x(x+\Delta x)} \right) \\
 		& = \lim_{\Delta x \to 0} \frac{-1}{x(x+\Delta x)} \\
 	\diff{}{x} \frac{1}{x} & = \frac{-1}{x^2}
-\end{split}
-\end{equation*}
+\end{align*}

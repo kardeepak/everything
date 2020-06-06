@@ -39,11 +39,11 @@ $$ \boxed{
 \subsection{Basic Quadratic Approximation}
 
 \begin{enumerate}
-	\item $\sin x	\approx x$ (If $x \approx 0$)
-	\item $\cos x	\approx 1 - \frac{x^2}{2}$ (If $x \approx 0$)
-	\item $e ^ x	\approx 1 + x + \frac{x^2}{2}$ (If $x \approx 0$)
-	\item $\ln(1+x)	\approx x - \frac{x^2}{2}$ (If $x \approx 0$)
-	\item $(1+x)^r	\approx 1 + rx + \frac{r(r-1)}{2} x^2$
+	\item \ilds{ \sin x	\approx x } (If $x \approx 0$)
+	\item \ilds{ \cos x	\approx 1 - \frac{x^2}{2} } (If $x \approx 0$)
+	\item \ilds{ e ^ x	\approx 1 + x + \frac{x^2}{2} } (If $x \approx 0$)
+	\item \ilds{ \ln(1+x)	\approx x - \frac{x^2}{2} } (If $x \approx 0$)
+	\item \ilds{ (1+x)^r	\approx 1 + rx + \frac{r(r-1)}{2} x^2 } (If $x \approx 0$)
 \end{enumerate}
 
 
@@ -52,24 +52,24 @@ $$ \boxed{
 Here, we will show the proofs for quadratic approximations. 
 For linear approximation, you can drop the quadratic term.
 
-\textbf{Proof of 1} : Take $ f(x) = \sin x \Rightarrow f'(x) = \cos x \Rightarrow f''(x) = - \sin x $. 
+{\bf Proof of 1} : Take $ f(x) = \sin x \Rightarrow f'(x) = \cos x \Rightarrow f''(x) = - \sin x $. 
 Now $f(0) = 0$, $f'(0) = 1$ and $f''(0) = 0$. 
 So, $ \sin x \approx 0 + 1 \cdot x + 0 \cdot x^2 = x $
 
-\textbf{Proof of 2} : Take $ f(x) = \cos x \Rightarrow f'(x) = -\sin x \Rightarrow f''(x) = - \cos x $. 
+{\bf Proof of 2} : Take $ f(x) = \cos x \Rightarrow f'(x) = -\sin x \Rightarrow f''(x) = - \cos x $. 
 Now $f(0) = 1$, $f'(0) = 0$ and $f''(0) = -1$. 
-So, $ \cos x \approx 1 + 0 \cdot x + \frac{-1}{2} \cdot x^2 = 1 - \frac{x^2}{2} $
+So, \ilds{ \cos x \approx 1 + 0 \cdot x + \frac{-1}{2} \cdot x^2 = 1 - \frac{x^2}{2} } 
 
-\textbf{Proof of 3} : Take $ f(x) = e^x \Rightarrow f'(x) = e^x \Rightarrow f''(x) = e^x $. 
+{\bf Proof of 3} : Take $ f(x) = e^x \Rightarrow f'(x) = e^x \Rightarrow f''(x) = e^x $. 
 Now $f(0) = 1$, $f'(0) = 1$ and $f''(0) = 1$. 
-So, $ e^x \approx 1 + 1 \cdot x + \frac{1}{2} \cdot x^2 = 1 + x + \frac{x^2}{2} $
+So, \ilds{ e^x \approx 1 + 1 \cdot x + \frac{1}{2} \cdot x^2 = 1 + x + \frac{x^2}{2} } 
 
-\textbf{Proof of 4} : Take $ f(x) = \ln(1+x) \Rightarrow f'(x) = \frac{1}{1+x} \Rightarrow f''(x) = \frac{-1}{(1+x)^2} $. 
+{\bf Proof of 4} : Take $ f(x) = \ln(1+x) \Rightarrow f'(x) = \frac{1}{1+x} \Rightarrow f''(x) = \frac{-1}{(1+x)^2} $. 
 Now $f(0) = 0$, $f'(0) = 1$ and $f''(0) = -1$. 
-So, $ \ln(1+x) \approx 0 + 1 \cdot x + \frac{-1}{2} \cdot x^2 = 1 + x - \frac{x^2}{2} $
+So, \ilds{ \ln(1+x) \approx 0 + 1 \cdot x + \frac{-1}{2} \cdot x^2 = 1 + x - \frac{x^2}{2} } 
 
-\textbf{Proof of 5} : Take $ f(x) = (1+x)^r \Rightarrow f'(x) = r(1+x)^{r-1} \Rightarrow f''(x) = r(r-1)(1+x)^{r-2} $. 
+{\bf Proof of 5} : Take $ f(x) = (1+x)^r \Rightarrow f'(x) = r(1+x)^{r-1} \Rightarrow f''(x) = r(r-1)(1+x)^{r-2} $. 
 Now $f(0) = 1$, $f'(0) = r$ and $f''(0) = r(r-1)$. 
-So, $ (1+x)^r \approx 1 + r \cdot x + \frac{r(r-1)}{2} \cdot x^2 = x $
+So, \ilds{ (1+x)^r \approx 1 + r \cdot x + \frac{r(r-1)}{2} \cdot x^2 = x }
 
 

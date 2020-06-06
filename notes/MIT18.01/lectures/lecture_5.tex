@@ -6,34 +6,33 @@
 \chapter{Implicit Differentiation}
 
 \bigbreak
-\section{Implicit Differentiation}
+\section{Extending Power Rule to Rational Numbers}
 
 $$ \diff{}{x} x^a = ax^{a-1} $$
 
 We proved the above for $a = 0, 1, 2\ldots$ explicitly.
 From this, we also got the formula for $a = -1, -2\ldots$
 Let us try to extend this formula to cover rational numbers, as well:
-$ a = \frac{m}{n}; y = x^{\frac{m}{n}}$ where $m$ and $n$ are integers.
+\ilds{ a = \frac{m}{n}; y = x^{\frac{m}{n}} } where $m$ and $n$ are integers.
 
-We want to compute $\diff{y}{x}$. 
-We can say $y^n = x^m$ so $ny^{n-1}\diff{y}{x} = mx^{m-1}$.
-Solve for $\diff{y}{x}$ :
+
+We want to compute \ilds{ \diff{y}{x} }. 
+We can say $y^n = x^m$ so \ilds{ ny^{n-1}\diff{y}{x} = mx^{m-1} }.
+Solve for \ilds{ \diff{y}{x} } :
 $$ \diff{y}{x} = \frac{m}{n} \frac{x^{m-1}}{y^{n-1}} $$
-Substituting $y = x^{\frac{m}{n}}$,
-\begin{equation*}
-\begin{split}
+Substituting \ilds{ y = x^{\frac{m}{n}} },
+\begin{align*}
 	\diff{y}{x} & = \frac{m}{n} \left( \frac{x^{m-1}}{y^{n-1}} \right) \\
 		& = \frac{m}{n} \left( \frac{x^{m-1}}{(x^{m/n})^{n-1}} \right) \\
 		& = \frac{m}{n} \left( \frac{x^{m-1}}{x^{m-m/n}} \right) \\
 		& = \frac{m}{n} \left( x^{m - 1 - m + m/n} \right) \\
 \text{So, } \quad \diff{y}{x} & = \frac{m}{n} x^{\frac{m}{n} - 1} \\
-\end{split}
-\end{equation*}
+\end{align*}
 
 This is the same answer we were hoping to get. 
 Thus, we have extended the Power Rule to rational numbers.
 
-\subsubsection*{Example 1. $y^3+x^2y+2 = 0$. Find $\diff{y}{x}$}
+\subsubsection*{Example 1. $y^3+x^2y+2 = 0$. Find \ilds{ \diff{y}{x} }}
 
 Here, we can differentiate on both sides to get 
 $$ 3y^2\diff{y}{x} + 2xy + x^2\diff{y}{x} = 0 $$

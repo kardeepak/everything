@@ -30,7 +30,7 @@ Here is a geometric proof of the first limit :
 \end{figure}
 
 Imagine what happens to the picture as $\theta$ gets very small.
-As $\theta \to 0$, we see that $\frac{\sin \theta}{\theta} \to 1$.
+As $\theta \to 0$, we see that \ilds{ \frac{\sin \theta}{\theta} \to 1 }.
 
 \pagebreak
 
@@ -44,7 +44,7 @@ What about the second limit involving cosine?
 
 
 From above figure, we can see that as $\theta \to 0$, the length of $1-\cos \theta$ of the short segment gets much smaller than the vertical distance $\theta$ along the arc.
-Hence, $\frac{1-\cos \theta}{\theta} \to 0$ 
+Hence, \ilds{ \frac{1-\cos \theta}{\theta} \to 0 } 
 
 
 \begin{figure}[ht!]
@@ -56,9 +56,9 @@ Hence, $\frac{1-\cos \theta}{\theta} \to 0$
 \subsection*{Theorem : Differentiable Implies Continuous}
 If $f$ is differentiable at $x_0$, then $f$ is continuous at $x_0$.
 
-\subsubsection*{Proof:} 
 
-\begin{equation*}
-\lim_{x \to x_0} \left( f(x) - f(x_0) \right)
+{\bf Proof:} 
+$$
+	\lim_{x \to x_0} \left( f(x) - f(x_0) \right)
 	= \lim_{x \to x_0} \left[ \frac{f(x) - f(x_0)}{x-x_0} \right] (x - x_0) = f`(x-x_0) \cdot 0 = 0 
-\end{equation*}
+$$

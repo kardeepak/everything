@@ -1,0 +1,41 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 10
+%----------------------------------------------------------------------------------------
+
+\chapter{Differentials And Antiderivatives}
+
+\bigbreak
+
+\section{Differentials}
+
+New notation:
+$$ \boxed{ dy = f'(x)dx } \quad ( y = f(x) ) $$
+
+Both $dy$ and $f'(x)dx$ are called \textit{differentials}. 
+You can think of \ilds{ \diff{y}{x} = f'(x) } as a quotient of differentials.
+One way this is used is for linear approximations.
+$$\frac{\Delta y}{\Delta x} \approx \diff{y}{x} $$
+
+\section{Anti-derivatives}
+\ilds{ F(x) = \int f(x) dx } means that $F$ is the antiderivative of $f$.
+Other ways of saying this are :
+$$ F'(x) = f(x) \quad \text{or,} \quad dF = f(x)dx $$
+
+\subsection*{Examples}
+\begin{enumerate}
+    \item \ilds{ \int \sin x dx = - \cos x + c } where $c$ is any constant.
+    \item \ilds{ \int x^n dx = \frac{x^{n+1}}{n+1} + c } where $n \neq -1$.
+    \item \ilds{ \int \frac{dx}{x} = \ln(|x|) + c } (This takes care of $n = -1$ in 2.)
+    \item \ilds{ \int \sec^2 x dx = \tan x + c }
+    \item \ilds{ \int \frac{dx}{\sqrt{1-x^2}} = \sin^{-1} x + c }
+    \item \ilds{ \int \frac{dx}{1+x^2} = \tan^{-1} x + c }
+\end{enumerate}
+
+
+\subsection*{Uniquness of Anti-Derivative upto a constant}
+If $F'(x) = f(x)$ and $G'(x) = f(x)$, then $G(x) = F(x) + c$ for some constant $c$.
+
+Proof: $$(G-F)' = f - f = 0$$
+Recall that we have corollary in Mean Value Theorem that if the derivative of a function is zero then the function is a constant.
+Hence, $G(x) - F(x) = c$ (for some constant $c$). That is, $G(x) = F(x) +c$.

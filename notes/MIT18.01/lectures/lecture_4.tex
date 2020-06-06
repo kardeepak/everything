@@ -11,46 +11,44 @@
 We've got a general procedure for differentiating expressions with addition, subtraction, multiplication and division.
 What about \underline{composition}?
 
-\subsubsection*{Differentiating composition : $y = f(x) = \sin x , x = g(t) = t^2.$}
+\subsection{Differentiating composition : $y = f(x) = \sin x , x = g(t) = t^2.$}
 
-So, $y = f(g(t)) = \sin t^2$. To find $\diff{y}{t}$, write
+So, $y = f(g(t)) = \sin t^2$. To find \ilds{ \diff{y}{t} }, write
 $$ \frac{\Delta y}{\Delta t} = \frac{\Delta y}{\Delta x} \cdot \frac{\Delta x}{\Delta t} $$
 
 As $\Delta t \to 0, \Delta x \to 0$ too, because of continuity. So we get : 
 $$ \diff{y}{t} = \diff{y}{x} \diff{x}{t} \leftarrow \textbf{The Chain Rule!} $$
 
-In this example, $\diff{x}{t} = 2t$ and $\diff{y}{x} = \cos x$.
-\begin{equation*}
-\begin{split}
+In this example, \ilds{ \diff{x}{t} = 2t } and \ilds{ \diff{y}{x} = \cos x }.
+\begin{align*}
 	\text{So, $\quad$} \diff{}{t} \sin(t^2) 
 		& = (\diff{y}{x})(\diff{x}{t}) \\
 		& = (\cos x)(2t) \\
 		& = (2t)(\cos(x^2)) \\
-\end{split}
-\end{equation*}
+\end{align*}
 
-\subsubsection*{Another Notation for Chain Rule}
+\subsection{Another Notation for Chain Rule}
 
 $$ \diff{}{t}f(g(t)) = f'(g(t))g'(t) $$
 $$ \text{Note : } f \circ g \neq g \circ f $$
 
-\subsubsection*{Extending Power Rule : $\diff{}{x} x^n = nx^{n-1}$ for $n = 0, -1, -2, -3\ldots$}
+\subsection{Extending Power Rule : \ilds{ \diff{}{x} x^n = nx^{n-1} } for $n = 0, -1, -2, -3\ldots$}
 
-There are two ways to proceed. $x^{-n} = \left( \frac{1}{x} \right)^n$, or $x^{-n} = \frac{1}{x^n}$
+There are two ways to proceed. \ilds{ x^{-n} = \left( \frac{1}{x} \right)^n } or \ilds{ x^{-n} = \frac{1}{x^n} }
 
 \begin{enumerate}
-	\item $ \diff{}{x} (x^{-n}) 
+	\item \ilds{ \diff{}{x} (x^{-n}) 
 		= \diff{}{x} \left( \frac{1}{x} \right)^n 
 		= n \left( \frac{1}{x} \right)^{n-1} \left( \frac{-1}{x^2} \right) 
 		= -nx^{-(n-1)}x^{-2}
 		= -nx^{-n-1}
-		$
-	\item $ \diff{}{x} (x^{-n}) 
+	}
+	\item \ilds{ \diff{}{x} (x^{-n}) 
 		= \diff{}{x} \left( \frac{1}{x^n} \right)
 		= nx^{n-1} \left( \frac{-1}{x^{2n}} \right)
 		= -nx^{-n-1}
-		$
-	\item $ \diff{}{x} x^0 = \diff{}{x} 1 = 0 = 0x^{0-1} $
+	}
+	\item \ilds{ \diff{}{x} x^0 = \diff{}{x} 1 = 0 = 0x^{0-1} }
 \end{enumerate}
 
 
