@@ -1,0 +1,51 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 15
+%----------------------------------------------------------------------------------------
+
+\chapter{Integration By Parts, Reduction Forumlae}
+\bigbreak
+
+\section{Integration By Parts}
+
+Remember the product rule : $$(uv)' = u'v = uv'$$
+We can rewrite that as $$uv' = (uv)' - u'v$$
+Integrate this to get the forumula for integrations by parts:
+$$ \int uv' dx = uv - \int u' dx $$
+
+\subsubsection{Example 1. \ilds{ \int \tan^{-1} x dx } }
+
+Let us take $u = tan^{-1}x$ and $v' = x$.
+Therefore, \ilds{ u' = \frac{1}{1+x^2} } and $v = x$.
+So,
+\begin{align*}
+\int \tan^{-1} x dx & = x \tan^{-1} x - \int \frac{1}{1+x^2} (x) dx \\
+    & = x \tan^{-1} x - \frac{1}{2} \ln |1+x^2| + c
+\end{align*}
+
+
+\section{Alternative Approach to Integration by Parts}
+
+As above, the product rule: $$(uv)' = u'v + uv'$$
+can be rewritten as $$uv' = (uv)' - u'v$$
+This time, let's take a {\it definite} integral:
+$$ \int_a^b uv' dx = \int_a^b (uv)' dx - \int_a^b u'v dx $$
+By FTC 1, we can say,
+$$ \int_a^b uv' dx = uv \Big|_a^b - \int_a^b u'v dx $$
+Another notation for indefinite integral is:
+$$ \int u dv = uv - \int v du $$
+
+\subsubsection{Example 2. \ilds{\int \ln x dx}}
+Let $u = \ln x$ and $v' = 1$. So \ilds{u' = \frac{1}{x}} and $v = x$.
+Thus,
+$$ \int \ln x dx = x \ln x - \int x \left( \frac{1}{x} \right) dx = x \ln x - \int dx = x \ln x - x$$
+
+\section{Reduction Formulaes (Recurrence Formulaes)}
+
+\subsubsection{Example 3. \ilds{\int (\ln x)^n dx}}
+
+Let $u = (\ln x)^n$ and $v = x$ so \ilds{u' = \frac{n (\ln x)^{n-1}}{x} }. Thus, 
+\begin{align}
+\int (\ln x)^n dx & = x(\ln x)^n - \int \frac{n (\ln x)^{n-1}}{x} x dx \\
+\int (\ln x)^n dx & = x(\ln x)^n - n \int (\ln x)^{n-1} dx
+\end{align}

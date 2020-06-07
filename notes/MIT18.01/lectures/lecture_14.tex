@@ -1,0 +1,38 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 14
+%----------------------------------------------------------------------------------------
+
+\chapter{Second Fundamental Theorem of Calculus}
+\bigbreak
+
+\section{Second Fundamental Theorem of Calculus (FTC 2)}
+
+\begin{mdframed}
+\begin{center}
+    If \ilds{ F(x) = \int_a^x f(t) dt} and $f$ is continuous, then $F'(x) = f(x)$.
+\end{center}
+\end{mdframed}
+
+{\bf Geometric Proof of FTC 2: } Use the area interpretation: $F(x)$ is the area under the curve between $a$ and $x$.
+
+\begin{align*}
+    \Delta F & = F(x + \Delta x) - F(x) \\
+    \Delta F & \approx (base)(height) \approx (\Delta x)f(x) \\
+    \frac{\Delta F}{\Delta x} & \approx = f(x) \\
+    \text{Hence, } \quad \lim_{\Delta x \to 0} \frac{\Delta F}{\Delta x} & = f(x)
+\end{align*}
+
+But by definition of derivative, $$\lim_{\Delta x \to 0} \frac{\Delta F}{\Delta x} = F'(x)$$
+Therefore, $$F'(x) = f(x)$$
+
+Another way, to prove FTC 2 is as follows : 
+\begin{align*}
+    \frac{\Delta F}{\Delta x} & = \frac{1}{\Delta x} \left[ \int_a^{x+\Delta x} f(t) dt - \int_a^x f(t) dt \right] \\
+        & = \frac{1}{\Delta x} \left[ \int_x^{x+\Delta x} f(t) dt \right] \\
+    F'(x) & = \lim_{\Delta x \to 0} \frac{\Delta F}{\Delta x} \\
+    F'(x) & = \lim_{\Delta x \to 0} \frac{1}{\Delta x} \left[ \int_x^{x+\Delta x} f(t) dt \right] \\
+    F'(x) & = \lim_{\Delta x \to 0} \frac{1}{\Delta x} f(x) \Delta x
+\end{align*}
+
+We can approximate the area to $f(x) \Delta x$ as $\Delta x \to 0$. Thus, $$ F'(x) = f(x) $$

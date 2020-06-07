@@ -4,9 +4,37 @@
 %----------------------------------------------------------------------------------------
 
 \chapter{Differential Equations and Separation of Variables}
-
 \bigbreak
 
 \section{Ordinary Differential Equations (ODEs) }
 
 {\bf Example 1.} \ilds{ \diff{y}{x} = f(x) }
+\bigbreak
+Solution : \ilds{ \int f(x) dx }. We consider these types of equations as solved.
+\bigbreak
+
+
+{\bf Example 2.} \ilds{ \left( \diff{}{x} + x \right) y = 0 }
+\bigbreak
+Solution :
+$$
+    \diff{y}{x} + xy  = 0 \Rightarrow
+    \diff{y}{x} = -xy \Rightarrow
+    \frac{dy}{y} = -xdx
+$$
+$$
+    \int \frac{dy}{y} = \int -xdx \Rightarrow
+    \ln|y| = -\frac{x^2}{2} + c \Rightarrow
+    |y| = e^{-\frac{x^2}{2} + c}
+$$
+$$
+    y = \pm e^c e^{-\frac{x^2}{2}} \Rightarrow
+    y = ae^{-frac{x^2}{2}} \quad (a = \pm e^c)
+$$
+
+
+In general,
+$$
+\diff{y}{x} = f(x)g(y) \Rightarrow
+\frac{dy}{g(y)} = f(x)dx
+$$

@@ -1,0 +1,42 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 13
+%----------------------------------------------------------------------------------------
+
+\chapter{First Fundamental Theorem of Calculus}
+\bigbreak
+
+\section{Fundamental Theorem of Calculus (FTC 1)}
+
+\begin{mdframed}
+\begin{center}
+    If $f(x)$ is continuous and $F'(x) = f(x)$, then \\
+    \ilds{ \int^b_a f(x) = F(b) - F(a) }
+\end{center}
+\end{mdframed}
+
+{\bf Notation: } \ilds{ F(x)\Big|_a^b = F(a)\Big|_{x=a}^{x=b} = F(b) - F(a) }
+\bigbreak
+{\bf Example 1.} \ilds{F(x) = \frac{x^3}{3}, F'(x) = x^2; \int_a^b x^2 dx = \frac{x^3}{3} \Big|_a^b = \frac{b^3}{3} - \frac{a^3}{3} } 
+\bigbreak
+
+Integrals have an additive propery : 
+$$
+    \int_a^b f(x) dx = \int_b^c f(x) dx = \int_a^c f(x) dx
+$$
+
+\underline{New Definition : }
+$$
+    \int_b^a f(x) dx = - \int_a^b f(x) dx
+$$
+
+
+\subsection{Estimation : }
+If $f(x) <= g(x)$, then \ilds{ \int_a^b f(x) dx <= \int_a^b g(x) dx } (only if $a < b$)
+
+\subsection{Change of Variable : }
+If $f(x) = g(u(x))$, then we write, $du = u'(x)dx$ and for indefinite integrals
+$$ \int g(u) du = \int g(u(x)) u'(x) dx = \int f(x)u'(x)dx $$
+
+For definite integrals, ( where $u_1 = u(x_1)$ and $u_2 = u(x_2)$ ) 
+$$ \int_{x_1}^{x_2} f(x)u'(x)dx \int_{u_1}^{u_2} g(u) du $$
