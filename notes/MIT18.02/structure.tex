@@ -237,7 +237,11 @@
 \doublespacing
 \newcommand{\ilds}[1]{$\displaystyle{#1}$}
 \newcommand{\diff}[2]{\frac{d{#1}}{d{#2}}}
-
+\newcommand{\ijk}[3]{#1\hat{i} + #2\hat{j} + #3\hat{k}}
+\renewcommand{\ij}[2]{#1\hat{i} + #2\hat{j}}
+\newcommand{\px}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pxx}[2]{\frac{\partial^2 #1}{\partial #2 ^2}}
+\newcommand{\pxy}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
 
 \usepackage{titlesec}
 \titleformat{\chapter}[display]

@@ -1,0 +1,63 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 6
+%----------------------------------------------------------------------------------------
+
+\chapter{Differentials and Chain Rule}
+
+\bigbreak
+\section{Total Differential}
+
+In single variable calculus, we learned that if $y = f(x)$ then $dy = f'(x)dx$. This is called implicit differentiation.
+This is called total differential because it contains all the values that the function depends on.
+Let $f(x, y, z)$ be a function.
+
+\begin{align*}
+    df  & = f_x dx + f_y dy + f_z dz \\
+        & = \px{f}{x} dx + \px{f}{y} dy + \px{f}{z} dz
+\end{align*}
+
+{\bf Important:} $dx$ is not $\Delta f$. $\Delta f$ is a number.
+A differential can only be represented in the terms of other differentials.
+It encodes how changes $x, y, z$ affect $f$. It can be used to approximate $f$.
+
+We can divide everything that all the variables depend on. 
+Let's say $x, y, z$ depend on some parameter $t$. 
+Then the differential will tells use the rate of change of $f$ with respect to $t$ as you plug in the values of $x, y, z$.
+$$
+\diff{f}{t} = f_x \diff{x}{t} + f_y \diff{y}{t} + f_z \diff{z}{t}
+$$
+
+This is known as {\bf the chain rule}. It is one instance of the chain rule.
+
+{\bf Proof : } By our approximation formula, we have
+\begin{align*}
+\Delta f & \approx f_x \Delta x + f_y \Delta y + f_z \Delta z \\
+\frac{\Delta f}{\Delta t} & \approx  \frac{ f_x \Delta x + f_y \Delta y + f_z \Delta z }{ \Delta t } \\
+\text{Taking the limit} \Delta t \to 0 : \diff{f}{t} & = f_x \diff{x}{t} + f_y \diff{y}{t} + f_z \diff{z}{t}
+\end{align*}
+
+
+\subsection{Chain Rule}
+
+Let $w = f(x, y)$ and $x = x(u, v)$ and $y = y(u, v)$.
+Now we want to find \ilds{\px{w}{u}} and \ilds{\px{w}{v}} in terms of $w_x, w_y, x_u, x_v, y_u$ and $y_v$.
+We can write :
+\begin{align*}
+dw & = f_x dx + f_y dy \\
+dx & = x_u du + x_v dv \\
+dy & = y_u du + y_v dv \\
+\text{So, } dw & = f_x x_u du + f_x x_v dv + f_y y_u du + f_y y_v dv \\
+dw & = (f_x x_u + f_y y_u) du + (f_x x_v + f_y y_v) dv
+\end{align*}
+
+If we plugin the functions $x(u, v)$ and $y(u, v)$ in $w = f(x, y)$.
+Then we'll get $w = g(u, v)$. So, 
+$$ dw = \px{w}{u} du + \px{w}{v} dv $$
+By comparision, we get
+$$
+\px{w}{u} = (f_x x_u + f_y y_u) ; \quad 
+\px{w}{v} = (f_x x_v + f_y y_v)
+$$
+
+We can extend this to more that two variables as well.

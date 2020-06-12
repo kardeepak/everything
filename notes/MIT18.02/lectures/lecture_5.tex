@@ -1,0 +1,74 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 5
+%----------------------------------------------------------------------------------------
+
+\chapter{Second Derivative Test}
+
+\bigbreak
+\section{An example}
+
+Let $w = ax^2 + bxy + cy^2$. It has a critical point at the origin.
+Let's complete the square. For this, we will assume that $a \neq 0$.
+\begin{align*}
+    w   & = a \left( x^2 + \frac{b}{a}xy \right)  + cy^2 \\
+        & = a \left( x + \frac{b}{2a}y \right)^2  + \left( c - \frac{b^2}{4a} \right) y^2 \\
+        & = \frac{1}{4a} \left[ (2ax + by)^2 + (4ac - b^2)y^2 \right]
+\end{align*}
+
+Basically, we've written this as the sum or difference of two squares. There are 3 cases:
+
+\begin{enumerate}
+    \item If $4ac - b^2 < 0$ then we have a difference of two squares, which means there will be a saddle point.
+    \item If $4ac - b^2 = 0$ then we have a single square term, which is the same as $w = x^2$ so we have a parabola extended across 3D space.
+    This function doesn't depend at all on $y$. Basically, it is a valley whose bottom is completely flat.
+    It is called {\bf degenerate critical point} because there is a direction in which nothing happens and there are infinitely many critical points in that direction.
+    \item If $4ac - b^2 > 0$ then we have a sum of two squares which means we'll have a maxima if $a > 0$ or minima if $a < 0$.
+\end{enumerate}
+
+{\bf Degenerate critical points } in our special function represent a valley but for a general function it can be anything and the behaviour will depend on higher order derivatives.
+
+\section{General Test}
+
+In genral look at the second derivative, \ilds{\pxx{f}{x} = f_{xx}}.
+We also have \ilds{\pxy{f}{x}{y} = f_{xy}} and \ilds{\pxy{f}{y}{x} = f_{yx}} are the same, that is, $f_{xy} = f_{yx}$.
+
+Say that you have a critical point $(x_0, y_0)$ then let $A = f_{xx}, B = f_{xy}$ and $C = f_{yy}$.
+Now we look at the quantity $AC - B^2$.
+
+\begin{enumerate}
+    \item If $AC - B^2 > 0$ and $A > 0$ then it is a local minima.
+    \item If $AC - B^2 > 0$ and $A < 0$ then it is a local maxima.
+    \item If $AC - B^2 < 0$ then it is a saddle point.
+    \item If $AC - B^2 < 0$ then the test is inconclusive.
+\end{enumerate}
+
+\subsection{Relating the example with the general test}
+
+In our example, we had $w = ax^2 + bxy + cy^2$. Now $w_x = 2ax + by$ and $w_{y} = bx + 2cy$. \\
+And, $f_{xx} = 2a$, $f_{yy} = 2c$ and $f_{xy} = b$. This tells us that $A = 2a$, $B = b$ and $C = 2c$. \\
+So, $AC - B^2 = 4ac - b^2$.
+
+
+\section{Quadratic Approximation}
+
+Accroding to quadratic approximation tells us that, 
+$$
+\Delta f \approx f_x \Delta x + f_y \Delta y + \frac{1}{2} f_{xx} (\Delta x)^2 + f_{xy} \Delta x \Delta y + \frac{1}{2} f_{yy} (\Delta y)^2 
+$$
+If we replace the function with this approximation then the critical points remain the same and the type of function remains the same.
+So then you can deduce the second derivative test using the same method that we used in the first example.
+
+{\bf Example : } \ilds{ f = x + y + \frac{1}{xy} }
+
+We get, \ilds{ f_x = 1 - \frac{1}{x^2 y} } and  \ilds{ f_y = 1 - \frac{1}{x y^2} }.
+Solving these we get, $x = 1$ and $y = 1$. This is the only critical point.
+
+Next, \ilds{ f_{xx} = \frac{2}{x^3 y} } so $A = 2$. 
+And, \ilds{ f_{xy} = \frac{1}{x^2 y^2} } so $B = 1$.
+And, \ilds{ f_{yy} = \frac{2}{x y^3} } so $C = 2$. \\
+So, $AC - B^2 = 3 > 0$ and $A = 2 > 0$ so we have a local minima.
+
+We still have to check the boundaries and points of discontinuity. 
+So $x \to \infty$ or $y \to \infty$ means $f \to \infty$.
+So $x \to 0$ or $y \to 0$ means $f \to \pm \infty$. Thus, we have only one minima.
