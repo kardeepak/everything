@@ -1,0 +1,94 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 9
+%----------------------------------------------------------------------------------------
+
+\chapter{Non-independent Variables}
+
+\bigbreak
+\section{Partial Derivatives}
+
+Given a function $f(x, y, z)$ with a contraint $g(x, y, z) = c$.
+We want to understand how do the partial derivatives look like.
+
+If $g(x, y, z) = c$ and we can solve for $z = z(x, y)$ then we can find $\px{z}{x}, \px{z}{y}$.
+If we can't solve for $z$ then, we can take the differential of the contraint to get $ g_x dx + g_y dy + g_z dz = 0 $. 
+Notice that the left hand side represents $dg$ but since $g = c$ is a contstant so $dg = 0$.
+
+From this, we can solve for $dz$ to get, $$ dz = \frac{-g_x}{g_z} dx + \frac{-g_y}{g_z} dy $$
+
+This tells us that $$ \px{z}{x} = \frac{-g_x}{g_z} ; \quad \px{z}{y} = \frac{-g_y}{g_z} $$
+
+{\bf Example : } $f = x + y$ so $\px{f}{x} = 1$ and $\px{f}{y} = 1$.
+Let $x = u$ and $y = u + v$ so $f = 2u + v$. Thus, $\px{f}{u} = 2$ and $\px{f}{v} = 1$.
+
+So even though $x = u$ but $\px{f}{x} \neq \px{f}{u}$. 
+This is because in the first case we keep $y$ contstant but in the second case we keep $v = y - x$ contstant
+so both partial derivatives are different.
+
+That is why, we need better notation to denote which variables are contstant. 
+So we denote the partial derivative with respect to $x$ keeping $y$ constant by $\left( \px{f}{x} \right)_y$.
+
+So finally, 
+$$ \left( \px{f}{x} \right)_y \neq \left( \px{f}{x} \right)_v = \left( \px{f}{u} \right)_v $$
+
+This will be particularly important we have variables that are related.
+
+
+{\bf Example : }
+Lets say we have a triangle with sides $a$ and $b$ and the angle between them is $\theta$.
+So the area of the triangle is \ilds{A = \frac{1}{2} a b \sin(\theta) }.
+
+Now let's say we want to find the partial derivative of the area with respect to $\theta$. So, 
+$$ \px{A}{\theta} = \frac{1}{2} a b \cos(\theta) $$
+
+This denotes the rate of change of area with respect to theta keeping $a$ and $b$ contstant.
+
+But what if we had the constraint that the triangle should be a right triangle with $b$ as its hypnetnuse.
+So our constraint will be $a = b \cos(\theta)$.
+Now there are two cases : keep $a$ fixed or keep $b$ fixed.
+
+So we need to find $ \left( \px{f}{\theta} \right)_a $ and $ \left( \px{f}{\theta} \right)_b $
+
+Now finding the partial derivative is not straight forward because when we change $\theta$ then $a$ or $b$ must change to preserve the contraint.
+Thus, a better way to solve this is to take the differential.
+$$ dA = \frac{1}{2} b \sin(\theta) da + \frac{1}{2} a \sin(\theta) db + \frac{1}{2} a b \cos(\theta) d\theta $$
+From the constraint we get, $$ da = \cos(\theta) db - b \sin(\theta) d\theta $$
+
+Keeping $a$ fixed (means $da = 0$), $db = b\tan(\theta)d\theta$ so we can substitute this in $dA$ and solve for $\left( \px{A}{\theta} \right)_a$.
+
+Keeping $b$ fixed (means $db = 0$), $da = - b\sin(\theta)d\theta$ so we can substitute this in $dA$ and solve for $\left( \px{A}{\theta} \right)_b$.
+
+Thus, we get 
+\begin{align*}
+\left( \px{A}{\theta} \right)_a & = \frac{1}{2} a b \sin(\theta)\tan(\theta) + \frac{1}{2} a b \cos(\theta) = \frac{1}{2} a b \sec(\theta) \\ 
+\left( \px{A}{\theta} \right)_b & = - \frac{1}{2} b^2 \sin^2(\theta) + \frac{1}{2} a b \cos(\theta) 
+\end{align*}
+
+
+\subsubsection{Summary : }
+\begin{enumerate}
+    \item Write $dA$ in terms of $da, db, d\theta$.
+    \item Set $a = contstant$ that is $da = 0$.
+    \item Differentiate the contraint to solve for $db$ in terms of $d\theta$.
+    \item Substitute $db$ in $dA$ and solve for \ilds{ \px{A}{\theta} }.
+\end{enumerate}
+
+
+\subsection{Chain Rule}
+
+We can use the chain rule to do the above problem. 
+The chain rule tels us that : 
+$$
+\left( \px{A}{\theta} \right)_a
+    = A_{\theta} \left( \px{\theta}{\theta} \right)_a
+    + A_a \left( \px{a}{\theta} \right)_a
+    + A_b \left( \px{b}{\theta} \right)_a
+$$
+$$
+\text{Now, }
+\left( \px{\theta}{\theta} \right)_a = 1 ; \quad
+\left( \px{a}{\theta} \right)_a = 0 \text{ ( as $a$ is contstant) }; \quad
+\left( \px{b}{\theta} \right)_a = \text{Use the constraint} ; \quad
+$$
+

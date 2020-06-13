@@ -1,0 +1,75 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 7
+%----------------------------------------------------------------------------------------
+
+\chapter{Gradient and Directional Derivative}
+
+\bigbreak
+\section{Gradient Vector}
+
+We define the Gradient vector as $\nabla w = \left< w_x, w_y, w_z \right>$.
+This vector depends on $x, y, z$ so it varies from point to point. 
+This represents a vector at each point $(x, y, z)$. This is what  we'll later call a vector field.
+
+{\bf Theorem : } $\nabla w$ is perpendicular to the level surface $w(x, y, z) = constant$.
+
+{\bf Example : } Let $w = a_1 x + a_2 y + a_3 z$. 
+Its leve surface is $a_1 x + a_2 y + a_3 z = c$. 
+And the normal vector to this plane is $\left< a_1, a_2, a_3 \right>$.
+Now, $\nabla w  = \left< a_1, a_2, a_3 \right>$, hence proved.
+
+This is the only case we need to prove because you can replace the level surface with its linear approximation, that is, its tangent plane.
+And the tangent plane is perpendicular to the gradient vector.
+
+{\bf Example : } Let $ w = x^2 + y^2 $.
+$\nabla w = \left< 2x, 2y \right> = 2 \cdot \left< x, y \right> $. 
+Now the level surface of this function are circles and the gradient vector is in the direction of the radius vector.
+And we know that the radius vector is perpendicular to the circle at a point. Thus, proved.
+
+
+{\bf Proof : } Take the curve ${\bf r} = {\bf r}(t)$ that stays on the level surface of $w = c$.
+The velocity vector of the curve will be tangent to the level surface.  
+Because the curve lies on the level surface and \ilds{ \diff{ {\bf r} }{t} } is tangent to the curve so it is tangent to the surface as well.
+
+By chain rule, \ilds{ \diff{w}{t} = (\nabla w) \cdot \diff{ {\bf r} }{t} }. 
+But the curve lies on a level surface of $w$ so \ilds{ \diff{w}{t} = 0 \implies \nabla w \cdot \diff{ {\bf r} }{t} = 0}.
+Thus, $\nabla w$ is perpendicular to the velocity vector. 
+Since this is true for every curve on the level surface we can say the $\nabla w$ is perpendicular to the level surface.
+
+Hence, proved.
+
+
+\section{Directional Derivative}
+
+We know that $w_x$ is the derivative of $w$ when we move in the $x$-direction. 
+But what about directions other than the coordinate axis.
+Let's say we move in the direction of a unit vector $\hat{u}$.
+
+Let the curve along the $\hat{u}$ be the curve ${\bf r}(s)$ and  \ilds{\diff{ {\bf r} }{s} = \hat{u} }.
+Now we want to find out \ilds{ \diff{w}{s} }. 
+If $\hat{u} = \left< a, b \right>$, then $x(s) = x_0 + as$ and $y(s) = y_0 + bs$.
+We can plug this into $w$ and find out the derivative. Or we can use the chain rule.
+
+{\bf Definition : } \ilds{\diff{w}{s}\Big|_{\hat{u}}} is called the directional derivative of $w$ in the direction of $\hat{u}$.
+Geometrically, it means that we'll be slicing the curve by a plane that is in the direction of the vector $\hat{u}$ and we'll take the slope of the graph.
+Finally, the chain rule implies that \ilds{ \diff{w}{s} = (\nabla w) \cdot \diff{ {\bf r} }{s} = (\nabla w) \cdot \hat{u} }.
+
+With this, we can show that $ (\nabla w) \cdot \hat{i} = w_x $. The same can be shown for $y$ and $z$.
+
+{\bf Corollary : } We have,  \ilds{ \diff{w}{s}\Big|_{\hat{u}} = (\nabla w) \cdot \hat{u} = |\nabla w| |\hat{u}| \cos \theta }. 
+Since $\hat{u}$ is a unit vector so $|\hat{u}| = 1$. Thus, the value of the directional derivative only depends on $\theta$.
+We can see that the directional derivative is maximum when $\theta = 0$ so the rate of change of the function is maximum in the direction of $\nabla w$.
+
+Similarly, the minimum value of the directional derivative is when $\theta = \pi$. 
+That is the direction opposite to the gradient vector.
+
+The function does not change when $\theta = \pi/2$. That is when the unit vector is perpendicular to the gradient vector.
+Another way to look at it is that the function stays constant when we move tangent to the level curve of the function. 
+Thus, the gradient is perpendicular to any vector that is tangent to the level curve of the function. 
+So the gradient vector is perpendicular to the level curve.
+
+On a contour plot, you can find the gradient vector's direction by finding directional perpendicular to the level curve and pointing towards higher values of the function.
+
+
+
