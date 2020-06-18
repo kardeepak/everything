@@ -1,0 +1,88 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 16
+%----------------------------------------------------------------------------------------
+
+\chapter{Path Independence and Conservative Fields}
+
+\bigbreak
+
+\section{Fundamental Theorem of Calculus for Line Integrals}
+
+\begin{mdframed}
+    If given a vector field ${\bf F}$, there is a function $f$ such that ${\bf F} = \nabla f$ then $f(x, y)$ is called the potential.
+    Then we can simplify the line integral by
+    $$ \int_C {\bf F} \cdot d{\bf r} = f(x, y) \Big|_{P1}^{P2} $$
+    where $P1$ and $P2$ are the start and end points of the curve.
+\end{mdframed}
+
+\subsection{Proof of FTC for Line Inregrals}
+
+Let's say ${\bf F} = \ij{f_x}{f_y}$. 
+And $x = x(t)$ and $y = y(t)$.
+So our integral will be
+\begin{align*}
+\int_C {\bf F} \cdot d{\bf r} 
+    &= \int_C f_x dx + f_y dy \\
+    &= \int_C (f_x \diff{x}{t} + f_y \diff{y}{t} ) dt \\
+    &= \int_C \diff{f}{t} dt = f(x(t), y(t)) \Big|_{t_1}^{t_2} \\
+\int_C {\bf F} \cdot d{\bf r} 
+    &= f(x, y) \Big|_{P1}^{P2} \\
+\end{align*}
+
+We reduced \ilds{f_x \diff{x}{t} + f_y \diff{y}{t}} to \ilds{\diff{f}{t}} by using the chain rule.
+Also at $t = t_1$ the curve is at $P1$, the starting point, and at $t = t_2$ the curve is at $P2$, the end point.
+Thus, we can reduce the integral in $t$ to the change in value of $f$ at the endpoints. 
+
+{\bf WARNING : } Everything in this chapter only applies if ${\bf F}$ is a gradient field of a function.
+Otherwise it is not true.
+
+
+\section{Consequences of FTC for Line Integrals}
+
+\subsection{Path Independence}
+
+If the vector field $F$ is a gradient field, then two curves having the same start and end points will have the same line integral over ${\bf F }$.
+That is, given $C_1$ and  $C_2$ has the same start and end points,
+$$ 
+\int_{C_1} {\bf F} \cdot d{\bf r} = \int_{C_2} {\bf F} \cdot d{\bf r}
+$$
+
+
+\subsection{Conservative Fields}
+
+If ${\bf F} = \nabla f$, then ${\bf F}$ is said to be a conservative field.
+It means that for every closed curve $C$, the line integral of ${\bf F}$ along this curve is zero.
+This can be proven by the fact that for a closed curve the start and end points are the same so the potential never changes. 
+
+To prove this for a particular vector field, you have to show that for every closed curve the line integral is zero.
+
+\section{Equivalent Properties}
+
+\subsection{Equivalence of Conservative Fields and Path Independence}
+
+If a field is path independent, then for a closed curve $C$ we can choose another curve that stays at some point on $C$ forever.
+Since the second curve has no length its line integral will be zero. 
+And since the vector field is path independent, the line integral along the original curve $C$ will also be zero.
+
+{\bf Thus, path independence implies conservative fields.}
+
+If a field is conservative, then for any two curves $C_1$ and $C_2$ we can imagine going along $C_1$ and $-C_2$ where $-C_2$ means going in the opposite direction of $C_2$.
+Since the field is conservative, the line integral along $C_1 - C_2$ will be zero.
+But line integral along $-C_2$ is negative of line integral along $C_2$ so if we split up the curve $C_1-C_2$, we will get that the line integral along $C_1$ is equal to the line integral along $C_2$.
+
+{\bf Thus, conservative fields implies path independence.}
+
+
+\subsection{Equivalence of Conservative Fields and Gradient Fields}
+
+By the Fundamental Theorem, we know that if a vector field is a gradient for a function then it must be a conservative field.
+We need to show that if a given field is conservative then it must be a gradient field.
+We will prove this in the next chapter. 
+And this is also how we will find the potential for a vector field.
+
+\subsection{Equivalence of Gradient Field and Exact Differential}
+
+If ${\bf F} = \ij{M}{N}$ is a gradient field then $Mdx + Ndy$ is an exact differential for some function $f$.
+This can be proven by assuming that ${\bf F} = \nabla f$ since ${\bf F}$ is a gradient field.
+So $M = f_x$, $N = f_y$ and $df = f_x dx + f_y dy = M dx + N dy$. Hence, proved.

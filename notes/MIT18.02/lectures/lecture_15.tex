@@ -1,0 +1,82 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 15
+%----------------------------------------------------------------------------------------
+
+\chapter{Vector Fields and Line Integrals}
+
+\bigbreak
+
+\section{Vector Fields}
+
+A vector field are just vector ${\bf F} = \ij{m}{n}$ but their components $m(x, y)$ and $n(x, y)$ are functions of position.
+It is like at every point there is a vector ${\bf F}$ that depends on $x$ and $y$.
+
+A good example of a vector field is the speed of wind at each point on the plane.
+Another example are force fields such as gravitation fields and electric fields.
+
+\section{Work and Line Integrals}
+
+For a force field, the work done by the force is the product of the force and the distance travelled by the object in the direction of the force.
+But for a complicated path we want to integrate over the path of the object.
+
+So, we have $W = (force)\cdot(distance) = {\bf F} \cdot (\Delta {\bf r})$.
+
+Along some trajectory $C$, work adds up to \ilds{W = \int_C {\bf F} \cdot d{\bf r} = \lim_{\Delta {\bf r}_i \to 0} \sum {\bf F} \cdot (\Delta {\bf r}_i) }
+
+Let's say we take a time interval of $\Delta t$ over which we calculate $\Delta r$. So our integral becomes, 
+
+$$ W = \int_C {\bf F} \cdot \diff{{\bf r}}{t} dt $$
+
+Here, \ilds{ \diff{{\bf r}}{t} } is the velocity vector along the curve.
+
+\bigbreak
+
+{\bf Example : } Let's say ${\bf F} = \ij{-y}{x}$. And our curve is $x = t$ and $y = t^2$ in $0 <= t <= 1$.
+
+Now, ${\bf F} = \ij{-y}{x} = \ij{-t^2}{t}$.
+
+And, 
+$$\diff{{\bf r}}{t} = \ij{\diff{x}{t}}{\diff{y}{t}} = \ij{1}{2t} $$.
+
+Thus, $${\bf F} \cdot \diff{{\bf r}}{t} = -t^2 + 2t^2 = t^2$$
+
+So, our integral is $$ \int_0^1 t^2 dt = \frac{1}{3} $$ 
+
+
+{\bf Note : } Our trajectory can be anything, so the line integral will depends on the trajectory.
+
+Another way to evalute such integral is to write ${\bf F} = \ij{m}{n}$ and $d{\bf r} = \ij{dx}{dy}$
+So our integral becomes $$ \int_C mdx + ndy $$.
+
+Now we can't just integrate with respect to $dx$ as we will get a function of $y$.
+Notice that along the curve $x$ and $y$ are related so we need to write $x$ and $y$ as function of another variable $t$.
+So \ilds{ dx = \diff{x}{t} dt }  and \ilds{dy = \diff{y}{t} dt}.
+Thus, 
+$$ \int_C (m\diff{x}{t} + n\diff{y}{t}) dt $$
+
+We can also choose to represent $y$ as a function of $x$ so \ilds{dy = \diff{y}{x} dx}.
+Thus, $$ \int_C (m + n \diff{y}{x}) dx $$.
+
+{\bf Note: } The line integral depends on the curve but not on the parametrization. 
+
+
+\subsection{Geometric Approach}
+
+We can say that the vector $d{\bf r}$ has a magnitude of $ds$ and is in the direction of the tangent to the curve $\hat{T}$.
+So we can write the line integral as $$ \int_C {\bf F} \cdot \hat{T} ds $$
+This is easier to reason about if the vector field and the curve are related in a geometric sense.
+
+{\bf Example : } Let the vector field be ${\bf F} = \ij{x}{y}$ and the curve is a circle with radius $a$ centered at the origin going in the anticlockwise direction.
+
+We know that the tangent to the circle at any point will be perpendicular to the radius vector of that point.
+Since the vector field at that point is equal to the radius vector, their do product will be ${\bf F} \cdot \hat{T} = 0$.
+
+So the integral \ilds{\int_C ({\bf F} \cdot \hat{T}) ds  = 0}
+
+{\bf Example : } Let the vector field be ${\bf F} = \ij{-y}{x}$ and the curve is a circle with radius $a$ centered at the origin going in the anticlockwise direction.
+
+Now if we draw the vector field, it will be perpendicular to the radius vector at every point so the dot product of ${\bf F} \cdot \hat{T} = a$.
+The dot product is positive because the vector field points in the anticlockwise direction which is the same as the curve.
+So our line integral will be integration over a constant $a$ along a length equal to the circumference of the circle.
+Thus, the final answer will be $2 \pi a^2$.

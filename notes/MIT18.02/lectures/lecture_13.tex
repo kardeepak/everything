@@ -1,0 +1,59 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 13
+%----------------------------------------------------------------------------------------
+
+\chapter{Applications of Double Integral}
+
+\bigbreak
+
+\section{Finding the area of a region}
+
+Area of the region can be thought of as the sum of all the areas of the smaller rectangles.
+$$ Area(R) = \iint_R 1 dA $$
+
+\section{Finding the mass of a flat object given its density}
+
+$$ Mass = \iint_R \rho(x, y) dA $$
+
+Here $\rho$ is the density per unit area of the object. 
+The density may be a constant or a function of position.
+
+\section{Average Value of a quantity in a region}
+
+In mathematical sense the average is the sum of the value of the function everywhere divided by the area of the region.
+
+$$ Avg(f) = \frac{1}{Area(R)}  \left( \iint_R f(x, y) dA \right) $$
+
+\section{Weighted Average of a quantitly in a region}
+
+In the average defined in the last section, every point is equally likely.
+But if we want to give more value to some sub-region then we will use weighted average. 
+We'll defined a density function $\rho(x, y)$ who's value is the weight of each point.
+
+$$  \text{Weighted Average}(f) = \frac{1}{Mass(R)} \left( \iint_R \rho(x, y) f(x, y) dA \right) $$
+
+\section{Finding Center of Mass of an object}
+
+The center of mass is just the weighted average of position vector where the weight is the density of the object.
+So,
+$$ x_{CM} = \frac{1}{Mass} \left( \iint x \rho(x, y) dA \right) \quad \text{and} \quad y_{CM} = \frac{1}{Mass} \left( \iint y \rho(x, y) dA \right) $$
+
+\section{Finding Moment of Inertia}
+
+Mass is how hard it is to impart a translation motion.
+Moment of Inertia is defined about an axis and measures how hard it is to impart a rotational motion.
+For a point mass, it is defined as $(Mass) * (Radius) ^ 2$ where the radius is the perpendicular distance from the axis.
+Thus,
+
+$$ \text{Moment Of Inertia} = \iint r^2 \rho(x, y) dA $$ 
+
+Moment of intertia is denoted by $I_A$ where $A$ is the axis of rotation. 
+The rotation kinetic enery is $\frac{1}{2} I_A \omega^2 $.
+
+{\bf Example :} Given a disk or radius $a$ with its center at origin with density 1. Find its moment of intertia about the z-axis.
+
+$$ 
+I_A = \iint r^2 dA = \int_0^{2\pi} \int_0^{a} r^2 r dr d\theta 
+    = 2\pi \frac{a^4}{4} = \frac{\pi a^4}{2}
+$$
