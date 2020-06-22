@@ -1,0 +1,97 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 17
+%----------------------------------------------------------------------------------------
+
+\chapter{Gradient Fields and Potential Funtions}
+
+\bigbreak
+
+\section{Testing whether a given vector field is a Gradient Field}
+
+If ${\bf F}(x, y) = \ij{M(x, y)}{N(x, y)}$ is a gradient field then $M = f_x$ and $N = f_y$.
+We know that $f_{xy} = f_{yx}$ so we get $M_y = N_x$.
+
+We claim that this is the only condition we need to check.
+
+If ${\bf F} = \ij{M}{N}$ defined and differentiable {\bf everywhere} then we can say the following.
+Conversely, if $M_y  = N_x$ then ${\bf F}$ is a gradient field.
+
+{\bf Example : } Given ${\bf F} = \ij{-y}{x}$, we know that this is not a conservative field so it should fail our test.
+We have $M = - y$ and $N = x$, so $M_y = -1 \neq N_x = 1$. So indeed, this is  not a gradient field.
+
+\section{Finding the Potential}
+
+There are two methods. 
+
+\subsection{Computing Line Integrals}
+
+Let's take the curve starting at the origin and ending at $P = (x_1, y_1)$.
+So our line integral becomes,
+$$
+\int_C {\bf F} \cdot d{\bf r} = f(x_1, y_1) - f(0, 0)
+$$
+
+Here, $f(x,y)$ is the potetntial function.
+Since, $f(0, 0)$ is constant we can choose it to be anything because adding a constant to a potential function does not change the gradient field.
+Let's choose this constant to be zero so we get,
+$$
+f(x_1, y_1) = \int_C {\bf F} \cdot d{\bf r}
+$$
+
+Now we can choose any curve starting at the origin and ending at $(x_1, y_1)$ for our line integral.
+So we may as well choose a curve along which the  integration is easier.
+The easiest curve will be going along the X-axis to $(x_1, 0)$ and then going vertically to $(x_1, y_1)$.
+So our integral will be,
+$$ 
+\int_C {\bf F} \cdot d{\bf r} = \int_{C_1} {\bf F} \cdot d{\bf r} +  \int_{C_2} {\bf F} \cdot d{\bf r}
+$$
+
+Here,  $C_1$ is the curve along the X-axis so $d{\bf r} = \ij{dx}{0}$ and $C_2$ is a vertical curve so $d{\bf r} = \ij{0}{dy}$.
+Thus,
+$$
+f(x_1, y_1) = \int_0^{x_1} M(x, 0) dx + \int_0^{y_1} N(x_1, y) dy
+$$
+
+In the first term, $y = 0$ on the curve $C_1$ and in the second term, $x = x_1$ along the curve $C_2$.
+
+
+\subsection{Antiderivatives}
+
+We want solve the equations $f_x = M$ and $f_y = N$.
+
+Let's take an example. Let $f_x = 4x^2 + 8xy$ and $f_y = 3y^2 + 4x^2$.
+Taking the antiderivatives with respect to $x$ and $y$ respectively, we get,
+$$ f = \frac{4}{3}x^3 + 4x^2y + g(y) $$
+
+To find out $g(y)$ let's compare $f_y$ that we get from this function to the one given.
+
+$$ f_y = 0 + 4x^2 + g'(y) = 3y^2 + 4x^2 $$
+$$ g'(y) = 3y^2 \Rightarrow g(y) = y^3 + c$$
+
+Thus, $$ f(x, y) = \frac{4}{3} x^2 + 4x^2y + y^3 + c $$
+Here the constant is a true constant as $g(y)$ does not depend on anything other than $y$.
+
+
+\subsection*{Notation}
+
+For an line integral along a closed curve $C$ of a vector field ${\bf F}$, we denote it by
+\ilds{ \oint {\bf F} \cdot d{\bf r} }.
+
+
+\subsection{Summary}
+
+If ${\bf F} = \ij{M}{N}$ is a gradient if then $M_y = N_x$.
+We have the converse only if ${\bf F}$ is defined in the entire plane or as we'll see soon in a simply-connected region.
+
+
+\section{Curl of a vector field}
+
+$$ curl({\bf F}) = N_x - M_y $$
+
+The curl measures the failure of a vector field to be conservative.
+So the test for conservative fields becomse $curl({\bf F}) = 0$.
+
+For a velocity field, the curl measures the rotational component of the motion.
+
+For a force field, the curl measures the torque exterted on an object at any point.
