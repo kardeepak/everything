@@ -1,0 +1,56 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 25
+%----------------------------------------------------------------------------------------
+
+\chapter{Divergence Theorem} 
+
+\bigbreak
+
+\begin{mdframed}
+\begin{center}
+If a closed curve $S$ encloses a space $D$ with its normal vector defined to be pointing outwards,
+and a vector field ${\bf F} = \left< P, Q, R \right>$ is defined and differentiable everywhere in $D$ then
+$$
+\oiint {\bf F} \cdot \hat{n} dS = \iiint_D div({\bf F}) dx dy
+$$
+where $div({\bf F}) = P_x + Q_y + R_z$ is called divergence of ${\bf F}$.
+\end{center}
+\end{mdframed}
+
+It is also known as "Gauss-Green's Theorem". It is a 3D analog of Green's Theorem.
+
+
+\subsection*{Del Notation}
+
+$\nabla$ is called `Del'. It is defined as \ilds{ \nabla = \left< \px{}{x}, \px{}{y}, \px{}{z} \right> }.
+\begin{enumerate}
+    \item Gradient : \ilds{ \nabla f = \left< \px{f}{x}, \px{f}{y}, \px{f}{z} \right> }
+    \item Divergence : \ilds{ \nabla \cdot {\bf F} = \left< \px{}{x}, \px{}{y}, \px{}{z} \right> \cdot \left< P, Q, R \right> = \px{P}{x} + \px{Q}{y} + \px{R}{z} }
+    \item Curl : \ilds{ 
+        \nabla \times {\bf F} 
+        =
+        \begin{vmatrix*}
+            \hat{i} & \hat{j} & \hat{k} \\
+            \px{}{x} & \px{}{y} & \px{}{z} \\
+            P & Q & R
+        \end{vmatrix*}
+        = \ijk  { \left( \px{R}{y} - \px{Q}{z} \right) }
+                { \left( \px{P}{z} - \px{R}{x} \right) }
+                { \left( \px{Q}{x} - \px{P}{y} \right) }
+    }
+\end{enumerate}
+
+\section{Physical Interpretation}
+
+$div({\bf F})$ is the source rate, that is, amount of flux generated per unit time.
+
+In an incompressible flow of liquid, that is, the denisty is constant. 
+Let's say we are given its velocity vector field as ${\bf F}$ then the divergence of ${\bf F}$
+amount of fluid generated per unit time at a point.
+
+\section{Proof of Divergence Theorem}
+
+\subsection{Prove for a vector with only $z$-component}
+
+Prove that : $$ \oiint_S \left< 0, 0, R \right> \cdot \hat{n} dS = \iiiint R_z dV $$

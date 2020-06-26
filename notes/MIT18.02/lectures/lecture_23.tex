@@ -1,0 +1,74 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 23
+%----------------------------------------------------------------------------------------
+
+\chapter{Vector Fields in Space, Surface Integrals and Flux} 
+
+\bigbreak
+
+\section{Vector Fields}
+
+A vector field in space is ${\bf F} = \left< P, Q, R \right>$ where $P$, $Q$, $R$ are each function of $x, y, z$.
+
+Gradien field of a function $f(x, y, z)$ is $\nabla f = \left< f_x, f_y, f_z \right>$.
+
+\section{Flux and Surface Integrals}
+
+In two dimenions, \ilds{Flux = \oint_C {\bf F} \cdot \hat{n} ds } is a line integral.
+In three dimenions, flux will be measured through a surface so it will be a surface integral.
+
+Let's say we have a vector field ${\bf F}$ and a surface $S$ in space.
+We want to find out the normal component of the vector field.
+In 3D we have to choose the orientation of the surface, that is choosing between the two normal vectors.
+
+For closed surface, you should choose the normal vector pointing outwards. 
+But there is not set conventions for this. Thus, 
+
+$$ Flux = \iint_S {\bf F} \cdot \hat{n} dS $$
+
+Here we're using $dS$ for the area element. 
+Sometimes you may also see $d{\bf S}$ which is the same as $\hat{n} dS$.
+This is because computing vector $d{\bf S}$ is easier than computing $\hat{n}$ and $dS$ separately.
+
+{\bf Example 1.} Find flux of  ${\bf F} = \left< x, y, z \right>$ through the sphere of radius $a$ at the origin.
+The vector field is pointing radially outwards. 
+The normal vector will also be pointing radially outwards if we choose the outwards normal.
+So $\hat{n} = \left< x, y, z \right> / a$ as the length of the vector is equal to the radius at the surface of the sphere.
+$$
+Flux = \iint_S {\bf F} \cdot \hat{n} dS = \iint_S \frac{x^2+y^2+z^2}{a} dS 
+$$
+But on the surface of the sphere : $x^2 + y^2 + z^2 = a^2$. Thus,
+$$
+Flux = \iint_S a dS = 4 \pi a^3
+$$
+
+Here, note that we are only considering things on the surface of the integral. 
+We are not considering anything inside or outside.
+
+
+{\bf Example 2.} Let the ${\bf F} = z \hat{k}$ and the surface be the sphere of radius $a$ centered at origin.
+
+Now $\hat{n} = \left<x, y, z \right> / a$, so ${\bf F} \cdot \hat{n} = z^2 / a$. So, 
+$$
+Flux = \iint_S \frac{z^2}{a} dS
+$$
+
+Now we can use the spherical coordinates to parametrize this surface.
+Last time we showed that the area element on a sphere is $r^2 \sin \phi d\phi d\theta$.
+And $z = r \cos \phi$. But here $r = a$, so
+$$
+Flux = \iint_S \frac{z^2}{a} dS = \iint_S \frac{a^2 \cos^2 \phi}{a} a^2 \sin \phi d\phi d\theta
+$$
+
+Now, the limits of $\phi$ will be $0$ to $\pi$ and limits of $\theta$ will be $0$ to $2 \pi$.
+\begin{align*}
+Flux & = \int_0^{2\pi} \int_0^{\pi} a^3 \cos^2 \phi \sin \phi d\phi d\theta \\
+    & = a^3 \int_0^{2\pi} \left[ \frac{-\cos^3 \phi}{3} \right]_0^{\pi} d\theta \\
+    & = a^3 \int_0^{2\pi} \frac{-1}{3} ((-1)^3 - 1^3) d\theta \\
+    & = a^3 \int_0^{2\pi} \frac{2}{3} d\theta \\
+Flux & = \frac{2a^3}{3} 2 \pi = \frac{4 \pi a^3}{3} 
+\end{align*}
+
+
+{\bf Conclusion : } Either use geometry or parametrize the surface.
