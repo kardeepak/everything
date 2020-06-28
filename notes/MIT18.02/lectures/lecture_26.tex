@@ -1,0 +1,103 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 26
+%----------------------------------------------------------------------------------------
+
+\chapter{Line Integrals in Space, Curl, Exactness and Potentials} 
+
+\bigbreak
+
+\section{Line Integral in Space}
+
+Let's say we have a vector field ${\bf F} = \ijk{P}{Q}{R}$ and a curve $C$ in space.
+So our integral is,
+$$ \int_C (\ijk{P}{Q}{R}) \cdot d{\bf r} = \int_C Pdx + Qdy + Rdz $$
+
+We solve this by parametrizing the curve $C$ and converting the above integral into a single variable integral.
+
+\subsection{Test for Gradient Field in Space}
+
+We want to find if for a vector field ${\bf F} = \ijk{P}{Q}{R}$ there exists a function $f(x, y, z)$
+such that $P = f_x$, $Q = f_y$ and $R = f_z$.
+
+If yes, then $P_y = f_{xy} = f_{yx} = Q_x$.
+This is one condition. We can do the same for $x-z$ and $y-z$.
+So, $P_z = f_{xz} = f_{zx} = R_x$ and $Q_z = f_{yz} = f_{zy} = R_y$.
+
+The above criterion work if ${\bf F}$ is defined in a simply connected region.
+
+The above test also works for differentials. That is, if the above condition holds then
+$Pdx + Qdy + Rdz$ is an exact differential $df$ for a function $f(x, y, z)$ and vice versa.
+
+{\bf Example : }  For which values of $a$ and $b$ the following differential is an exact differential.
+$$ axy dx + (x^2 + z^3) dy + (byz^2 - 4z^3)dz $$
+
+We have $P = axy$, $Q = x^2 + z^3$ and $R = byz^2 - 4z^3$.
+So, 
+\begin{gather*}
+P_y = Q_x \Rightarrow ax = 2x \Rightarrow a = 2 \\
+P_z = R_x \Rightarrow 0 = 0 \\
+Q_z = R_y \Rightarrow 3z^2 = bz^2 \Rightarrow b = 3
+\end{gather*}
+
+Thus, we get $a = 2$ and $b = 3$.
+So our differential is exact for a function $f(x, y, z) = x^2 y + yz^3 - z^4$
+$$ df = 2xy dx + (x^2 + z^3) dy + (3yz^2 - 4z^3) dz $$
+
+
+\section{Finding the Potential Function}
+
+\subsection{Using Line Integrals}
+
+For a conservative/gradient vector field ${\bf F} = \left< P, Q, R \right>$, 
+we defined the potential as the line integral going from the origin to that point.
+$$ f(x_1, y_1, z_1) = \int_C {\bf F} \cdot d{\bf r} + c $$
+
+Here $c$ is the integration constant.
+Now since line integrals on conservative fields are path independent so we can take any curve.
+Let's take the curve $(0, 0, 0) \to (x_1, 0, 0) \to (x_1, y_1, 0) \to (x_1, y_1, z_1)$.
+So our line integral becomes, 
+
+$$ f(x_1, y_1, z_1) = \int_0^{x_1} P(x, 0, 0) dx + \int_0^{y_1} Q(x_1, y, 0) dy + \int_0^{z_1} R(x_1, y_1, z) dz + c$$
+
+Here each of the three lines have two variables fixed.
+
+\subsection{Using Antiderivatives}
+
+Given $f_x$, $f_y$ and $f_z$, we can find $f(x, y, z)$ by integrating one of these.
+Let's say $f_x = 2xy$ then by integrating we get $f(x, y) = x^2 y + g(y, z)$.
+
+Now we can differentiate to get $f_y = x^2 + g_y = x^2 + z^3$.
+So we get $g_y = z^3$ so by integrating, we get $g(y, z) = yz^3 + h(z)$.
+Now by differatiating again with respect o $z$ we get,
+$f_z = g_z = 3yz^2 - 4z^3$.
+But $g_z = 3yz^2 + h_z$ so $h_z = -4z^3$
+
+Thus, we get $h(z) = -z^4$, $g(y, z) = yz^3 - z^4$ and $f(x, y, z) = x^2 y + yz^3 - z^4$.
+
+\section{Curl in Space}
+
+If a vector field ${\bf F} = \left< P, Q, R \right>$ then
+$curl({\bf F}) = \ijk{(R_y - Q_z)}{(P_z - R_x)}{(Q_x - P_y)}$
+If ${\bf F}$ defined in a simply connected region then ${\bf F}$ is conservative iff $curl({\bf F}) = {\bf 0}$.
+You can think of the curl as $\nabla \times {\bf F}$ that is the cross product between $\nabla$ and ${\bf F}$,
+where \ilds{ \nabla = \left< \px{}{x}, \px{}{y}, \px{}{z} \right> }.
+
+Now, 
+$$
+\nabla \times {\bf F} =
+\begin{vmatrix*}
+  \hat{i} & \hat{j} & \hat{k} \\
+  \px{}{x} & \px{}{y} & \px{}{k} \\
+  P & Q & R
+\end{vmatrix*}
+$$
+
+You can verify the above formula by expanding the determinant.
+
+\subsection{Geometric Interpretation of Curl}
+
+If the vector field represents the velocity of particles, 
+then curl measures the rotational component of the motion.
+Precisely, the direction of curl represents the axis of rotation and the magnitude is twice the angular velocity.
+

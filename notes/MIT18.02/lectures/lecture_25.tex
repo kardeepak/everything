@@ -51,6 +51,157 @@ amount of fluid generated per unit time at a point.
 
 \section{Proof of Divergence Theorem}
 
-\subsection{Prove for a vector with only $z$-component}
+\subsection{Dividing the flux into its components}
 
-Prove that : $$ \oiint_S \left< 0, 0, R \right> \cdot \hat{n} dS = \iiiint R_z dV $$
+We can divided the surface integral in the following way :
+$$
+\oiint_S \left< P, Q, R \right> \cdot \hat{n} dS
+    = \oiint_S \left< P, 0, 0 \right> \cdot \hat{n} dS
+    + \oiint_S \left< 0, Q, 0 \right> \cdot \hat{n} dS
+    + \oiint_S \left< 0, 0, R \right> \cdot \hat{n} dS
+$$
+
+We will prove that : 
+$$ \oiint_S \left< P, 0, 0 \right> \cdot \hat{n} dS = \iiint_D P_x dV $$
+$$ \oiint_S \left< 0, Q, 0 \right> \cdot \hat{n} dS = \iiint_D Q_y dV $$
+$$ \oiint_S \left< 0, 0, R \right> \cdot \hat{n} dS = \iiint_D R_z dV $$
+
+\subsection{Simplifying The Triple Integral of Divergence}
+
+Let's take the third equation and start with the right hand side.
+Let's take a surface $S$ that encloses a vertically simple interval $D$, that is,
+the enclosed region has a bottom and top sides given by the equations $z_{bottom} = z_1(x, y)$ and $z_{top} = z_2(x, y)$ at any point $(x, y)$.
+Let's say the region projected by the region on the $XY$-plane is $U$. 
+So, our RHS becaomes,
+\begin{align*}
+    \iiint_D R_z dV & = \iint_U \int_{z_1(x, y)}^{z_2(x, y)} R_z dz dA \\
+        & = \iint_U (R(x, y, z_2(x, y)) - R(x, y, z_1(x, y)) dx dy \\
+\end{align*}
+
+\subsection{Simplifying the Flux Integral}
+
+Now let's compute the flux on the LHS.
+Since we are in a vertically simple region, so our surface consists of a top, a bottom and sides.
+So we can divide our surface into these.
+
+$$
+\iint_{S} \left< 0, 0, R \right> \cdot \hat{n} dS 
+    = \iint_{S_{top}} \left< 0, 0, R \right> \cdot \hat{n} dS 
+    + \iint_{S_{bottom}} \left< 0, 0, R \right> \cdot \hat{n} dS 
+    + \iint_{S_{sides}} \left< 0, 0, R \right> \cdot \hat{n} dS 
+$$
+
+Let's start with the top. Here we have a formula a formula for $\hat{n}dS$ for a function in the form of $z = z_2(x, y)$.
+Thus, \ilds{ \hat{n}dS = \left<-\px{z_2}{x}, -\px{z_2}{y}, 1\right> dx dy }.
+
+Here we chose the positive branch because we want the normal vector to be pointing up.
+
+Since we are on the surface $z = z_2(x, y)$ so we can substitute that for $z$.
+And the region over which we have to integrate is the projection of $S_{top}$ on the $XY$-plane which is same as $U$.
+Thus, our flux is,
+$$
+\iint_{S_{top}} \left< 0, 0, R \right> \cdot \hat{n} dS 
+    = \iint_{S_{top}} R(x, y, z) dx dy
+    = \iint_U R(x, y, z_2(x, y)) dx dy
+$$
+
+
+Now for the bottom we can use the same formula for \ilds{ \hat{n}dS = \left< \px{z_1}{x}, \px{z_1}{y}, -1 \right> dx dy }.
+But we now take the negative branch as the normal vector must be pointing outwards which is towards the bottom.
+We can use the substitution $z = z_1(x, y)$ and convert it into a double integral over the region $U$ in the $XY$-plane in the same way we did before.
+So,
+$$
+\iint_{S_{bottom}} \left< 0, 0, R \right> \cdot \hat{n} dS 
+    = \iint_{S_{top}} - R(x, y, z) dx dy
+    = - \iint_U R(x, y, z_1(x, y)) dx dy
+$$
+
+Now for the sides, the normal vector will be pointing outwards. 
+Since the sides are vertical so their normal vector will be parallel to the $XY$-plane.
+So it will be of the form $\left< a, b, 0 \right>$. 
+Thus, our dot product will be zero and so will the integral.
+
+Adding all these integrals we get the total flux as, 
+$$
+\oiint_S \left< 0, 0, R \right> \cdot \hat{n} dS = \iint_U R(x, y, z_2(x, y)) - R(x, y, z_1(x, y)) dx dy 
+$$
+
+\subsection{Dividing Any Region Into Vertically Simple Region}
+
+For any region you can divide it into vertically simple region.
+Notice that the flux along the sides will always be zero in this case. 
+So adding vertical sufraces does not make a difference on the flux.
+
+\subsection{Proving the same for $x$ and $y$}
+
+You can prove the same for $x$ and $y$ by taking a simple region which is simple for $x$ and $y$ respectively.
+And the vector fields $\left< P, 0, 0 \right>$ and $\left< 0, Q, 0 \right>$.
+
+\subsection{Conclusion}
+
+After proving all three equations we can add these to get the final result.
+$$ \oiint_S \left< P, Q, R \right> \cdot \hat{n} dS = \iiint_D P_x + Q_y + R_z dV $$
+
+{\bf Note : } Earlier we proved Green's Theorem by dividing the region into infinitesimal rectangles and approximating flux.
+But we can prove it using vertically simple regions as well.
+
+\pagebreak
+
+\section{Applications : Diffusion Equation / Heat Equation}
+
+A diffusion equation governs the diffusion of particles in an unmoving air.
+The equation is 
+$$ \px{u}{t} = k \nabla^2 u = k \nabla \cdot (\nabla u) = k \left( \pxx{u}{x} + \pxx{u}{y} + \pxx{u}{z}  \right) $$
+
+Here $u$ is the concentration at any point. The operator $\nabla^2$ is called the Laplacian.
+This equation is also known as the Heat equation when you replace $u$ by temperature $T$.
+
+To understand this equation we need a vector field.
+Here our vector field ${\bf F}$ is the flow of particles.
+
+Physics tells us the the flow will be from higher concentration of particles to lower concentration of particles.
+That is, the flow is in the direction where the concentration decreases the fastest. 
+And we know that flow decreases fastest in the opposite direction of the gradient so ${\bf F} = - k \nabla u$ where $k$ is the proportionality constant.
+
+Now we need to understand the second part which is once we know how the flow is going how does it affect the concentration of particles. 
+That is, we need to relate ${\bf F}$ and \ilds{\px{u}{t}} and that part is Divergence Theorem.
+
+Let's take a small region in space called $D$ and having a surface $S$.
+Let's take the flux of ${\bf F}$ outof $D$.
+$$
+Flux = \oiint_S {\bf F} \cdot \hat{n} dS
+$$
+
+The flux is the total amount of particles through $S$.
+Thus it is the rate of change of the total particles $D$ over time.
+Except we count flux as positive if it is going out, that is total particles in $D$ are decreasing.
+So the flux is negative of the rate of change of total particles in $D$.
+
+$$
+Flux = - \diff{}{t} \left( \iiint_D u dV \right)
+$$
+
+Now using the Divergence Theorem tells us that :
+
+$$
+Flux = \oiint_S {\bf F} \cdot \hat{n} dS = \iiint_D div({\bf F}) dV = \iiint_D - k \nabla \cdot (\nabla u) dV 
+$$
+
+Thus, we get
+$$
+    \diff{}{t} \iiint_D u dV = \iiint_D k \nabla^2 u dV
+$$
+
+On the left hand side, we are taking the derivative of the total smoke in each box $dV$. 
+We can also take the sum of the derivatives in each little boxes $dV$.
+$$
+\iiint_D \px{u}{t} dV = \iint_D k \nabla^2 u dV
+\Rightarrow
+\iiint_D \left( \px{u}{t} - k \nabla^2 u \right) dV = 0
+$$
+
+Now this is true for any region $D$. That can only be true for every region if the function inside is zero everywhere.
+Thus,
+$$ 
+\px{u}{t} = k \nabla^2 u
+$$
