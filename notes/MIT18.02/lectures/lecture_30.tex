@@ -1,0 +1,77 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 30
+%----------------------------------------------------------------------------------------
+
+\chapter{Maxwell's Equation}
+
+\bigbreak
+
+\section{Curl}
+
+Earlier we saw that the curl of a velocity fields gives us twice the angular velocity of the flow.
+In physics, we have torque which is responsible for the rotational motion of objects.
+
+In Translation Motion : Force / Mass = Acceleration = Rate of Change of Velocity
+
+In Rotational Motion : Torque / Moment of Inertia = Angular Acceleration  = Rate of Change of Angular Velocity
+
+Just as the curl relates velocity to angular velocity, it also relates acceleration to angular acceleration
+and force fields to torque fields.
+
+So if the curl of a force field is zero then the force field will not cause any rotational motion.
+That is, if force ${\bf F}$ is derived from a potential then its curl is zero 
+so it does not generate any rotational motion.
+
+\section{Electromagnetism} 
+
+Let's say we have an electice field ${\bf E}$ and a magnetic field ${\bf B}$.
+Then they are related to each other. And their relationship is given by Maxwell's equations.
+
+The force by the electric field is ${\bf F} = q {\bf E}$ where $q$ is the charge of the particle.
+The force by the magnetic field is given by ${\bf F} = q {\bf v} \times {\bf B}$ where $q$ is the charge of the particle and ${\bf v}$ is the velocity of the particle.
+ 
+Maxwell's equations give you the divergence and curl of the electric and magnetic fields.
+
+\subsection{Gauss - Couloumb Law} 
+
+$$ \nabla \cdot {\bf E} = \frac{\rho}{\epsilon_0} $$
+
+This law says that the divergence of the electic field is proportional to the charge density $\rho$.
+Here, $\epsilon_0$ is a constant of nature.
+
+This is not useful in itself.
+But if we want to find out the flux of the electic field through some surface, 
+then we can apply the divergence theorem to get the following.
+
+$$ 
+\oiint_S {\bf E} \cdot \hat{n} dS 
+    = \iiint_D \nabla \cdot {\bf E} dV 
+    = \iiint_D \frac{\rho}{\epsilon_0} dV 
+    = \frac{\text{Total Charge Inside The Region}}{\epsilon_0}
+$$
+
+
+\subsection{Faraday's Law}
+
+$$ \nabla \times {\bf E} = - \px{{\bf B}}{t} $$
+
+This law tells us that the curl of the electric field is equal to the negative rate of chagne of the magnetic field.
+So the electric field is not conservative if you have a variable magnetic field. 
+
+To make sense of it we shall use the Stokes' Theorem.
+To compute the work done by the electric field along a closed curve.
+
+$$
+\oint_C {\bf E} \cdot d{\bf r}
+    = \iint_S (\nabla \times {\bf E}) dS 
+    = - \iint_S \px{{\bf B}}{t} dA
+$$
+
+This equation tells you that if you have a variable magnetic field then it creates a electric field out of nowhere.
+
+\subsection{Equations For Magnetic Field}
+
+$$ \nabla \cdot {\bf B} = 0 $$
+
+$$ \nabla \times {\bf B} = \mu_0 {\bf J} + \epsilon_0 \mu_0 \px{{\bf E}}{t} $$

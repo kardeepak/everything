@@ -1,0 +1,51 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 29
+%----------------------------------------------------------------------------------------
+
+\chapter{Summary} 
+
+\bigbreak
+
+\section{Theorems}
+
+{\bf Note : } In all the following theorems, 
+the vector field ${\bf F}$ must be defined and differentiable everywhere withing the enclosed region / surface.
+
+\subsection{Green's Theorem}
+
+Given a closed curve $C$ in the $XY$-plane which encloses a region $R$.
+and a vector field ${\bf F}$ in the plane. 
+
+$$ \oint_C {\bf F} \cdot d{\bf r} = \iint_R curl({\bf F}) dA $$
+
+The curve $C$ must be going in the counter-clockwise direction.
+And $d{\bf r}$ is tangent to the curve.
+
+\subsection{Green's Theorem For Flux}
+
+Given a closed curve $C$ in the $XY$-plane which encloses a region $R$.
+and a vector field ${\bf F}$.
+
+$$ \oint_C {\bf F} \cdot \hat{n} ds = \iint_R div({\bf F}) dA $$
+
+Here, $C$ must be going in the counter-clockwise direction.
+And $\hat{n}$ must be the normal vector pointing outwards the enclosed region.
+
+\subsection{Divergence Theorem}
+
+Given a closed surface $S$ in space which encloses a domain $D$ in space
+and a vector field ${\bf F}$.
+
+$$ \oiint_S {\bf F} \cdot \hat{n} dS = \iiint_D (\nabla \cdot {\bf F}) dV $$
+
+Here, $\hat{n}$ is the normal vector to the surface pointing outwards from the enclosed domain.
+
+\subsection{Stokes' Theorem}
+
+Given a closed curve $C$ in space and any surface $S$ whose boundary is the curve $C$
+and a vector field ${\bf F}$.
+
+$$ \oint_C {\bf F} \cdot d{\bf r} = \iint_S (\nabla \times {\bf F}) \cdot \hat{n} dS $$
+
+Here, you must orient the surface and the curve in compatible ways.
