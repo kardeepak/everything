@@ -5,3 +5,15 @@ services: docker
 script:
   - docker pull dxjoke/tectonic-docker
   - docker run --mount src=$TRAVIS_BUILD_DIR/notes/,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/bash -c "./build.sh"
+
+  before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "kardeepak"
+      - git config --local user.email "kar.deepak2011@gmail.com"
+      - git tag latest
+    deploy:
+      provider: releases
+      api_key: "GITHUB OAUTH TOKEN"
+      file: notes/PDFs/*
+      skip_cleanup: true
+      overwrite: true
