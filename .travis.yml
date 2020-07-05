@@ -5,10 +5,15 @@ script:
 - docker pull dxjoke/tectonic-docker
 - docker run --mount src=$TRAVIS_BUILD_DIR/notes/,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
   /bin/bash -c "./build.sh"
+
+before_deploy:
+  - git tag latest
+
 deploy:
   provider: releases
   api_key:
     secure: lvh9P80M9KQJREbrfLj3OjW13duoN+MBiESQZwAgCpwpuyobrR5RAGUpxb4Ck+tRrQ3x1/r63vkkIQf/Q9xzcOCjcepAocusRvbCqnf/pLtC6ZNeghL64f7MbXEVywrhoQk5CjJ/z+W14C232+O9p79lKu9pp/6Eg3b1WI/tNFmIEt2ncY1FNiCqIueVf4dUFshNwbasVR93l+HcwRkF1oALjhP6nla7azTy0R9lkDpWkIaRKUx7+iA21cd3UfCHEhikBTJpSAJlvXEjEj48SLem8tn8nz48SRS9+hIbN9/3cZ1Cc7cRs8YK1Xozv78g6bXLpb2HVhDR8WqHqhPwyrOEEiFbzV+NcqgvBPMAwtLlh7loAB9niezu2iiMJZm1BkwSNnVXQFGSnq3eUHUfOkHCkHx7GwzMRE00ltFZ9v0N8rhKoifKueo97W+DhmBBNjEpbcWX4Rw3zWIH7wLyWbylpasYtxZl092vZFJ6JMS0ULk6zT77eSaO99IuIrEzrcvgLEOxbczVF0RSQiXBGcvlbwzeYe7LjNWYdZVdbuHAq+vzUmeat6Yf9612y/UXI7H7a7CtatJ6u6e6PDy/trj6ufuUTw/muD8VlT2zx4xUWC+X7+kfK3sD2cziYOVkMv754j58/t/B0BnrSC6GSqtd7i4ONoO7ijE3ORVRKXk=
+  file_glob: true
   file: notes/PDFs/*
   on:
     repo: kardeepak/everything
