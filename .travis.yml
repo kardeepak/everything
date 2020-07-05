@@ -1,13 +1,14 @@
 sudo: required
 language: generic
 services: docker
+
 script:
 - docker pull dxjoke/tectonic-docker
 - docker run --mount src=$TRAVIS_BUILD_DIR/notes/,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
   /bin/bash -c "./build.sh"
 
 before_deploy:
-  - git tag latest
+  - git tag -f latest
 
 deploy:
   provider: releases
