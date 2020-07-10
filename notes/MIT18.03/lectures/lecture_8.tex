@@ -1,0 +1,88 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 8
+%----------------------------------------------------------------------------------------
+
+\chapter{Applications to Temperature, Mixing, RC-circuit, Decay, and Growth Models} 
+
+\bigbreak
+
+\section{First Order Linear Equations with Sinusoidal Inputs}
+
+Last time we converted $y' + ky = k \cos \omega t$
+to $\tilde{y}' + k\tilde{y} = k e^{i \omega t}$
+where $\tilde{y} = \frac{1}{\sqrt{1 + \left( \frac{\omega}{k} \right)^2}} e^{i(\omega t - \phi)}$
+and $\phi = \arctan \frac{\omega}{k}$.
+
+
+Last time we did this in polar coordinates, now we do it in cartesian coordinates.
+\begin{align*}
+    \tilde{y} & = \frac{1}{1 + i \frac{\omega}{k}} e^{i \omega t} \\
+    \tilde{y} & = \frac{1 - i \frac{\omega}{k}}{1 + \frac{\omega^2}{k^2}} (\cos \omega t + i \sin \omega t) \\
+\end{align*}
+
+Now we take the real part to get, 
+
+$$ y(t) = \frac{1}{1 + \frac{\omega^2}{k^2}} \left( \cos \omega t + \frac{\omega}{k} \sin \omega t \right) $$
+
+We know that $a \cos \theta + b \sin \theta = c \cos \theta - \phi$ where $\tan \phi = \frac{b}{a}$ and $c = \sqrt{a^2 + b^2}$.
+
+Now we can convert it into the other form by setting $\tan \phi = \frac{\omega}{k}$.
+We get, 
+
+$$ y(t) = \frac{1}{\sqrt{1 + \frac{\omega^2}{k^2}}} \cos(\omega t - \phi) $$
+
+
+\subsection{Proof of the Cosine Formula}
+
+We want to prove that $a\cos \theta + b\sin \theta = c \cos (\theta - \phi)$.
+Now we have two vectors $\left< a, b \right>$ and $\left< \cos \theta, \sin \theta \right>$.
+The left hand side is the dot product.
+The angle these two vectors make with the $X$-axis is $\phi$ and $\theta$, respectively, where $\tan \phi = \frac{a}{b}$.
+
+Thus, the angle between these two vectors is $\theta - \phi$. So the right hand side gives us the dot product by using the cosine formula of dot product.
+and $c = |\left< a, b \right>| = \sqrt{a^2 + b^2}$.
+
+You can also prove this using the comlex product of $(a-bi)\cdot(\cos \theta + i \sin \theta)$ and taking its real part.
+This can be converted to $\sqrt{a^2+b^2} e^{-i\phi} e^{i\theta} = \sqrt{a^2 + b^2} e^{i(\theta - \phi)}$.
+Taking the real part, we get, $\sqrt{a^2 + b^2} \cos (\theta - \phi)$.
+
+\pagebreak
+
+\section{Basic Linear ODE}
+
+There are three cases that of this equation.
+
+\begin{enumerate}
+    \item $y' + ky = kq_e(t)$ where $k > 0$
+    \item $y' + ky = q(t)$ where $k > 0$
+    \item $y' + k(t)y + q(y)$
+\end{enumerate}
+
+There is another case here which we did not see and that is where $k < 0$.
+
+Let's take an example. We have a tank through which water is flowing.
+The incoming water has a concentration of salt $c_e$ at the rate of $r$.
+Let $x(t)$ denote the amount of salt in the tank.
+There is also an outflow through which the water flows out at a rate of $r$.
+
+So our rate of change of salt in the take is in flow rate minus the out flow rate.
+$$ \diff{x}{t} = rc_e - r\frac{x}{v} \Rightarrow \diff{x}{t} + r\frac{x}{v} = rc_e $$
+
+Here, $v$ is the volume of the tank. 
+If we convert it into concentration then we'll have $x = cv$ so our equation is :
+$$ v \diff{c}{t} + rc = rc_e \Rightarrow \diff{c}{t} + \frac{r}{v} c = \frac{r}{v} c_e $$ 
+
+Here, $\frac{r}{v}$ is equivalet to $k$ in the temperature equation. 
+So the solutions are the same. Here, $\frac{r}{v}$ is the fractional rate of flow.
+
+Examples of second equation:
+
+In electrical circuits with a resistance of $R$ and a capacitor of $C$ the equation of the charge flow is $\diff{q}{t} = \frac{q}{RC} = \frac{\epsilon(t)}{R}$ where $\epsilon(t)$ is the voltage across the battery.
+
+In radioactive decay, where $A$ decays to $B$ at a decay rate of $k_1$ and $B$ is decaying at the rate of $k_2$.
+So, $B' = k_1A - k_2B$ becomes $B' + k_2B = k_1A$.
+
+{\bf Note : } If $k < 0$ then none of the interpretations apply.
+You can solve the equation in the same way but it does not correspond to steady state
+because the second term in the solution does not tend to zero as time passes. Instead it goes to infinity.

@@ -1,0 +1,108 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 6
+%----------------------------------------------------------------------------------------
+
+\chapter{Complex Numbers and Roots of Unity} 
+
+\bigbreak
+
+\section{Polar Representation}
+
+For any number $a + bi$, we can represent in polar coordinates as $r \cos \theta + i r \sin \theta$.
+
+We can rewrite as  $r(\cos \theta + i \sin \theta)$ then Euler decided to write it as $r e^{i \theta}$.
+
+We write it as an exponential function because it satisfies the two properties of exponentials.
+That is,
+\begin{enumerate}
+    \item $e^x \cdot e^y = e^{x+y}$
+    \item $e^{at}$ is the solution to \ilds{\diff{y}{t} = ay} with $y(0) = 1$.
+    \item The Taylor Series should be converging and consistent.
+\end{enumerate}
+
+Let's take the first one.
+
+\begin{align*}
+e^{i\theta_1} \cdot e^{i \theta_2} 
+    & = (\cos \theta_1 + i \sin \theta_1) \cdot (\cos \theta_2 + i \sin \theta_2) \\
+    & = (\cos \theta_1 \cos \theta_2 - \sin \theta_1 \sin \theta_2) \\
+    & + i (\sin \theta_1 \cos \theta_2 + \cos \theta_1 \sin \theta_2) \\
+    & = \cos (\theta_1 + \theta_2) + i \sin (\theta_1 + \theta_2) \\
+    & = e^{i(\theta_1 + \theta_2)}
+\end{align*}
+
+Thus, this function satisfies the first property of exponential functions.
+
+Now, we can differentiate the function $e^{it}$ because the input to the function is real.
+So $e^{it}$ is a complexed value function of a real variable. 
+You can think of it as two separate function, one being the real part and one being the imaginary part.
+And you can differentiate them separately.
+
+$$
+\diff{e^{i t}}{t} = \diff{}{t} \cos t + i \diff{}{t} \sin t
+    = - \sin t + i \cos t
+    = i ( i \sin t + \cos t)
+    = i e^{it}
+$$
+
+Also, $e^{i 0} = \cos 0 + i \sin 0 = 1 + 0 i = 1 $.
+
+Thus, it satisfies the second property of the exponential function as well.
+The general exponential law says that $e^{a+bi} = e^a \cdot e^{ib}$.
+
+So any number in the complex plane can be written as $re^{i \theta}$
+where $r$ is called the modulus of the complex number 
+and $\theta$ is called the argument of the complex number.
+
+Advantage of polar forms is that it is good for multiplications. 
+You can just multiply the modulus and add the arguments of the complex numbers.
+
+Thus, you also have a geomtric insight into multiplication of complex number.
+That is, multiplying by a number $r e^{i \theta}$ means scaling the number by $r$ 
+and rotating it counter-clockwise by an angle $\theta$.
+
+
+{\bf Example : } Integrate 
+$$ \int e^{-x} \cos x dx $$
+Here, we can write $\cos x$ as $Re(e^{ix})$. 
+Thus, $e^{-x} \cos x$ is real part of $e^{-x + ix}$.
+So if we integrate $e^{(-1+i)x}$ then we can take its real part and get our original integral.
+Now, 
+$$
+\int e^{(-1+i)x} dx = \frac{e^{(-1+i)x}}{-1+i}
+$$
+
+Multiplying by $(-1-i)$ on numerator and denomintator we get, 
+$$
+\int e^{(-1+i)x} dx = \frac{ e^{(-1+i)x} (-1-i) }{(-1+i)(-1-i)}
+= \frac{ e^{-x}e^{ix}(-1-i) }{ 2 }
+= \frac{1}{2} e^{-x} (\cos x + i \sin x)(-1-i)
+$$
+
+Taking the real part of this, we get,
+$$ 
+\int e^{-x} \cos x dx 
+    = \frac{1}{2} e^{-x} ( - \cos x + \sin x) 
+$$
+
+In general, any integal of a function of the form $e^{ax} \cos (bx)$ or $e^{ax} \sin (bx)$ 
+can be solved by moving to the complex domain.
+
+
+\section{Complex Roots of Unity}
+
+We want calculate the $n^{th}$ root of $1$, that is, $\sqrt[n]{1}$ or solve for $x$ in $x^n = 1$.
+In the complex plane, there are always exactly $n$ solutions to this.
+
+Let's take the unit circle and $n = 5$ then we can place 5 equally spaced points on the unit circle.
+And the angle for each of them will be $\theta = \frac{2 \pi k}{5}$ for $k = 0, 1, 2, 3, 4$.
+Now it is clear that those are the 5 roots of $x^5 = 1$ because the complex number associated with these
+are $e^{\frac{2 \pi k}{5}}$. 
+
+Now if we take it to the fifth power we'll get $e^{2 \pi k}$ for $k = 0, 1, 2, 3, 4$.
+Now angle is an integer multiple of $2 \pi$ so we'll reach the point $1$. 
+
+Thus, the $n^{th}$ roots of unity are $e^{\frac{2 \pi k}{n}}$ for $k = 0, 1, 2, ... n-1$.
+
+
