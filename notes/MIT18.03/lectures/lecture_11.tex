@@ -1,0 +1,164 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 11
+%----------------------------------------------------------------------------------------
+
+\chapter{Theory of General Second-order Linear Homogeneous ODE's: Superposition, Uniqueness, Wronskians}
+
+\bigbreak
+
+\section{Second Order Linear Homogeneous ODE's}
+
+The solution method was to find two solution $y_1$ and $y_2$
+such that they are independent.
+That is, $y_1 \neq c y_2$ for some constant $c$.
+And $y_2 \neq c' y_1$ for some constant $c'$.
+
+We have to write both to exclude the case where $y_2$ might be zero. 
+So $y_1$ is not a constant multiple of $y_2$ but $y_2 = 0 y_1$.
+That is why we need to say both the equations are required.
+
+Then all the general solutions of the ODE are of the form $c_1 y_1 + c_2 y_2$.
+We have two questions today.
+
+\subsection{Why are all equations of the form $c_1 y_1 + c_2 y_2$ solutions to the ODE?}
+
+This is answered by the Superposition Principle.
+It says  that if $y_1$ and $y_2$ are the solution to a linear differential equation
+then $c_1 y_1 + c_2 y_2$ is also a solution to that equation.
+
+{\bf Proof : } We'll write the differential equation by using the differentiation operator.
+
+$$ y'' + py' + qy = D^2y + pDy + qy = (D^2 + pD + q)y = 0 $$
+
+Now we can say that $L = D^2 + pD + q$ which is a linear operator.
+So our equation is $Ly = 0$.
+The important thing is that $L$ is a linear operator.
+So that means that $L(u_1  + u_2)  = Lu_1 + Lu_2$ and $L(cu_1) = cL(u_1)$  where $c$ is a constant.
+
+Now $L$ is linear because the differentiaton is linear.
+Now our ODE is $Ly = 0$ has solutions $y_1$ and $y_2$ so $Ly_1 = 0$ and $Ly_2 = 0$.
+Thus, $L(c_1 y_1 + c_2 y_2) = L(c_1 y_1) + L(c_2 y_2) = c_1 L y_1 + c_2 L y_2 = 0$.
+
+Here, the only property that is being used is that $L$ is a linear operator. 
+
+\subsection{Why all the solutions to the ODE are in the form $c_1 y_1 + c_2 y_2$ ? }
+
+{\bf Theorem : } The set of solutions $\{ c_1 y_1 + c_2 y_2 | c_1, c_2 \in \mathbb{R} \}$ is enough to satisfy any intial values.
+
+{\bf Proof : } Let's say the intial condition be $y(x_0) = a$ and $y'(x_0) = b$.
+Now $y' = c_1 y_1' + c_2 y_2'$ so our intial condition becomes.
+\begin{gather*}
+    c_1 y_1(x_0) + c_2 y_2(x_0) = a \\
+    c_1 y_1'(x_0) + c_2 y_2'(x_0) = b 
+\end{gather*}
+From the above equations $c_1, c_2$ are the unknowns.
+So this is a system of equations in two variables.
+
+A system of two equation is solvable only if the matrix of coefficients is non-zero.
+That determinant is called the Wronskian of the two functions $y_1$ and $y_2$.
+And the Wronskian is a function of $x$.
+$$
+W(y_1, y_2) = 
+\begin{vmatrix*}
+    y_1 & y_2 \\
+    y_1' & y_2' 
+\end{vmatrix*}
+    = y_1 y_2' - y_1' y_2
+$$
+
+{\bf Theorem : } If $y_1$ and $y_2$ are solution of the ODE then
+$W(y_1, y_2)$ is a function which is either always zero or never zero.
+
+{\bf Proof : } The trivial cases are easily proved.
+If $y_1 = 0$ or $y_2 = 0$ then $W(y_1, y_2) = 0$ everywhere.
+
+If $y_1 = cy_2$ then $W(y_1, y_2) = y_1 y_2' - y_1' y_2 = c y_2 y_2' - c y_2' y_2 = 0$.
+Thus, the Wronskian is zero everywhere if $y_1$ and $y_2$ are not linearly independent.
+This is the same if $y_2 = cy_1$.
+
+If $y_1$ and $y_2$ are independent and non-zero, then $W(y_1, y_2)$ is non-zero everywhere.
+We can write the Wronskian as 
+$$ 
+W(y_1, y_2) 
+    = y_1 y_2' - y_1' y_2 
+    = y_1^2 \diff{}{x} \left( \frac{y_2}{y_1} \right) 
+$$
+
+This form also shows that if $y_1$ and $y_2$ are non-zero and linearly dependent then the Wronskian is always zero.
+
+\begin{align*}
+    W & = y_1 y_2' - y_1' y_2 \\
+    W' & = y_1' y_2' + y_1 y_2'' - y_1' y_2' - y_1'' y_2 \\
+    W' & = y_1 y_2'' - y_1'' y_2
+    W' + pW & = y_1 y_2'' - y_1'' y_2 + p y_1 y_2' - p y_1' y_2 \\
+    W' + pW & = y_1 (y_2'' + p y_2') - y_2( y_1'' + p y_1' )
+\end{align*}
+
+Now since $y_1$ and $y_2$ are solution to the ODE $y'' + py' + qy = 0$.
+So, 
+
+$$
+W' + pW = y_1( - q y_2 ) - y_2( - q y_1 ) = 0
+$$ 
+
+Thus, $W(y_1, y_2) = c e^{- \int p dx}$ if $y_1$ and $y_2$ are solution to $y'' + py  + q = 0$.
+Thus, proved that Wronskian is non-zero everywhere.
+This is called {\bf Abel's Theorem}.
+
+Thus, if $y_1$ and $y_2$ are linearly independent then all initial value conditions are solvable.
+
+
+\section{Finding Normalized Solution}
+
+We want to find the normalized solutions $Y_1$ and $Y_2$ which satisfy the following initial conditions.
+Initial Conditions : $Y_1(0) = 1$ and $Y_1'(0) = 0$ and $Y_2(0) = 0$ and $Y_2'(0) = 1$.
+
+{\bf Example : } Let's say the equation is $y'' + y = 0$
+
+So $y_1 = \cos x$ and $y_2 = \sin x$.
+Here, $y_1(0) = 1$ and $y_1'(0) = 0$ and $y_2(0) = 0$ and $y_2'(0) = 1$.
+So these are the normalized solution.
+
+{\bf Example : } Let's say the equation is $y'' - y = 0$
+
+So $y_1 = e^x$ and $y_2 = e^{-x}$.
+Here, $y_1(0) = 1$ and $y_1'(0) = 1$ and $y_2(0) = 1$ and $y_2'(0) = -1$.
+To find the normal solutions, let's take $Y_1 = ae^x + be^{-x}$ and $Y_2 = ce^x + de^{-x}$.
+
+Now, $Y_1(0) = a + b = 1 $ and $Y_1'(0) = a - b = 0$.
+Solving these, we'll get, $a = b = \frac{1}{2}$.
+
+Also, $Y_2(0) = c + d = 0$ and $Y_2'(0) = c - d = 1$.
+Solving these, we'll get, $c = \frac{1}{2}$ and $d = -\frac{1}{2}$.
+
+Thus, \ilds{ Y_1 = \frac{e^x + e^{-x}}{2} } and \ilds{ Y_2 = \frac{e^x - e^{-x}}{2} }.
+These are called the hyperbolic cosine and sin, respectively.
+
+That is, \ilds{ Y_1 = \cosh x = \frac{e^x + e^{-x}}{2} } and \ilds{ Y_2 = \sinh x = \frac{e^x - e^{-x}}{2} }.
+
+
+\subsection{Uses of Normalized Solution}
+
+If $Y_1$ and $Y_2$ are normalized solution to the ODE then the solution 
+to the initial value problem $y(0) = a$ and $y'(0) = b$ is $a Y_1 + b Y_2$.
+
+
+\section{Existence and Uniqueness Theorem}
+
+\begin{mdframed}
+\begin{center}
+{\bf  Existence and Uniqueness Theorem for Second Order Linear Homogeneous Equation : }
+For the equation $y'' + py' + qy = 0$, where $p$ and $q$ are continuous for all $x$, 
+there is one and only one solution such that $y(0) = A$ and $y'(0) = B$ for any $A, B$.
+\end{center}
+\end{mdframed}
+
+
+Thus, all the solutions to the ODE are in the set $\{ c_1 Y_1 + c_2 Y_2 \}$.
+To show this, we'll show that any solution to the ODE is in the above set.
+
+{\bf Proof : } Given a solution $u(x)$ to the ODE we can find $u(0) = u_0$ and $u'(0) = u'_0$.
+Then $u_0 Y_1 + u'_0 Y_2$ has the same intial conditions as $u(x)$
+and it also satisfies the ODE. But, by the Uniqueness and Existence Theorem, 
+there can be one and only one such solution, which means that both of these solutions must be the same.
