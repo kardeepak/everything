@@ -1,0 +1,101 @@
+
+%----------------------------------------------------------------------------------------
+%	Chapter 1
+%----------------------------------------------------------------------------------------
+
+\chapter{The Real and Complex Number System}
+
+\bigbreak
+\section{Ordered Sets}
+
+\begin{defn}
+    Let $S$ be a set. An {\it order} on S is a relation, denoted by $<$, 
+    with the following two properties : 
+    \begin{enumerate}
+        \item If $x \in S$ and $y \in S$ then one and only one of the statemments
+            $$ x < y ; \quad x = y ; \quad y < x $$
+            is true.
+        \item If $x, y, z \in S$, if $x < y$ and $y < z$ then $x < z$.
+    \end{enumerate}
+    It is often convenient to write $y > x$ instead of $x < y$.
+    The notation $x \leq y$ means either $x < y$ or  $x = y$. 
+    In other words, $x \leq y$ is negation of $x > y$.
+\end{defn}
+
+\begin{defn}
+    An {\it ordered set} is a set $S$ in which an order is defined.
+\end{defn}
+For example, the set of rational numbers $Q$ is a ordered set if $r < s$ 
+is defined to mean that $s-r$ is a positive rational number.
+
+\begin{defn}
+    Suppose $S$ is an ordered set, and $E \subset S$. 
+    If there exists a $\beta \in S$ such that $x \leq \beta$ for every $x \in E$, 
+    we say that $E$ is {\it bounded above},
+    and $\beta$ is an upper bound of $E$
+\end{defn}
+Lower bounds are defined in the same way (with $\geq$ in place of $\leq$).
+
+\begin{defn}
+    \label{supremum}
+    Suppose $S$ is an ordered set, $E \subset S$, and $E$ is bounded above. 
+    Suppose there extsts an $\alpha \in S$ with the following properties: 
+    \begin{enumerate}
+        \item $\alpha$ is an upper bound of E. 
+        \item If $\gamma \in S$ and $\gamma < \alpha$ then $\gamma$ is not an upper bound of $E$.
+    \end{enumerate}
+    Then $\alpha$ is called the least upper bound of $E$ 
+    [that there is at most one such $\alpha$ is clear from (2).] 
+    or the supremum of $E$, and we write $$ \alpha = \text{ sup } E $$
+    
+    The greatest lower bound, or infimum, of a set $E$ which is bounded below is defined in the same manner: 
+    The statement $$ \alpha = \text{ inf } E $$ means that $\alpha$ is a lower bound of $E$ 
+    and that no $\beta \in S$ with $\beta > \alpha$ is not a lower bound of $E$.
+\end{defn}
+
+\begin{rem}
+    If $\alpha \in S$ is the supremum of $E$ then $\alpha$ may or may not belong to $E$.
+\end{rem}
+
+\begin{defn}
+    An ordered set $S$ is said to have the {\it least-upper-bound property} if the following is true:
+    
+    If $E \subset S$, $E$ is not empty and $E$ is bounded above, then $\text{ sup } E$ exists.
+\end{defn}
+
+\pagebreak
+
+\begin{thm}
+    Suppose $S$ is an ordered set with the least-upper-bound property, 
+    $B \subset S$, $B$ is not empty and $B$ is bounded below.
+    Let $L$ be the set of all lower bounds of $B$ then $$ \alpha = \text{ sup } L $$
+    exists in $S$, and $\alpha = \text{ inf } B$.
+
+    In particular, $\text{ inf } B$ exists in $S$.
+\end{thm}
+
+\begin{proof}
+    Since $B$ is bounded below, $L$ is not empty. 
+    \bigbreak 
+    For all $x \in L$, $x$ is lower bound of $B$ so $x \leq y$ for all $y \in B$.
+    So for all $y \in B$, $y \geq x$ for all $x \in L$.
+    Thus, {\it each $y \in B$ is an upper bound of $L$}. 
+    Thus, $L$ is bounded above.
+    \bigbreak
+    Since $L$ is bound above then by least-upper-bound property $\alpha = \text{ sup } L$ exists in $S$. 
+    \bigbreak
+    Assume that there exists an $x \in B$ such that $x < \alpha$.
+    By Definition \ref{supremum}, $x$ is not an upper bound of $L$.
+    This is a contradiction since each $x \in B$ is an upper bound of $L$ as shown earlier.
+    \bigbreak
+    Thus, for all $x \in B$, $x \geq \alpha$ which means that $\alpha$ is a lower bound of $B$. Thus, $\alpha \in L$.
+    \bigbreak
+    Since $y \leq \alpha$ for all $y \in L$. 
+    This implies that if $\gamma > \alpha$ then $\gamma \notin L$.
+    Thus, if $\gamma > \alpha$ then $\gamma$ is not a lower bound of $B$. 
+    \bigbreak
+    Now, we proved that $\alpha$ exists, it is the lower bound of $B$ and if $\gamma > \alpha$ 
+    then $\gamma$ is not a lower bound of $B$.
+     
+    So, $\alpha$ is the {\it greatest-lower-bound} of $B$, that is, $\alpha = \text{ inf } B$.
+\end{proof}

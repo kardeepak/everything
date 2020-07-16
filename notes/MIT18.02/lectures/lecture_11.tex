@@ -53,7 +53,7 @@ This is called an iterated integral. Here the values of $x_{min}$ and $x_{max}$ 
 On the otherhand, $y_{min}$ and $y_{max}$ will depend on the outer variable $x$.
 
 
-{\bf Example : } $z = 1 - x^2 - y^2$ for $0 <= x <= 1$ and $0 <= y <= 1$.
+{\bf Example : } $z = 1 - x^2 - y^2$ for $0 \leq x \leq 1$ and $0 \leq y \leq 1$.
 
 $$Volume = \int_0^1 \int_0^1 (1 - x^2 - y^2) dy dx$$
 
@@ -81,17 +81,17 @@ So, we have to be careful in setting up the order of the integration because one
 
 {\bf Example : }
 Let's say we wanted to intergrate $z = 1 - x^2 - y^2$ over the area in the first quadrant where $z > 0$.
-So $x >= 0$, $y >= 0$ and $x^2 + y^2 <= 1$. This is the same integral as above but the bounds are different.
+So $x \geq 0$, $y \geq 0$ and $x^2 + y^2 \leq 1$. This is the same integral as above but the bounds are different.
 
 For a given $x$, the range of $y$ is $y = 0$ to $y = \sqrt{1 - x^2}$. 
-Here, we take only the positive square root as $y >= 0$.
+Here, we take only the positive square root as $y \geq 0$.
 
 Now the final range of $x$ will be $x = 0$ to $x = 1$ as that is the rightmost point in our region.
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.5]{./images/lecture_11_figure_2.png}
-    \caption{The region $x^2 + y^2 <= 1$ in the first quadrant}
+    \caption{The region $x^2 + y^2 \leq 1$ in the first quadrant}
 \end{figure}
 
 So the final volume will be,
