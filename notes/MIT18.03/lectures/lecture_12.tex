@@ -96,16 +96,22 @@ And the ODE is said to be stable.
 
 We'll make a case by case analysis based on roots of the characteritics equation.
 
-{\bf Case 1. } Roots are real and different : $r_1$ and $r_2$.
+\begin{case}
+Roots are real and different : $r_1$ and $r_2$.
 
 Here, $y_1 = e^{r_1 t}$ and $y_2 = e^{r_2 t}$ will go to zero if $r_1 < 0$ and $r_2 < 0$.
+\end{case}
 
-{\bf Case 2. } Roots are real and same : $r_1 = r_2$.
+\begin{case}
+Roots are real and same : $r_1 = r_2$.
 
 Here, the solution is $y_c = e^{r_1 t}(c_1 + c_2 t)$ will go to zero if $r_1 < 0$.
+\end{case}
 
-{\bf Case 3. } Roots are complex conjugates : $a \pm bi$.
+\begin{case}
+Roots are complex conjugates : $a \pm bi$.
 
 Here, the solution is $y_c = e^{at}(c_1 \cos bt + c_2 \sin bt)$ will go to zero if $a < 0$. 
+\end{case}
 
 So the ODE is stable if the real part of all the roots of the characteritics equation is negative.

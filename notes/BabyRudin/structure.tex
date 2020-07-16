@@ -20,8 +20,6 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage{amsmath,amsfonts,stmaryrd,amssymb,mathtools,esint} % Math packages
-\usepackage{amsmath,amsfonts,amssymb,amsthm,epsfig,epstopdf,titling,url,array}
-
 
 \usepackage{enumerate} % Custom item numbers for enumerations
 
@@ -237,19 +235,13 @@
 % --- CUSTOM COMMANDS -- %
 \usepackage{setspace}
 \newcommand{\ilds}[1]{$\displaystyle{#1}$}
-\newcommand{\diff}[2]{\frac{d{#1}}{d{#2}}}
-\newcommand{\ijk}[3]{#1\hat{i} + #2\hat{j} + #3\hat{k}}
-\renewcommand{\ij}[2]{#1\hat{i} + #2\hat{j}}
-\newcommand{\px}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\pxx}[2]{\frac{\partial^2 #1}{\partial #2 ^2}}
-\newcommand{\pxy}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
 
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
   {\bfseries\center}{}{0pt}{\Large}
 \titlespacing{\chapter}{0pt}{*0.1}{*0.1}
 
-
+\usepackage{amsthm}
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[chapter]
 \newtheorem{lem}{Lemma}[thm]
