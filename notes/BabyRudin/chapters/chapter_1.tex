@@ -9,7 +9,15 @@
 \section{Ordered Sets}
 
 \begin{defn}
-    Let $S$ be a set. An {\it order} on S is a relation, denoted by $<$, 
+    \label{ords}
+    Let $S$ be a set. An {\it order} on S is a relatio
+    
+    Note n, denoted by $<$, that (III) simply says that there is no largest member.
+    (II) implies the following facts which will be used freely : 
+
+    If $p \in \alpha$ and $q \notin \alpha$, then $q > p$.
+
+    If $r \notin \alpha$ and $r < s$ then $s \notin \alpha$
     with the following two properties : 
     \begin{enumerate}
         \item If $x \in S$ and $y \in S$ then one and only one of the statements
@@ -308,7 +316,7 @@ Lower bounds are defined in the same way (with $\geq$ in place of $\leq$).
          we have $x \cdot \left( \frac{1}{x} \right) < 0 \left( \frac{1}{x} \right)$.
     
         By \ref{disprop} (a) and \ref{mul} (M5), we have $1 < 0$. 
-        This is a contradiction as we proved in (c) that $1 > 0$.
+        This is a contradiction as we proved in (d) that $1 > 0$.
 
         Thus, $\frac{1}{x} > 0$. Similarly, since $y > 0$ then $\frac{1}{y} > 0$.
 
@@ -318,3 +326,105 @@ Lower bounds are defined in the same way (with $\geq$ in place of $\leq$).
         Now by \ref{mul} M5, we get $( \frac{1}{y} ) < ( \frac{1}{x} )$.
     \end{enumerate}
 \end{proof}
+
+\begin{exmp}
+    Let's take sets $A$ and $B$ such that $A = \{ r | r^2 < 2, r \in Q \}$
+    and $B = \{ r | r^2 > 2, r \in Q \}$.
+
+    We know that $Q$ is a ordered field. Now we will prove that $A$ has no upper-bound in $Q$.
+    We know that for all $p \in A$ and  $q \in B$, $p < q$. Thus, $B$ is the set of upper-bounds of $A$.
+    And $A$ is the set of lower bounds of $B$.
+
+    Let's take an element $p \in Q$ and $$ q = p - \frac{p^2 - 2}{p + 2} = \frac{2p + 2}{p + 2} $$
+    Now $$ q^2 - 2 = \frac{4p^2 + 8p + 4}{p^2 + 4p + 4} - 2 = \frac{2p^2 - 4}{(p+2)^2} = \frac{2(p^2 - 2)}{(p+2)^2} $$
+
+    If $p \in A$ then $p^2 < 2$ which implies $q > p$ and $q^2 - 2 < 0$ so $q \in A$.
+    And if $p \in B$ then $p^2 > 2$ which implies $q > p$ and $q^2 - 2 > 0$ so $q \in B$.
+
+    Now let's assume $\alpha \in B$ is the least-upper-bound of $A$.
+    But as we've seen we can find $\beta < \alpha$ such that $\beta \in B$.
+    This is a contradiction. Thus, there is no least-upper-bound of $A$.
+    
+    Similarly, there is no greatest-lower-bound of $B$
+
+\end{exmp}
+
+With this example, we have shown that $Q$ doesn't have a least-upper-bound property.
+
+\section{The Real Field}
+
+\begin{thm}
+    There exists an ordered field $R$ which has the least-upper-bound property.
+    
+    Moreover, $R$ contains $Q$ as a subfield.
+\end{thm}
+
+\subsection{Proof}
+\begin{enumerate}[{\bf Step 1.}]
+\item
+The members of the field $R$ will be certain subsets of $Q$ called {\it cuts}.
+A cut is by definition, any $\alpha \subset Q$ with the following three properties.
+
+\begin{enumerate}[(I)]
+    \item $\alpha$ is not empty, and $\alpha \neq Q$
+    \item If $p \in \alpha$, $q \in Q$ and $q < p$ then $q \in \alpha$
+    \item If $p \in \alpha$, then $p < r$ for some $r \in \alpha$
+\end{enumerate}
+
+The letters $p, q, r, \dots$ always denote rational numbers 
+while $\alpha, \beta, \gamma, \dots$ will denote cuts.
+
+Note that (III) simply says that there is no largest member.
+(II) implies the following facts which will be used freely : 
+
+If $p \in \alpha$ and $q \notin \alpha$, then $q > p$. 
+[ Assume $q < p$ then by (II) implies that $q \in \alpha$. Contradiction. ]
+
+If $r \notin \alpha$ and $r < s$ then $s \notin \alpha$.
+[ Assume $s \in \alpha$ then (II) implies that $r \in alpha$. Contradiction. ]
+
+\item 
+Define $\alpha < \beta$ to mean: $\alpha$ is a {\it proper subset} of $\beta$.
+
+Let us check that it meets the requirements of \ref{ords}.
+
+It is clear that if $\alpha < \beta$ and $\beta < \gamma$ then $\alpha < \gamma$.
+It is also clear that atmost one of the three conditions will hold : 
+$$ \alpha < \beta; \quad \alpha = \beta; \quad \beta < \alpha $$
+
+Now we need to prove that atleast of these conditions hold.
+
+Let's assume that first two of the above statements don't hold true for some $\alpha$ and $\beta$.
+Then $\alpha$ is not a subset of $\beta$.
+So there exists $p \in \alpha$ such that $p \notin \beta$.
+
+Now, for all $q \in \beta$, we have $p > q$. 
+So by (II), we have $q \in \alpha$. Thus, $\beta < \alpha$.
+
+We can assume the last two to be false and prove the first one exactly the same way.
+
+Now if first and last statements are false then we need to prove that they are equal.
+Let's assume they are not equal.
+
+Then there exists $p \in \alpha$ and $q \in \beta$ such that $q \notin \alpha$ and $p \notin \beta$.
+This means that $p \neq q$.
+
+Since $p, q \in Q$, $p \neq q$ and $Q$ is an ordered set. 
+So either $p < q$ or $q < p$.
+
+If $p < q$ then $p \in \beta$ by (II). If $q < p$ then $q \in \alpha$ by (II).
+This is a contradiction. Hence, our assumption that $\alpha$ and $\beta$ are not equal must be wrong.
+
+Thus, $R$ is an ordered set.
+
+\item Define $\alpha + \beta = \{ r + s | r \in \alpha, s \in \beta\}$.
+
+Let us check that it meets the requirements of \ref{add} (A).
+
+\begin{enumerate}[(\text{A}1)]
+    \item We need to prove that $\alpha + \beta$ is a cut of $Q$.
+    Since $\alpha$ is not empty and $\beta$ is not empty so $\alpha + \beta$ is not empty.
+    Also since $\alpha \neq Q$ and $\beta \neq Q$
+\end{enumerate}
+
+\end{enumerate}
