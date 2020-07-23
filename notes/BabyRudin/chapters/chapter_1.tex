@@ -417,14 +417,118 @@ This is a contradiction. Hence, our assumption that $\alpha$ and $\beta$ are not
 
 Thus, $R$ is an ordered set.
 
-\item Define $\alpha + \beta = \{ r + s | r \in \alpha, s \in \beta\}$.
+\item The ordered set has least upper bound property. 
 
-Let us check that it meets the requirements of \ref{add} (A).
+To prove this, let $A$ be a non-empty subset of $R$ and assume that $\beta \in R$ is an upper bound of $A$.
+Define $\gamma$ to be the union of all elements of $A$.
+Thus, $p \in \gamma$ if and only if $p \in \alpha$ for some $\alpha \in A$.
+We shall prove that $\gamma \in R$ and $\gamma = \text{ sup } A$.
+
+Since $A$ is not empty so there exists an $\alpha \in A$.
+Since $\alpha \in R$ so $\alpha$ is not empty. 
+Thus, $\gamma$ is not empty as it is union of all such $\alpha$.
+
+Since for each $\alpha \in A$, by definition of upper bound $\alpha \leq \beta \Rightarrow \alpha \subseteq \beta$ so $\gamma \subseteq \beta$. 
+Therefore, $\gamma \neq Q$.
+
+If $p \in \gamma$, $q \in Q$ and $q < p$ then there exists some $\alpha \in A$ such that $p \in \alpha$.
+Therefore, by (II), $q \in \alpha$ which implies that $q \in \gamma$ since $\alpha \subseteq \gamma$.
+
+If $p \in \gamma$ then $p \in \alpha$ for some $\alpha \in A$. So $p < r$ for some $r \in \alpha$.
+Since $r \in \alpha$ so $r \in \gamma$ as $\alpha \subseteq \gamma$.
+Thus, if $p \in \gamma$ then $p < r$ for some $r \in \gamma$.
+
+Hence, proved that $\gamma \in R$.
+
+For each $\alpha \in A$, $\alpha \subseteq \gamma \Rightarrow \alpha \leq \gamma$. Thus, $\gamma$ is an upper bound of $A$.
+
+Suppose $\delta < \gamma$. Then there is an $s \in \gamma$ such that $s \notin \delta$.
+But $s \in \alpha$ for some $\alpha \in A$. So $\alpha$ is not a subset of $\delta$.
+Thus, $\delta$ is not an upper bound of $A$.
+
+Hence, proved that $\gamma = \text{ sup } A$.
+
+\item If $\alpha \in R$ and $\beta \in R$ we define $\alpha + \beta$ to be the set of all sums $r + s$,
+where $r \in \alpha$ and $s \in \beta$.
+
+We defind $0^*$ to be the set of all negative rational number.
+It is clear that $0^*$ is a cut. 
+
+We verify the axioms for addition at \ref{add} hold in $R$ with $0^*$ playing the role of $0$.
 
 \begin{enumerate}[(\text{A}1)]
-    \item We need to prove that $\alpha + \beta$ is a cut of $Q$.
-    Since $\alpha$ is not empty and $\beta$ is not empty so $\alpha + \beta$ is not empty.
-    Also since $\alpha \neq Q$ and $\beta \neq Q$
+    \item If $\alpha \in R$ and $\beta \in R$ then $\alpha + \beta \in R$.
+    
+    We need to show that $\alpha + \beta$ is a cut. 
+    Since $\alpha$ is not empty and $\beta$ is not empty so $\alpha + \beta$ is not empty as well.
+    
+    If $p \notin \alpha$ and $q \notin \beta$ then $p > r$ for each $r \in \alpha$ and $q > s$ for each $s \in \alpha$.
+    Thus, $p + q > r + s$ for each $r + s \in \alpha + \beta$. Thus, $p + q \notin \alpha + \beta$.
+    Thus, $\alpha + \beta \neq Q$. Thus, it satisfies (I).
+
+    If $p = r + s \in \alpha + \beta$ with $r \in \alpha$ and $s \in \beta$, and $q < r + s$
+    then let $r' = q - s < r$ so $q - s \in \alpha$ thus $q = (q - s) + s \in \alpha + \beta$.
+    Thus, it satisfies (II).
+
+    If $p = r + s \in \alpha + \beta$ with $r \in \alpha$ and $s \in \beta$ then there exists
+    $r' in \alpha$ such that $r' > r$ so $q = r' + s \in \alpha + \beta$ is such that $q > p$. 
+    Thus, it satisfies (III).
+
+    Hence, $\alpha + \beta \in R$.
+
+    \item Since $\alpha + \beta = \{ r + s | r \in \alpha , s \in \beta \} = \{ s + r | s \in \beta, r \in \alpha \} = \beta + \alpha$. 
+    Because addition is commutative in rational numbers.
+    
+    Thus, addition is commutative.
+
+    \item Same as above as $Q$ follows the associative law.
+    
+    \item If $r \in \alpha$ and $s \in 0^*$ then $s < 0$ which means $r + s < r$.
+    By (II), $r + s \in \alpha$. Thus, $\alpha + 0^* \subseteq \alpha$.
+
+    If $p \in \alpha$ then there is $r > p$ for some $r \in \alpha$.
+    Thus, $p - r < 0$ so $p - r \in 0^*$. Now, $(p - r) + r = p \in \alpha + 0^*$.
+    Thus, $\alpha \subseteq \alpha + 0^*$. So $\alpha = \alpha + 0^*$.
+
+    \item Fix $\alpha \in R$. Let $\beta$ be a set of all $p$ with the following property : 
+    
+    {\it There exists $r > 0$ such that $- p - r \notin \alpha$.}
+
+    In other words, some rational number less than $- p$ fails to be in $\alpha$.
+    
+    {\it We need show that $\beta \in R$ and $\alpha + \beta = 0^*$ }
+
+    If $s \notin \alpha$ and $p = - s - 1$ then $- p - 1 = s \notin \alpha$ so $p \in \beta$. Thus, $\beta$ is not empty.
+    If $q \in \alpha$ then $-q \notin \beta$ ( because $-(-q) - r = q - r < q$ so $q-r \in \alpha$ ). Thus, $\beta \neq Q$. 
+    Hence, $\beta$ satisfies (I).
+
+    If $p \in \beta$ and $q < p$ and $ - p - r \notin \alpha$ then $ -p < -q $ so $ - p - r < - q - r $. 
+    Since $ - p - r \notin \alpha$, by (II), $ - q - r \notin \alpha $. Thus, $q \in\beta$. Hence, $\beta$ satisfies (II).
+
+    If $p \in \beta$ and $ - p - r \notin \alpha$ and $q = p + r/2$ then $ - q - r/2 = - p - r \notin \alpha$ and $r > 0$ so $q > p$.
+    Hence, $\beta$ satisfies (III).
+
+    Thus, $\beta \in R$.
+
+    Now, $\alpha + \beta$ is the set of all sums $p + q$ where $p \in \alpha$ and $q \in \beta$. 
+    We need to show that $p + q$ is a negative rational number for all values of $p$ and $q$.
+    Since $q \in \beta$ we have $ - q - r \notin \alpha$ for some $r > 0$. 
+    Thus, $ - q - r > p  \Rightarrow - r > p + q $.
+    Since $r > 0$ so $- r < 0$. Thus, $p + q < 0$. So $p + q \in 0^*$ for all values of $p$ and $q$.
+    Thus, $\alpha + \beta \subseteq 0^*$
+
+    Now pick $v \in 0^*$ and $w = -v/2$. Then $w > 0$, and there is an integer $n$ such that $nw \in \alpha$
+    but $(n+1)w \notin \alpha$. (This is based on the archimedian proprty of rational numbers.)
+    Put $p = -(n+2)w$. Now $p \in \beta$ because $- p - w \notin \alpha$ and $v = nw + p \in \alpha + \beta$.
+    Thus, $0^* \subseteq \alpha + \beta$. 
+
+    Hence, $\alpha + \beta = 0^*$. This $\beta$ will be deonted by $-\alpha$.
+
 \end{enumerate}
+
+\item Having proved the addition axioms defined in \ref{add} (A),
+it follows the Proposition \ref{addprop} is valid in $R$.
+
+Now we can prove one of the requirements in definition \ref{ordf}.
 
 \end{enumerate}
