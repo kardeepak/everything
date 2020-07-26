@@ -7,4 +7,115 @@
 
 \bigbreak
 
-\section{Problems}
+\begin{prblm}
+    If $r$ is rational ($r \neq 0$) and $x$ is irrational, prove that $r + x$ and $rx$ are irrational.
+\end{prblm}
+
+\begin{proof}[Solution]
+    Assume $r + x = p$ is rational. Since $r, x \in R$ so there exists a $-r$. 
+    Now $(-r) + p = (-r) + r + x = x$ so now $x = p - r$. Since $p$ and $r$ are rational hence $x$ is also rational.
+    This is a contradiction. Hence, $r + x$ is irrational.
+
+    Assume $rx = q$ is rational. Since $r \neq 0$ then there exists a $(1/r)$.
+    Now $(1/r)q = (1/r)rx = x$ so now $x = q/r$. Since $q$ and $r$ are rational hence $x$ is also rational.
+    This is a contradiction. Hence, $rx$ is irrational.
+\end{proof}
+
+\begin{prblm}
+    Prove that there is no rational number whose square is $12$.
+\end{prblm}
+
+\begin{proof}[Solution]
+    Assume $12 = \left( \frac{p}{q} \right)^2$ where $p$ and $q$ are integers with no common factor.
+    Now $p^2 = 12q^2$ which shows that $p^2$ is a multiple of $3$. 
+    This implies that $p$ is a multiple of $3$. 
+    
+    Let $p = 3r$ so now $9r^2 = 12q^2$.
+    Dividing by $3$, we get, $3r^2 = 4q^2$. Now we get $4q^2$ is a multiple of $3$.
+    Since $4$ is not a multiple of $3$, hence, $q^2$ must be multiple of $3$. 
+    
+    Hence, $q$ is a multiple of $3$. This is a contradiction since $p$ and $q$ have no common multiple.
+    Thus, there are no such $p$ and $q$.
+
+\end{proof}
+
+\begin{prblm}
+    The axioms for multiplication imply the following statements : 
+    \begin{enumerate}[a)]
+        \item If $x \neq 0$ and $xy = xz$  then $y = z$
+        \item If $x \neq 0$ and $xy = x$ then $y = 1$
+        \item If $x \neq 0$ and $xy = 1$ then $y = (1/x)$
+        \item If $x \neq 0$ then $\frac{1}{(1/x)}= x$
+    \end{enumerate}
+    Prove the above.
+\end{prblm}
+
+\begin{proof}[Solution]
+    We'll use only the multiplication axioms.
+    \begin{enumerate}[a)]
+        \item 
+            By axiom of multiplicative identity, $y = 1y$.         
+            
+            By axiom of multiplicative inverse, $y = (1/x) x y$ since $x \neq 0$. 
+
+            Given $xy = xz$ so $y = (1/x) x z$.
+
+            By axiom of multiplicative inverse, $y = 1z$. By M4, $y = z$. Hence, proved. 
+        
+        \item Take $z = 1$ in (a) to prove this.
+        \item Take $z = (1/x)$ in (a) to prove this.
+        \item Now, $(1/x) \frac{1}{(1/x)} = 1 = (1/x) x $ if $x \neq 0$, using (a), 
+        we get $x = \frac{1}{(1/x)}$. Hence, proved.
+    \end{enumerate}
+\end{proof}
+
+\begin{prblm}
+    Let $E$ be a nonempty subset of an ordered set; 
+    suppose $\alpha$ is a lower bound of $E$ and $\beta$ is an upper bound of $E$.
+    Prove that $\alpha \leq \beta$.
+\end{prblm}
+
+\begin{proof}[Solution]
+    If $E$ is nonempty and there exists $x \in E$ such that $\alpha \leq x$ and $x \leq \beta$.
+    Now there are four cases : 
+    \begin{enumerate}
+        \item $\alpha < x$ and $x < \beta$ implies $\alpha < \beta$ by axiom of ordered sets.
+        \item $\alpha = x$ and $x < \beta$ implies $\alpha < \beta$.
+        \item $\alpha < x$ and $x = \beta$ implies $\alpha < \beta$.
+        \item $\alpha = x$ and $x = \beta$ implies $\alpha = \beta$.
+    \end{enumerate}
+    Hence, proved that $\alpha \leq \beta$.
+\end{proof}
+
+
+\begin{prblm}
+    Let $A$ be a nonempty set of real numbers which is bounded below.
+    Let $-A$ be set of all numbers $-x$, where $x \in A$. Prove that 
+    $$ \text{ inf } A = - \text{sup}(-A) $$
+\end{prblm}
+
+\begin{proof}[Solution]
+    Since $A$ is nonempty subset of $R$ and bounded below. 
+    By greatest-lower-bound property of $R$, we have $\alpha = \text{ inf } A$.
+
+    Now for each $x \in A$, $x \geq \alpha$. Let $p = (-x) + (-\alpha)$.
+    So by ordered field axiom, we get $p + x \geq p + \alpha \implies (-\alpha) \geq (-x)$.
+    Hence, for each $(-x) \in -A$, $(-\alpha) \geq (-x)$. Thus, $(-\alpha)$ is an upper bound of $-A$.
+    Let's take $\beta = (-\alpha)$.
+    
+    Now if $\gamma < \beta$ then $-\gamma > \alpha$, hence $-\gamma$ is not an lower bound of $A$.
+    So there exists $x \in A$ such that $x > (-\gamma)$ which implies $(-x) < \gamma$.
+    So for any $\gamma < \beta$ there exists $(-x) \in -A$ such that $(-x) < \gamma$.
+    Hence, $\gamma$ is not an upper of $-A$ if $\gamma > \beta$.
+    
+    Thus, by definition of least-upper-bound, $\beta = (-\alpha)$ is the least-upper-bound of $A$.
+
+    Thus, $\alpha = \text{ inf }A$ and $\beta = \text{sup}(-A)$ and $\beta = - \alpha \implies \alpha = - \beta$.
+    
+    Hence, proved that $\text{ inf } A = - \text{sup}(-A)$.
+    
+\end{proof}
+
+\begin{prblm}
+    
+\end{prblm}
