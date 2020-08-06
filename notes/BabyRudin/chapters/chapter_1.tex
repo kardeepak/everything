@@ -655,9 +655,29 @@ Here we'll prove the multiplication axioms defined in \ref{mul} (M).
     \bigbreak
     Hence, $\alpha \beta = 1^*$. And $\beta$ is denoted by $1 / \alpha$
 
+
+    \item[(D1)] To prove that $\alpha ( \beta + \gamma ) = \alpha \beta + \alpha \gamma $ for each $\alpha , \beta , \gamma \in R^+$.
+    \bigbreak \quad
+    Let $x \in \alpha(\beta + \gamma)$ then $x \leq r(s+t)$ for some $r \in \alpha$, $s \in \beta$ and $t \in \gamma$ such that $r > 0$ and $s + t > 0$.
+    Now, if $x < r(s+t)$ then $x < rs + rt$ and $rs \in \alpha \beta$ and $st \in \alpha \gamma$. 
+    Thus, $rs + rt \in \alpha \beta + \alpha \gamma$. Now, by (II), $x \in \alpha \beta + \alpha \gamma$.
+    Thus, $\alpha(\beta + \gamma) \subseteq \alpha \beta + \alpha \gamma$.
+    \bigbreak \quad
+    Let $x \in \alpha \beta + \alpha \gamma$ then $x = p + q$ such that $p \leq rs$ and $q \leq mn$ 
+    for some $r \in \alpha, s \in \beta, m \in \alpha, n \in \gamma$ with $r, s, m, n > 0$. 
+    \bigbreak \quad
+    If $r < m$ then $rs < ms \Rightarrow rs + mn < ms + mn \Rightarrow x < m(s + n)$. 
+    Now, $m \in \alpha, s \in \beta$ and $n \in \gamma$ so $m(s+n) \in \alpha(\beta + \gamma)$.
+    So by (II), $x \in \alpha(\beta + \gamma)$.
+    We can prove similarly the other two cases. 
+    Thus, $\alpha \beta + \alpha \gamma \subseteq \alpha ( \beta + \gamma )$.
+    \bigbreak \quad
+    Thus, $\alpha (\beta + \gamma) = \alpha \beta + \alpha \gamma$. Hence, proved.
 \end{enumerate}
 
 Notice that this follows that if $\alpha > 0^*$ and $\beta > 0^*$ then $\alpha \beta > 0^*$.
+
+\pagebreak
 
 \item We complete the definition of multiplication by definition $\alpha 0^* = 0^* \alpha = 0^*$.
 and by setting 
@@ -674,4 +694,251 @@ and by setting
 Having proved the axioms \ref{mul} (M) hold in $R^+$, it is now perfectly simple to prove them in $R$.
 First four axioms are trivial. And the inverse of $\alpha$ is $-(1/(-\alpha))$ for $\alpha < 0^*$.
 
+We can also prove the distributive property easily.
+
+We have now completed the proof that $R$ is an ordered field with the least upper-bound property.
+
+\item We associate each $r \in Q$ with $r^*$ which consists of all $p \in Q$
+such that $p < r$. It is clear that each $r^*$ is a cut; that is, $r^* \in R$.
+These cuts satisfy the following relations : 
+
+\begin{enumerate}[(a)]
+    \item $r^* + s^* = (r+s)^*$
+    \item $r^*  s^* = (rs)^*$
+    \item $r^* < s^*$ if any only if $r < s$
 \end{enumerate}
+
+\item We saw in last step that the replacement of the rational numbers $r$ by the conesponding ``rational cuts'' $r^* \in R$ preserves sums, products, and order. 
+This fact may be expressed by saying that the ordered field $Q$ is isomorphic to the ordered field $Q^*$ whose elements are the rational cuts. 
+Of course, $r^*$ is by no means the same as $r$, but the properties we are concerned with (arithmetic and order) are the same in the two fields. 
+
+It is this identification of $Q$ with $Q^*$ which allows us to regard $Q$ as a subfield of $R$.
+
+\end{enumerate}
+
+
+\begin{thm}
+    The following statements hold : 
+    \begin{enumerate}[a)]
+        \item If $x \in R$, $y \in R$, and $x > 0$ then there is a positive integer $n$ such that 
+        $ nx > y $
+        \item If $x \in R$, $y \in R$, and $x < y$, then there exists a $p \in Q$ such that $x < p < y$.
+    \end{enumerate}
+    \begin{proof}
+        \begin{enumerate}[a)]
+            \item 
+            Let $A$ be the set of all numbers for the form $nx$ where $n$ is a positive integer. 
+            Assume that for all $nx \in A$, $nx \leq y$. Then $y$ is an upper-bound of $A$.
+            Now by least-upper bound property, let $\alpha = \text{ sup } A$.
+            Since $x > 0$, $\alpha - x < \alpha$ which means $\alpha - x$ is not an upper bound of $A$.
+            So there exists $nx$ where $n$ is some positive integer such that $nx > \alpha - x$ implies that $(n+1)x > \alpha$.
+            Now, $(n+1)x \in A$ but this is a contradiction since $\alpha$ is an upper-bound of $A$.
+
+            Thus, our assumption must be wrong. Thus, there exists some $nx$ such that $nx > y$ where $n$ is some positive integer.
+            
+            \item
+            Since $x < y$, we have $y - x > 0$ so by (a), $$ n(y - x) > 1 $$ for some positive integer $n$.
+            Now, $1 > 0$ so $m_1 > nx$ and $m_2 > -nx$ so $$ -m_2 < nx < m_1 $$
+            Thus, there is an integer such that $$ m - 1 \leq nx < m $$
+            Combining these we get, $$ nx < m \leq 1 + nx < ny $$.
+            Since $n > 0$ if follows that, $$ x < \frac{m}{n} < y $$
+        \end{enumerate}
+    \end{proof}
+\end{thm}
+
+
+\begin{thm}
+    \label{pwrthm}
+    For every real $x > 0$ and every integer $n > 0$ there is one and only one
+    positive real number $y$ such that $y^n = x$.
+
+    This number is written as $\sqrt[n]{x}$ or $x^{\frac{1}{n}}$
+    \begin{proof}
+        There is atmost one such $y$ is clear, since $0 < y_1 < y_2$ implies $y_1^n < y_2^n$.
+
+        Let $E$ be set of all positive real numbers $t$ such that $t^n < x$.
+        
+        If $t = x / (1 + x)$ then $0 < t < 1$ and $t^n < t < x$. So $t \in E$ and $E$ is not empty.
+        If $t > 1 + x$ then $t^n \geq t > x$, so that $t \notin E$. 
+        Thus, $E \neq R$ and $1 + x$ is an upper bound of $E$.
+        
+        Thus, by least-upper bound property of real numbers, there exists $y = \sup E$.
+
+        To prove that $y^n = x$ we will show that each inequality $y^n < x$ and $y^n > x$ leads to a contradiction.
+
+        The identity $b^n - a^n = (b - a)(b^{n-1} + b^{n-2}a + \cdots + a^{n-1} )$ yields the inequality 
+        $$ b^n - a^n < (b - a) n b^{n-1} $$
+        when $0 < a < b$.
+
+        Assume $y^n < x$. Choose $h$ so that $0 < h < 1$ and 
+        $$ h < \frac{x - y^n}{n(y+1)^{n-1}} $$
+        Put $a = y$ and $b = y + h$ to get 
+        $$ (y + h)^n - y^n <  hn(y+h)^{n-1} < hn(y+1)^{n-1} < x - y^n $$
+        Thus, $(y + h)^n < x$, so $y + h \in E$. 
+        Since $y + h > y$, this contradicts the fact that $y$ is an upper bound of $E$.
+
+        Now assume $y^n > x$. Choose $k$
+        $$ k = \frac{y^n - x}{ny^{n-1}} $$
+        Then $0 < k < y$ because $x > 0 \Rightarrow y^n - x < y^n \leq ny^n$ as $n > 0$ is an integer so $n \geq 1$.
+        Now, if $t \geq y - k$ then 
+        $$ y^n - t^n \leq y^n - (y-k)^n < kny^{n-1} = y^n - x $$.
+        Thus, $t^n > x$, and $t \neq E$. It follows that $y - k$ is an upper bound of $E$.
+
+        But $y - k < y$, which contradicts the fact that $y$ is the least upper-bound of $E$.
+
+        Hence, $y^n = x$, and the proof is complete.
+    \end{proof}
+\end{thm}
+
+\begin{cor}
+    If $a$ and $b$ are positive real numbers then $$(ab)^{1/n} = a^{1/n} b^{1/n}$$
+    \begin{proof}
+        Put $\alpha = a^{1/n}$ and $\beta = b^{1/n}$ then $$ ab = \alpha^n \beta^n = (\alpha \beta)^n $$
+        since multiplication is commutative. The uniqueness assertion of Theorem \ref{pwrthm} shows that 
+        $$ (ab)^{1/n} = a^{1/n} b^{1/n} $$
+    \end{proof}
+\end{cor}
+
+\pagebreak
+
+\section{The Complex Field}
+
+\begin{defn}
+    A complex number is an ordered pair of real numbers.
+    Ordered means that $(a, b)$ and $(b, a)$ are different if $a \neq b$.
+
+    Let $x = (a, b)$ and $y = (c, d)$. We write $x = y$ if and only if $a = c$ and $b = d$.
+    We defind $x + y = (a + c, b + d)$ and $xy = (ac - bd, ad + bc)$.
+\end{defn}
+
+\begin{thm}
+    These definitions of addition and multiplication turn the set of all complex numbers into a field,
+    with $(0, 0)$ and $(1, 0)$ in the role of $0$ and $1$.
+    \begin{proof}
+        The proof of axioms of addition are trivial. The additive inverse of $(a, b)$ is $(-a, -b)$.
+        The proof of first four axioms of multiplication is also trivial.
+        
+        For (M5), the inverse of $x = (a, b)$ is $$ \frac{1}{x} = \left( \frac{a}{a^2 + b^2}, \frac{-b}{a^2 + b^2} \right) $$
+        Now, $$ x \frac{1}{x} = (a, b) \left( \frac{a}{a^2 + b^2}, \frac{-b}{a^2 + b^2} \right) 
+                    = \left( \frac{a^2 + b^2}{a^2 + b^2}, \frac{-ab + ab}{a^2 + b^2} \right) = (1, 0) $$
+
+        The proof of distributive law is trivial as well.
+    \end{proof}
+\end{thm}
+
+\begin{thm}
+    For every real number $a$ and $b$, we have,
+    $$ (a, 0) + (b, 0) = (a + b, 0) ; \quad (a, 0) (b, 0) = (ab, 0) $$
+    The proof is trivial. Thus, the real field is a subfield of the complex field.
+\end{thm}
+
+\begin{thm}
+    Define $i = (0, 1)$ and prove $i^2 = -1$.
+    \begin{proof}
+        $i^2 = (0, 1) (0, 1) = (0 - 1, 0 + 0) = (-1, 0) = -1$
+    \end{proof}
+\end{thm}
+
+\begin{thm}
+    If $a$ and $b$ are real numbers then $(a, b) = a + bi$
+    \begin{proof}
+        $a + bi = (a, 0) + (b, 0)(0, 1) = (a, 0) + (0, b) = (a, b)$
+    \end{proof}
+\end{thm}
+
+\begin{defn}
+    If $a$ and $b$ are real numbers and $z = a + bi$ then 
+    the complex number $\overline{z} = a - bi$ is called the {\it conjugate} of $z$. 
+    The numebrs $a$ and $b$ are the {\it real part} and the {\it imaginary part} of $z$, respectively.
+
+    We write, $a = Re(z)$ and $b = Im(z)$.
+\end{defn}
+
+\begin{thm}
+    If $z$ and $w$ are complex numbers then
+    \begin{enumerate}[a)]
+        \item $\overline{z+w} = \overline{z} + \overline{w}$
+        \item $\overline{zw} = \overline{z} \overline{w}$
+        \item $z + \overline{z} = 2Re(z)$ and $z - \overline{z} = 2 i Im(z)$
+        \item $z\overline{z}$ is real and positive except when $z = 0$
+    \end{enumerate}
+\end{thm}
+
+\begin{defn}
+    If $z$ is a complex number then, its {\it absolute value} $|z|$ is the non-negative 
+    sqaure root of $z\overline{z}$ ; that is, $|z| = (z\overline{z})^{1/2}$.
+        
+    The existence and uniqueness of $|z|$ follows from Theorem \ref{pwrthm} and the fact that $z \overline{z}$ is a real number.
+\end{defn}
+
+\begin{thm}
+    Let $z$ and $w$ be complex numbers. Then 
+    \begin{enumerate}[a)]
+        \item $|z| > 0$ unless $z = 0$, $|0| = 0$
+        \item $|\overline{z}| = |z|$
+        \item $|zw| = |z||w|$
+        \item $|Re (z)| \leq |z|$
+        \item $|z + w| \leq |z| + |w|$  
+    \end{enumerate}
+    \begin{proof}
+        \begin{enumerate}[a)]
+            \item Let $z = (a, b)$. If $z \neq 0$ then either $a \neq 0$ or $b \neq 0$ so $|z|^2 = a^2 + b^2 > 0$ by Proposition \ref{ordfprop} (d). 
+            So by definition, we take the positive square root to get, $|z| > 0$.
+            If $z = 0$ then $|z| = \sqrt{0^2 + 0^2} = 0$
+            
+            \item If $z = (a, b)$ then $\overline{z} = (a, -b)$ so $|z|^2 = |\overline{z}|^2 = a^2 + b^2$.
+            Now by uniqueness Theorem \ref{pwrthm}, we get $|z| = |\overline{z}|$.
+            
+            \item Let $z = (a, b)$ and $w = (c, d)$ so $zw = (ac - bd, ad + bc)$.
+            Now, 
+            \begin{align*}
+            |zw|^2 & = (ac - bd)^2 + (ad + bc)^2 \\
+                & = a^2 c^2 + b^2 d^2 - 2abcd + a^2 d^2 + b^2 c^2 + 2abcd \\
+                & = a^2(c^2 + d^2) + b^2(d^2 + c^2) \\
+                & = (a^2 + b^2) (c^2 + d^2) = |z|^2 |w|^2 = (|z||w)|^2 
+            \end{align*}
+            Now, by Theorem \ref{pwrthm}, $|zw| = |z||w|$.
+
+            \item Let $z = (a, b)$. Note that  $|a| = \sqrt{a^2} \leq \sqrt{a^2 + b^2}$.
+            
+            \item Note that $z \overline{w}$ is conjugate of $\overline{z} w$
+            \begin{align*}
+                |z + w|^2 & = (z + w)(\overline{z + w}) \\
+                        & = (z + w)(\overline{z} + \overline{w})
+                        & = z \overline{z} + z \overline{w} + w \overline{z} + w \overline{w} \\
+                        & = |z|^2 + 2 Re(z \overline{w}) + |w|^2 \\
+                        & \leq |z|^2 + 2 |z \overline{w}| + |w|^2 \\
+                        & = |z|^2 + 2|z||w| + |w|^2 \\
+                        & = (|z| + |w|)^2
+            \end{align*}
+            Hence, proved by taking square roots.
+        \end{enumerate}
+    \end{proof}
+\end{thm}
+
+
+\begin{thm}
+    If $a_1, \dots, a_n$ and $b_1, \dots, b_n$ are complex numbers, then 
+    $$
+        \left| \sum_{j=1}^n a_j \overline{b_j} \right| ^ 2
+        \leq 
+        \sum_{j=1}^n |a_j|^2 \sum_{j=1}^n |b_j|^2
+    $$
+    \begin{proof}
+        Put $A = \sum |a_j|^2, B = \sum |b_j|^2, C = \sum a_j \overline{b_j}$.
+        If $B = 0$ then $b_1 = \cdots = b_n = 0$ and the conclustion is trivial.
+        Assume $B > 0$. By Theorem \ref{pwrthm}, we have 
+        \begin{align*}
+            \sum |B a_j - C b_j|^2 
+                & = \sum (B a_j - C b_j)(B \overline{a_j} - \overline{C} \overline{b_j}) \\
+                & = \sum ( B^2 |a_j|^2 
+                    - B \overline{C} a_j \overline{b_j} 
+                    - B C \overline{a_j} b_j
+                    + |C|^2 |b_j|^2 ) \\
+                & = B^2 A - B \overline{C} C - B C \overline{C} + |C|^2 |B|^2 \\
+                & = B (BA - |C|^2)
+        \end{align*}
+        Now, $B > 0$ so $BA - |C|^2 \geq 0$ implies $|C|^2 \leq AB$.
+        Hence, proved.
+    \end{proof}
+\end{thm}

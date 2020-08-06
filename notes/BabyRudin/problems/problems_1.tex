@@ -117,10 +117,199 @@
 \end{proof}
 
 \begin{prblm}
-   Fix $b > 1$.
-   \begin{enumerate}[(a)]
-       \item If $m, n, p, q$ are integers, $n > 0$ and $q > 0$, and $r = m / n = p / q$, prove that
-       $$ (b^m)^{(1/n)} = (b^p)^{(1/q)} $$
-       Hence, it makes sense to define $b^r = (b^m)^{(1/n)}$
-   \end{enumerate} 
+    Fix $b > 1$.
+    \begin{enumerate}[(a)]
+        \item If $m, n, p, q$ are integers, $n > 0$ and $q > 0$, and $r = m / n = p / q$, prove that
+        $$ (b^m)^{(1/n)} = (b^p)^{(1/q)} $$
+        Hence, it makes sense to define $b^r = (b^m)^{(1/n)}$
+   
+        \begin{proof}
+            Let $k = mq = np$. Now, $((b^m)^{(1/n)})^{k} = b^{mp}$
+            and $((b^p)^{(1/q)})^{k} = b^{mp}$. 
+            Now, by Theorem \ref{pwrthm}, $(b^m)^{(1/n)} = (b^p)^{(1/q)}$
+        \end{proof}
+
+
+       \item Prove that $b^{r+s} = b^r b^s$ if $r$ and $s$ are rational numbers.
+       
+       \begin{proof}
+            Let $r = \frac{a}{b}$ and $s = \frac{c}{d}$ where $b > 0$ and $d > 0$ so $r + s = \frac{ad + bc}{bd}$.
+            $$ b^{r+s} = (b^{ad + bc})^{(1 / bd)} 
+                        = (b^{ad} b^{bc})^{(1/bd)}
+                        = (b^{ad})^{(1/bd)} (b^{bc})^{(1/bd)}
+                        = b^{\frac{a}{d}} b^{\frac{c}{d}}
+                        = b^r b^s $$
+       \end{proof}
+
+       \item If $x$ is real then define $B(x)$ to be the set of all numbers $b^t$, where $t$ is rational and $t \leq x$.
+       Prove that $$ b^r = \text{ sup } B(r) $$ when $r$ is rational.
+       Hence, it makes sense to define $$ b^x = \text{ sup } B(x) $$ for every real $x$.
+
+       \begin{proof}
+            Here, we first redefine, $B(x) = { b^t | t \in Q, t < r }$.
+
+            If $r < t$ and $b > 1$ then $b^r < b^t$. Hence, $b^r$ is an upper bound of $B(r)$.
+
+            If $x <= 0 < b^r$ then $b > 1 > x$ so $x$ is not an upper bound.
+            If $0 < x < b^r$ then $b^{1/n} < \frac{b^r}{x}$ then $x < b^{r - (1/n)} \in B(r)$. So $x$ is not an upper bound of $x$.
+
+            Thus, $b^r = \text{ sup } B(r)$. Hence, it makes sense to define $b^x = \text{ sup } B(x)$ for every real $x$
+       \end{proof}
+
+       \item Prove that $b^{x+y} = b^{x} b^{y}$ for all real $x$ and $y$.
+       
+       \begin{proof}
+            Let $p$ be a rational number such that $p < x + y$. Let $r$ be a rational such that $p - y < r < x$ and $s = p - r$.
+            Now $r < x$ and $s = p - r < y$. So $b^p = b^r b^s$ as $p, r, s \in Q$. 
+
+            So any $b^p \in B(x + y)$ is equivalent to $b^r b^s$ where $b^r \in B(x)$ and $b^s \in B(y)$.
+            So $b^r < b^x$ and $b^s < b^y$ so $b^p < b^x b^y$.
+            So $M = b^x b^y$ is an upper bound of $B(x + y)$.
+            
+            Suppose $0 < c < b^x b^y$ then $\frac{c}{b^x} < b^y$.
+            Let $m = (1/2)(\frac{c}{b^x} + b^y)$. Then $\frac{c}{b^x} < m < b^y$, 
+            and there exist $u \in B(x)$ and $v \in B(y)$ such that $c / m < u$ and $m  < v$.
+            Now $c = (c/m)m < uv \in B(x + y)$ so $c$ is not an upper bound of $B(x + y)$.
+
+            Thus, $\text{ sup } B(x+y) = b^x b^y$.
+       \end{proof}
+    \end{enumerate}
+\end{prblm}
+
+\begin{prblm}
+    Fix $b > 1, y > 0$, and prove that there is unique real number $x$ such that $b^x = y$, 
+    by completing the following outline.
+    \begin{enumerate}[(a)]
+        \item For any positive integer $n$, $b^n - 1 \geq n(b-1)$.
+        \begin{proof}
+            We know that $b^n - a^n = (b - a)( \sum_{k=0}^{n-1} b^{n-k-1} a^k)$.
+            If $0 < a < b$ then $a^k < b^k$ for any positive integer $k$. So $$b^{n-k-1}a^k \geq a^{n-k-1}a^k = a^{n-1}$$ where equality is for $k = 0$.
+            So, $$ b^n - a^n \geq (b-a) \left( \sum_{k=0}^{n-1} a^{n-1} \right) = (b-a)(n a^{n-1})$$
+            Put $a = 1$ to get $$ b^n - 1 \geq n(b-1) $$
+
+        \end{proof}
+
+        \item Hence, $b - 1 \geq n(b^{1/n} - 1)$.
+        
+        Replace $b$ with $b^{1/n}$ to prove this.
+
+        \item If $t > 1$ and $n > \frac{(b-1)}{(t-1)}$ then $b^{(1/n)} < t$
+        
+        \begin{proof}
+            \begin{align*}
+                n > \frac{b-1}{t-1} & \geq \frac{n(b^{(1/n)} - 1)}{t-1} \\
+                \implies n(t - 1) & \geq n(b^{(1/n)} - 1) \\
+                \implies t & \geq b^{(1/n)} 
+            \end{align*}
+        \end{proof}
+
+        \item If $w$ is such that $b^w < y$ then $b^{w + (1/n)} < y$ for sufficiently large $n$.
+        \begin{proof}
+            Putting $t = y b^{-w}$, we get, $t > 1$ as $b^w < y$. 
+            Taking $n > \frac{b-1}{t-1}$ we get $b^{(1/n)} < t$ so $b^{w + (1/n)} < y$.
+            
+            Hence, proved.
+        \end{proof}
+
+
+        \item If $w$ is such that $b^w > y$ then $b^{w - (1/n)} > y$ for sufficiently large $n$.
+        \begin{proof}
+            Putting $t = (1/y) b^{w}$, we get, $t > 1$ as $b^w > y$. 
+            Taking $n > \frac{b-1}{t-1}$ we get $b^{(1/n)} < t$ so $b^{w - (1/n)} > y$.
+            
+            Hence, proved.
+        \end{proof}
+
+        \item Let $A$ be the set of all $w$ such that $b^w < y$, and show that $x = \sup A$ satisfies $b^x = y$.
+        \begin{proof}
+            We will show that $b^x < y$ and $b^x > y$ both lead to contradiction.
+
+            Assume $b^x < y$ so there must exists a $n$ such that $b^{x + (1/n)} < y$ 
+            so $x < x + (1/n) \in A$ which contradicts the fact that $x$ is an upper bound of $A$.
+
+            Assume $b^x > y$ so there must exist a $n$ such that $b^{x - (1/n)} > y$
+            so $b^w < b^{x - (1/n)}$ implies $w < x - (1/n)$. Thus, $x - (1/n)$ is also an upper bound of $A$
+            which contradicts the fact that $x$ is the least upper bound of $A$.
+
+            Hence, $b^x = y$ proved.
+        \end{proof}
+
+        \item Let there be two real numbers $x_1 < x_2$ such that $b^{x_1} = b^{x_1} = y$.
+        That means, that the set $A = {w | b^w < y}$ has two least upper bounds which is impossible.
+        Thus, a real number $x$ is a unique number such that $b^x = y$ for $b > 1$ and $y > 0$.
+    \end{enumerate}
+\end{prblm}
+
+
+\begin{prblm}
+    Prove that no order can be defined in the complex field that turns it  into an ordered field. \\
+    {\it Hint: -1 is a square.}
+    \begin{proof}[Solution]
+        By \ref{ordfprop} (d) we know that a perfect square must be greater than $0$.
+        So $1 * 1 = 1 > 0$ and $i * i = -1 > 0$.
+        But $1 > 0$ implies that $-1 < 0$ by \ref{ordfprop} (a).
+        This is a contradiction. Thus, the complex field cannot be an ordered field.
+    \end{proof}
+\end{prblm}
+
+\begin{prblm}
+    Suppose $z = a + bi$, $w = c + di$. Define $z < w$ if $a < c$, and also if $a = c$ but $b < d$. 
+    Prove that this turns the set of all complex numbers into an ordered set. 
+    (This type of order relation is called a dictionary order, or lexicographic order, for obvious reasons.) 
+    Does this ordered set have the least-upper-bound property?
+
+    \begin{proof}[Solution]
+        The proof of \ref{ords} (a) is trivial. The real numbers are an ordered set so taking all the cases of 
+        order between $a, c$ and $b, d$ will give us 9 cases which all show that one of the relations is true.
+
+        To prove \ref{ords} (b), let's take $z = a + bi$, $w = c + di$ and $x = e + fi$.
+        We are given $z < w$ and $w < x$. Now we have four cases,
+        \begin{enumerate}
+            \item $a < c$ and $c < e$ implies $a < c$ so $z < x$.
+            \item $a < c$ and $c = e$ but $d < f$ implies $a < e$ so $z < x$.
+            \item $a = c$ but $b < d$ and $c < e$ implies $a < e$ so $z < x$.
+            \item $a = c$ but $b < d$ and $c = e$ but $d < f$ implies $a = e$ but $b < d$ so $z < x$.
+        \end{enumerate}
+        Thus, we have show that if $z < w$ and $w < x$ then $z < x$. 
+        Hence, proved. 
+    \end{proof}
+\end{prblm}
+
+\begin{prblm}
+    Suppese $z = a + bi$ and $w = u + vi$, and 
+    $$  a = \left( \frac{|w| + u}{2} \right)^{1/2} , \quad
+        b = \left( \frac{|w| - u}{2} \right)^{1/2} $$
+    Prove that $z^2 = w$ if $v \geq 0$ and that $(\overline{z})^2 = w$ if $v < 0$.
+    Conclude that every complex number (with one exception!) has two complex square roots.
+
+    \begin{proof}[Solution]
+        \begin{align*}
+            z^2 & = (a + bi)(a + bi) = a^2 + abi + abi + b^2 i^2 \\
+                & = a^2 - b^2 + 2abi \\
+                & = \frac{|w|+u}{2} - \frac{|w|-u}{2} 
+                    + 2 \left( \frac{|w|+u}{2} \right)^{1/2} \left( \frac{|w|-u}{2} \right)^{1/2} \\
+                & = u + (|w|^2 - u^2)^{1/2} i \\
+                & = u + |v|i
+        \end{align*}
+        Similarly, $(\overline{z})^2 = u - |v|i$. 
+        
+        So if $v \geq 0$ then $z^2 = w$ and if $v < 0$ then $(\overline{z})^2 = w$.
+
+        Thus, we've shown that for every complex number $w$ there are two square roots $z = \pm ( a + bi )$ 
+        where $a$ and $b$ are defined above. Except when $w = 0$.
+    \end{proof}
+\end{prblm}
+
+\begin{prblm}
+    If $z$ is a  complex number, prove that there exists an $r \geq 0$ and a complex number $w$ with $|w| = 1$ 
+    such that $z = rw$. Are $w$ and $r$ always uniquely determined by $z$?
+    \begin{proof}[Solution]
+        Take $z = a + bi$, $r = \sqrt{a^2 + b^2}$ and $w = z / r$. We already have $r \geq 0$
+        Now, $w = \frac{a}{\sqrt{a^2+b^2}} + \frac{bi}{\sqrt{a^2+b^2}}$.
+        So $|w| = \frac{a^2}{a^2+b^2} + \frac{b^2}{a^2+b^2} = 1$. Hence, proved.
+        
+        We can see that for each $z$, there is one and only one value of $r$ and $w$.
+        Thus, $r$ and $w$ are uniquely determined by $z$.
+
+    \end{proof} 
 \end{prblm}
