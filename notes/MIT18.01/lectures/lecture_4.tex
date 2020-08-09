@@ -3,7 +3,7 @@
 %	Lecture 4
 %----------------------------------------------------------------------------------------
 
-\chapter{Chain Rule}  
+\chapter{Chain Rule}
 
 \bigbreak
 \section{Chain Rule}
@@ -16,12 +16,12 @@ What about \underline{composition}?
 So, $y = f(g(t)) = \sin t^2$. To find \ilds{ \diff{y}{t} }, write
 $$ \frac{\Delta y}{\Delta t} = \frac{\Delta y}{\Delta x} \cdot \frac{\Delta x}{\Delta t} $$
 
-As $\Delta t \to 0, \Delta x \to 0$ too, because of continuity. So we get : 
+As $\Delta t \to 0, \Delta x \to 0$ too, because of continuity. So we get :
 $$ \diff{y}{t} = \diff{y}{x} \diff{x}{t} \leftarrow \textbf{The Chain Rule!} $$
 
 In this example, \ilds{ \diff{x}{t} = 2t } and \ilds{ \diff{y}{x} = \cos x }.
 \begin{align*}
-	\text{So, $\quad$} \diff{}{t} \sin(t^2) 
+	\text{So, $\quad$} \diff{}{t} \sin(t^2)
 		& = (\diff{y}{x})(\diff{x}{t}) \\
 		& = (\cos x)(2t) \\
 		& = (2t)(\cos(x^2)) \\
@@ -37,13 +37,13 @@ $$ \text{Note : } f \circ g \neq g \circ f $$
 There are two ways to proceed. \ilds{ x^{-n} = \left( \frac{1}{x} \right)^n } or \ilds{ x^{-n} = \frac{1}{x^n} }
 
 \begin{enumerate}
-	\item \ilds{ \diff{}{x} (x^{-n}) 
-		= \diff{}{x} \left( \frac{1}{x} \right)^n 
-		= n \left( \frac{1}{x} \right)^{n-1} \left( \frac{-1}{x^2} \right) 
+	\item \ilds{ \diff{}{x} (x^{-n})
+		= \diff{}{x} \left( \frac{1}{x} \right)^n
+		= n \left( \frac{1}{x} \right)^{n-1} \left( \frac{-1}{x^2} \right)
 		= -nx^{-(n-1)}x^{-2}
 		= -nx^{-n-1}
 	}
-	\item \ilds{ \diff{}{x} (x^{-n}) 
+	\item \ilds{ \diff{}{x} (x^{-n})
 		= \diff{}{x} \left( \frac{1}{x^n} \right)
 		= nx^{n-1} \left( \frac{-1}{x^{2n}} \right)
 		= -nx^{-n-1}

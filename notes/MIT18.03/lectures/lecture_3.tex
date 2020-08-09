@@ -3,7 +3,7 @@
 %	Lecture 3
 %----------------------------------------------------------------------------------------
 
-\chapter{First Order Linear Equation} 
+\chapter{First Order Linear Equation}
 
 \bigbreak
 
@@ -18,16 +18,16 @@ If $c(x) = 0$ then it is called homogenous equation.
 The standard linear form of this equation is :
 $$ y' + p(x) y = q(x) $$
 
-This equation can always be solved. 
+This equation can always be solved.
 And this also comes up in some important models.
 
 \subsection{Models}
 \begin{enumerate}
-    \item Temperature / Diffusion Models
-    \item Mixing Models
-    \item Radioactive Decays
-    \item Rocket Equation
-    \item Banking Models
+	\item Temperature / Diffusion Models
+	\item Mixing Models
+	\item Radioactive Decays
+	\item Rocket Equation
+	\item Banking Models
 \end{enumerate}
 
 \subsection{Condution Model}
@@ -39,7 +39,7 @@ Let's say the temperature of the object is $T$ and the temperature of the water 
 Newton's law of cooling says,
 $$ \diff{T}{t} = K(T_e - T) $$
 
-Here, $K$ is called the conductivity of the medium through which heat is transfered. 
+Here, $K$ is called the conductivity of the medium through which heat is transfered.
 And $K$ is a positive number.
 From this equation, we can see that $T_e > T$ then the rate of change of temperature is positive.
 If $T_e < T$ then the rate of change of temperature is negative.
@@ -49,14 +49,14 @@ If $T_e < T$ then the rate of change of temperature is negative.
 Here, the temperature is replaced by the concentration of some chemical, let's say salt.
 The walls are said to be semi-permeable membrane through which salt can travel.
 So the external concentration is $c_e$ and the internal concentration is $c$.
-The Diffusion Equation says, 
+The Diffusion Equation says,
 $$ \diff{c}{t} = k(c_e - c) $$
 
 Here, $k > 0$ for the same reason as before.
 
 \subsection{Solving Conduction / Concentration Model}
 
-Writing the tem=perature equation in the standard linear form we'll get, 
+Writing the tem=perature equation in the standard linear form we'll get,
 $$ \diff{T}{t} + kT = kT_e $$
 Here, $p(x) = k$ and $q(x) = kT_e $.
 We can look at it as a general linear equation by allowing $k$ and $T_e$ to vary with time.
@@ -71,42 +71,42 @@ Multiplying by $u$ gives us : $uy' + puy = qu$
 Now $(uy)' = uy' + u'y$ so we can find $u$ by solving $u' = pu$.
 Now we can use separation of variables to solve it to get $ln(u) = \int p dx \Rightarrow u = e^{\int p dx}$.
 
-Here, we need only one possible $u$. 
+Here, we need only one possible $u$.
 Here, $u = e^{\int p dx}$.
 So now by substituting, we get,
 
 $$
-    uy' + puy = qu \Rightarrow
-    (uy)' = qu \Rightarrow
-    uy = \int qu dx \Rightarrow
-    y = \frac{\int qu dx}{u}
+	uy' + puy = qu \Rightarrow
+	(uy)' = qu \Rightarrow
+	uy = \int qu dx \Rightarrow
+	y = \frac{\int qu dx}{u}
 $$
 
 \subsubsection{Steps to Solve}
 
 \begin{enumerate}
-    \item Write the equation in the standard form $y' + p(x)y = q(x)$
-    \item Find the Integrating Factor : $e^{\int p(x) dx}$
-    \item Simplify the Integrating Factor and multiply on the both sides of the equation.
-    \item Integrate
+	\item Write the equation in the standard form $y' + p(x)y = q(x)$
+	\item Find the Integrating Factor : $e^{\int p(x) dx}$
+	\item Simplify the Integrating Factor and multiply on the both sides of the equation.
+	\item Integrate
 \end{enumerate}
 
 {\bf Example : } Solve $xy' - y = x^3$.
 
-Writing in standard form, we get, 
+Writing in standard form, we get,
 $$ y' - \frac{1}{x} y = x^2 $$
 
 Here, $p(x) = - \frac{1}{x}$ and $q(x) = x^2$.
 
-Integrating Factor is 
-$$ \int p(x) dx = \int - \frac{1}{x} dx = - \ln(x) \Rightarrow u = e^{\int p(x) dx} = e^{-\ln(x)} = \frac{1}{x} $$ 
+Integrating Factor is
+$$ \int p(x) dx = \int - \frac{1}{x} dx = - \ln(x) \Rightarrow u = e^{\int p(x) dx} = e^{-\ln(x)} = \frac{1}{x} $$
 
 Multiplying by the Integrating Factor on both sides of the equations we get,
 \begin{align*}
-    \frac{1}{x}y' - \frac{1}{x^2}y = x \\
-    \left( \frac{1}{x} y \right)' = x \\
-    \frac{1}{x} y = \frac{x^2}{2} + c \\
-    y = \frac{x^3}{2} + cx 
+	\frac{1}{x}y' - \frac{1}{x^2}y = x \\
+	\left( \frac{1}{x} y \right)' = x \\
+	\frac{1}{x} y = \frac{x^2}{2} + c \\
+	y = \frac{x^3}{2} + cx
 \end{align*}
 
 
@@ -120,31 +120,31 @@ Integral of $p(x)$ is $$ \int \frac{ - \sin x }{1 + \cos x} dx = \ln( 1 + \cos x
 
 So the Integrating Factor is $ e^{\int p(x) dx} = 1 + \cos x $
 
-Multiplying by the Integrating Factor, we get 
+Multiplying by the Integrating Factor, we get
 
 \begin{align*}
-    (1+ \cos x)y' - ( \sin x )y & = 2x \\
-    ((1 + \cos x) y)' & = 2x \\
-    (1 + \cos x) y & = x^2 + c \\
-    y & = \frac{x^2 + c}{1 + \cos x}
+	(1+ \cos x)y' - ( \sin x )y & = 2x \\
+	((1 + \cos x) y)' & = 2x \\
+	(1 + \cos x) y & = x^2 + c \\
+	y & = \frac{x^2 + c}{1 + \cos x}
 \end{align*}
 
 \subsection{Linear Equation with Constant Coefficeints}
 
 Let's solve the equation $ y' + py = q(x) $ where $p$ is constant.
 Here, our Integrating Factor will be $ e^{\int p dx} = e^{px} $.
-Multiplying both sides by Integrating Factor, we get 
+Multiplying both sides by Integrating Factor, we get
 
 \begin{gather*}
 e^{px}y' + e^{px} p y = q(x) e^{px} \\
 (e^{px} y)' = q(x) e^{px} \\
 e^{px} y = \int q(x) e^{px} dx + c \\
-y = e^{-px} \int q(x) e^{px} dx + c e^{-px} 
+y = e^{-px} \int q(x) e^{px} dx + c e^{-px}
 \end{gather*}
 
-Now for the heat equation we have $p = k$ and  $q(t) = kT_e(t)$ so 
+Now for the heat equation we have $p = k$ and $q(t) = kT_e(t)$ so
 $$
-T(t) = e^{-kt} \int_0^t k T_e(t) e^{kt} dt + c e^{-kt} 
+T(t) = e^{-kt} \int_0^t k T_e(t) e^{kt} dt + c e^{-kt}
 $$
 
 Here we take a definite integral because we want an unambiguous solution.

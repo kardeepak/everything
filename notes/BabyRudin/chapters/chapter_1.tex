@@ -9,337 +9,337 @@
 \section{Ordered Sets}
 
 \begin{defn}
-    \label{ords}
-    Let $S$ be a set. An {\it order} on S is a relation, 
-    with the following two properties : 
-    \begin{enumerate}
-        \item If $x \in S$ and $y \in S$ then one and only one of the statements
-            $$ x < y ; \quad x = y ; \quad y < x $$
-            is true.
-        \item If $x, y, z \in S$, if $x < y$ and $y < z$ then $x < z$.
-    \end{enumerate}
-    It is often convenient to write $y > x$ instead of $x < y$.
-    The notation $x \leq y$ means either $x < y$ or  $x = y$. 
-    In other words, $x \leq y$ is negation of $x > y$.
+	\label{ords}
+	Let $S$ be a set. An {\it order} on S is a relation,
+	with the following two properties :
+	\begin{enumerate}
+		\item If $x \in S$ and $y \in S$ then one and only one of the statements
+			$$ x < y ; \quad x = y ; \quad y < x $$
+			is true.
+		\item If $x, y, z \in S$, if $x < y$ and $y < z$ then $x < z$.
+	\end{enumerate}
+	It is often convenient to write $y > x$ instead of $x < y$.
+	The notation $x \leq y$ means either $x < y$ or $x = y$.
+	In other words, $x \leq y$ is negation of $x > y$.
 \end{defn}
 
 \begin{defn}
-    An {\it ordered set} is a set $S$ in which an order is defined.
+	An {\it ordered set} is a set $S$ in which an order is defined.
 \end{defn}
-For example, the set of rational numbers $Q$ is a ordered set if $r < s$ 
+For example, the set of rational numbers $Q$ is a ordered set if $r < s$
 is defined to mean that $s-r$ is a positive rational number.
 
 \begin{defn}
-    Suppose $S$ is an ordered set, and $E \subset S$. 
-    If there exists a $\beta \in S$ such that $x \leq \beta$ for every $x \in E$, 
-    we say that $E$ is {\it bounded above},
-    and $\beta$ is an upper bound of $E$
+	Suppose $S$ is an ordered set, and $E \subset S$.
+	If there exists a $\beta \in S$ such that $x \leq \beta$ for every $x \in E$,
+	we say that $E$ is {\it bounded above},
+	and $\beta$ is an upper bound of $E$
 \end{defn}
 Lower bounds are defined in the same way (with $\geq$ in place of $\leq$).
 
 \begin{defn}
-    \label{supremum}
-    Suppose $S$ is an ordered set, $E \subset S$, and $E$ is bounded above. 
-    Suppose there extsts an $\alpha \in S$ with the following properties: 
-    \begin{enumerate}
-        \item $\alpha$ is an upper bound of E. 
-        \item If $\gamma \in S$ and $\gamma < \alpha$ then $\gamma$ is not an upper bound of $E$.
-    \end{enumerate}
-    Then $\alpha$ is called the least upper bound of $E$ 
-    [that there is at most one such $\alpha$ is clear from (2).] 
-    or the supremum of $E$, and we write $$ \alpha = \text{ sup } E $$
-    
-    The greatest lower bound, or infimum, of a set $E$ which is bounded below is defined in the same manner: 
-    The statement $$ \alpha = \text{ inf } E $$ means that $\alpha$ is a lower bound of $E$ 
-    and that no $\beta \in S$ with $\beta > \alpha$ is not a lower bound of $E$.
+	\label{supremum}
+	Suppose $S$ is an ordered set, $E \subset S$, and $E$ is bounded above.
+	Suppose there extsts an $\alpha \in S$ with the following properties:
+	\begin{enumerate}
+		\item $\alpha$ is an upper bound of E.
+		\item If $\gamma \in S$ and $\gamma < \alpha$ then $\gamma$ is not an upper bound of $E$.
+	\end{enumerate}
+	Then $\alpha$ is called the least upper bound of $E$
+	[that there is at most one such $\alpha$ is clear from (2).]
+	or the supremum of $E$, and we write $$ \alpha = \text{ sup } E $$
+
+	The greatest lower bound, or infimum, of a set $E$ which is bounded below is defined in the same manner:
+	The statement $$ \alpha = \text{ inf } E $$ means that $\alpha$ is a lower bound of $E$
+	and that no $\beta \in S$ with $\beta > \alpha$ is not a lower bound of $E$.
 \end{defn}
 
 \begin{rem}
-    If $\alpha \in S$ is the supremum of $E$ then $\alpha$ may or may not belong to $E$.
+	If $\alpha \in S$ is the supremum of $E$ then $\alpha$ may or may not belong to $E$.
 \end{rem}
 
 \begin{defn}
-    An ordered set $S$ is said to have the {\it least-upper-bound property} if the following is true:
-    
-    If $E \subset S$, $E$ is not empty and $E$ is bounded above, then $\text{ sup } E$ exists.
+	An ordered set $S$ is said to have the {\it least-upper-bound property} if the following is true:
+
+	If $E \subset S$, $E$ is not empty and $E$ is bounded above, then $\text{ sup } E$ exists.
 \end{defn}
 
 \pagebreak
 
 \begin{thm}
-    Suppose $S$ is an ordered set with the least-upper-bound property, 
-    $B \subset S$, $B$ is not empty and $B$ is bounded below.
-    Let $L$ be the set of all lower bounds of $B$ then $$ \alpha = \text{ sup } L $$
-    exists in $S$, and $\alpha = \text{ inf } B$.
+	Suppose $S$ is an ordered set with the least-upper-bound property,
+	$B \subset S$, $B$ is not empty and $B$ is bounded below.
+	Let $L$ be the set of all lower bounds of $B$ then $$ \alpha = \text{ sup } L $$
+	exists in $S$, and $\alpha = \text{ inf } B$.
 
-    In particular, $\text{ inf } B$ exists in $S$.
+	In particular, $\text{ inf } B$ exists in $S$.
 \end{thm}
 
 \begin{proof}
-    Since $B$ is bounded below, $L$ is not empty. 
-    \bigbreak 
-    For all $x \in L$, $x$ is lower bound of $B$ so $x \leq y$ for all $y \in B$.
-    So for all $y \in B$, $y \geq x$ for all $x \in L$.
-    Thus, {\it each $y \in B$ is an upper bound of $L$}. 
-    Thus, $L$ is bounded above.
-    \bigbreak
-    Since $L$ is bound above then by least-upper-bound property $\alpha = \text{ sup } L$ exists in $S$. 
-    \bigbreak
-    Assume that there exists an $x \in B$ such that $x < \alpha$.
-    By Definition \ref{supremum}, $x$ is not an upper bound of $L$.
-    This is a contradiction since each $x \in B$ is an upper bound of $L$ as shown earlier.
-    \bigbreak
-    Thus, for all $x \in B$, $x \geq \alpha$ which means that $\alpha$ is a lower bound of $B$. 
-    Thus, $\alpha \in L$.
-    \bigbreak
-    Since $y \leq \alpha$ for all $y \in L$. 
-    This implies that if $\gamma > \alpha$ then $\gamma \notin L$.
-    Thus, if $\gamma > \alpha$ then $\gamma$ is not a lower bound of $B$. 
-    \bigbreak
-    Now, we proved that $\alpha$ exists, it is the lower bound of $B$ and if $\gamma > \alpha$ 
-    then $\gamma$ is not a lower bound of $B$.
-     
-    So, $\alpha$ is the {\it greatest-lower-bound} of $B$, that is, $\alpha = \text{ inf } B$.
+	Since $B$ is bounded below, $L$ is not empty.
+	\bigbreak
+	For all $x \in L$, $x$ is lower bound of $B$ so $x \leq y$ for all $y \in B$.
+	So for all $y \in B$, $y \geq x$ for all $x \in L$.
+	Thus, {\it each $y \in B$ is an upper bound of $L$}.
+	Thus, $L$ is bounded above.
+	\bigbreak
+	Since $L$ is bound above then by least-upper-bound property $\alpha = \text{ sup } L$ exists in $S$.
+	\bigbreak
+	Assume that there exists an $x \in B$ such that $x < \alpha$.
+	By Definition \ref{supremum}, $x$ is not an upper bound of $L$.
+	This is a contradiction since each $x \in B$ is an upper bound of $L$ as shown earlier.
+	\bigbreak
+	Thus, for all $x \in B$, $x \geq \alpha$ which means that $\alpha$ is a lower bound of $B$.
+	Thus, $\alpha \in L$.
+	\bigbreak
+	Since $y \leq \alpha$ for all $y \in L$.
+	This implies that if $\gamma > \alpha$ then $\gamma \notin L$.
+	Thus, if $\gamma > \alpha$ then $\gamma$ is not a lower bound of $B$.
+	\bigbreak
+	Now, we proved that $\alpha$ exists, it is the lower bound of $B$ and if $\gamma > \alpha$
+	then $\gamma$ is not a lower bound of $B$.
+
+	So, $\alpha$ is the {\it greatest-lower-bound} of $B$, that is, $\alpha = \text{ inf } B$.
 \end{proof}
 
 
 \section{Fields}
 
 \begin{defn}
-    A {\it field} is a set $F$ with two operations called {\it addition} and {\it multiplication},
-    which satisfy the following so-called ``field axioms'' (A), (M) and (D) : 
-    \subsubsection{(A) Axiom of Additions}
-    \label{add}
-    \begin{enumerate}[(\text{A}1)]
-        \item If $x \in F$ and $y \in F$ then $x + y \in F$.
-        \item Addition is commutative : $x + y = y + x$ for all $x, y \in F$
-        \item Addition is associative $x + (y + z) = (x + y) + z$ for all $x, y, z \in F$
-        \item $F$ contains an identity element $0$ such that $0 + x = x$ for all $x \in F$
-        \item For every $x \in F$, there exists a $(-x) \in F$ such that $x + (-x) = 0$
-    \end{enumerate}
+	A {\it field} is a set $F$ with two operations called {\it addition} and {\it multiplication},
+	which satisfy the following so-called ``field axioms'' (A), (M) and (D) :
+	\subsubsection{(A) Axiom of Additions}
+	\label{add}
+	\begin{enumerate}[(\text{A}1)]
+		\item If $x \in F$ and $y \in F$ then $x + y \in F$.
+		\item Addition is commutative : $x + y = y + x$ for all $x, y \in F$
+		\item Addition is associative $x + (y + z) = (x + y) + z$ for all $x, y, z \in F$
+		\item $F$ contains an identity element $0$ such that $0 + x = x$ for all $x \in F$
+		\item For every $x \in F$, there exists a $(-x) \in F$ such that $x + (-x) = 0$
+	\end{enumerate}
 
-    \subsubsection{(M) Axiom of Multiplications}
-    \label{mul}
-    \begin{enumerate}[(M1)]
-        \item If $x \in F$ and $y \in F$ then $xy \in F$ 
-        \item Multiplication is commutative : $xy = yx$ for all $x, y \in F$
-        \item Multiplication is associative : $x(yz) = (xy)z$ for all $x, y, z \in F$
-        \item $F$ contains an identity element $1 \neq 0$ such that $1x = x$ for every $x \in F$
-        \item For every $x \in F$ such that $x \neq 0$, there exists an element $(1/x) \in F$ 
-        such that $x \cdot (1/x) = 1$
-    \end{enumerate}
+	\subsubsection{(M) Axiom of Multiplications}
+	\label{mul}
+	\begin{enumerate}[(M1)]
+		\item If $x \in F$ and $y \in F$ then $xy \in F$
+		\item Multiplication is commutative : $xy = yx$ for all $x, y \in F$
+		\item Multiplication is associative : $x(yz) = (xy)z$ for all $x, y, z \in F$
+		\item $F$ contains an identity element $1 \neq 0$ such that $1x = x$ for every $x \in F$
+		\item For every $x \in F$ such that $x \neq 0$, there exists an element $(1/x) \in F$
+		such that $x \cdot (1/x) = 1$
+	\end{enumerate}
 
-    \subsubsection{(D) Axiom of Distribution}
-    \label{dis}
-    $$ x (y + z) = xy + xz $$ holds for every $x, y,, z \in F$
+	\subsubsection{(D) Axiom of Distribution}
+	\label{dis}
+	$$ x (y + z) = xy + xz $$ holds for every $x, y,, z \in F$
 \end{defn}
 
 \begin{rem}
-    \begin{enumerate}
-        \item One usually writes $ x - y, \frac{x}{y}, x + y + z, xyz, x^2, x^3, 2x, 3x, \dots $ instead of
-        $ x + (-y), x \cdot \left( \frac{1}{y} \right), (x+y)+z, (xy)z, xx, xxx, x+x, x+x+x, \dots $.
-        \item The field axioms clearly hold in $Q$ if addition and multiplication have their customary meaning.
-        Thus, $Q$ is a field.
+	\begin{enumerate}
+		\item One usually writes $ x - y, \frac{x}{y}, x + y + z, xyz, x^2, x^3, 2x, 3x, \dots $ instead of
+		$ x + (-y), x \cdot \left( \frac{1}{y} \right), (x+y)+z, (xy)z, xx, xxx, x+x, x+x+x, \dots $.
+		\item The field axioms clearly hold in $Q$ if addition and multiplication have their customary meaning.
+		Thus, $Q$ is a field.
 
-    \end{enumerate}
-    
+	\end{enumerate}
+
 \end{rem}
 
 \begin{prop}
-    \label{addprop}
-    The axioms for addition imply the following statements : 
-    \begin{enumerate}[a)]
-        \item If $x + y = x + z$ then $y = z$
-        \item If $x + y = x$ then $y = 0$
-        \item If $x + y = 0$ then $y = (-x)$
-        \item $-(-x) = x$
-    \end{enumerate}
+	\label{addprop}
+	The axioms for addition imply the following statements :
+	\begin{enumerate}[a)]
+		\item If $x + y = x + z$ then $y = z$
+		\item If $x + y = x$ then $y = 0$
+		\item If $x + y = 0$ then $y = (-x)$
+		\item $-(-x) = x$
+	\end{enumerate}
 \end{prop}
 
 \begin{proof}
-    We'll use only the addition axioms of \ref{add}.
-    \begin{enumerate}[a)]
-        \item 
-            By A4, $y = 0 + y$.         
-            By A5, $y = (-x) + x + y$. 
+	We'll use only the addition axioms of \ref{add}.
+	\begin{enumerate}[a)]
+		\item
+			By A4, $y = 0 + y$.
+			By A5, $y = (-x) + x + y$.
 
-            Given $x + y = x + z$ so $y = (-x) + x + z$. 
+			Given $x + y = x + z$ so $y = (-x) + x + z$.
 
-            By A5, $y = 0 + z$. By A4, $y = z$. Hence, proved. 
-        
-        \item Take $z = 0$ in (a) to prove this.
-        \item Take $z = (-x)$ in (a) to prove this.
-        \item Since, $(-x) + x = 0$, using (c), we get $x = -(-x)$. Hence, proved.
-    \end{enumerate}
+			By A5, $y = 0 + z$. By A4, $y = z$. Hence, proved.
+
+		\item Take $z = 0$ in (a) to prove this.
+		\item Take $z = (-x)$ in (a) to prove this.
+		\item Since, $(-x) + x = 0$, using (c), we get $x = -(-x)$. Hence, proved.
+	\end{enumerate}
 \end{proof}
 
 
 \begin{prop}
-    \label{mulprop}
-    The axioms for multiplication imply the following statements : 
-    \begin{enumerate}[a)]
-        \item If $x \neq 0$ and $xy = xz$  then $y = z$
-        \item If $x \neq 0$ and $xy = x$ then $y = 1$
-        \item If $x \neq 0$ and $xy = 1$ then $y = (1/x)$
-        \item If $x \neq 0$ then $\frac{1}{(1/x)}= x$
-    \end{enumerate}
+	\label{mulprop}
+	The axioms for multiplication imply the following statements :
+	\begin{enumerate}[a)]
+		\item If $x \neq 0$ and $xy = xz$ then $y = z$
+		\item If $x \neq 0$ and $xy = x$ then $y = 1$
+		\item If $x \neq 0$ and $xy = 1$ then $y = (1/x)$
+		\item If $x \neq 0$ then $\frac{1}{(1/x)}= x$
+	\end{enumerate}
 \end{prop}
 
 
 \begin{proof}
-    We'll use only the multiplication axioms of \ref{mul}.
-    \begin{enumerate}[a)]
-        \item 
-            By M4, $y = 1y$.         
-            By M5, $y = (1/x) x y$ since $x \neq 0$. 
+	We'll use only the multiplication axioms of \ref{mul}.
+	\begin{enumerate}[a)]
+		\item
+			By M4, $y = 1y$.
+			By M5, $y = (1/x) x y$ since $x \neq 0$.
 
-            Given $xy = xz$ so $y = (1/x) x z$.
+			Given $xy = xz$ so $y = (1/x) x z$.
 
-            By M5, $y = 1z$. By M4, $y = z$. Hence, proved. 
-        
-        \item Take $z = 1$ in (a) to prove this.
-        \item Take $z = (1/x)$ in (a) to prove this.
-        \item Now, $(1/x) \frac{1}{(1/x)} = 1$ if $x \neq 0$, using (c), 
-        we get $x = \frac{1}{(1/x)}$. Hence, proved.
-    \end{enumerate}
+			By M5, $y = 1z$. By M4, $y = z$. Hence, proved.
+
+		\item Take $z = 1$ in (a) to prove this.
+		\item Take $z = (1/x)$ in (a) to prove this.
+		\item Now, $(1/x) \frac{1}{(1/x)} = 1$ if $x \neq 0$, using (c),
+		we get $x = \frac{1}{(1/x)}$. Hence, proved.
+	\end{enumerate}
 \end{proof}
 
 
 \begin{prop}
-    \label{disprop}
-    The field axioms imply the following statements, for any $x, y, z \in F$.
-    \begin{enumerate}[a)]
-        \item $0x = 0$
-        \item If $x \neq 0$ and $y \neq 0$ then $xy \neq 0$
-        \item $(-x)y = -(xy) = x(-y)$
-        \item $(-x)(-y) = xy$
-    \end{enumerate}
+	\label{disprop}
+	The field axioms imply the following statements, for any $x, y, z \in F$.
+	\begin{enumerate}[a)]
+		\item $0x = 0$
+		\item If $x \neq 0$ and $y \neq 0$ then $xy \neq 0$
+		\item $(-x)y = -(xy) = x(-y)$
+		\item $(-x)(-y) = xy$
+	\end{enumerate}
 \end{prop}
 
 \begin{proof}
-    \begin{enumerate}[a)]
-        \item By \ref{dis} (D), $0x + 0x = (0 + 0)x$.
-        
-        By A4, $0x + 0x = 0x$. By \ref{addprop} (b), we get $0x = 0$. Hence, proved.
+	\begin{enumerate}[a)]
+		\item By \ref{dis} (D), $0x + 0x = (0 + 0)x$.
 
-        \item Assume that there exist $x, y$ such that $x \neq 0$ and $y \neq 0$ but $xy = 0$
-        Sincr $x \neq  0$ and $y \neq 0$, then by \ref{mul} (M5), 
-        we know that $\left( \frac{1}{x} \right) x = 1$ 
-        and $\left( \frac{1}{y} \right) y = 1$.
+		By A4, $0x + 0x = 0x$. By \ref{addprop} (b), we get $0x = 0$. Hence, proved.
 
-        Since $x \neq 0$ and $y \neq 0$. Then using (a), we get :
-            $$ 1 = \left( \frac{1}{y} \right) y = \left( \frac{1}{y} \right) 1 y
-                = \left( \frac{1}{y} \right) \left( \frac{1}{x} \right) x y 
-                = \left( \frac{1}{y} \right) \left( \frac{1}{x} \right) 0 
-                = 0
-            $$
+		\item Assume that there exist $x, y$ such that $x \neq 0$ and $y \neq 0$ but $xy = 0$
+		Sincr $x \neq 0$ and $y \neq 0$, then by \ref{mul} (M5),
+		we know that $\left( \frac{1}{x} \right) x = 1$
+		and $\left( \frac{1}{y} \right) y = 1$.
 
-        This is a contradiction as axiom \ref{mul} (M4) says that $1 \neq 0$.
-        Hence, if $x \neq 0$ and $y \neq 0$ then $xy \neq 0$.
+		Since $x \neq 0$ and $y \neq 0$. Then using (a), we get :
+			$$ 1 = \left( \frac{1}{y} \right) y = \left( \frac{1}{y} \right) 1 y
+				= \left( \frac{1}{y} \right) \left( \frac{1}{x} \right) x y
+				= \left( \frac{1}{y} \right) \left( \frac{1}{x} \right) 0
+				= 0
+			$$
 
-        \item By \ref{dis} (D), we have $xy + (-x)y = (x+(-x))y$.
-        By A5, we have $xy + (-x)y = 0y$.
+		This is a contradiction as axiom \ref{mul} (M4) says that $1 \neq 0$.
+		Hence, if $x \neq 0$ and $y \neq 0$ then $xy \neq 0$.
 
-        By (a), we have $xy + (-x)y = 0$.
-        By \ref{addprop} (c), we have $(-x)y = -(xy)$. Hence, proved.
+		\item By \ref{dis} (D), we have $xy + (-x)y = (x+(-x))y$.
+		By A5, we have $xy + (-x)y = 0y$.
 
-        Now, $x(-y) = (-y)x = -(yx) = -(xy)$ by first half of (c) 
-        and because multiplication is commutative \ref{mul} (M2).
+		By (a), we have $xy + (-x)y = 0$.
+		By \ref{addprop} (c), we have $(-x)y = -(xy)$. Hence, proved.
 
-        \item $(-x)(-y) = -(x(-y)) = -(-(xy)) = xy$ by (c) and \ref{addprop} (d).
-    \end{enumerate}
+		Now, $x(-y) = (-y)x = -(yx) = -(xy)$ by first half of (c)
+		and because multiplication is commutative \ref{mul} (M2).
+
+		\item $(-x)(-y) = -(x(-y)) = -(-(xy)) = xy$ by (c) and \ref{addprop} (d).
+	\end{enumerate}
 \end{proof}
 
 
 \begin{defn}
-    \label{ordf}
-    An {\it ordered field} is a field $F$ which is also an ordered set, such that
-    \begin{enumerate}[(i)]
-        \item If $x, y, z \in F$ and $y < z$ then $x + y < x + z$
-        \item If $x, y \in F$, $x > 0$ and $y > 0$ then $xy > 0$
-    \end{enumerate}
-    If $x > 0$, we call it {\it positive}; if $x < 0$, $x$ is {\it negative}.
+	\label{ordf}
+	An {\it ordered field} is a field $F$ which is also an ordered set, such that
+	\begin{enumerate}[(i)]
+		\item If $x, y, z \in F$ and $y < z$ then $x + y < x + z$
+		\item If $x, y \in F$, $x > 0$ and $y > 0$ then $xy > 0$
+	\end{enumerate}
+	If $x > 0$, we call it {\it positive}; if $x < 0$, $x$ is {\it negative}.
 \end{defn}
 
 \begin{prop}
-    \label{ordfprop}
-    The following statements are true in every ordered field.
-    \begin{enumerate}[a)]
-        \item If $x > 0$ then $ -x < 0$ and {\it vice versa}.
-        \item If $x > 0$ and $y < z$ then $xy < yz$.
-        \item If $x < 0$ and $y < z$ then $xy > xz$.
-        \item If $x \neq 0$ then $x^2 > 0$. In particular, $1 > 0$
-        \item If $0 < x < y$ then $0 < \frac{1}{y} < \frac{1}{x} $
-    \end{enumerate}
+	\label{ordfprop}
+	The following statements are true in every ordered field.
+	\begin{enumerate}[a)]
+		\item If $x > 0$ then $ -x < 0$ and {\it vice versa}.
+		\item If $x > 0$ and $y < z$ then $xy < yz$.
+		\item If $x < 0$ and $y < z$ then $xy > xz$.
+		\item If $x \neq 0$ then $x^2 > 0$. In particular, $1 > 0$
+		\item If $0 < x < y$ then $0 < \frac{1}{y} < \frac{1}{x} $
+	\end{enumerate}
 \end{prop}
 
 \begin{proof}
-    \begin{enumerate}[a)]
-        \item Since $0 < x$. By \ref{ordf} (i), $(-x) + 0 < (-x) + x = 0$. Thus, $(-x) < 0$.
+	\begin{enumerate}[a)]
+		\item Since $0 < x$. By \ref{ordf} (i), $(-x) + 0 < (-x) + x = 0$. Thus, $(-x) < 0$.
 
-        Now if $x < 0$ then $0 = (-x) + x < (-x) + 0$. Thus, $(-x) > 0$.
-        Hence, proved.
+		Now if $x < 0$ then $0 = (-x) + x < (-x) + 0$. Thus, $(-x) > 0$.
+		Hence, proved.
 
-        \item If $y < z$ then by \ref{ordf} (i) $(-y) + y < (-y) + z \Rightarrow z - y > 0$.
-        
-        Now by \ref{ordf} (ii), $x(z - y) > 0$ because $x > 0$ and $z - y > 0$.
-        
-        By distributive law, $xz - xy > 0$ implies $xz - xy + xy > 0 + xy$ by \ref{ordf} (i).
-        
-        Thus, $xz  > xy$. Hence, proved.
+		\item If $y < z$ then by \ref{ordf} (i) $(-y) + y < (-y) + z \Rightarrow z - y > 0$.
 
-        \item If $x < 0$ then $(-x) > 0$ by (a). 
-        Since $y < z$ so by (b), $(-x)y < (-x)z$. 
+		Now by \ref{ordf} (ii), $x(z - y) > 0$ because $x > 0$ and $z - y > 0$.
 
-        By \ref{disprop} (c), we have $-(xy) < -(xz)$.
-        Now by \ref{ordf} (i), $-(xy) + xy + xz < -(xz) + xy + xz$.
-        
-        Thus, $xz < xy \Rightarrow xy > xz$. Hence, proved.
+		By distributive law, $xz - xy > 0$ implies $xz - xy + xy > 0 + xy$ by \ref{ordf} (i).
 
-        \item If $x \neq 0$ then $x > 0$ and $x < 0$ are the only two possibilites.
-        We'll prove each case.
-        
-        If $x > 0$ then by \ref{ordf} (ii), $x^2 > 0$.
+		Thus, $xz > xy$. Hence, proved.
 
-        If $x < 0$, by (a), $(-x) > 0$ so $(-x)(-x) > 0$. 
-        By \ref{disprop} (d), $(-x)(-x) = xx = x^2$ so $x^2 > 0$.
-        
-        Hence, proved. Also $1^2 = 1 \cdot 1 = 1 > 0$.
-        
-        \item Assume $\frac{1}{x} < 0$. Given $x > 0$, by (b), 
-         we have $x \cdot \left( \frac{1}{x} \right) < 0 \left( \frac{1}{x} \right)$.
-    
-        By \ref{disprop} (a) and \ref{mul} (M5), we have $1 < 0$. 
-        This is a contradiction as we proved in (d) that $1 > 0$.
+		\item If $x < 0$ then $(-x) > 0$ by (a).
+		Since $y < z$ so by (b), $(-x)y < (-x)z$.
 
-        Thus, $\frac{1}{x} > 0$. Similarly, since $y > 0$ then $\frac{1}{y} > 0$.
+		By \ref{disprop} (c), we have $-(xy) < -(xz)$.
+		Now by \ref{ordf} (i), $-(xy) + xy + xz < -(xz) + xy + xz$.
 
-        Now by \ref{ordf} (ii), we have $( \frac{1}{x} ) ( \frac{1}{y} ) 
-            = ( \frac{1}{y} )( \frac{1}{x} ) > 0$.
-        Since $x < y$ so by (b), we get $(\frac{1}{y}) (\frac{1}{x}) x < (\frac{1}{x}) (\frac{1}{y}) y $.
-        Now by \ref{mul} M5, we get $( \frac{1}{y} ) < ( \frac{1}{x} )$.
-    \end{enumerate}
+		Thus, $xz < xy \Rightarrow xy > xz$. Hence, proved.
+
+		\item If $x \neq 0$ then $x > 0$ and $x < 0$ are the only two possibilites.
+		We'll prove each case.
+
+		If $x > 0$ then by \ref{ordf} (ii), $x^2 > 0$.
+
+		If $x < 0$, by (a), $(-x) > 0$ so $(-x)(-x) > 0$.
+		By \ref{disprop} (d), $(-x)(-x) = xx = x^2$ so $x^2 > 0$.
+
+		Hence, proved. Also $1^2 = 1 \cdot 1 = 1 > 0$.
+
+		\item Assume $\frac{1}{x} < 0$. Given $x > 0$, by (b),
+		 we have $x \cdot \left( \frac{1}{x} \right) < 0 \left( \frac{1}{x} \right)$.
+
+		By \ref{disprop} (a) and \ref{mul} (M5), we have $1 < 0$.
+		This is a contradiction as we proved in (d) that $1 > 0$.
+
+		Thus, $\frac{1}{x} > 0$. Similarly, since $y > 0$ then $\frac{1}{y} > 0$.
+
+		Now by \ref{ordf} (ii), we have $( \frac{1}{x} ) ( \frac{1}{y} )
+			= ( \frac{1}{y} )( \frac{1}{x} ) > 0$.
+		Since $x < y$ so by (b), we get $(\frac{1}{y}) (\frac{1}{x}) x < (\frac{1}{x}) (\frac{1}{y}) y $.
+		Now by \ref{mul} M5, we get $( \frac{1}{y} ) < ( \frac{1}{x} )$.
+	\end{enumerate}
 \end{proof}
 
 \begin{exmp}
-    Let's take sets $A$ and $B$ such that $A = \{ r | r^2 < 2, r \in Q \}$
-    and $B = \{ r | r^2 > 2, r \in Q \}$.
+	Let's take sets $A$ and $B$ such that $A = \{ r | r^2 < 2, r \in Q \}$
+	and $B = \{ r | r^2 > 2, r \in Q \}$.
 
-    We know that $Q$ is a ordered field. Now we will prove that $A$ has no upper-bound in $Q$.
-    We know that for all $p \in A$ and  $q \in B$, $p < q$. Thus, $B$ is the set of upper-bounds of $A$.
-    And $A$ is the set of lower bounds of $B$.
+	We know that $Q$ is a ordered field. Now we will prove that $A$ has no upper-bound in $Q$.
+	We know that for all $p \in A$ and $q \in B$, $p < q$. Thus, $B$ is the set of upper-bounds of $A$.
+	And $A$ is the set of lower bounds of $B$.
 
-    Let's take an element $p \in Q$ and $$ q = p - \frac{p^2 - 2}{p + 2} = \frac{2p + 2}{p + 2} $$
-    Now $$ q^2 - 2 = \frac{4p^2 + 8p + 4}{p^2 + 4p + 4} - 2 = \frac{2p^2 - 4}{(p+2)^2} = \frac{2(p^2 - 2)}{(p+2)^2} $$
+	Let's take an element $p \in Q$ and $$ q = p - \frac{p^2 - 2}{p + 2} = \frac{2p + 2}{p + 2} $$
+	Now $$ q^2 - 2 = \frac{4p^2 + 8p + 4}{p^2 + 4p + 4} - 2 = \frac{2p^2 - 4}{(p+2)^2} = \frac{2(p^2 - 2)}{(p+2)^2} $$
 
-    If $p \in A$ then $p^2 < 2$ which implies $q > p$ and $q^2 - 2 < 0$ so $q \in A$.
-    And if $p \in B$ then $p^2 > 2$ which implies $q > p$ and $q^2 - 2 > 0$ so $q \in B$.
+	If $p \in A$ then $p^2 < 2$ which implies $q > p$ and $q^2 - 2 < 0$ so $q \in A$.
+	And if $p \in B$ then $p^2 > 2$ which implies $q > p$ and $q^2 - 2 > 0$ so $q \in B$.
 
-    Now let's assume $\alpha \in B$ is the least-upper-bound of $A$.
-    But as we've seen we can find $\beta < \alpha$ such that $\beta \in B$.
-    This is a contradiction. Thus, there is no least-upper-bound of $A$.
-    
-    Similarly, there is no greatest-lower-bound of $B$
+	Now let's assume $\alpha \in B$ is the least-upper-bound of $A$.
+	But as we've seen we can find $\beta < \alpha$ such that $\beta \in B$.
+	This is a contradiction. Thus, there is no least-upper-bound of $A$.
+
+	Similarly, there is no greatest-lower-bound of $B$
 
 \end{exmp}
 
@@ -348,9 +348,9 @@ With this example, we have shown that $Q$ doesn't have a least-upper-bound prope
 \section{The Real Field}
 
 \begin{thm}
-    There exists an ordered field $R$ which has the least-upper-bound property.
-    
-    Moreover, $R$ contains $Q$ as a subfield.
+	There exists an ordered field $R$ which has the least-upper-bound property.
+
+	Moreover, $R$ contains $Q$ as a subfield.
 \end{thm}
 
 \subsection{Proof}
@@ -360,30 +360,30 @@ The members of the field $R$ will be certain subsets of $Q$ called {\it cuts}.
 A cut is by definition, any $\alpha \subset Q$ with the following three properties.
 
 \begin{enumerate}[(I)]
-    \item $\alpha$ is not empty, and $\alpha \neq Q$
-    \item If $p \in \alpha$, $q \in Q$ and $q < p$ then $q \in \alpha$
-    \item If $p \in \alpha$, then $p < r$ for some $r \in \alpha$
+	\item $\alpha$ is not empty, and $\alpha \neq Q$
+	\item If $p \in \alpha$, $q \in Q$ and $q < p$ then $q \in \alpha$
+	\item If $p \in \alpha$, then $p < r$ for some $r \in \alpha$
 \end{enumerate}
 
-The letters $p, q, r, \dots$ always denote rational numbers 
+The letters $p, q, r, \dots$ always denote rational numbers
 while $\alpha, \beta, \gamma, \dots$ will denote cuts.
 
 Note that (III) simply says that there is no largest member.
-(II) implies the following facts which will be used freely : 
+(II) implies the following facts which will be used freely :
 
-If $p \in \alpha$ and $q \notin \alpha$, then $q > p$. 
+If $p \in \alpha$ and $q \notin \alpha$, then $q > p$.
 [ Assume $q < p$ then by (II) implies that $q \in \alpha$. Contradiction. ]
 
 If $r \notin \alpha$ and $r < s$ then $s \notin \alpha$.
 [ Assume $s \in \alpha$ then (II) implies that $r \in \alpha$. Contradiction. ]
 
-\item 
+\item
 Define $\alpha < \beta$ to mean: $\alpha$ is a {\it proper subset} of $\beta$.
 
 Let us check that it meets the requirements of \ref{ords}.
 
 It is clear that if $\alpha < \beta$ and $\beta < \gamma$ then $\alpha < \gamma$.
-It is also clear that atmost one of the three conditions will hold : 
+It is also clear that atmost one of the three conditions will hold :
 $$ \alpha < \beta; \quad \alpha = \beta; \quad \beta < \alpha $$
 
 Now we need to prove that atleast of these conditions hold.
@@ -392,7 +392,7 @@ Let's assume that first two of the above statements don't hold true for some $\a
 Then $\alpha$ is not a subset of $\beta$.
 So there exists $p \in \alpha$ such that $p \notin \beta$.
 
-Now, for all $q \in \beta$, we have $p > q$. 
+Now, for all $q \in \beta$, we have $p > q$.
 So by (II), we have $q \in \alpha$. Thus, $\beta < \alpha$.
 
 We can assume the last two to be false and prove the first one exactly the same way.
@@ -403,7 +403,7 @@ Let's assume they are not equal.
 Then there exists $p \in \alpha$ and $q \in \beta$ such that $q \notin \alpha$ and $p \notin \beta$.
 This means that $p \neq q$.
 
-Since $p, q \in Q$, $p \neq q$ and $Q$ is an ordered set. 
+Since $p, q \in Q$, $p \neq q$ and $Q$ is an ordered set.
 So either $p < q$ or $q < p$.
 
 If $p < q$ then $p \in \beta$ by (II). If $q < p$ then $q \in \alpha$ by (II).
@@ -411,7 +411,7 @@ This is a contradiction. Hence, our assumption that $\alpha$ and $\beta$ are not
 
 Thus, $R$ is an ordered set.
 
-\item The ordered set has least upper bound property. 
+\item The ordered set has least upper bound property.
 
 To prove this, let $A$ be a non-empty subset of $R$ and assume that $\beta \in R$ is an upper bound of $A$.
 Define $\gamma$ to be the union of all elements of $A$.
@@ -419,10 +419,10 @@ Thus, $p \in \gamma$ if and only if $p \in \alpha$ for some $\alpha \in A$.
 We shall prove that $\gamma \in R$ and $\gamma = \text{ sup } A$.
 
 Since $A$ is not empty so there exists an $\alpha \in A$.
-Since $\alpha \in R$ so $\alpha$ is not empty. 
+Since $\alpha \in R$ so $\alpha$ is not empty.
 Thus, $\gamma$ is not empty as it is union of all such $\alpha$.
 
-Since for each $\alpha \in A$, by definition of upper bound $\alpha \leq \beta \Rightarrow \alpha \subseteq \beta$ so $\gamma \subseteq \beta$. 
+Since for each $\alpha \in A$, by definition of upper bound $\alpha \leq \beta \Rightarrow \alpha \subseteq \beta$ so $\gamma \subseteq \beta$.
 Therefore, $\gamma \neq Q$.
 
 If $p \in \gamma$, $q \in Q$ and $q < p$ then there exists some $\alpha \in A$ such that $p \in \alpha$.
@@ -446,80 +446,80 @@ Hence, proved that $\gamma = \text{ sup } A$.
 where $r \in \alpha$ and $s \in \beta$.
 
 We defind $0^*$ to be the set of all negative rational number.
-It is clear that $0^*$ is a cut. 
+It is clear that $0^*$ is a cut.
 
 We verify the axioms for addition at \ref{add} hold in $R$ with $0^*$ playing the role of $0$.
 
 \begin{enumerate}[(\text{A}1)]
-    \item If $\alpha \in R$ and $\beta \in R$ then $\alpha + \beta \in R$.
-    \bigbreak \quad 
-    We need to show that $\alpha + \beta$ is a cut. 
-    Since $\alpha$ is not empty and $\beta$ is not empty so $\alpha + \beta$ is not empty as well.
-    \bigbreak \quad
-    If $p \notin \alpha$ and $q \notin \beta$ then $p > r$ for each $r \in \alpha$ and $q > s$ for each $s \in \alpha$.
-    Thus, $p + q > r + s$ for each $r + s \in \alpha + \beta$. Thus, $p + q \notin \alpha + \beta$.
-    Thus, $\alpha + \beta \neq Q$. Thus, it satisfies (I).
-    \bigbreak \quad
-    If $p = r + s \in \alpha + \beta$ with $r \in \alpha$ and $s \in \beta$, and $q < r + s$
-    then let $r' = q - s < r$ so $q - s \in \alpha$ thus $q = (q - s) + s \in \alpha + \beta$.
-    Thus, it satisfies (II).
-    \bigbreak \quad
-    If $p = r + s \in \alpha + \beta$ with $r \in \alpha$ and $s \in \beta$ then there exists
-    $r' in \alpha$ such that $r' > r$ so $q = r' + s \in \alpha + \beta$ is such that $q > p$. 
-    Thus, it satisfies (III).
-    \bigbreak \quad
-    Hence, $\alpha + \beta \in R$.
+	\item If $\alpha \in R$ and $\beta \in R$ then $\alpha + \beta \in R$.
+	\bigbreak \quad
+	We need to show that $\alpha + \beta$ is a cut.
+	Since $\alpha$ is not empty and $\beta$ is not empty so $\alpha + \beta$ is not empty as well.
+	\bigbreak \quad
+	If $p \notin \alpha$ and $q \notin \beta$ then $p > r$ for each $r \in \alpha$ and $q > s$ for each $s \in \alpha$.
+	Thus, $p + q > r + s$ for each $r + s \in \alpha + \beta$. Thus, $p + q \notin \alpha + \beta$.
+	Thus, $\alpha + \beta \neq Q$. Thus, it satisfies (I).
+	\bigbreak \quad
+	If $p = r + s \in \alpha + \beta$ with $r \in \alpha$ and $s \in \beta$, and $q < r + s$
+	then let $r' = q - s < r$ so $q - s \in \alpha$ thus $q = (q - s) + s \in \alpha + \beta$.
+	Thus, it satisfies (II).
+	\bigbreak \quad
+	If $p = r + s \in \alpha + \beta$ with $r \in \alpha$ and $s \in \beta$ then there exists
+	$r' in \alpha$ such that $r' > r$ so $q = r' + s \in \alpha + \beta$ is such that $q > p$.
+	Thus, it satisfies (III).
+	\bigbreak \quad
+	Hence, $\alpha + \beta \in R$.
 
-    \item Since $\alpha + \beta = \{ r + s | r \in \alpha , s \in \beta \} = \{ s + r | s \in \beta, r \in \alpha \} = \beta + \alpha$. 
-    Because addition is commutative in rational numbers.
-        
-    Thus, addition is commutative.
+	\item Since $\alpha + \beta = \{ r + s | r \in \alpha , s \in \beta \} = \{ s + r | s \in \beta, r \in \alpha \} = \beta + \alpha$.
+	Because addition is commutative in rational numbers.
 
-    \item Same as above as $Q$ follows the associative law.
-    
-    \item If $r \in \alpha$ and $s \in 0^*$ then $s < 0$ which means $r + s < r$.
-    By (II), $r + s \in \alpha$. Thus, $\alpha + 0^* \subseteq \alpha$.
-    \bigbreak 
-    If $p \in \alpha$ then there is $r > p$ for some $r \in \alpha$.
-    Thus, $p - r < 0$ so $p - r \in 0^*$. Now, $(p - r) + r = p \in \alpha + 0^*$.
-    Thus, $\alpha \subseteq \alpha + 0^*$. 
-    \bigbreak 
-    So $\alpha = \alpha + 0^*$.
+	Thus, addition is commutative.
 
-    \item Fix $\alpha \in R$. Let $\beta$ be a set of all $p$ with the following property : 
-    
-    {\it There exists $r > 0$ such that $- p - r \notin \alpha$.}
-    \bigbreak
-    In other words, some rational number less than $- p$ fails to be in $\alpha$.
-    
-    {\it We need show that $\beta \in R$ and $\alpha + \beta = 0^*$ }
-    \bigbreak \quad
-    If $s \notin \alpha$ and $p = - s - 1$ then $- p - 1 = s \notin \alpha$ so $p \in \beta$. Thus, $\beta$ is not empty.
-    If $q \in \alpha$ then $-q \notin \beta$ ( because $-(-q) - r = q - r < q$ so $q-r \in \alpha$ ). Thus, $\beta \neq Q$. 
-    Hence, $\beta$ satisfies (I).
-    \bigbreak \quad
-    If $p \in \beta$ and $q < p$ and $ - p - r \notin \alpha$ then $ -p < -q $ so $ - p - r < - q - r $. 
-    Since $ - p - r \notin \alpha$, by (II), $ - q - r \notin \alpha $. Thus, $q \in\beta$. Hence, $\beta$ satisfies (II).
-    \bigbreak \quad
-    If $p \in \beta$ and $ - p - r \notin \alpha$ and $q = p + r/2$ then $ - q - r/2 = - p - r \notin \alpha$ and $r > 0$ so $q > p$.
-    Hence, $\beta$ satisfies (III).
-    \bigbreak 
-    Thus, $\beta \in R$.
-    \bigbreak \quad
-    Now, $\alpha + \beta$ is the set of all sums $p + q$ where $p \in \alpha$ and $q \in \beta$. 
-    We need to show that $p + q$ is a negative rational number for all values of $p$ and $q$.
-    Since $q \in \beta$ we have $ - q - r \notin \alpha$ for some $r > 0$. 
-    \bigbreak \quad
-    Thus, $ - q - r > p  \Rightarrow - r > p + q $.
-    Since $r > 0$ so $- r < 0$. Thus, $p + q < 0$. So $p + q \in 0^*$ for all values of $p$ and $q$.
-    Thus, $\alpha + \beta \subseteq 0^*$
-    \bigbreak \quad
-    Now pick $v \in 0^*$ and $w = -v/2$. Then $w > 0$, and there is an integer $n$ such that $nw \in \alpha$
-    but $(n+1)w \notin \alpha$. (This is based on the archimedian proprty of rational numbers.)
-    Put $p = -(n+2)w$. Now $p \in \beta$ because $- p - w \notin \alpha$ and $v = nw + p \in \alpha + \beta$.
-    Thus, $0^* \subseteq \alpha + \beta$. 
-    \bigbreak \quad
-    Hence, $\alpha + \beta = 0^*$. This $\beta$ will be deonted by $-\alpha$.
+	\item Same as above as $Q$ follows the associative law.
+
+	\item If $r \in \alpha$ and $s \in 0^*$ then $s < 0$ which means $r + s < r$.
+	By (II), $r + s \in \alpha$. Thus, $\alpha + 0^* \subseteq \alpha$.
+	\bigbreak
+	If $p \in \alpha$ then there is $r > p$ for some $r \in \alpha$.
+	Thus, $p - r < 0$ so $p - r \in 0^*$. Now, $(p - r) + r = p \in \alpha + 0^*$.
+	Thus, $\alpha \subseteq \alpha + 0^*$.
+	\bigbreak
+	So $\alpha = \alpha + 0^*$.
+
+	\item Fix $\alpha \in R$. Let $\beta$ be a set of all $p$ with the following property :
+
+	{\it There exists $r > 0$ such that $- p - r \notin \alpha$.}
+	\bigbreak
+	In other words, some rational number less than $- p$ fails to be in $\alpha$.
+
+	{\it We need show that $\beta \in R$ and $\alpha + \beta = 0^*$ }
+	\bigbreak \quad
+	If $s \notin \alpha$ and $p = - s - 1$ then $- p - 1 = s \notin \alpha$ so $p \in \beta$. Thus, $\beta$ is not empty.
+	If $q \in \alpha$ then $-q \notin \beta$ ( because $-(-q) - r = q - r < q$ so $q-r \in \alpha$ ). Thus, $\beta \neq Q$.
+	Hence, $\beta$ satisfies (I).
+	\bigbreak \quad
+	If $p \in \beta$ and $q < p$ and $ - p - r \notin \alpha$ then $ -p < -q $ so $ - p - r < - q - r $.
+	Since $ - p - r \notin \alpha$, by (II), $ - q - r \notin \alpha $. Thus, $q \in\beta$. Hence, $\beta$ satisfies (II).
+	\bigbreak \quad
+	If $p \in \beta$ and $ - p - r \notin \alpha$ and $q = p + r/2$ then $ - q - r/2 = - p - r \notin \alpha$ and $r > 0$ so $q > p$.
+	Hence, $\beta$ satisfies (III).
+	\bigbreak
+	Thus, $\beta \in R$.
+	\bigbreak \quad
+	Now, $\alpha + \beta$ is the set of all sums $p + q$ where $p \in \alpha$ and $q \in \beta$.
+	We need to show that $p + q$ is a negative rational number for all values of $p$ and $q$.
+	Since $q \in \beta$ we have $ - q - r \notin \alpha$ for some $r > 0$.
+	\bigbreak \quad
+	Thus, $ - q - r > p \Rightarrow - r > p + q $.
+	Since $r > 0$ so $- r < 0$. Thus, $p + q < 0$. So $p + q \in 0^*$ for all values of $p$ and $q$.
+	Thus, $\alpha + \beta \subseteq 0^*$
+	\bigbreak \quad
+	Now pick $v \in 0^*$ and $w = -v/2$. Then $w > 0$, and there is an integer $n$ such that $nw \in \alpha$
+	but $(n+1)w \notin \alpha$. (This is based on the archimedian proprty of rational numbers.)
+	Put $p = -(n+2)w$. Now $p \in \beta$ because $- p - w \notin \alpha$ and $v = nw + p \in \alpha + \beta$.
+	Thus, $0^* \subseteq \alpha + \beta$.
+	\bigbreak \quad
+	Hence, $\alpha + \beta = 0^*$. This $\beta$ will be deonted by $-\alpha$.
 
 \end{enumerate}
 
@@ -531,7 +531,7 @@ Now we can prove one of the requirements in definition \ref{ordf}.
 We need to prove that if $\beta < \gamma$ then $\alpha + \beta < \alpha + \gamma$.
 If $p = r + s \in \alpha + \beta$ with $r \in \alpha$ and $s \in \beta$, then $s \in \gamma$ as well because $\beta \subset \gamma$.
 Hence, $\alpha + \beta \subseteq \alpha + \gamma$.
-If $\alpha + \beta = \alpha + \gamma$ then $\beta = \gamma$ by Proposition \ref{addprop}. 
+If $\alpha + \beta = \alpha + \gamma$ then $\beta = \gamma$ by Proposition \ref{addprop}.
 This is a contradiction. Hence, proved that $\alpha + \beta \subset \alpha + \gamma$.
 
 Thus, if $\beta < \gamma$ then $\alpha + \beta < \alpha + \gamma$.
@@ -548,131 +548,131 @@ We define $1^*$ to be the set of all $p < 1$.
 Here we'll prove the multiplication axioms defined in \ref{mul} (M).
 
 \begin{enumerate}[(M1)]
-    \item To prove that if $\alpha \in R^+$ and $\beta \in R^+$ then $\alpha \beta \in R^+$.
-    \bigbreak \quad
-    If $\alpha > 0^*$ and $\beta > 0^*$ then there exists $p \in \alpha$ and $q \in \beta$ such that $p > 0$ and $q > 0$. 
-    By (III), since $0 \in \alpha$ and $0 \in \beta$.
-    \bigbreak \quad
-    Assume $0 \notin \alpha$ then if $x \in \alpha$ then $x < 0$ so $x \in 0^*$ so $\alpha \leq 0^*$ which is a contradiction. 
-    Thus, $0 \in \alpha$.
-    \bigbreak \quad
-    Since $pq \leq pq$ so $pq \in \alpha \beta$. Thus, $\alpha \beta$ is non empty.
-    \bigbreak \quad
-    If $p \notin \alpha$ and $q \notin \beta$ then $p > r$ for each $r \in \alpha$ and $q > s$ for each $s \in \beta$.
-    Hence, $p > 0$ and $q > 0$ since $0 \in \alpha$ and $0 \in \beta$.
-    Hence, $pq > rs$ for each $r \in \alpha$, $s \in \beta$ where $r > 0$ and $s > 0$. Thus, $pq \notin \alpha \beta$.
-    Hence, $\alpha \beta \neq Q$.
-    This satisfies (I).
-    \bigbreak \quad
-    If $p \in \alpha \beta$ and $q < p$ then there exists some $r \in \alpha$ and $s \in \beta$ 
-    such that $p \leq rs$. Thus, $q < rs$ as well which implies $q \in \alpha \beta$. This satisfies (II).
-    \bigbreak \quad
-    If $p \in \alpha \beta$ then there exists some $r \in \alpha$ and $s \in \beta$ with $r > 0$ and $s > 0$ 
-    such that $p \leq rs$. Since $r \in  \alpha$ so there exists $r' \in \alpha$ such that $r' > r$.
-    Since $s > 0$ and $r' > r > 0$ so $r's > rs \geq p$. Thus, $r's \in \alpha \beta$ and $r's > p$.
-    This satisfies (III).
-    \bigbreak \quad
-    Since $0 \leq rs$ for any $r \in \alpha$, $s \in \beta$, $r > 0$ and $s > 0$ so $0 \in \alpha \beta$.
-    Thus, $\alpha \beta > 0^*$ because if $x \in 0^*$ then $x < 0$ and $x \in \alpha \beta$ by (II). 
-    \bigbreak \quad
-    Hence, $\alpha \beta \in R+$.
+	\item To prove that if $\alpha \in R^+$ and $\beta \in R^+$ then $\alpha \beta \in R^+$.
+	\bigbreak \quad
+	If $\alpha > 0^*$ and $\beta > 0^*$ then there exists $p \in \alpha$ and $q \in \beta$ such that $p > 0$ and $q > 0$.
+	By (III), since $0 \in \alpha$ and $0 \in \beta$.
+	\bigbreak \quad
+	Assume $0 \notin \alpha$ then if $x \in \alpha$ then $x < 0$ so $x \in 0^*$ so $\alpha \leq 0^*$ which is a contradiction.
+	Thus, $0 \in \alpha$.
+	\bigbreak \quad
+	Since $pq \leq pq$ so $pq \in \alpha \beta$. Thus, $\alpha \beta$ is non empty.
+	\bigbreak \quad
+	If $p \notin \alpha$ and $q \notin \beta$ then $p > r$ for each $r \in \alpha$ and $q > s$ for each $s \in \beta$.
+	Hence, $p > 0$ and $q > 0$ since $0 \in \alpha$ and $0 \in \beta$.
+	Hence, $pq > rs$ for each $r \in \alpha$, $s \in \beta$ where $r > 0$ and $s > 0$. Thus, $pq \notin \alpha \beta$.
+	Hence, $\alpha \beta \neq Q$.
+	This satisfies (I).
+	\bigbreak \quad
+	If $p \in \alpha \beta$ and $q < p$ then there exists some $r \in \alpha$ and $s \in \beta$
+	such that $p \leq rs$. Thus, $q < rs$ as well which implies $q \in \alpha \beta$. This satisfies (II).
+	\bigbreak \quad
+	If $p \in \alpha \beta$ then there exists some $r \in \alpha$ and $s \in \beta$ with $r > 0$ and $s > 0$
+	such that $p \leq rs$. Since $r \in \alpha$ so there exists $r' \in \alpha$ such that $r' > r$.
+	Since $s > 0$ and $r' > r > 0$ so $r's > rs \geq p$. Thus, $r's \in \alpha \beta$ and $r's > p$.
+	This satisfies (III).
+	\bigbreak \quad
+	Since $0 \leq rs$ for any $r \in \alpha$, $s \in \beta$, $r > 0$ and $s > 0$ so $0 \in \alpha \beta$.
+	Thus, $\alpha \beta > 0^*$ because if $x \in 0^*$ then $x < 0$ and $x \in \alpha \beta$ by (II).
+	\bigbreak \quad
+	Hence, $\alpha \beta \in R+$.
 
-    \item To prove that multiplication is commutative. 
-    \bigbreak
-    Let there is some $\alpha \in R^+, \beta \in R^+, r \in \alpha, s \in \beta, r > 0$ and $s > 0$.
-    
-    If $p \in \alpha \beta$ then $p \leq rs$ implies that $p \leq sr$ implies that $p \in \beta \alpha$.
+	\item To prove that multiplication is commutative.
+	\bigbreak
+	Let there is some $\alpha \in R^+, \beta \in R^+, r \in \alpha, s \in \beta, r > 0$ and $s > 0$.
 
-    If $p \in \beta \alpha$ then $p \leq sr$ implies that $p \leq rs$ implies that $p \in \alpha \beta$.
-    \bigbreak
-    Thus, $\alpha \beta = \beta \alpha$.
-    
-    \item To prove that multiplication is associative. 
-    \bigbreak
-    Let there is some $\alpha \in R^+, \beta \in  R^+, \gamma \in R^+, r \in \alpha, s \in \beta, t \in \gamma, r > 0, s > 0$ and $t > 0$.
+	If $p \in \alpha \beta$ then $p \leq rs$ implies that $p \leq sr$ implies that $p \in \beta \alpha$.
 
-    If $p \in (\alpha \beta) \gamma$ then $p \leq (rs)t$ implies $p \leq r(st)$ implies $p \in \alpha (\beta \gamma)$.
+	If $p \in \beta \alpha$ then $p \leq sr$ implies that $p \leq rs$ implies that $p \in \alpha \beta$.
+	\bigbreak
+	Thus, $\alpha \beta = \beta \alpha$.
 
-    If $p \in \alpha (\beta \gamma)$ then $p \leq r(st)$ implies $p \leq (rs)t$ implies $p \in (\alpha \beta) \gamma$.
-    \bigbreak 
-    Thus, $(\alpha \beta) \gamma = \alpha (\beta \gamma) = \alpha \beta \gamma$.
+	\item To prove that multiplication is associative.
+	\bigbreak
+	Let there is some $\alpha \in R^+, \beta \in R^+, \gamma \in R^+, r \in \alpha, s \in \beta, t \in \gamma, r > 0, s > 0$ and $t > 0$.
 
-    \item To prove that $\alpha 1^* = \alpha$.
-    \bigbreak \quad
-    If $p \in \alpha 1^*$ then $p \leq rs$ for some $r \in \alpha$ and $s \in 1^*$ with $r > 0$ and $s > 0$.
-    Since $s \in 1^*$ so $0 < s < 1$ so $0 < rs < r$. 
-    Since $p < rs$ so $p < r$ which imples that $p \in \alpha$ since $r \in \alpha$ by (II).
-    Thus, $\alpha 1^* \subseteq \alpha$.
-    \bigbreak \quad 
-    If $p \in \alpha$ and $\alpha > 0^*$ then by (III), there exists some $r \in \alpha$ such that $r > p$ and $r > 0$.
-    [ If $p \geq 0$ then by (III), $r > p$ so $r > 0$.
-    If $p < 0$ then by (III) $r > 0$ since $0 \in \alpha$ so $r > p$. ]
-    \bigbreak \quad
-    Now $p < r$ so $p (1/r) < 1$ by \ref{ordfprop} as $(1/r) > 0$.
-    Since $p(1/r) < 1$ so $p(1/r) \in 1^*$. 
-    Now there exists a $q \in 1$ such that $q > p(1/r)$ and $q > 0$.
-    Now $q \in 1^*$ and $r \in \alpha$ such that $q > p(1/r)$ and $r > 0$
-    so $qr > p$. Thus, $p \in \alpha 1^*$.
-    Thus, $\alpha \subseteq \alpha 1^*$.
-    \bigbreak
-    Hence, proved that $\alpha 1^* = \alpha$.
+	If $p \in (\alpha \beta) \gamma$ then $p \leq (rs)t$ implies $p \leq r(st)$ implies $p \in \alpha (\beta \gamma)$.
 
-    \item To prove that there exists an inverse $(1/\alpha)$ such that $\alpha (1 / \alpha) = 1^*$.
-    \bigbreak
-    Fix $\alpha \in R^+$. Let $\beta^+$ be the set of all $p$ such that there exists $r > 1$ such that $(1/p)(1/r) \notin \alpha$.
-    \bigbreak
-    Now we need to show that $\beta = \mathbb{Q}^- \cup \beta^+ \in R^+$. Here $\mathbb{Q}^-$ is the set of all $p \leq 0$.
-    \bigbreak \quad
-    If $s \notin \alpha$ and $p = (1/s)(1/2)$ then $(1/p)(1/2) \notin \alpha$ so $p \in \beta^+$. Thus, $\beta$ is not empty.
-    If $s \in \alpha$ then $(1/s) \notin \beta^+$
-    [ Because $(1/(1/s))(1/r) = s(1/r) < s$ so $s(1/r) \in \alpha$ for $r > 1$ ].
-    Thus, $\beta \neq Q$.
-    This satisfies (I).
-    \bigbreak \quad
-    If $q \in \beta$ and $0 < s < q$ then there is an $r > 1$ such that $(1/q)(1/r) \notin \alpha$.
-    Since $s < q$ then $(1/s) > (1/q)$ implies $(1/s)(1/r) > (1/q)(1/r)$. Thus, $(1/s)(1/r) \notin \alpha$.
-    So $s \in \beta^+$. This, satisfies (II).
-    \bigbreak \quad
-    Let $p \in \beta$ such that $(1/p)(1/r) \notin \beta$.
-    Put $s = (r+1)/2$ and $t = p(r/s)$. Since $r > 1$ so $1 < s < r$ and $(r/s) > 1$.
-    Thus, $t > p$. 
+	If $p \in \alpha (\beta \gamma)$ then $p \leq r(st)$ implies $p \leq (rs)t$ implies $p \in (\alpha \beta) \gamma$.
+	\bigbreak
+	Thus, $(\alpha \beta) \gamma = \alpha (\beta \gamma) = \alpha \beta \gamma$.
 
-    Now $(1/t)(1/s) = (1/p)(1/r) \notin \alpha$. Thus, $t \in \beta^+$.
-    This satisfies (III).
+	\item To prove that $\alpha 1^* = \alpha$.
+	\bigbreak \quad
+	If $p \in \alpha 1^*$ then $p \leq rs$ for some $r \in \alpha$ and $s \in 1^*$ with $r > 0$ and $s > 0$.
+	Since $s \in 1^*$ so $0 < s < 1$ so $0 < rs < r$.
+	Since $p < rs$ so $p < r$ which imples that $p \in \alpha$ since $r \in \alpha$ by (II).
+	Thus, $\alpha 1^* \subseteq \alpha$.
+	\bigbreak \quad
+	If $p \in \alpha$ and $\alpha > 0^*$ then by (III), there exists some $r \in \alpha$ such that $r > p$ and $r > 0$.
+	[ If $p \geq 0$ then by (III), $r > p$ so $r > 0$.
+	If $p < 0$ then by (III) $r > 0$ since $0 \in \alpha$ so $r > p$. ]
+	\bigbreak \quad
+	Now $p < r$ so $p (1/r) < 1$ by \ref{ordfprop} as $(1/r) > 0$.
+	Since $p(1/r) < 1$ so $p(1/r) \in 1^*$.
+	Now there exists a $q \in 1$ such that $q > p(1/r)$ and $q > 0$.
+	Now $q \in 1^*$ and $r \in \alpha$ such that $q > p(1/r)$ and $r > 0$
+	so $qr > p$. Thus, $p \in \alpha 1^*$.
+	Thus, $\alpha \subseteq \alpha 1^*$.
+	\bigbreak
+	Hence, proved that $\alpha 1^* = \alpha$.
 
-    Thus, $\beta \in R^+$.
-    \bigbreak \quad
-    Now if $r \in \alpha$ and $s \in \beta$ with $r > 0$ and $s > 0$, 
-    then $(1/s) \notin \alpha$ so $r < (1/s)$ implies $rs < 1$ so $rs \in 1^*$.
-    Thus, $\alpha \beta \subseteq 1^*$.
-    \bigbreak \quad
-    To prove the opposite inclusion, pick $u \in 1^*$, $u > 0$.
-    Put $v=[(1+u)/2]^2, w=2/(1+u)$. Then $u < v, w > 1$, and there is an integer $n$ 
-    such that $w^n \in \alpha$ but $w^{n+1} \notin \alpha$.
-    \bigbreak \quad
-    Put $p = 1 / w^{n+2}$. Now $(1/p)(1/w) = w^{n+1} \notin \alpha$ so $p \in \beta$.
-    And $v = 1/w^2 = w^n p \in \alpha \beta$. By (II), $u \in \alpha \beta$. Thus, $1^* \subseteq \alpha \beta$.
-    \bigbreak
-    Hence, $\alpha \beta = 1^*$. And $\beta$ is denoted by $1 / \alpha$
+	\item To prove that there exists an inverse $(1/\alpha)$ such that $\alpha (1 / \alpha) = 1^*$.
+	\bigbreak
+	Fix $\alpha \in R^+$. Let $\beta^+$ be the set of all $p$ such that there exists $r > 1$ such that $(1/p)(1/r) \notin \alpha$.
+	\bigbreak
+	Now we need to show that $\beta = \mathbb{Q}^- \cup \beta^+ \in R^+$. Here $\mathbb{Q}^-$ is the set of all $p \leq 0$.
+	\bigbreak \quad
+	If $s \notin \alpha$ and $p = (1/s)(1/2)$ then $(1/p)(1/2) \notin \alpha$ so $p \in \beta^+$. Thus, $\beta$ is not empty.
+	If $s \in \alpha$ then $(1/s) \notin \beta^+$
+	[ Because $(1/(1/s))(1/r) = s(1/r) < s$ so $s(1/r) \in \alpha$ for $r > 1$ ].
+	Thus, $\beta \neq Q$.
+	This satisfies (I).
+	\bigbreak \quad
+	If $q \in \beta$ and $0 < s < q$ then there is an $r > 1$ such that $(1/q)(1/r) \notin \alpha$.
+	Since $s < q$ then $(1/s) > (1/q)$ implies $(1/s)(1/r) > (1/q)(1/r)$. Thus, $(1/s)(1/r) \notin \alpha$.
+	So $s \in \beta^+$. This, satisfies (II).
+	\bigbreak \quad
+	Let $p \in \beta$ such that $(1/p)(1/r) \notin \beta$.
+	Put $s = (r+1)/2$ and $t = p(r/s)$. Since $r > 1$ so $1 < s < r$ and $(r/s) > 1$.
+	Thus, $t > p$.
+
+	Now $(1/t)(1/s) = (1/p)(1/r) \notin \alpha$. Thus, $t \in \beta^+$.
+	This satisfies (III).
+
+	Thus, $\beta \in R^+$.
+	\bigbreak \quad
+	Now if $r \in \alpha$ and $s \in \beta$ with $r > 0$ and $s > 0$,
+	then $(1/s) \notin \alpha$ so $r < (1/s)$ implies $rs < 1$ so $rs \in 1^*$.
+	Thus, $\alpha \beta \subseteq 1^*$.
+	\bigbreak \quad
+	To prove the opposite inclusion, pick $u \in 1^*$, $u > 0$.
+	Put $v=[(1+u)/2]^2, w=2/(1+u)$. Then $u < v, w > 1$, and there is an integer $n$
+	such that $w^n \in \alpha$ but $w^{n+1} \notin \alpha$.
+	\bigbreak \quad
+	Put $p = 1 / w^{n+2}$. Now $(1/p)(1/w) = w^{n+1} \notin \alpha$ so $p \in \beta$.
+	And $v = 1/w^2 = w^n p \in \alpha \beta$. By (II), $u \in \alpha \beta$. Thus, $1^* \subseteq \alpha \beta$.
+	\bigbreak
+	Hence, $\alpha \beta = 1^*$. And $\beta$ is denoted by $1 / \alpha$
 
 
-    \item[(D1)] To prove that $\alpha ( \beta + \gamma ) = \alpha \beta + \alpha \gamma $ for each $\alpha , \beta , \gamma \in R^+$.
-    \bigbreak \quad
-    Let $x \in \alpha(\beta + \gamma)$ then $x \leq r(s+t)$ for some $r \in \alpha$, $s \in \beta$ and $t \in \gamma$ such that $r > 0$ and $s + t > 0$.
-    Now, if $x < r(s+t)$ then $x < rs + rt$ and $rs \in \alpha \beta$ and $st \in \alpha \gamma$. 
-    Thus, $rs + rt \in \alpha \beta + \alpha \gamma$. Now, by (II), $x \in \alpha \beta + \alpha \gamma$.
-    Thus, $\alpha(\beta + \gamma) \subseteq \alpha \beta + \alpha \gamma$.
-    \bigbreak \quad
-    Let $x \in \alpha \beta + \alpha \gamma$ then $x = p + q$ such that $p \leq rs$ and $q \leq mn$ 
-    for some $r \in \alpha, s \in \beta, m \in \alpha, n \in \gamma$ with $r, s, m, n > 0$. 
-    \bigbreak \quad
-    If $r < m$ then $rs < ms \Rightarrow rs + mn < ms + mn \Rightarrow x < m(s + n)$. 
-    Now, $m \in \alpha, s \in \beta$ and $n \in \gamma$ so $m(s+n) \in \alpha(\beta + \gamma)$.
-    So by (II), $x \in \alpha(\beta + \gamma)$.
-    We can prove similarly the other two cases. 
-    Thus, $\alpha \beta + \alpha \gamma \subseteq \alpha ( \beta + \gamma )$.
-    \bigbreak \quad
-    Thus, $\alpha (\beta + \gamma) = \alpha \beta + \alpha \gamma$. Hence, proved.
+	\item[(D1)] To prove that $\alpha ( \beta + \gamma ) = \alpha \beta + \alpha \gamma $ for each $\alpha , \beta , \gamma \in R^+$.
+	\bigbreak \quad
+	Let $x \in \alpha(\beta + \gamma)$ then $x \leq r(s+t)$ for some $r \in \alpha$, $s \in \beta$ and $t \in \gamma$ such that $r > 0$ and $s + t > 0$.
+	Now, if $x < r(s+t)$ then $x < rs + rt$ and $rs \in \alpha \beta$ and $st \in \alpha \gamma$.
+	Thus, $rs + rt \in \alpha \beta + \alpha \gamma$. Now, by (II), $x \in \alpha \beta + \alpha \gamma$.
+	Thus, $\alpha(\beta + \gamma) \subseteq \alpha \beta + \alpha \gamma$.
+	\bigbreak \quad
+	Let $x \in \alpha \beta + \alpha \gamma$ then $x = p + q$ such that $p \leq rs$ and $q \leq mn$
+	for some $r \in \alpha, s \in \beta, m \in \alpha, n \in \gamma$ with $r, s, m, n > 0$.
+	\bigbreak \quad
+	If $r < m$ then $rs < ms \Rightarrow rs + mn < ms + mn \Rightarrow x < m(s + n)$.
+	Now, $m \in \alpha, s \in \beta$ and $n \in \gamma$ so $m(s+n) \in \alpha(\beta + \gamma)$.
+	So by (II), $x \in \alpha(\beta + \gamma)$.
+	We can prove similarly the other two cases.
+	Thus, $\alpha \beta + \alpha \gamma \subseteq \alpha ( \beta + \gamma )$.
+	\bigbreak \quad
+	Thus, $\alpha (\beta + \gamma) = \alpha \beta + \alpha \gamma$. Hence, proved.
 \end{enumerate}
 
 Notice that this follows that if $\alpha > 0^*$ and $\beta > 0^*$ then $\alpha \beta > 0^*$.
@@ -680,15 +680,15 @@ Notice that this follows that if $\alpha > 0^*$ and $\beta > 0^*$ then $\alpha \
 \pagebreak
 
 \item We complete the definition of multiplication by definition $\alpha 0^* = 0^* \alpha = 0^*$.
-and by setting 
+and by setting
 
 \begin{gather*}
-    \alpha \beta = 
-    \begin{cases}
-      [(-\alpha)(-\beta)] \quad \text{ if } \alpha < 0^*, \beta < 0^* \\
-      -[(-\alpha)(\beta)] \quad \text{ if } \alpha < 0^*, \beta > 0^* \\
-      -[(\alpha)(-\beta)] \quad \text{ if } \alpha > 0^*, \beta < 0^* \\
-    \end{cases}
+	\alpha \beta =
+	\begin{cases}
+		[(-\alpha)(-\beta)] \quad \text{ if } \alpha < 0^*, \beta < 0^* \\
+		-[(-\alpha)(\beta)] \quad \text{ if } \alpha < 0^*, \beta > 0^* \\
+		-[(\alpha)(-\beta)] \quad \text{ if } \alpha > 0^*, \beta < 0^* \\
+	\end{cases}
 \end{gather*}
 
 Having proved the axioms \ref{mul} (M) hold in $R^+$, it is now perfectly simple to prove them in $R$.
@@ -700,17 +700,17 @@ We have now completed the proof that $R$ is an ordered field with the least uppe
 
 \item We associate each $r \in Q$ with $r^*$ which consists of all $p \in Q$
 such that $p < r$. It is clear that each $r^*$ is a cut; that is, $r^* \in R$.
-These cuts satisfy the following relations : 
+These cuts satisfy the following relations :
 
 \begin{enumerate}[(a)]
-    \item $r^* + s^* = (r+s)^*$
-    \item $r^*  s^* = (rs)^*$
-    \item $r^* < s^*$ if any only if $r < s$
+	\item $r^* + s^* = (r+s)^*$
+	\item $r^* s^* = (rs)^*$
+	\item $r^* < s^*$ if any only if $r < s$
 \end{enumerate}
 
-\item We saw in last step that the replacement of the rational numbers $r$ by the conesponding ``rational cuts'' $r^* \in R$ preserves sums, products, and order. 
-This fact may be expressed by saying that the ordered field $Q$ is isomorphic to the ordered field $Q^*$ whose elements are the rational cuts. 
-Of course, $r^*$ is by no means the same as $r$, but the properties we are concerned with (arithmetic and order) are the same in the two fields. 
+\item We saw in last step that the replacement of the rational numbers $r$ by the conesponding ``rational cuts'' $r^* \in R$ preserves sums, products, and order.
+This fact may be expressed by saying that the ordered field $Q$ is isomorphic to the ordered field $Q^*$ whose elements are the rational cuts.
+Of course, $r^*$ is by no means the same as $r$, but the properties we are concerned with (arithmetic and order) are the same in the two fields.
 
 It is this identification of $Q$ with $Q^*$ which allows us to regard $Q$ as a subfield of $R$.
 
@@ -718,85 +718,85 @@ It is this identification of $Q$ with $Q^*$ which allows us to regard $Q$ as a s
 
 
 \begin{thm}
-    The following statements hold : 
-    \begin{enumerate}[a)]
-        \item If $x \in R$, $y \in R$, and $x > 0$ then there is a positive integer $n$ such that 
-        $ nx > y $
-        \item If $x \in R$, $y \in R$, and $x < y$, then there exists a $p \in Q$ such that $x < p < y$.
-    \end{enumerate}
-    \begin{proof}
-        \begin{enumerate}[a)]
-            \item 
-            Let $A$ be the set of all numbers for the form $nx$ where $n$ is a positive integer. 
-            Assume that for all $nx \in A$, $nx \leq y$. Then $y$ is an upper-bound of $A$.
-            Now by least-upper bound property, let $\alpha = \text{ sup } A$.
-            Since $x > 0$, $\alpha - x < \alpha$ which means $\alpha - x$ is not an upper bound of $A$.
-            So there exists $nx$ where $n$ is some positive integer such that $nx > \alpha - x$ implies that $(n+1)x > \alpha$.
-            Now, $(n+1)x \in A$ but this is a contradiction since $\alpha$ is an upper-bound of $A$.
+	The following statements hold :
+	\begin{enumerate}[a)]
+		\item If $x \in R$, $y \in R$, and $x > 0$ then there is a positive integer $n$ such that
+		$ nx > y $
+		\item If $x \in R$, $y \in R$, and $x < y$, then there exists a $p \in Q$ such that $x < p < y$.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[a)]
+			\item
+			Let $A$ be the set of all numbers for the form $nx$ where $n$ is a positive integer.
+			Assume that for all $nx \in A$, $nx \leq y$. Then $y$ is an upper-bound of $A$.
+			Now by least-upper bound property, let $\alpha = \text{ sup } A$.
+			Since $x > 0$, $\alpha - x < \alpha$ which means $\alpha - x$ is not an upper bound of $A$.
+			So there exists $nx$ where $n$ is some positive integer such that $nx > \alpha - x$ implies that $(n+1)x > \alpha$.
+			Now, $(n+1)x \in A$ but this is a contradiction since $\alpha$ is an upper-bound of $A$.
 
-            Thus, our assumption must be wrong. Thus, there exists some $nx$ such that $nx > y$ where $n$ is some positive integer.
-            
-            \item
-            Since $x < y$, we have $y - x > 0$ so by (a), $$ n(y - x) > 1 $$ for some positive integer $n$.
-            Now, $1 > 0$ so $m_1 > nx$ and $m_2 > -nx$ so $$ -m_2 < nx < m_1 $$
-            Thus, there is an integer such that $$ m - 1 \leq nx < m $$
-            Combining these we get, $$ nx < m \leq 1 + nx < ny $$.
-            Since $n > 0$ if follows that, $$ x < \frac{m}{n} < y $$
-        \end{enumerate}
-    \end{proof}
+			Thus, our assumption must be wrong. Thus, there exists some $nx$ such that $nx > y$ where $n$ is some positive integer.
+
+			\item
+			Since $x < y$, we have $y - x > 0$ so by (a), $$ n(y - x) > 1 $$ for some positive integer $n$.
+			Now, $1 > 0$ so $m_1 > nx$ and $m_2 > -nx$ so $$ -m_2 < nx < m_1 $$
+			Thus, there is an integer such that $$ m - 1 \leq nx < m $$
+			Combining these we get, $$ nx < m \leq 1 + nx < ny $$.
+			Since $n > 0$ if follows that, $$ x < \frac{m}{n} < y $$
+		\end{enumerate}
+	\end{proof}
 \end{thm}
 
 
 \begin{thm}
-    \label{pwrthm}
-    For every real $x > 0$ and every integer $n > 0$ there is one and only one
-    positive real number $y$ such that $y^n = x$.
+	\label{pwrthm}
+	For every real $x > 0$ and every integer $n > 0$ there is one and only one
+	positive real number $y$ such that $y^n = x$.
 
-    This number is written as $\sqrt[n]{x}$ or $x^{\frac{1}{n}}$
-    \begin{proof}
-        There is atmost one such $y$ is clear, since $0 < y_1 < y_2$ implies $y_1^n < y_2^n$.
+	This number is written as $\sqrt[n]{x}$ or $x^{\frac{1}{n}}$
+	\begin{proof}
+		There is atmost one such $y$ is clear, since $0 < y_1 < y_2$ implies $y_1^n < y_2^n$.
 
-        Let $E$ be set of all positive real numbers $t$ such that $t^n < x$.
-        
-        If $t = x / (1 + x)$ then $0 < t < 1$ and $t^n < t < x$. So $t \in E$ and $E$ is not empty.
-        If $t > 1 + x$ then $t^n \geq t > x$, so that $t \notin E$. 
-        Thus, $E \neq R$ and $1 + x$ is an upper bound of $E$.
-        
-        Thus, by least-upper bound property of real numbers, there exists $y = \sup E$.
+		Let $E$ be set of all positive real numbers $t$ such that $t^n < x$.
 
-        To prove that $y^n = x$ we will show that each inequality $y^n < x$ and $y^n > x$ leads to a contradiction.
+		If $t = x / (1 + x)$ then $0 < t < 1$ and $t^n < t < x$. So $t \in E$ and $E$ is not empty.
+		If $t > 1 + x$ then $t^n \geq t > x$, so that $t \notin E$.
+		Thus, $E \neq R$ and $1 + x$ is an upper bound of $E$.
 
-        The identity $b^n - a^n = (b - a)(b^{n-1} + b^{n-2}a + \cdots + a^{n-1} )$ yields the inequality 
-        $$ b^n - a^n < (b - a) n b^{n-1} $$
-        when $0 < a < b$.
+		Thus, by least-upper bound property of real numbers, there exists $y = \sup E$.
 
-        Assume $y^n < x$. Choose $h$ so that $0 < h < 1$ and 
-        $$ h < \frac{x - y^n}{n(y+1)^{n-1}} $$
-        Put $a = y$ and $b = y + h$ to get 
-        $$ (y + h)^n - y^n <  hn(y+h)^{n-1} < hn(y+1)^{n-1} < x - y^n $$
-        Thus, $(y + h)^n < x$, so $y + h \in E$. 
-        Since $y + h > y$, this contradicts the fact that $y$ is an upper bound of $E$.
+		To prove that $y^n = x$ we will show that each inequality $y^n < x$ and $y^n > x$ leads to a contradiction.
 
-        Now assume $y^n > x$. Choose $k$
-        $$ k = \frac{y^n - x}{ny^{n-1}} $$
-        Then $0 < k < y$ because $x > 0 \Rightarrow y^n - x < y^n \leq ny^n$ as $n > 0$ is an integer so $n \geq 1$.
-        Now, if $t \geq y - k$ then 
-        $$ y^n - t^n \leq y^n - (y-k)^n < kny^{n-1} = y^n - x $$.
-        Thus, $t^n > x$, and $t \neq E$. It follows that $y - k$ is an upper bound of $E$.
+		The identity $b^n - a^n = (b - a)(b^{n-1} + b^{n-2}a + \cdots + a^{n-1} )$ yields the inequality
+		$$ b^n - a^n < (b - a) n b^{n-1} $$
+		when $0 < a < b$.
 
-        But $y - k < y$, which contradicts the fact that $y$ is the least upper-bound of $E$.
+		Assume $y^n < x$. Choose $h$ so that $0 < h < 1$ and
+		$$ h < \frac{x - y^n}{n(y+1)^{n-1}} $$
+		Put $a = y$ and $b = y + h$ to get
+		$$ (y + h)^n - y^n < hn(y+h)^{n-1} < hn(y+1)^{n-1} < x - y^n $$
+		Thus, $(y + h)^n < x$, so $y + h \in E$.
+		Since $y + h > y$, this contradicts the fact that $y$ is an upper bound of $E$.
 
-        Hence, $y^n = x$, and the proof is complete.
-    \end{proof}
+		Now assume $y^n > x$. Choose $k$
+		$$ k = \frac{y^n - x}{ny^{n-1}} $$
+		Then $0 < k < y$ because $x > 0 \Rightarrow y^n - x < y^n \leq ny^n$ as $n > 0$ is an integer so $n \geq 1$.
+		Now, if $t \geq y - k$ then
+		$$ y^n - t^n \leq y^n - (y-k)^n < kny^{n-1} = y^n - x $$.
+		Thus, $t^n > x$, and $t \neq E$. It follows that $y - k$ is an upper bound of $E$.
+
+		But $y - k < y$, which contradicts the fact that $y$ is the least upper-bound of $E$.
+
+		Hence, $y^n = x$, and the proof is complete.
+	\end{proof}
 \end{thm}
 
 \begin{cor}
-    If $a$ and $b$ are positive real numbers then $$(ab)^{1/n} = a^{1/n} b^{1/n}$$
-    \begin{proof}
-        Put $\alpha = a^{1/n}$ and $\beta = b^{1/n}$ then $$ ab = \alpha^n \beta^n = (\alpha \beta)^n $$
-        since multiplication is commutative. The uniqueness assertion of Theorem \ref{pwrthm} shows that 
-        $$ (ab)^{1/n} = a^{1/n} b^{1/n} $$
-    \end{proof}
+	If $a$ and $b$ are positive real numbers then $$(ab)^{1/n} = a^{1/n} b^{1/n}$$
+	\begin{proof}
+		Put $\alpha = a^{1/n}$ and $\beta = b^{1/n}$ then $$ ab = \alpha^n \beta^n = (\alpha \beta)^n $$
+		since multiplication is commutative. The uniqueness assertion of Theorem \ref{pwrthm} shows that
+		$$ (ab)^{1/n} = a^{1/n} b^{1/n} $$
+	\end{proof}
 \end{cor}
 
 \pagebreak
@@ -804,141 +804,199 @@ It is this identification of $Q$ with $Q^*$ which allows us to regard $Q$ as a s
 \section{The Complex Field}
 
 \begin{defn}
-    A complex number is an ordered pair of real numbers.
-    Ordered means that $(a, b)$ and $(b, a)$ are different if $a \neq b$.
+	A complex number is an ordered pair of real numbers.
+	Ordered means that $(a, b)$ and $(b, a)$ are different if $a \neq b$.
 
-    Let $x = (a, b)$ and $y = (c, d)$. We write $x = y$ if and only if $a = c$ and $b = d$.
-    We defind $x + y = (a + c, b + d)$ and $xy = (ac - bd, ad + bc)$.
+	Let $x = (a, b)$ and $y = (c, d)$. We write $x = y$ if and only if $a = c$ and $b = d$.
+	We defind $x + y = (a + c, b + d)$ and $xy = (ac - bd, ad + bc)$.
 \end{defn}
 
 \begin{thm}
-    These definitions of addition and multiplication turn the set of all complex numbers into a field,
-    with $(0, 0)$ and $(1, 0)$ in the role of $0$ and $1$.
-    \begin{proof}
-        The proof of axioms of addition are trivial. The additive inverse of $(a, b)$ is $(-a, -b)$.
-        The proof of first four axioms of multiplication is also trivial.
-        
-        For (M5), the inverse of $x = (a, b)$ is $$ \frac{1}{x} = \left( \frac{a}{a^2 + b^2}, \frac{-b}{a^2 + b^2} \right) $$
-        Now, $$ x \frac{1}{x} = (a, b) \left( \frac{a}{a^2 + b^2}, \frac{-b}{a^2 + b^2} \right) 
-                    = \left( \frac{a^2 + b^2}{a^2 + b^2}, \frac{-ab + ab}{a^2 + b^2} \right) = (1, 0) $$
+	These definitions of addition and multiplication turn the set of all complex numbers into a field,
+	with $(0, 0)$ and $(1, 0)$ in the role of $0$ and $1$.
+	\begin{proof}
+		The proof of axioms of addition are trivial. The additive inverse of $(a, b)$ is $(-a, -b)$.
+		The proof of first four axioms of multiplication is also trivial.
 
-        The proof of distributive law is trivial as well.
-    \end{proof}
+		For (M5), the inverse of $x = (a, b)$ is $$ \frac{1}{x} = \left( \frac{a}{a^2 + b^2}, \frac{-b}{a^2 + b^2} \right) $$
+		Now, $$ x \frac{1}{x} = (a, b) \left( \frac{a}{a^2 + b^2}, \frac{-b}{a^2 + b^2} \right)
+					= \left( \frac{a^2 + b^2}{a^2 + b^2}, \frac{-ab + ab}{a^2 + b^2} \right) = (1, 0) $$
+
+		The proof of distributive law is trivial as well.
+	\end{proof}
 \end{thm}
 
 \begin{thm}
-    For every real number $a$ and $b$, we have,
-    $$ (a, 0) + (b, 0) = (a + b, 0) ; \quad (a, 0) (b, 0) = (ab, 0) $$
-    The proof is trivial. Thus, the real field is a subfield of the complex field.
+	For every real number $a$ and $b$, we have,
+	$$ (a, 0) + (b, 0) = (a + b, 0) ; \quad (a, 0) (b, 0) = (ab, 0) $$
+	The proof is trivial. Thus, the real field is a subfield of the complex field.
 \end{thm}
 
 \begin{thm}
-    Define $i = (0, 1)$ and prove $i^2 = -1$.
-    \begin{proof}
-        $i^2 = (0, 1) (0, 1) = (0 - 1, 0 + 0) = (-1, 0) = -1$
-    \end{proof}
+	Define $i = (0, 1)$ and prove $i^2 = -1$.
+	\begin{proof}
+		$i^2 = (0, 1) (0, 1) = (0 - 1, 0 + 0) = (-1, 0) = -1$
+	\end{proof}
 \end{thm}
 
 \begin{thm}
-    If $a$ and $b$ are real numbers then $(a, b) = a + bi$
-    \begin{proof}
-        $a + bi = (a, 0) + (b, 0)(0, 1) = (a, 0) + (0, b) = (a, b)$
-    \end{proof}
+	If $a$ and $b$ are real numbers then $(a, b) = a + bi$
+	\begin{proof}
+		$a + bi = (a, 0) + (b, 0)(0, 1) = (a, 0) + (0, b) = (a, b)$
+	\end{proof}
 \end{thm}
 
 \begin{defn}
-    If $a$ and $b$ are real numbers and $z = a + bi$ then 
-    the complex number $\overline{z} = a - bi$ is called the {\it conjugate} of $z$. 
-    The numebrs $a$ and $b$ are the {\it real part} and the {\it imaginary part} of $z$, respectively.
+	If $a$ and $b$ are real numbers and $z = a + bi$ then
+	the complex number $\overline{z} = a - bi$ is called the {\it conjugate} of $z$.
+	The numebrs $a$ and $b$ are the {\it real part} and the {\it imaginary part} of $z$, respectively.
 
-    We write, $a = Re(z)$ and $b = Im(z)$.
+	We write, $a = Re(z)$ and $b = Im(z)$.
 \end{defn}
 
 \begin{thm}
-    If $z$ and $w$ are complex numbers then
-    \begin{enumerate}[a)]
-        \item $\overline{z+w} = \overline{z} + \overline{w}$
-        \item $\overline{zw} = \overline{z} \overline{w}$
-        \item $z + \overline{z} = 2Re(z)$ and $z - \overline{z} = 2 i Im(z)$
-        \item $z\overline{z}$ is real and positive except when $z = 0$
-    \end{enumerate}
+	If $z$ and $w$ are complex numbers then
+	\begin{enumerate}[a)]
+		\item $\overline{z+w} = \overline{z} + \overline{w}$
+		\item $\overline{zw} = \overline{z} \overline{w}$
+		\item $z + \overline{z} = 2Re(z)$ and $z - \overline{z} = 2 i Im(z)$
+		\item $z\overline{z}$ is real and positive except when $z = 0$
+	\end{enumerate}
 \end{thm}
 
 \begin{defn}
-    If $z$ is a complex number then, its {\it absolute value} $|z|$ is the non-negative 
-    sqaure root of $z\overline{z}$ ; that is, $|z| = (z\overline{z})^{1/2}$.
-        
-    The existence and uniqueness of $|z|$ follows from Theorem \ref{pwrthm} and the fact that $z \overline{z}$ is a real number.
+	If $z$ is a complex number then, its {\it absolute value} $|z|$ is the non-negative
+	sqaure root of $z\overline{z}$ ; that is, $|z| = (z\overline{z})^{1/2}$.
+
+	The existence and uniqueness of $|z|$ follows from Theorem \ref{pwrthm} and the fact that $z \overline{z}$ is a real number.
 \end{defn}
 
 \begin{thm}
-    Let $z$ and $w$ be complex numbers. Then 
-    \begin{enumerate}[a)]
-        \item $|z| > 0$ unless $z = 0$, $|0| = 0$
-        \item $|\overline{z}| = |z|$
-        \item $|zw| = |z||w|$
-        \item $|Re (z)| \leq |z|$
-        \item $|z + w| \leq |z| + |w|$  
-    \end{enumerate}
-    \begin{proof}
-        \begin{enumerate}[a)]
-            \item Let $z = (a, b)$. If $z \neq 0$ then either $a \neq 0$ or $b \neq 0$ so $|z|^2 = a^2 + b^2 > 0$ by Proposition \ref{ordfprop} (d). 
-            So by definition, we take the positive square root to get, $|z| > 0$.
-            If $z = 0$ then $|z| = \sqrt{0^2 + 0^2} = 0$
-            
-            \item If $z = (a, b)$ then $\overline{z} = (a, -b)$ so $|z|^2 = |\overline{z}|^2 = a^2 + b^2$.
-            Now by uniqueness Theorem \ref{pwrthm}, we get $|z| = |\overline{z}|$.
-            
-            \item Let $z = (a, b)$ and $w = (c, d)$ so $zw = (ac - bd, ad + bc)$.
-            Now, 
-            \begin{align*}
-            |zw|^2 & = (ac - bd)^2 + (ad + bc)^2 \\
-                & = a^2 c^2 + b^2 d^2 - 2abcd + a^2 d^2 + b^2 c^2 + 2abcd \\
-                & = a^2(c^2 + d^2) + b^2(d^2 + c^2) \\
-                & = (a^2 + b^2) (c^2 + d^2) = |z|^2 |w|^2 = (|z||w)|^2 
-            \end{align*}
-            Now, by Theorem \ref{pwrthm}, $|zw| = |z||w|$.
+	Let $z$ and $w$ be complex numbers. Then
+	\begin{enumerate}[a)]
+		\item $|z| > 0$ unless $z = 0$, $|0| = 0$
+		\item $|\overline{z}| = |z|$
+		\item $|zw| = |z||w|$
+		\item $|Re (z)| \leq |z|$
+		\item $|z + w| \leq |z| + |w|$
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[a)]
+			\item Let $z = (a, b)$. If $z \neq 0$ then either $a \neq 0$ or $b \neq 0$ so $|z|^2 = a^2 + b^2 > 0$ by Proposition \ref{ordfprop} (d).
+			So by definition, we take the positive square root to get, $|z| > 0$.
+			If $z = 0$ then $|z| = \sqrt{0^2 + 0^2} = 0$
 
-            \item Let $z = (a, b)$. Note that  $|a| = \sqrt{a^2} \leq \sqrt{a^2 + b^2}$.
-            
-            \item Note that $z \overline{w}$ is conjugate of $\overline{z} w$
-            \begin{align*}
-                |z + w|^2 & = (z + w)(\overline{z + w}) \\
-                        & = (z + w)(\overline{z} + \overline{w})
-                        & = z \overline{z} + z \overline{w} + w \overline{z} + w \overline{w} \\
-                        & = |z|^2 + 2 Re(z \overline{w}) + |w|^2 \\
-                        & \leq |z|^2 + 2 |z \overline{w}| + |w|^2 \\
-                        & = |z|^2 + 2|z||w| + |w|^2 \\
-                        & = (|z| + |w|)^2
-            \end{align*}
-            Hence, proved by taking square roots.
-        \end{enumerate}
-    \end{proof}
+			\item If $z = (a, b)$ then $\overline{z} = (a, -b)$ so $|z|^2 = |\overline{z}|^2 = a^2 + b^2$.
+			Now by uniqueness Theorem \ref{pwrthm}, we get $|z| = |\overline{z}|$.
+
+			\item Let $z = (a, b)$ and $w = (c, d)$ so $zw = (ac - bd, ad + bc)$.
+			Now,
+			\begin{align*}
+			|zw|^2 & = (ac - bd)^2 + (ad + bc)^2 \\
+				& = a^2 c^2 + b^2 d^2 - 2abcd + a^2 d^2 + b^2 c^2 + 2abcd \\
+				& = a^2(c^2 + d^2) + b^2(d^2 + c^2) \\
+				& = (a^2 + b^2) (c^2 + d^2) = |z|^2 |w|^2 = (|z||w)|^2
+			\end{align*}
+			Now, by Theorem \ref{pwrthm}, $|zw| = |z||w|$.
+
+			\item Let $z = (a, b)$. Note that $|a| = \sqrt{a^2} \leq \sqrt{a^2 + b^2}$.
+
+			\item Note that $z \overline{w}$ is conjugate of $\overline{z} w$
+			\begin{align*}
+				|z + w|^2 & = (z + w)(\overline{z + w}) \\
+						& = (z + w)(\overline{z} + \overline{w})
+						& = z \overline{z} + z \overline{w} + w \overline{z} + w \overline{w} \\
+						& = |z|^2 + 2 Re(z \overline{w}) + |w|^2 \\
+						& \leq |z|^2 + 2 |z \overline{w}| + |w|^2 \\
+						& = |z|^2 + 2|z||w| + |w|^2 \\
+						& = (|z| + |w|)^2
+			\end{align*}
+			Hence, proved by taking square roots.
+		\end{enumerate}
+	\end{proof}
+\end{thm}
+
+We will end this section by a famous inequality called {\it the Schwarz inequality}
+
+\begin{thm}
+	If $a_1, \dots, a_n$ and $b_1, \dots, b_n$ are complex numbers, then
+	$$
+		\left| \sum_{j=1}^n a_j \overline{b_j} \right| ^ 2
+		\leq
+		\sum_{j=1}^n |a_j|^2 \sum_{j=1}^n |b_j|^2
+	$$
+	\begin{proof}
+		Put $A = \sum |a_j|^2, B = \sum |b_j|^2, C = \sum a_j \overline{b_j}$.
+		If $B = 0$ then $b_1 = \cdots = b_n = 0$ and the conclustion is trivial.
+		Assume $B > 0$. By Theorem \ref{pwrthm}, we have
+		\begin{align*}
+			\sum |B a_j - C b_j|^2
+				& = \sum (B a_j - C b_j)(B \overline{a_j} - \overline{C} \overline{b_j}) \\
+				& = \sum ( B^2 |a_j|^2
+					- B \overline{C} a_j \overline{b_j}
+					- B C \overline{a_j} b_j
+					+ |C|^2 |b_j|^2 ) \\
+				& = B^2 A - B \overline{C} C - B C \overline{C} + |C|^2 |B|^2 \\
+				& = B (BA - |C|^2)
+		\end{align*}
+		Now, $B > 0$ so $BA - |C|^2 \geq 0$ implies $|C|^2 \leq AB$.
+		Hence, proved.
+	\end{proof}
 \end{thm}
 
 
+\section{Euclidean Spaces}
+
+\begin{defn}
+	For each positive integer $k$, let $\mathbb{R}^k$ be the set of all ordered $k$-tuples
+	$$ x = (x_1, x_2, \dots, x_k) $$
+	where $x_1, x_2, \dots, x_k$ are called the coordinates of $x$.
+
+The points of $\mathbb{R}^k$ are called vectors especially when $k > 0$.
+If $y = (y_1, \dots, y_k)$ and $\alpha$ is a real number, put
+$$ x + y = (x_1 + y_1, x_2 + y_2, \dots, x_k + y_k) $$
+$$ \alpha x = (\alpha x_1, \alpha x_2, \dots, \alpha x_k) $$
+
+so that $x + y \in \mathbb{R}^k$ and $\alpha x \in \mathbb{R}^k$.
+
+This defines vector addition and multiplication by a real number.
+These two propeties follow the commutative, associative and the distributive laws.
+The proof is trivial. And this makes $\mathbb{R}^k$ {\it a vector space over the real field}.
+
+We also define the inner product of $x$ and $y$ as
+$$
+x \cdot y = \sum_{i=1}^k x_i y_i
+$$
+and the norm as
+$$
+|x| = (x \cdot x)^{1/2} = \left( \sum_{i=1}^k x_i^2 \right)^2
+$$
+
+The structure now defined (the vector space $\mathbb{R}^k$ with inner product and norm)
+is called the Euclidean k-space.
+\end{defn}
+
 \begin{thm}
-    If $a_1, \dots, a_n$ and $b_1, \dots, b_n$ are complex numbers, then 
-    $$
-        \left| \sum_{j=1}^n a_j \overline{b_j} \right| ^ 2
-        \leq 
-        \sum_{j=1}^n |a_j|^2 \sum_{j=1}^n |b_j|^2
-    $$
-    \begin{proof}
-        Put $A = \sum |a_j|^2, B = \sum |b_j|^2, C = \sum a_j \overline{b_j}$.
-        If $B = 0$ then $b_1 = \cdots = b_n = 0$ and the conclustion is trivial.
-        Assume $B > 0$. By Theorem \ref{pwrthm}, we have 
-        \begin{align*}
-            \sum |B a_j - C b_j|^2 
-                & = \sum (B a_j - C b_j)(B \overline{a_j} - \overline{C} \overline{b_j}) \\
-                & = \sum ( B^2 |a_j|^2 
-                    - B \overline{C} a_j \overline{b_j} 
-                    - B C \overline{a_j} b_j
-                    + |C|^2 |b_j|^2 ) \\
-                & = B^2 A - B \overline{C} C - B C \overline{C} + |C|^2 |B|^2 \\
-                & = B (BA - |C|^2)
-        \end{align*}
-        Now, $B > 0$ so $BA - |C|^2 \geq 0$ implies $|C|^2 \leq AB$.
-        Hence, proved.
-    \end{proof}
+	Suppose $x, y, z \in \mathbb{R}^k$, and $\alpha$ is real. Then
+	\begin{enumerate}[a)]
+		\item $|x| \geq 0$
+		\item $|x| = 0$ {\it if and only if } $x = 0$
+		\item $|\alpha x| = |\alpha| |x|$
+		\item $|x \cdot y| \leq |x||y|$
+		\item $|x+y| \leq |x| + |y|$
+		\item $|x-z| \leq |x-z| + |y-z|$
+	\end{enumerate}
+
+	\begin{proof}
+		(a), (b), (c) are trivial. (d) is a direct consequence of Schwarz inequality.
+		From (d), we have,
+		\begin{align*}
+			|x+y|^2 & = (x+y) \cdot (x+y) \\
+				& = |x|^2 + 2 x \cdot y + |y|^2 \\
+				& \leq |x|^2 + 2|x||y| + |y|^2 \\
+				& = (|x| + |y|)^2
+		\end{align*}
+		Now, replace $x$ and $y$ with $x-z$ and $y-z$ to get (f).
+	\end{proof}
+
 \end{thm}

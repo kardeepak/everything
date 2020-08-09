@@ -1,0 +1,92 @@
+
+%----------------------------------------------------------------------------------------
+%	Lecture 2
+%----------------------------------------------------------------------------------------
+
+\chapter{The Domain of Quantum Mechanics}
+
+\bigbreak
+\section{Application of Quantum Mechanics}
+
+In Classical Mechanics, everything is certain, predictable and determined.
+Whereas in Quantum Mechanics, we have uncertainty. But it is completely predictable.
+But instead of predicting the state of the universe, you predict probabilities.
+
+The boundary between Classical and Quantum Mechanics is the boundary between things that are large and small./
+This is not a precise way to state things.
+
+Mathematically, Quantum Mechanics apply in the following case : 
+\begin{itemize}
+	\item When angular momemntum $L \sim \hbar$
+	\item When uncertainties $\Delta p \Delta x \sim \hbar$
+	\item When uncertainties $\Delta E \Delta t \sim \hbar$.
+	\item When action $S \sim \hbar$
+\end{itemize}
+
+
+\begin{exmp}
+	Electron in hydrogen atom.
+	
+	Energy : $10eV \sim \frac{p^2}{2m} \Rightarrow \Delta p \sim 1.7 \times 10^{-24} kg \frac{m}{s}$
+
+	Size of atom : $0.1nm \sim 10^{-10} m = \Delta x$
+	
+	$$ \Delta p \Delta x \sim 1.7 \times 10^{-34} \sim \hbar $$
+\end{exmp}
+
+
+\begin{exmp}
+	Speck of dust in light breeze.
+
+	Here, mass $\sim 10^{-6} kg$ and velocity $\sim 1 m/s$
+	and the size of speck of dust $\sim 10^{-5} m$. 
+	Then the momemntum will be mass times velocity and the uncertainty in momemntum let's say is $1\%$.
+	The uncertainty in position will be similar to the size of the speck.
+	So $\Delta x \sim 10^{-5}$.
+
+	$$ p \sim 10^{-6} kg m / s  \quad \Delta p 10^{-8} kg m / s $$ 
+
+	$$ \Delta p \Delta x \sim 10^{-14} \sim 10^{20} \hbar $$
+
+	Here, we can see that the uncertainties are too large so this is in the realm of Classical Physics.
+
+\end{exmp}
+
+\subsubsection*{Example Systems when QM is important}
+
+\begin{itemize}
+	\item Single Particles (atoms, molecules, electrons, photons)
+	\item Semiconductors (crystals)
+	\item Lasers
+	\item Low temperatures ( < 100K )
+\end{itemize}
+
+We're adding things to this list all the time.
+
+\pagebreak
+
+\begin{prblm}
+	If the timescale of interactions of two helium atoms is 10ns, 
+	what is the energy scale at which quantum effects become important?
+	\begin{proof}[Solution]
+		\begin{align*}
+			\Delta E \Delta t & \sim \hbar \\
+			\Delta E \times 10 \times 10^{-9} s & \sim 6.626 \times 10^{-34} J s \\
+			\Delta E & \sim 6.626 \times 10^{-26} J 
+		\end{align*}
+	\end{proof}
+\end{prblm}
+
+\begin{prblm}
+	If the energy scale at the temperature $T$ is given by $\Delta E \sim k_B T$ 
+	where $k_B = 1.38 \times 10^{-23} J / K$, what temperature must the helium be cooled to
+	for quantum effects to become important.
+	\begin{proof}[Solution]
+		We know $\Delta E$ from the last problem, so 
+		\begin{align*}
+			\Delta E & \sim 6.626 \times 10^{-26} J \\
+			1.38 \times 10^{-23} J/K \times T & \sim 6.626 \times 10^{-26} J \\ 
+			T & \sim 4.801 \times 10^{-3} K
+		\end{align*}
+	\end{proof}
+\end{prblm}

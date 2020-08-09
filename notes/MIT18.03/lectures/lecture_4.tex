@@ -4,7 +4,7 @@
 %	Lecture 4
 %----------------------------------------------------------------------------------------
 
-\chapter{Change of Variables} 
+\chapter{Change of Variables}
 
 \bigbreak
 
@@ -25,16 +25,16 @@ $$ x_1 = \frac{x}{a} ; \quad y_1 = \frac{y}{b} $$
 Scaling can be used to change units or make the variables dimensionless.
 Another reason is to reduce or simplify constants.
 
-{\bf Example : } Let's take the following equation : 
+{\bf Example : } Let's take the following equation :
 $$ \diff{T}{t} = k(M^4 - T^4) $$
 Here, $M$ is the external temperature and $T$ is the internal temperature.
 
-Let's take a variable $T_1 = T / M$. 
-Now we can substitute $T = M T_1$ to get 
+Let's take a variable $T_1 = T / M$.
+Now we can substitute $T = M T_1$ to get
 \begin{gather*}
-    M \diff{T_1}{t} = k M^4(1 - T_1^4) \\
-    \diff{T_1}{t} = k M^3 (1 - T_1^4) = k_1 (1 - T_1^4) 
-\end{gather*} 
+	M \diff{T_1}{t} = k M^4(1 - T_1^4) \\
+	\diff{T_1}{t} = k M^3 (1 - T_1^4) = k_1 (1 - T_1^4)
+\end{gather*}
 Here, $k_1 = k M^3$ is the new constant.
 
 \subsection{Types of Substitution}
@@ -53,7 +53,7 @@ This must be exactly like this, that is, there must be no other term.
 
 Here, we divided by $y^n$ to get $$ y' y^{-n} = p(x)y^{1-n} + q(x) $$
 
-Let's take a new variable as $ v = y^{1-n} $ and  $ v' = y' y^{-n} $.
+Let's take a new variable as $ v = y^{1-n} $ and $ v' = y' y^{-n} $.
 By substituting, we get, $$ v' = p(x) v + q(x) $$
 
 This is a First Order Linear Equation which can be solved by using an Integrating Factor.
@@ -68,12 +68,12 @@ For example, In equation, $ xy' = \sqrt{x^2 + y^2} $ we can divided by $x$ to ge
 Another way to recognize is to see that this equation is invariant under the zoom operation.
 The zoom operation is the substitution, $x = ax_1$ and $y = ay_1$.
 
-Here, the LHS is \ilds{ \diff{(ay_1)}{ax_1} = \diff{y_1}{x_1} }. 
+Here, the LHS is \ilds{ \diff{(ay_1)}{ax_1} = \diff{y_1}{x_1} }.
 
-And the RHS is  \ilds{ F \left( \frac{y}{x} \right) = F \left( \frac{ay_1}{ax_1} \right) = F \left( \frac{y_1}{x_1} \right) }
+And the RHS is \ilds{ F \left( \frac{y}{x} \right) = F \left( \frac{ay_1}{ax_1} \right) = F \left( \frac{y_1}{x_1} \right) }
 
 Here, we make the substitution $y = zx$ so $y' = z'x + z$, so the equation becomes,
-$$ z'x + z = F(z) $$ 
+$$ z'x + z = F(z) $$
 Now we can separate the variables to solve this equation.
 
 {\bf Example : } Let's say there is a boat which wants to run away from a light house that is constantly shining light on it and hide somwhere.
@@ -89,19 +89,19 @@ So we can write a differential equation.
 $$ \diff{y}{x} = \tan \left( \alpha + \frac{\pi}{4} \right) = \frac{\tan(\alpha) + 1}{1 - \tan(\alpha)} $$
 
 Now we know that $tan(\alpha) = \frac{y}{x}$ because the light is always pointing towards the boat.
-So, 
+So,
 $$
 \diff{y}{x} = \frac{\frac{y}{x} + 1}{1 - \frac{y}{x}}
 $$
 
-Now we can make the substitution, $y = zx$ and $y' = z'x + z$ so 
+Now we can make the substitution, $y = zx$ and $y' = z'x + z$ so
 
 \begin{align*}
 z'x + z & = \frac{z+1}{1-z} \\
 x z' & = \frac{z+1}{1-z} - z \\
 x z' & = \frac{z+1-z+z^2}{1-z} = \frac{1+z^2}{1-z} \\
 \int \frac{1-z}{1+z^2} dz & = \int \frac{1}{x} dx = \ln(x) + c \\
-\arctan(z) - \frac{1}{2}\ln(1+z^2) & = \ln(x) + c \\ 
+\arctan(z) - \frac{1}{2}\ln(1+z^2) & = \ln(x) + c \\
 \arctan(z) & = \ln( x \sqrt{1+z^2} ) + c
 \end{align*}
 
@@ -113,8 +113,8 @@ $$
 = \ln(\sqrt{x^2 + y^2}) + c
 $$
 
-Converting this to the polar coordinates, we get, 
+Converting this to the polar coordinates, we get,
 
-$$ \theta = \ln(r) + c \Rightarrow  r = Ae^{\theta} $$
+$$ \theta = \ln(r) + c \Rightarrow r = Ae^{\theta} $$
 
 

@@ -43,11 +43,11 @@ We'll denote the differential equation as a linear operator $L$.
 
 \begin{mdframed}
 \begin{center}
-    {\bf Theorem. } Given a differential equation of the form $Ly = f(x)$, 
-    then the solution is of the form $y_p + y_c$ 
-    where $y_c$ is the solution to the associated homogenous equation
-    and $y_p$ is a particular solution to $Ly = f(x)$.
-    Here, the particular solution is any one solution to the equation $Ly = f(x)$.
+	{\bf Theorem. } Given a differential equation of the form $Ly = f(x)$, 
+	then the solution is of the form $y_p + y_c$ 
+	where $y_c$ is the solution to the associated homogenous equation
+	and $y_p$ is a particular solution to $Ly = f(x)$.
+	Here, the particular solution is any one solution to the equation $Ly = f(x)$.
 \end{center}
 \end{mdframed}
 
@@ -55,19 +55,19 @@ We'll denote the differential equation as a linear operator $L$.
 We have to prove two things.
 
 \begin{enumerate}
-    \item All $y = y_p + c_1 y_1 + c_2 y_2$ are the solution to the differential equation.
-    This can be proved by just plugging it in the equation. 
-    The solution to the homogenous equation will vanish and only $y_p$ will be left which is by definition a solution.
-    $$ Ly = L(y_p + c_1 y_1 + c_2 y_2) = L(y_p) + c_1 L(y_1) + c_2 L(y_2) = f(x) + 0 + 0 = f(x)$$ 
-    \item Any solution to the equation $Ly = f(x)$ is of the form $y_p + c_1 y_1 + c_2 y_2$.
+	\item All $y = y_p + c_1 y_1 + c_2 y_2$ are the solution to the differential equation.
+	This can be proved by just plugging it in the equation. 
+	The solution to the homogenous equation will vanish and only $y_p$ will be left which is by definition a solution.
+	$$ Ly = L(y_p + c_1 y_1 + c_2 y_2) = L(y_p) + c_1 L(y_1) + c_2 L(y_2) = f(x) + 0 + 0 = f(x)$$ 
+	\item Any solution to the equation $Ly = f(x)$ is of the form $y_p + c_1 y_1 + c_2 y_2$.
 \end{enumerate}
 
 {\bf Proof : } Let $u(x)$ be the solution to $Ly = f(x)$.
 Now $y_p$ is also a solution to this equation. 
-So, $L(u) = f(x)$ and  $L(y_p) = f(x)$ implies that $L(u) - L(y_p) = 0$.
+So, $L(u) = f(x)$ and $L(y_p) = f(x)$ implies that $L(u) - L(y_p) = 0$.
 Since $L$ is a linear operator so $L(u - y_p) = 0$.
 Thus, we can conclude that $u - y_p$ is the solution to the associated homogenous equation $Ly = 0$.
-That is, $u - y_p = c_1 y_1 + c_2 y_2$ implies that any solution $u(x)$  is of the form $y_p + c_1 y_1 + c_2 y_2$.
+That is, $u - y_p = c_1 y_1 + c_2 y_2$ implies that any solution $u(x)$ is of the form $y_p + c_1 y_1 + c_2 y_2$.
 
 
 \subsection{Relation to First Order Linear ODEs}

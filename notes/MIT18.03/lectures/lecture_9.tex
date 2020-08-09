@@ -24,9 +24,9 @@ Thus, to find a general solution, all we need to do is find two solutions to thi
 The initial conditions are satisfied by choosing $c_1$ and $c_2$ properly.
 
 \begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.3]{./images/lecture_9_figure_1.png}
-    \caption{Spring-Mass-Dashpot System}
+	\centering
+	\includegraphics[scale=0.3]{./images/lecture_9_figure_1.png}
+	\caption{Spring-Mass-Dashpot System}
 \end{figure}
 
 We'll take the origin at the equilibrium position.
@@ -52,8 +52,8 @@ We'll find the solution as $y = e^{rt}$ and find $r$.
 Sustituting we get,
 
 \begin{gather*}
-    r^2 e^{rt} + Ar e^{rt} + B e^{rt} = 0 \\
-    \Rightarrow (r^2 + Ar + B) e^{rt} = 0
+	r^2 e^{rt} + Ar e^{rt} + B e^{rt} = 0 \\
+	\Rightarrow (r^2 + Ar + B) e^{rt} = 0
 \end{gather*}
 
 Since $e^{rt}$ is never zero so the term $r^2 + Ar + B$ must be zero. 
@@ -97,9 +97,9 @@ You can find the constants by using the initial values.
 This is called Underdamped.
 
 \begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.25]{./images/lecture_9_figure_2.png}
-    \caption{Plot of the curve $Ae^{-2t}\cos(t - \phi)$}
+	\centering
+	\includegraphics[scale=0.25]{./images/lecture_9_figure_2.png}
+	\caption{Plot of the curve $Ae^{-2t}\cos(t - \phi)$}
 \end{figure}
 
 {\bf Case 3 : } Solutions are real and equal.
@@ -117,14 +117,14 @@ And you will be able to find $u$.
 
 Substituting $y = e^{-at} u$ in the original differential equation.
 \begin{align*}
-    y' & = -ae^{-at} u + e^{-at} u' \\
-    y'' & = a^2 e^{-at} u - a e^{-at} u' -a e^{-at} u' + e^{-at} u'' \\
-    y'' & = a^2 e^{-at} u - 2 a e^{-at} u' + e^{-at} u'' \\
-    & y'' + 2ay' + a^2y = 0 \\
-    & \Rightarrow a^2 e^{-at} u - 2 a e^{-at} u' + e^{-at} u'' \\
-    & - 2 a^2 e^{-at} u + 2a e^{-at} u' \\
-    & + a^2 e^{-at} u = 0 \\
-    & \Rightarrow e^{-at} u'' = 0
+	y' & = -ae^{-at} u + e^{-at} u' \\
+	y'' & = a^2 e^{-at} u - a e^{-at} u' -a e^{-at} u' + e^{-at} u'' \\
+	y'' & = a^2 e^{-at} u - 2 a e^{-at} u' + e^{-at} u'' \\
+	& y'' + 2ay' + a^2y = 0 \\
+	& \Rightarrow a^2 e^{-at} u - 2 a e^{-at} u' + e^{-at} u'' \\
+	& - 2 a^2 e^{-at} u + 2a e^{-at} u' \\
+	& + a^2 e^{-at} u = 0 \\
+	& \Rightarrow e^{-at} u'' = 0
 \end{align*}
 Since $e^{-at}$ is always non-zero then $u'' = 0$ so $u = (c_1t + c_2)$.
 So our general solution is $y = e^{-at}(c_1t + c_2)$.

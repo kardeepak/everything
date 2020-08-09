@@ -3,7 +3,7 @@
 %	Lecture 3
 %----------------------------------------------------------------------------------------
 
-\chapter{Derivatives of Products, Quotients, Sine and Cosine}  
+\chapter{Derivatives of Products, Quotients, Sine and Cosine}
 
 \bigbreak
 \section{Derivative Formulas}
@@ -16,7 +16,7 @@ There are two kinds of derivative formulas:
 \end{enumerate}
 
 A notational convention we will use today is:
-$$(u+v)(x) = u(x) + v(x); \quad (uv)(x) = u(x)v(x)$$ 
+$$(u+v)(x) = u(x) + v(x); \quad (uv)(x) = u(x)v(x)$$
 
 \subsection{Proof of $(u+v)' = u'+v'$. (General)}
 
@@ -40,19 +40,19 @@ Last time, we computed.
 \]
 \[
 	\diff{}{x} (\cos x) |_{\substack{x=0}}
-        = \lim_{\Delta x \to 0} \frac{\cos(0 + \Delta x) - \cos(0) }{\Delta x}
+		= \lim_{\Delta x \to 0} \frac{\cos(0 + \Delta x) - \cos(0) }{\Delta x}
 		= \lim_{\Delta x \to 0} \frac{\cos(\Delta x)-1}{\Delta x} = 0
 \]
 
 
-So we know the value of \ilds{ \diff{}{x} \sin x } and \ilds{ \diff{}{x} \cos x } at $x = 0$. Let us find for arbitary $x$. 
+So we know the value of \ilds{ \diff{}{x} \sin x } and \ilds{ \diff{}{x} \cos x } at $x = 0$. Let us find for arbitary $x$.
 $$\diff{}{x} \sin x = \lim_{\Delta x \to 0} \frac{\sin(x+\Delta x) - \sin(x)}{\Delta x}$$
 
 Recall : $\sin(a+b) = \sin(a)\cos(b) + \cos(a)\sin(b)$
 
 So,
 \begin{align*}
-	\diff{}{x} \sin x 
+	\diff{}{x} \sin x
 		& = \lim_{\Delta x \to 0} \frac{\sin x \cos \Delta x + \cos x \sin \Delta x - \sin x}{\Delta x} \\
 		& = \lim_{\Delta x \to 0} \left[ \frac{\sin x (\cos \Delta x - 1)}{\Delta x} \frac{\cos x \sin \Delta x}{\Delta x} \right] \\
 		& = \lim_{\Delta x \to 0} \sin x \left( \frac{\cos \Delta x - 1}{\Delta x} \right) + \lim_{\Delta x \to 0} \cos x \left( \frac{\sin \Delta x}{\Delta x} \right)
@@ -76,7 +76,7 @@ Now obviously, $$u(x+\Delta x)v(x) - u(x+\Delta x)v(x) = 0$$
 
 So adding that to the numerator won't change anyhting.
 $$
-(uv)' = \lim_{\Delta x \to 0} 
+(uv)' = \lim_{\Delta x \to 0}
 	\frac{
 		u(x+\Delta x)v(x)
 		- u(x)v(x)
@@ -87,9 +87,9 @@ $$
 
 We can re-arrange to get
 $$
-(uv)' = \lim_{\Delta x \to 0} 
+(uv)' = \lim_{\Delta x \to 0}
 	\left( \frac{u(x+\Delta x) - u(x)}{\Delta x} \right) v(x) +
-	u(x+\Delta x) \left( \frac{v(x+\Delta x) - v(x)}{\Delta x} \right) 
+	u(x+\Delta x) \left( \frac{v(x+\Delta x) - v(x)}{\Delta x} \right)
 $$
 
 Remember, the limit of sum is the sum of limits.
@@ -106,14 +106,14 @@ This proof of product rule implies that both $u$ and $v$ have derivatives, which
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[scale=0.4]{./images/lecture_3_figure_1.png}
-	\caption{A graphical ``proof'' of product rule.}    
+	\caption{A graphical ``proof'' of product rule.}
 \end{figure}
 
 \subsubsection*{An intuitive justification:}
 
 Define $\Delta u$, the change in $u$, by $$\Delta u = u(x+\Delta x) - u(x)$$
 
-We want to find out the change in area of the rectangle. As we can see, 
+We want to find out the change in area of the rectangle. As we can see,
 
 $$\Delta(uv) = (\Delta u)v + u(\Delta v) + (\Delta u)(\Delta v)$$
 
@@ -141,7 +141,7 @@ $$
 	\to \frac{v\diff{u}{x} - u\diff{v}{x}}{v^2} \text{ as } \Delta x \to 0
 $$
 
-Therefore, 
+Therefore,
 $$\left( \frac{u}{v} \right)' = \frac{u'v - uv'}{v^2}$$
 
 
@@ -165,7 +165,7 @@ This result extends to polynomials. For example, $$ \diff{}{x}(x^2+3x^10) = 2x +
 \subsection{Derivative of \ilds{ \frac{1}{x} }}
 Taking the limit
 \begin{align*}
-	\diff{}{x} \frac{1}{x} 
+	\diff{}{x} \frac{1}{x}
 		& = \lim_{\Delta x \to 0} \frac{1}{\Delta x} \left( \frac{1}{x+\Delta x} - \frac{1}{x} \right) \\
 		& = \lim_{\Delta x \to 0} \frac{1}{\Delta x} \left( \frac{x - (x+\Delta x)}{x(x+\Delta x)} \right) \\
 		& = \lim_{\Delta x \to 0} \frac{-1}{x(x+\Delta x)} \\

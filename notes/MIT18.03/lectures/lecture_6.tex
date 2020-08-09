@@ -11,25 +11,25 @@
 
 For any number $a + bi$, we can represent in polar coordinates as $r \cos \theta + i r \sin \theta$.
 
-We can rewrite as  $r(\cos \theta + i \sin \theta)$ then Euler decided to write it as $r e^{i \theta}$.
+We can rewrite as $r(\cos \theta + i \sin \theta)$ then Euler decided to write it as $r e^{i \theta}$.
 
 We write it as an exponential function because it satisfies the two properties of exponentials.
 That is,
 \begin{enumerate}
-    \item $e^x \cdot e^y = e^{x+y}$
-    \item $e^{at}$ is the solution to \ilds{\diff{y}{t} = ay} with $y(0) = 1$.
-    \item The Taylor Series should be converging and consistent.
+	\item $e^x \cdot e^y = e^{x+y}$
+	\item $e^{at}$ is the solution to \ilds{\diff{y}{t} = ay} with $y(0) = 1$.
+	\item The Taylor Series should be converging and consistent.
 \end{enumerate}
 
 Let's take the first one.
 
 \begin{align*}
 e^{i\theta_1} \cdot e^{i \theta_2} 
-    & = (\cos \theta_1 + i \sin \theta_1) \cdot (\cos \theta_2 + i \sin \theta_2) \\
-    & = (\cos \theta_1 \cos \theta_2 - \sin \theta_1 \sin \theta_2) \\
-    & + i (\sin \theta_1 \cos \theta_2 + \cos \theta_1 \sin \theta_2) \\
-    & = \cos (\theta_1 + \theta_2) + i \sin (\theta_1 + \theta_2) \\
-    & = e^{i(\theta_1 + \theta_2)}
+	& = (\cos \theta_1 + i \sin \theta_1) \cdot (\cos \theta_2 + i \sin \theta_2) \\
+	& = (\cos \theta_1 \cos \theta_2 - \sin \theta_1 \sin \theta_2) \\
+	& + i (\sin \theta_1 \cos \theta_2 + \cos \theta_1 \sin \theta_2) \\
+	& = \cos (\theta_1 + \theta_2) + i \sin (\theta_1 + \theta_2) \\
+	& = e^{i(\theta_1 + \theta_2)}
 \end{align*}
 
 Thus, this function satisfies the first property of exponential functions.
@@ -41,9 +41,9 @@ And you can differentiate them separately.
 
 $$
 \diff{e^{i t}}{t} = \diff{}{t} \cos t + i \diff{}{t} \sin t
-    = - \sin t + i \cos t
-    = i ( i \sin t + \cos t)
-    = i e^{it}
+	= - \sin t + i \cos t
+	= i ( i \sin t + \cos t)
+	= i e^{it}
 $$
 
 Also, $e^{i 0} = \cos 0 + i \sin 0 = 1 + 0 i = 1 $.
@@ -83,7 +83,7 @@ $$
 Taking the real part of this, we get,
 $$ 
 \int e^{-x} \cos x dx 
-    = \frac{1}{2} e^{-x} ( - \cos x + \sin x) 
+	= \frac{1}{2} e^{-x} ( - \cos x + \sin x) 
 $$
 
 In general, any integal of a function of the form $e^{ax} \cos (bx)$ or $e^{ax} \sin (bx)$ 

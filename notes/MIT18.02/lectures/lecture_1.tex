@@ -3,7 +3,7 @@
 %	Lecture 1
 %----------------------------------------------------------------------------------------
 
-\chapter{Vectors and Dot Product}  
+\chapter{Vectors and Dot Product}
 
 \bigbreak
 \section{Vectors}
@@ -13,13 +13,13 @@ We usually use a coordinate system to represent vectors.
 Usually, we use a cartesian coordinates to represent a vector as its component along the coordinate axis.
 We will represent any vector as ${\bf v}$ bold.
 
-$$ {\bf A} = \ijk{a_1}{a_2}{a_3} = \left< a_1, a_2, a_3 \right> $$ 
+$$ {\bf A} = \ijk{a_1}{a_2}{a_3} = \left< a_1, a_2, a_3 \right> $$
 
 We can get the direction by scaling the vector by its length, that is, dividiing it by its length $|{\bf A}|$.
 A vector is if it has the same magnitude and direction irrespective of its starting point.
 We can find out the length of a vector by the following formula : $$ |{\bf A}| = \sqrt{a_1^2 + a_2^2 + a_3^3} $$
 
-This is true due to the fact that we are using the cartesian coordinates to represent our vector. 
+This is true due to the fact that we are using the cartesian coordinates to represent our vector.
 So this vector can be seen as the diagonal of a cuboid and using the pythogorean theorem, we can find its length.
 
 \subsection{Scalar Multiplication}
@@ -29,15 +29,15 @@ Numerically, $$ c {\bf A} = c (\ijk{a_1}{a_2}{a_3}) = (\ijk{ca_1}{ca_2}{ca_3}) $
 
 \subsection{Vector Addition}
 
-Vector addition can be done either geometrically or numerically. 
+Vector addition can be done either geometrically or numerically.
 Geometrically, start at any point and then travel in the direction of first vector a distance equal its length.
 Then we travel in the direction of the second vector a distance equal to its length.
 Finally, the addition of two vectors is the vector from the starting point to the final point.
 
 \begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.5]{./images/lecture_1_figure_1.png}
-    \caption{Geometrycally Adding Vectors}
+	\centering
+	\includegraphics[scale=0.5]{./images/lecture_1_figure_1.png}
+	\caption{Geometrycally Adding Vectors}
 \end{figure}
 
 In the diagram above, we can see that if both vectors start at the same point then their sum is the diagonal of the parallelogram formed by the two vectors.
@@ -48,35 +48,35 @@ $$ {\bf A} + {\bf B} = \ijk{a_1}{a_2}{a_3} + \ijk{b_1}{b_2}{b_3} = \ijk{(a_1 + b
 
 \section{Dot Products}
 
-Definition : 
+Definition :
 $$
 {\bf A} \cdot {\bf B} = \sum a_i b_i = a_1 b_1 + a_2 b_2 + a_3 b_3
 $$
 
-Geometrically, let $\theta$ be the angle between vector ${\bf A}$ and ${\bf B}$. Then, 
-$$ {\bf A} \cdot {\bf B} = |{\bf A}||{\bf B}| \cos \theta  $$
+Geometrically, let $\theta$ be the angle between vector ${\bf A}$ and ${\bf B}$. Then,
+$$ {\bf A} \cdot {\bf B} = |{\bf A}||{\bf B}| \cos \theta $$
 
-What does the geometric definition mean ? And how does it relates to the numerical definition. 
+What does the geometric definition mean ? And how does it relates to the numerical definition.
 
-First we have, ${\bf A} \cdot {\bf A} = |{\bf A}|^2 \cos(0) = |{\bf A}|^2 = a_1^2 + a_2^2 + a_3^2 $. 
+First we have, ${\bf A} \cdot {\bf A} = |{\bf A}|^2 \cos(0) = |{\bf A}|^2 = a_1^2 + a_2^2 + a_3^2 $.
 So this proves that the geometric definition is the same as the numerical definition when ${\bf A} = {\bf B}$.
 
 Secondly, let ${\bf C} = {\bf B} - {\bf A}$ as you can see in the diagram below.
 
 \begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.5]{./images/lecture_1_figure_2.png}
-    \caption{Law of Cosines \& Dot Product}
+	\centering
+	\includegraphics[scale=0.5]{./images/lecture_1_figure_2.png}
+	\caption{Law of Cosines \& Dot Product}
 \end{figure}
 
 The law of cosines says, $$ |{\bf C}|^2 = |{\bf A}|^2 + |{\bf B}|^2 - 2|{\bf A}||{\bf B}|\cos \theta $$
 But we know that, $$|{\bf C}|^2 = {\bf C} \cdot {\bf C} = ({\bf A} - {\bf B}) \cdot ({\bf A} - {\bf B}) $$
 The dot product is distributive and commutative. This can be verified from the numerical definition of the dot product.
-So, 
+So,
 \begin{eqnarray*}
-    |{\bf C}|^2 = {\bf A} \cdot {\bf A} - {\bf A} \cdot {\bf B} - {\bf B} \cdot {\bf A} + {\bf B} \cdot {\bf B} \\
-    |{\bf C}|^2 = |{\bf A}|^2 + |{\bf B}|^2 - 2 {\bf A} \cdot {\bf B} \\
-    {\bf A} \cdot {\bf B} = |{\bf A}||{\bf B}| \cos \theta 
+	|{\bf C}|^2 = {\bf A} \cdot {\bf A} - {\bf A} \cdot {\bf B} - {\bf B} \cdot {\bf A} + {\bf B} \cdot {\bf B} \\
+	|{\bf C}|^2 = |{\bf A}|^2 + |{\bf B}|^2 - 2 {\bf A} \cdot {\bf B} \\
+	{\bf A} \cdot {\bf B} = |{\bf A}||{\bf B}| \cos \theta
 \end{eqnarray*}
 
 Thus, the geometric and numerical definition are equivalent to each other.
@@ -89,19 +89,19 @@ The dot product is useful to find out the angles between vectors.
 $$ \cos \theta = \frac{ {\bf A} \cdot {\bf B} }{ |{\bf A}| |{\bf B}| } $$
 
 From the above formula, we can also see that the sign of the lengths are always positive.
-So, the sign of the dot product is the same as the sign of $\cos \theta$. 
+So, the sign of the dot product is the same as the sign of $\cos \theta$.
 $$
-\text{Sign of } {\bf A} \cdot {\bf B} : 
-    \begin{cases}
-        > 0 & \quad \text{ if } \theta < 90^{\circ} \\
-        = 0 & \quad \text{ if } \theta = 90^{\circ} \\
-        < 0 & \quad \text{ if } \theta > 90^{\circ}
-    \end{cases}  
+\text{Sign of } {\bf A} \cdot {\bf B} :
+	\begin{cases}
+		> 0 & \quad \text{ if } \theta < 90^{\circ} \\
+		= 0 & \quad \text{ if } \theta = 90^{\circ} \\
+		< 0 & \quad \text{ if } \theta > 90^{\circ}
+	\end{cases}
 $$
 
 \subsubsection{Determining Orthoginality}
 
-The second use of the dot product is to figure out orthogonality. 
+The second use of the dot product is to figure out orthogonality.
 That is, to find whether two vectors are perpendicular to each other or not.
 
 {\bf Example : } Find set of solutions $x + 2y + 3z = 0$.

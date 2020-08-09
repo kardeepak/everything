@@ -12,8 +12,8 @@
 
 We can write $$ \diff{}{x} a^x = \lim_{\Delta x \to 0} \frac{a^{x+\Delta x} - a^x}{\Delta x} $$
 
-We can factor out $a^x$ : 
-$$ \lim_{\Delta x \to 0} \frac{a^{x+\Delta x}-a^x}{\Delta x} 
+We can factor out $a^x$ :
+$$ \lim_{\Delta x \to 0} \frac{a^{x+\Delta x}-a^x}{\Delta x}
 	= \lim_{\Delta x \to 0} a^x \frac{a^{\Delta x} - a^0}{\Delta x}
 	= a^x \lim_{\Delta x \to 0} \frac{a^{\Delta x} - 1}{\Delta x}
 $$
@@ -26,10 +26,10 @@ Here are two ways to describe $M(a)$:
 \begin{enumerate}
 	\item Analytically \ilds{ M(a) = \diff{}{x} a^x } at $x=0$. \\
 	Indeed, \ilds{ M(a) = \lim_{\Delta x \to 0} \frac{a^{\Delta x} - 1}{\Delta x} = \diff{}{x} a^x \big|_{x=0} }
-	\item Geometrically, $M(a)$ is the slope of $a^x$ at $x=0$. 
+	\item Geometrically, $M(a)$ is the slope of $a^x$ at $x=0$.
 
 	\begin{figure}[ht!]
-		\centering        
+		\centering
 		\includegraphics[scale=0.4]{./images/lecture_6_figure_1.png}
 		\caption{Geometric Definition of $M(a)$}
 	\end{figure}
@@ -49,7 +49,7 @@ So finally, $$\boxed{\diff{}{x}(e^x) = e^x}$$
 \subsubsection{Natural log (inverse of $e^x$)}
 
 $$
-\boxed{\text{If } y = e^x, \text{ then } \ln(y) = x} 
+\boxed{\text{If } y = e^x, \text{ then } \ln(y) = x}
 $$
 
 Note that $e^x$ is always positive even if $x$ is negative.
@@ -60,14 +60,14 @@ Let us use implicit differentiation to find $\diff{}{x} \ln(x)$. Let $w = \ln(x)
 	\diff{}{x} e^w & = \diff{x}{x} \\
 	e^w \diff{w}{x} & = 1 \\
 	\diff{w}{x} & = \frac{1}{e^w} = \frac{1}{x} \\
-	\Aboxed{\diff{}{x} \ln(x) & = \frac{1}{x}} 
+	\Aboxed{\diff{}{x} \ln(x) & = \frac{1}{x}}
 \end{align*}
 
-\subsection*{Finally, what about \ilds{ \diff{}{x}(a^x) }?} 
+\subsection*{Finally, what about \ilds{ \diff{}{x}(a^x) }?}
 
 \subsubsection{Method 1 : Write base $e$ and use chain rule}
 
-Rewrite $a$ as $e^{\ln(a)}$. 
+Rewrite $a$ as $e^{\ln(a)}$.
 Then, $ a^x = e^{x \ln(a)} $.
 Remember $\ln(a)$ is just a constant not a variable.
 $$ \diff{}{x} e^{kx} = ke^{kx} $$
@@ -87,7 +87,7 @@ Thus, $$\diff{f}{x} = f\ln(f)'$$
 Apply this to $f(x) = a^x$.
 $$ \ln f(x) = x \ln a \Rightarrow \diff{}{x} \ln f(x) = \ln a $$
 
-Remember $\ln a$ is a constant. Hence, 
+Remember $\ln a$ is a constant. Hence,
 $$ \diff{}{x} \ln f(x) = \frac{1}{f(x)} \diff{}{x} f(x) = \ln (a) \Rightarrow f'(x) = \ln(a)f(x) \Rightarrow f'(x) = \ln(a)a^x $$
 
 
@@ -107,8 +107,8 @@ You can do the same thing by writing $f(x) = e^{x \ln x}$.
 Evaluate using logs \ilds{ \lim_{k \to \infty} \left( 1+\frac{1}{k} \right)^k }
 
 Since the exponent changes, its better to find the limit of the logarithm.
-$$ 
-\lim_{k \to \infty} \ln \left[ \left( 1 + \frac{1}{k} \right)^k \right] 
+$$
+\lim_{k \to \infty} \ln \left[ \left( 1 + \frac{1}{k} \right)^k \right]
 	= \lim_{k \to \infty} k \ln \left( 1 + \frac{1}{k} \right)
 $$
 
@@ -127,10 +127,10 @@ This gives us a nice formula to calculate $e$ and with just $k = 10$ gives us a 
 \subsection{Extending Power Rule to Real Numbers}
 
 Earlier we saw that \ilds{ \diff{}{x} x^n = nx^{n-1} } is valid for all rational numbers.
-Now we will extend it to all real numbers. 
+Now we will extend it to all real numbers.
 
 We can write $x^n$ as $e^{n \ln x}$ so that we get
-$$ \diff{}{x} x^n = \diff{}{x} e^{n \ln x} 
+$$ \diff{}{x} x^n = \diff{}{x} e^{n \ln x}
 	= e^{n \ln x} \diff{}{x} (n \ln x)
 	= x^n \cdot n \cdot \frac{1}{x}
 	= n x^{n-1}

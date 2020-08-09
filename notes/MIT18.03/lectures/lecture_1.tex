@@ -3,7 +3,7 @@
 %	Lecture 1
 %----------------------------------------------------------------------------------------
 
-\chapter{Direction Fields and Integral Curves}  
+\chapter{Direction Fields and Integral Curves}
 
 \bigbreak
 \section{First Order ODEs}
@@ -32,17 +32,17 @@ An Integral Curve is a curve that is tangent to the line element of every point 
 That is at all points on the curve the tangent line has the direction same as the Direction Field.
 
 \begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.5]{./images/lecture_1_figure_1.png}
-    \caption{Direction Field and Integral Curves}
+	\centering
+	\includegraphics[scale=0.5]{./images/lecture_1_figure_1.png}
+	\caption{Direction Field and Integral Curves}
 \end{figure}
 
 {\bf Theorem : } Given $y_1(x)$ is a solution to the equation of $y' = f(x, y)$
 iff the graph of $y_1(x)$ is an Integral Curve of the Direction Field of the equation $y' = f(x, y)$.
 
-{\bf Proof : } 
-To prove this we can just evaluate both sides. That is, $y_1(x)$ is a solution to $y' = f(x, y)$ 
-then $y_1'(x) = f(x, y_1'(x))$ at every point. 
+{\bf Proof : }
+To prove this we can just evaluate both sides. That is, $y_1(x)$ is a solution to $y' = f(x, y)$
+then $y_1'(x) = f(x, y_1'(x))$ at every point.
 That is at every point of the curve, the slope of the curve is the same as $f(x, y)$.
 
 The Integral Curve of a direction field means that at every point of the curve is equal to $f(x, y)$.
@@ -55,21 +55,21 @@ For computers, pick equally spaced points and calculate the slope at each point.
 Then put line elements at each of those points.
 
 For humans, calculating $f(x, y)$ at every point is tedious.
-So 
+So
 \begin{enumerate}
-    \item Pick a slope $c$.
-    \item Plot the equation $f(x, y) = c$.
-    \item This curve is called Isocline.
+	\item Pick a slope $c$.
+	\item Plot the equation $f(x, y) = c$.
+	\item This curve is called Isocline.
 \end{enumerate}
 
-Here, we draw a curve where the slope $c$ at every point. 
+Here, we draw a curve where the slope $c$ at every point.
 So then you can draw line elements with slope $c$ at every point.
 
 
 {\bf Example : } Let \ilds{y' = \frac{-x}{y}}
 
 Here, the equation for Isoclines will be \ilds{\frac{-x}{y} = c \Rightarrow y = -\frac{x}{c}}
-Here the Isoclines will be lines passing through origin. 
+Here the Isoclines will be lines passing through origin.
 See that the line elements will always be perpendicular to the Isocline because the slope of Isocline is \ilds{\frac{-1}{c}} and slope of line elements will be $c$.
 
 You can try drawing the Integral Curve for this Direction Field and you will find that these will be circles centered at the origin.
@@ -82,22 +82,22 @@ Here, the equation of Isocline will be $1 + x - y = c \Rightarrow y = x + 1 - c$
 The Isoclines will be parallel lines with slope $1$ with line elements with slope $c$.
 
 \begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.3]{./images/lecture_1_figure_2.png}
-    \caption{Direction Field of $y' = 1 + x - y$ with the line elements}
+	\centering
+	\includegraphics[scale=0.3]{./images/lecture_1_figure_2.png}
+	\caption{Direction Field of $y' = 1 + x - y$ with the line elements}
 \end{figure}
 
 We can see the the line with $c = 1$ is both an Isocline and an Integral Curve.
 The other Integral Curves will approch that line forever.
-There is a corridor around the line  $c = 1$ where every point's line element goes towards the central line 
+There is a corridor around the line $c = 1$ where every point's line element goes towards the central line
 and if any curve enters there it will converge towards the central line.
 
 Thus, solution cannot escape.
 \begin{mdframed}
 {\bf Lemma : } Two Integral Curves cannot intersect at an angle.
 
-{\bf Proof : } If two integral curve intersect at a point at an angle then their line elements are different at that point which is impossible 
-because there is only one line element at a point which is determined by the direction field.        
+{\bf Proof : } If two integral curve intersect at a point at an angle then their line elements are different at that point which is impossible
+because there is only one line element at a point which is determined by the direction field.
 \end{mdframed}
 
 Now in the above example, the integral curves that enter the corridor cannot escape.
@@ -125,18 +125,18 @@ This guarantees the uniqueness of the solution.
 
 {\bf Example : } Let $xy' = y - 1$.
 Solving this by separation of variables we'll get,
-$$ \frac{dy}{y-1} = \frac{dx}{x} 
-\Rightarrow 
-ln(|y-1|) = ln(|x|) + c_1 
+$$ \frac{dy}{y-1} = \frac{dx}{x}
 \Rightarrow
-y - 1 = \pm e^{c_1} x 
+ln(|y-1|) = ln(|x|) + c_1
+\Rightarrow
+y - 1 = \pm e^{c_1} x
 $$
 
 This simplifies to $y = 1 + c_2x$ where $c_2 = \pm e^{c_1}$
 Here, we can see that any there is a solution through any point except the points on the y-axis.
 That is because writing it in the standard form, we get, $$y' = \frac{y-1}{x}$$
 
-Here,  we can see that it is not defined on the y-axis. 
+Here, we can see that it is not defined on the y-axis.
 Thus, there are no solutions through the points on the y-axis except $(0, 1)$.
 And there are multiple solutions through the point $(0, 1)$ because $f_y = \frac{1}{x}$ which is undefined on the $y$-axis as well.
 

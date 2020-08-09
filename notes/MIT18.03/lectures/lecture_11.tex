@@ -24,7 +24,7 @@ We have two questions today.
 \subsection{Why are all equations of the form $c_1 y_1 + c_2 y_2$ solutions to the ODE?}
 
 This is answered by the Superposition Principle.
-It says  that if $y_1$ and $y_2$ are the solution to a linear differential equation
+It says that if $y_1$ and $y_2$ are the solution to a linear differential equation
 then $c_1 y_1 + c_2 y_2$ is also a solution to that equation.
 
 {\bf Proof : } We'll write the differential equation by using the differentiation operator.
@@ -34,7 +34,7 @@ $$ y'' + py' + qy = D^2y + pDy + qy = (D^2 + pD + q)y = 0 $$
 Now we can say that $L = D^2 + pD + q$ which is a linear operator.
 So our equation is $Ly = 0$.
 The important thing is that $L$ is a linear operator.
-So that means that $L(u_1  + u_2)  = Lu_1 + Lu_2$ and $L(cu_1) = cL(u_1)$  where $c$ is a constant.
+So that means that $L(u_1 + u_2) = Lu_1 + Lu_2$ and $L(cu_1) = cL(u_1)$ where $c$ is a constant.
 
 Now $L$ is linear because the differentiaton is linear.
 Now our ODE is $Ly = 0$ has solutions $y_1$ and $y_2$ so $Ly_1 = 0$ and $Ly_2 = 0$.
@@ -49,8 +49,8 @@ Here, the only property that is being used is that $L$ is a linear operator.
 {\bf Proof : } Let's say the intial condition be $y(x_0) = a$ and $y'(x_0) = b$.
 Now $y' = c_1 y_1' + c_2 y_2'$ so our intial condition becomes.
 \begin{gather*}
-    c_1 y_1(x_0) + c_2 y_2(x_0) = a \\
-    c_1 y_1'(x_0) + c_2 y_2'(x_0) = b 
+	c_1 y_1(x_0) + c_2 y_2(x_0) = a \\
+	c_1 y_1'(x_0) + c_2 y_2'(x_0) = b 
 \end{gather*}
 From the above equations $c_1, c_2$ are the unknowns.
 So this is a system of equations in two variables.
@@ -61,10 +61,10 @@ And the Wronskian is a function of $x$.
 $$
 W(y_1, y_2) = 
 \begin{vmatrix*}
-    y_1 & y_2 \\
-    y_1' & y_2' 
+	y_1 & y_2 \\
+	y_1' & y_2' 
 \end{vmatrix*}
-    = y_1 y_2' - y_1' y_2
+	= y_1 y_2' - y_1' y_2
 $$
 
 {\bf Theorem : } If $y_1$ and $y_2$ are solution of the ODE then
@@ -81,18 +81,18 @@ If $y_1$ and $y_2$ are independent and non-zero, then $W(y_1, y_2)$ is non-zero 
 We can write the Wronskian as 
 $$ 
 W(y_1, y_2) 
-    = y_1 y_2' - y_1' y_2 
-    = y_1^2 \diff{}{x} \left( \frac{y_2}{y_1} \right) 
+	= y_1 y_2' - y_1' y_2 
+	= y_1^2 \diff{}{x} \left( \frac{y_2}{y_1} \right) 
 $$
 
 This form also shows that if $y_1$ and $y_2$ are non-zero and linearly dependent then the Wronskian is always zero.
 
 \begin{align*}
-    W & = y_1 y_2' - y_1' y_2 \\
-    W' & = y_1' y_2' + y_1 y_2'' - y_1' y_2' - y_1'' y_2 \\
-    W' & = y_1 y_2'' - y_1'' y_2
-    W' + pW & = y_1 y_2'' - y_1'' y_2 + p y_1 y_2' - p y_1' y_2 \\
-    W' + pW & = y_1 (y_2'' + p y_2') - y_2( y_1'' + p y_1' )
+	W & = y_1 y_2' - y_1' y_2 \\
+	W' & = y_1' y_2' + y_1 y_2'' - y_1' y_2' - y_1'' y_2 \\
+	W' & = y_1 y_2'' - y_1'' y_2
+	W' + pW & = y_1 y_2'' - y_1'' y_2 + p y_1 y_2' - p y_1' y_2 \\
+	W' + pW & = y_1 (y_2'' + p y_2') - y_2( y_1'' + p y_1' )
 \end{align*}
 
 Now since $y_1$ and $y_2$ are solution to the ODE $y'' + py' + qy = 0$.
@@ -102,7 +102,7 @@ $$
 W' + pW = y_1( - q y_2 ) - y_2( - q y_1 ) = 0
 $$ 
 
-Thus, $W(y_1, y_2) = c e^{- \int p dx}$ if $y_1$ and $y_2$ are solution to $y'' + py  + q = 0$.
+Thus, $W(y_1, y_2) = c e^{- \int p dx}$ if $y_1$ and $y_2$ are solution to $y'' + py + q = 0$.
 Thus, proved that Wronskian is non-zero everywhere.
 This is called {\bf Abel's Theorem}.
 
@@ -148,7 +148,7 @@ to the initial value problem $y(0) = a$ and $y'(0) = b$ is $a Y_1 + b Y_2$.
 
 \begin{mdframed}
 \begin{center}
-{\bf  Existence and Uniqueness Theorem for Second Order Linear Homogeneous Equation : }
+{\bf Existence and Uniqueness Theorem for Second Order Linear Homogeneous Equation : }
 For the equation $y'' + py' + qy = 0$, where $p$ and $q$ are continuous for all $x$, 
 there is one and only one solution such that $y(0) = A$ and $y'(0) = B$ for any $A, B$.
 \end{center}
