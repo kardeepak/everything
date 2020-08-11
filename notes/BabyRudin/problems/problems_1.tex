@@ -77,13 +77,6 @@
 
 \begin{proof}[Solution]
 	If $E$ is nonempty and there exists $x \in E$ such that $\alpha \leq x$ and $x \leq \beta$.
-	Now there are four cases :
-	\begin{enumerate}
-		\item $\alpha < x$ and $x < \beta$ implies $\alpha < \beta$ by axiom of ordered sets.
-		\item $\alpha = x$ and $x < \beta$ implies $\alpha < \beta$.
-		\item $\alpha < x$ and $x = \beta$ implies $\alpha < \beta$.
-		\item $\alpha = x$ and $x = \beta$ implies $\alpha = \beta$.
-	\end{enumerate}
 	Hence, proved that $\alpha \leq \beta$.
 \end{proof}
 
@@ -106,7 +99,7 @@
 	Now if $\gamma < \beta$ then $-\gamma > \alpha$, hence $-\gamma$ is not an lower bound of $A$.
 	So there exists $x \in A$ such that $x > (-\gamma)$ which implies $(-x) < \gamma$.
 	So for any $\gamma < \beta$ there exists $(-x) \in -A$ such that $(-x) < \gamma$.
-	Hence, $\gamma$ is not an upper of $-A$ if $\gamma > \beta$.
+	Hence, $\gamma$ is not an upper of $-A$ if $\gamma < \beta$.
 
 	Thus, by definition of least-upper-bound, $\beta = (-\alpha)$ is the least-upper-bound of $A$.
 
@@ -333,7 +326,7 @@
 			& = (x-y)(x'-y') \\
 			& = xx' - xy' - x'y + yy' \\
 			& = |x|^2 - 2Re(xy') + |y|^2 \\
-			& <= |x|^2 -2|xy'| + |y|^2 \\
+			& \leq |x|^2 -2|xy'| + |y|^2 \\
 			& = |x|^2 - 2|x||y| + |y|^2 \\
 			& = (|x| - |y|)^2
 		\end{align*}
@@ -359,19 +352,76 @@
 	Under what conditions does equality bold in the Schwarz inequality?
 	\begin{proof}[Solution]
 		The theorem shows us that equality holds if $B = 0$
-		or $Ba_j - Cb_j = 0$ for all $j$. That is, $a_j$ are proportional of $b_j$
+		or $Ba_j - Cb_j = 0$ for all $j$. That is, $a_j$ are proportional of $b_j$.
 	\end{proof}
 \end{prblm}
 
 \begin{prblm}
-	Suppose $k \geq 3$, $x, y \in \mathbb{R}^k$, $|x-y| = d > 0$, and $r > 0$.
+	Suppose $k \geq 3$, ${\bf x, y} \in \mathbb{R}^k$, $|{\bf x-y}| = d > 0$, and $r > 0$.
+	\begin{enumerate}[a)]
+		\item If $2r > d$, there are infinitely many ${\bf z} \in \mathbb{R}^k$ such that
+		$$ |{\bf z - x}| = |{\bf z - y}| = r $$
+		\begin{proof}
+			Let $w$ be any vector satisfying the following two equations :
+			\begin{align*}
+				{\bf w} \cdot ({\bf x - y}) & = 0 \\
+				|{\bf w}|^2 & = r^2 - \frac{d^2}{4}
+			\end{align*}
+			From linear algebra, we know all but one components of a solution
+			of the first equationn can be arbitary. 
+			For any set of values for other $k-1$ components there is a value of the last component
+			such that it satisfies the equation.
+
+			Also, if ${\bf w}$ is a solution to the first equation then there exists some $t \in R, t > 0$ 
+			such that $t{\bf w}$ satisfies the second equation.
+			This is only possible if $r^2 - \frac{d^2}{4} > 0$ or $2r > d$.
+
+			For every solution ${\bf w}$, ${\bf z} = \frac{1}{2} {\bf x} + \frac{1}{2} {\bf y} + {\bf w}$ is the solution to the required equation.
+			\begin{align*}
+				|{\bf z - x}|^2 
+					& = |\frac{\bf y - x}{2} + {\bf w}|^2 \\
+					& = |\frac{\bf y - x}{2}|^2 + 2 {\bf w} \cdot \left( \frac{\bf y - x}{2} \right) = |{\bf w}|^2 \\
+					& = \frac{d^2}{4} + 0 + r^2 - \frac{d^2}{4} \\
+					& = r^2
+			\end{align*}
+			Thus, $|{\bf z - x}| = |{\bf z - y}| = r$
+
+			Thus, there are infinitely many solutions.
+		\end{proof}
+
+		\item If $2r = d$, then there is exactly one solution.
+		\begin{proof}
+			TBD.
+		\end{proof}
+
+		\item If $2r < d$ then there are no such solutions.
+		\begin{proof}
+			TBD.
+		\end{proof}
+	\end{enumerate}
+\end{prblm}
+
+
+\begin{prblm}
+	Prove that $$ |{\bf x - y}|^2 + |{\bf x + y}|^2 = 2|{\bf x}|^2 + 2|{\bf y}^2|$$ 
+	if ${\bf x, y} \in \mathbb{R}^k$.
 	\begin{proof}
-		Take the inequality $|x-y| \leq |x-z| + |y-z|$.
-		If there exists some $z$ such that $|z-x| = |z-y| = r$ then $d \leq 2r$ must be true.
-
-		Thus, if $d < 2r$ there are no such $z$.
-
-		If $d = 2r$ then let's
+		\begin{align*}
+			|{\bf x \pm y}|^2 = ({\bf x \pm y})({\bf x \pm y}) = |{\bf x}|^2 \pm 2{\bf x \cdot y} + |{\bf y} \\
+			\implies |{\bf x - y}|^2 + |{\bf x + y}|^2 = 2|{\bf x}|^2 + 2|{\bf y}^2|
+		\end{align*}
 	\end{proof}
 \end{prblm}
 
+\begin{prblm}
+	If $k \geq 2$ and ${\bf x} \in \mathbb{R}^k$, prove that there exists ${\bf y} \in \mathbb{R}^k$ such that 
+	${\bf y} \neq 0$ but ${\bf x \cdot y} = 0$
+	\begin{proof}
+		If ${\bf x} = (0, 0, \dots)$ then take ${\bf y} = (1, 1, \dots)$. So ${\bf x \cdot y} = 0$.
+
+		If ${\bf x} = (x_1, x_2, \dots)$ then take ${\bf y} = (x_2, -x_1, 0, 0, \dots)$.
+		Thus, ${\bf x \cdot y} = x_1 x_2 - x_2 x_1 + 0 = 0$.
+		
+		This cannot be done for $k = 1$.
+	\end{proof}
+\end{prblm}

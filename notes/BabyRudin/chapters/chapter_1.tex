@@ -949,27 +949,27 @@ We will end this section by a famous inequality called {\it the Schwarz inequali
 
 \begin{defn}
 	For each positive integer $k$, let $\mathbb{R}^k$ be the set of all ordered $k$-tuples
-	$$ x = (x_1, x_2, \dots, x_k) $$
-	where $x_1, x_2, \dots, x_k$ are called the coordinates of $x$.
+	$$ {\bf x} = (x_1, x_2, \dots, x_k) $$
+	where $x_1, x_2, \dots, x_k$ are called the coordinates of ${\bf x}$.
 
 The points of $\mathbb{R}^k$ are called vectors especially when $k > 0$.
 If $y = (y_1, \dots, y_k)$ and $\alpha$ is a real number, put
-$$ x + y = (x_1 + y_1, x_2 + y_2, \dots, x_k + y_k) $$
-$$ \alpha x = (\alpha x_1, \alpha x_2, \dots, \alpha x_k) $$
+$$ {\bf x} + {\bf y} = (x_1 + y_1, x_2 + y_2, \dots, x_k + y_k) $$
+$$ \alpha {\bf x} = (\alpha x_1, \alpha x_2, \dots, \alpha x_k) $$
 
-so that $x + y \in \mathbb{R}^k$ and $\alpha x \in \mathbb{R}^k$.
+so that ${\bf x} + {\bf y} \in \mathbb{R}^k$ and $\alpha {\bf x} \in \mathbb{R}^k$.
 
 This defines vector addition and multiplication by a real number.
 These two propeties follow the commutative, associative and the distributive laws.
 The proof is trivial. And this makes $\mathbb{R}^k$ {\it a vector space over the real field}.
 
-We also define the inner product of $x$ and $y$ as
+We also define the inner product of ${\bf x}$ and ${\bf y}$ as
 $$
-x \cdot y = \sum_{i=1}^k x_i y_i
+{\bf x} \cdot {\bf y} = \sum_{i=1}^k x_i y_i
 $$
 and the norm as
 $$
-|x| = (x \cdot x)^{1/2} = \left( \sum_{i=1}^k x_i^2 \right)^2
+|{\bf x}| = ({\bf x} \cdot {\bf x})^{1/2} = \left( \sum_{i=1}^k x_i^2 \right)^2
 $$
 
 The structure now defined (the vector space $\mathbb{R}^k$ with inner product and norm)
@@ -977,26 +977,26 @@ is called the Euclidean k-space.
 \end{defn}
 
 \begin{thm}
-	Suppose $x, y, z \in \mathbb{R}^k$, and $\alpha$ is real. Then
+	Suppose ${\bf x, y, z} \in \mathbb{R}^k$, and $\alpha$ is real. Then
 	\begin{enumerate}[a)]
-		\item $|x| \geq 0$
-		\item $|x| = 0$ {\it if and only if } $x = 0$
-		\item $|\alpha x| = |\alpha| |x|$
-		\item $|x \cdot y| \leq |x||y|$
-		\item $|x+y| \leq |x| + |y|$
-		\item $|x-z| \leq |x-z| + |y-z|$
+		\item $|{\bf x}| \geq 0$
+		\item $|{\bf x}| = 0$ {\it if and only if } $x = 0$
+		\item $|\alpha {\bf x}| = |\alpha| |{\bf x}|$
+		\item $|{\bf x \cdot y}| \leq |{\bf x}||{\bf y}|$
+		\item $|{\bf x + y}| \leq |x| + |y|$
+		\item $|{\bf x - z}| \leq |{\bf x - z}| + |{\bf y - z}|$
 	\end{enumerate}
 
 	\begin{proof}
 		(a), (b), (c) are trivial. (d) is a direct consequence of Schwarz inequality.
 		From (d), we have,
 		\begin{align*}
-			|x+y|^2 & = (x+y) \cdot (x+y) \\
-				& = |x|^2 + 2 x \cdot y + |y|^2 \\
-				& \leq |x|^2 + 2|x||y| + |y|^2 \\
-				& = (|x| + |y|)^2
+			|{\bf x + y}|^2 & = ({\bf x + y}) \cdot ({\bf x + y}) \\
+				& = |{\bf x}|^2 + 2 {\bf x} \cdot {\bf y} + |{\bf y}|^2 \\
+				& \leq |{\bf x}|^2 + 2|{\bf x}||{\bf y}| + |{\bf y}|^2 \\
+				& = (|{\bf x}| + |{\bf y}|)^2
 		\end{align*}
-		Now, replace $x$ and $y$ with $x-z$ and $y-z$ to get (f).
+		Now, replace ${\bf x}$ and ${\bf y}$ with ${\bf x - z}$ and ${\bf y - z}$ to get (f).
 	\end{proof}
 
 \end{thm}
