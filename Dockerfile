@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 # Update Repos
 RUN apt-get -y update
@@ -8,11 +8,13 @@ RUN apt-get install -y gcc g++ make nano
 RUN apt-get install -y gdb ltrace strace
 
 # Python & Utilities
-RUN apt-get install -y python python-pip
-RUN apt-get install -y python3 python3-pip
-RUN apt-get install -y python-dev
-RUN pip3 install virtualenv virtualenvwrapper
-RUN pip install pwn
+RUN apt-get install -y python3 python3-pip python3-dev
+RUN python3 -m pip install --upgrade pip
+
+# PWN Tools & Virtual Environment
+# RUN apt-get install -y git libssl-dev libffi-dev build-essential
+# RUN python3 -m pip install --upgrade pwntools
+RUN python3 -m pip install virtualenv virtualenvwrapper
 
 ENV VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 ENV VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
@@ -27,7 +29,7 @@ RUN apt-get install -y php
 RUN apt-get install -y git curl wget sshpass netcat
 
 # Environment Variables
-ENV PATH=/code/:$PATH
+ENV PATH=/code:$PATH
 
 # Working Directory
 WORKDIR /code

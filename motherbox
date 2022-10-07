@@ -2,6 +2,9 @@
 
 command=$1
 shift
+CURR_DIR=$PWD
+MOTHERBOX=$(dirname $(realpath $0))
+cd $MOTHERBOX
 
 null() { $@ 1>/dev/null 2>/dev/null; }
 
@@ -19,7 +22,9 @@ if [[ $command == "run" ]] || [[ $command == "" ]]; then
 		echo "No Existing Container Found."
 		echo "Creating Container..."
 		docker run $@ --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
-			--name motherbox -p 8001-8010:8001-8010 -h motherbox -v $PWD:/pwd -v $MOTHERBOX:/code -it motherbox
+			--name motherbox -p 8001-8010:8001-8010 -h motherbox \
+			-v $CURR_DIR:/pwd -v $MOTHERBOX:/code \
+			-it motherbox
 	fi
 elif [[ $command == "build" ]]; then
 	RUNNING_CONTAINER_ID=$(docker ps -f name=motherbox -q)
@@ -32,6 +37,5 @@ elif [[ $command == "build" ]]; then
 		echo "Removing Container $STOPPED_CONTAINER_ID..."
 		null docker rm $STOPPED_CONTAINER_ID
 	fi
-	cd $MOTHERBOX
 	docker build $@ . -t motherbox:latest
 fi
